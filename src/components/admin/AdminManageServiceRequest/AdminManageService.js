@@ -1,6 +1,6 @@
 import "./AdminManageService.css";
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Modal from "react-modal";
 import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -21,6 +21,7 @@ import { adminFirstPageAction } from "../../../Redux/AdminFirstPage/adminFirstPa
 const fileTypes = ["PDF", "PNG", "JPEG"];
 const AdminManageService = ({adminFirstPageAction}) => {
   const { state } = useLocation();
+  const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
   const [notes, setNotes] = useState([]);
   const [details, setDetails] = useState({});
@@ -35,6 +36,9 @@ const AdminManageService = ({adminFirstPageAction}) => {
   const [noupdate, setNoupdate] = useState(false);
   const [noclose, setNoclose] = useState(false);
   const[inputData,setInputData] = useState(useLocation().state)
+
+  const [updatedBy, setUpdatedBy] = useState("")
+  const [checkedtype, setCheckedType] = useState(2);
 
   
   const [d3, setd3] = useState(false)
@@ -113,6 +117,7 @@ const AdminManageService = ({adminFirstPageAction}) => {
         toast.error("Something went wrong");
       });
   }
+  
 
   async function printTickets(index) {
     const { data } = await getTicketsPdf(index);
@@ -169,6 +174,7 @@ const AdminManageService = ({adminFirstPageAction}) => {
   console.log(state);
   const addUpdate = (e) => {
     e.preventDefault();
+    debugger
     if (text.length >= 1) {
       setLoader(true);
       setNoupdate(false);
@@ -176,7 +182,7 @@ const AdminManageService = ({adminFirstPageAction}) => {
       axios({
         method: "post",
         url: URL + globalAPI.addnotes + `?srid=${state._id}`,
-        data: { description: text, title: text, type: 2 },
+        data: { description: text, title: text, type: checkedtype },
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -185,12 +191,13 @@ const AdminManageService = ({adminFirstPageAction}) => {
           const res = response.data;
           setLoader(false);
           toggleModal();
+          console.log(res)
           if (res.success) {
             // toast.success("Successfully Added");
             /* setTimeout(() => {
               window.location.reload(false);
             }, 2000); */
-
+            setCheckedType(2)
             fetchData();
             fetchSeconddata();
             
@@ -320,19 +327,61 @@ const AdminManageService = ({adminFirstPageAction}) => {
       setNoclose(true);
     }
   };
-
+  const updatingSR = (e) => {
+    debugger;
+    setLoader(true);
+    const token = JSON.parse(localStorage.getItem("user"));
+    axios({
+      method: "patch",
+      url: URL + globalAPI.myreq + `/${state._id}`,
+      data: details,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        setLoader(false);
+        const res = response.data;
+        
+        if (res.success) {
+          setTimeout(() => {
+          
+          navigate("/admincommon/adminsrl");
+          }, 1000);
+          toast.success('Updated Successfully')
+          
+        } else {
+          toast.error(res.data.message);
+        }
+      })
+      .catch(() => {
+        setLoader(false);
+        toast.error("Something went wrong");
+      });
+  };
   const stateHandler = (e) => {
     e.target.blur();
-      setInputData(inputData => ({...inputData,[e.target.name]:e.target.value}))
+      setDetails(details => ({...details,[e.target.name]:e.target.value}))
   }
 
-  const stateHandler1 = (e) => {
-    e.target.blur();
-    setInputData(inputData => ({...inputData,job_reference_id:{...inputData.job_reference_id,job_ref_number:e.target.value}}))
+  
+const stateHandler2 = (e) => {
+  /* setInputData(inputData => ({...inputData,job_reference_id:{...inputData.job_reference_id,job_ref_number:e.target.value}})) */
+  setDetails(details => ({...details,job_ref_number:e.target.value,job_reference_id:{...details.job_reference_id,job_ref_number:e.target.value}}))
 }
 
 
   console.log(inputData)
+  const handleChecked = (e) => {
+    debugger
+    if (e.target.checked) {
+      setCheckedType(3);
+      console.log("checked");
+    } else {
+      setCheckedType(2);
+      console.log("not checked");
+    }
+  };
 
   return (
     <div>
@@ -351,9 +400,9 @@ const AdminManageService = ({adminFirstPageAction}) => {
             <div>
                  <label htmlFor="" className='priorityLabel' >Priority</label> <br />
                  <select className='admsrselect1' name="priority" id=""  onChange={stateHandler} >
-                     <option value="3" selected={state.priority===3?true:false} > Low </option>
-                     <option value="2" selected={state.priority===2?true:false} > Medium </option>
-                     <option value="1" selected={state.priority===1?true:false}  > High </option>
+                     <option value="3" selected={details.priority===3?true:false} > Low </option>
+                     <option value="2" selected={details.priority===2?true:false} > Medium </option>
+                     <option value="1" selected={details.priority===1?true:false}  > High </option>
                  </select>
                  <img src={require("../../../Img/adminDropdown.png")} className={"adminDropdown"} />
             </div>
@@ -361,22 +410,24 @@ const AdminManageService = ({adminFirstPageAction}) => {
             <div>
                  <label htmlFor="" className='statusLabel' >Status</label> <br />
                  <select className='admsrselect1' name="status" id=""  onChange={stateHandler} >
-                     <option value="1"> Luths Working </option>
-                     <option value="2"> Resolved </option>
+                     <option value="1" selected={details.status===1?true:false} > New </option>
+                     <option value="2" selected={details.status===2?true:false} > Luths Working </option>
+                     <option value="3" selected={details.status===3?true:false} > Need Your Attention </option>
+                     <option value="4" selected={details.status===4?true:false} > Resolved </option>
                  </select>
                  <img src={require("../../../Img/adminDropdown.png")} className="adminDropdown"  />
             </div>
 
             <div>
                  <label htmlFor="" className='jobReferenceLabel' >Job Reference</label> <br />
-                 <input className='admsrinput1' value={inputData.job_reference_id?inputData.job_reference_id.job_ref_number:""} onChange={stateHandler1} name="job_reference_id" id="" >
+                 <input className='admsrinput1' value={details.job_reference_id?details.job_reference_id.job_ref_number:""} onChange={stateHandler2} name="job_reference_id" id="" >
                  </input>
                  <img src={require("../../../Img/adminSearchIcon.png")} className={"adminSearchIcon"} />
             </div>  
 
             <div className="admindisplaygrid">
                      <div className="miniadmindisplaygrid1">Site</div>
-                     <div className="minidisplaygrid1">{inputData.job_reference_id?inputData.job_reference_id.site_details:"-"}</div>
+                     <div className="minidisplaygrid1">{details.job_reference_id?details.job_reference_id.site_details:"-"}</div>
             </div>  
 
             <div style={{marginTop:"30px"}} >
@@ -425,7 +476,7 @@ const AdminManageService = ({adminFirstPageAction}) => {
                <div className="miniadmindisplaygrid1">Last Updated</div>
                      <div className="minidisplaygrid1">{moment(details.updatedAt).format("DD/MM/YYYY h:mm a")}</div>
                      <div className="miniadmindisplaygrid1">Last Updated by</div>
-                     <div className="minidisplaygrid1">{summary.lastUpdatedBy}</div>
+                     <div className="minidisplaygrid1">{details.last_updated_by?details.last_updated_by:"-"}</div>
                      <div className="miniadmindisplaygrid1">Created</div>
                      <div className="minidisplaygrid1">{moment(details.createdAt).format("DD/MM/YYYY h:mm a")}</div>
                      <div className="miniadmindisplaygrid1">Created By</div>
@@ -433,7 +484,7 @@ const AdminManageService = ({adminFirstPageAction}) => {
             </div>
 
             <div>
-                     <button className='adminUpdateStatusBtn' >Update Status</button>
+                     <button className='adminUpdateStatusBtn' onClick={(e)=>updatingSR(e)}>Update Status</button>
                      <button className='adminIgnoreBtn' >Ignore</button>
                  </div>
             <div className="adminmsrtitle2">Attachments</div>
@@ -494,6 +545,12 @@ const AdminManageService = ({adminFirstPageAction}) => {
                             className="adminmsrCommonIcon"
                           />
                         )}
+                        {item.type == 3 && (
+                          <img
+                            src={require("../../../Img/type3.png")}
+                            className="adminmsrCommonIcon"
+                          />
+                        )}
                         {item.type == 4 && (
                           <img
                             src={require("../../../Img/type4.png")}
@@ -513,6 +570,10 @@ const AdminManageService = ({adminFirstPageAction}) => {
                           </span>
                         )}
                         {item.type == 3 && (
+                          <span className="adminmsrspan21">Internal Notes</span>
+                        )}
+                        
+                        {item.type == 4 && (
                           <span className="adminmsrspan21">System Update</span>
                         )}
                         <span className="adminmsrspan3">
@@ -563,6 +624,10 @@ const AdminManageService = ({adminFirstPageAction}) => {
                 }}
                 placeholder="Update Details"
               ></textarea>
+              <div style={{marginTop:"10px",marginBottom:"20px"}}>
+                <input className="admincheckbox" type="checkbox"  onChange={handleChecked} />
+                <label style={{marginLeft:"5px",position:"relative",bottom:"4px"}}>Internal Notes</label>
+              </div>
               {noupdate && (
                 <span style={{ color: "red", display: "block" }}>
                   No Updates Given

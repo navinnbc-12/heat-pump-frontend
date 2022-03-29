@@ -92,6 +92,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
   const [count, setCount] = useState(1);
   const _DATA = usePagination(data, PER_PAGE);
   const [status, setStatus] = useState(1);
+  
   const userData = JSON.parse(localStorage.getItem("userData"));
   const userName = userData.name;
  
@@ -133,7 +134,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
       .get(
         URL +
           globalAPI.adminreq +
-          `?page=${page}&perPage=${PER_PAGE}&status=${status}`,
+          `?page=${page}&perPage=${PER_PAGE}&status=${status}&f_title=${title}&f_priority=${priority}&f_srid=${serviceno}&f_creator_name=${customerName}`,
         config
       )
       .then((response) => {
@@ -218,10 +219,10 @@ const AdminServiceList = ({adminFirstPageAction}) => {
               className=" adminslselect-box adminslbox1"
               value={priority}
               onChange={(e) => setPriority(e.target.value)}
-            >
-              <option value="one">High</option>
-              <option value="two">Medium</option>
-              <option value="three">Low</option>
+            > <option value=""  > Priority </option>
+              <option value="1">High</option>
+              <option value="2">Medium</option>
+              <option value="3">Low</option>
             </select>
             <input
               className="  adminslselect-box adminslbox1"
@@ -243,15 +244,9 @@ const AdminServiceList = ({adminFirstPageAction}) => {
               placeholder="Title"
               onChange={(e) => setTitle(e.target.value)}
             />
-            <select
-              className="  adminslselect-box adminslbox1"
-              value={updated}
-              onChange={(e) => setUpdated(e.target.value)}
-            >
-              <option value="one">one</option>
-              <option value="two">two</option>
-              <option value="three">three</option>
-            </select>
+              <button className="adminsearchbtn" onClick={() => fetchSeconddata()}>
+              Search
+            </button>
           </div>
         </div>
         <div className="adminslfourth-row">

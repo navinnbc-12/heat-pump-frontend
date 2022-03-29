@@ -73,7 +73,7 @@
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
   row-gap: 30px;
-  column-gap: 50px;
+  column-gap: 32px;
 }
 
 .servicetype {
@@ -85,6 +85,11 @@
   margin-top: 30px;
   padding-left: 10px;
   color: #000;
+  
+}
+
+.servicetype:focus ~ .clDropdown{
+  transform: rotate(180deg);
 }
 
 .clhr1 {
@@ -283,7 +288,6 @@
   border-color: #f2f3f2;
   padding: 20px !important;
   margin-top: 30px;
-  background-color: #f9f9f9;
 }
 
 .subnames {
@@ -380,4 +384,27 @@ td {
 }
 button{
   cursor: pointer;
+}
+
+.admsrselect1{
+  width: 100%;
+  height: 45px;
+  border-color: #cdcdcd;
+  font-size: 15px;
+  border-radius: 10px;
+  padding-left: 5px;
+}
+
+.admsrselect1:focus ~ .clDropdown{
+  transform: rotate(180deg);
+}
+
+.clDropdown{
+   height: 10px;
+   width: 15px;
+ 
+   
+   right: 25px;
+   transition: all .1s ease-in-out;
+   position: relative;
 }

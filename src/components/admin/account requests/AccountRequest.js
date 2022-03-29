@@ -56,7 +56,7 @@ const AccountRequest = ({adminFirstPageAction}) => {
   const [business, setBusiness] = useState("");
   const [data, setData] = useState([]);
   let [page, setPage] = useState(1);
-  const PER_PAGE = 5;
+  const PER_PAGE = 10;
   const [count, setCount] = useState(1);
   const _DATA = usePagination(data, PER_PAGE);
   const [status, setStatus] = useState(1);
@@ -99,7 +99,7 @@ const AccountRequest = ({adminFirstPageAction}) => {
       .get(
         URL +
           globalAPI.accountlist +
-          `?page=${page}&perPage=${PER_PAGE}&status=${status}`,
+          `?page=${page}&perPage=${PER_PAGE}&status=${status}&bn=${business}&mno=${mobno}`,
         config
       )
       .then((response) => {
@@ -137,20 +137,20 @@ const AccountRequest = ({adminFirstPageAction}) => {
       <hr className="containerhr" />
       <div className="paper">
         <div className="secondrow">
-          <div className="outerbox">
-            <div className="squarebox" onClick={()=>setStatus(1)}>
+          <div className="outerbox" onClick={()=>{setStatus(1);setPage(1)}} >
+            <div className="squarebox" >
               <h1>{box.new?box.new:0}</h1>
             </div>
             <div className="second-row-text">New</div>
           </div>
-          <div className="outerbox">
-            <div className="squarebox" onClick={()=>setStatus(2)}>
+          <div className="outerbox" onClick={()=>{setStatus(2);setPage(1)}} >
+            <div className="squarebox" >
               <h1>{box.inprogress?box.inprogress:0}</h1>
             </div>
             <div className="second-row-text">Inprogress</div>
           </div>
-          <div className="outerbox">
-            <div className="squarebox" onClick={()=>setStatus(3)}>
+          <div className="outerbox" onClick={()=>{setStatus(3);setPage(1)}} >
+            <div className="squarebox" >
               <h1>{box.active?box.active:0}</h1>
             </div>
             <div className="second-row-text">Active</div>
@@ -160,7 +160,7 @@ const AccountRequest = ({adminFirstPageAction}) => {
           <div className="search-by">Search By</div>
           <div
             style={{
-              width: "95%",
+              width: "90%",
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
@@ -168,34 +168,34 @@ const AccountRequest = ({adminFirstPageAction}) => {
           >
             <select
               className="select-box box1"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              value={status}
+              onChange={(e) => {setStatus(e.target.value)}}
             >
               <option value="" defaultValue hidden disabled>
                 Status
               </option>
-              <option value="one">New</option>
-              <option value="two">Inprogress</option>
-              <option value="three">Active</option>
+              <option value="1">New</option>
+              <option value="2">Inprogress</option>
+              <option value="3">Active</option>
             </select>
             <input
               className="select-box box1"
               value={mobno}
               placeholder="Mobile No."
-              onChange={(e) => setMobno(e.target.value)}
+              onChange={(e) => {setMobno(e.target.value)}}
             />
             <input
               className="select-box box1"
               value={business}
               placeholder="Business Name"
-              onChange={(e) => setBusiness(e.target.value)}
+              onChange={(e) => {setBusiness(e.target.value)}}
             />
             <button
               className="adminsearchbtn"
               type={"button"}
               value={business}
               placeholder="Search"
-              onChange={(e) => setBusiness(e.target.value)}
+              onClick={() => {setPage(1); fetchSeconddata()}}
             >Search </button>
           </div>
         </div>

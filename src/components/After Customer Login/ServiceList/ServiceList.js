@@ -32,7 +32,7 @@ const ServiceList = ({FirstPageAction}) => {
   const [box, setBox] = useState([]);
   const [data, setData] = useState([]);
   let [page, setPage] = useState(1);
-  const PER_PAGE = 3;
+  const PER_PAGE = 10;
   const [count, setCount] = useState(1);
   const _DATA = usePagination(data, PER_PAGE);
   const [status, setStatus] = useState(1);
@@ -116,31 +116,31 @@ const ServiceList = ({FirstPageAction}) => {
       <div className="paper">
         <div className="firstrow">
           <div className="names">{userName}</div>
-          <div style={{ fontSize: "small" }}>Heat Pump Scotland,Glasgow</div>
+          <div style={{ fontSize: "small" }}>{userData.business_trade_name},{userData.city}</div>
           <hr className="hrFirst" />
         </div>
 
         <div className="secondrow">
           <div className="outerbox">
-            <div className="squarebox" onClick={() => setStatus(1)}>
+            <div className="squarebox" onClick={() => {setStatus(1);setPage(1)}}>
               <h1>{box.new}</h1>
             </div>
             <div className="second-row-text">New</div>
           </div>
           <div className="outerbox">
-            <div className="squarebox" onClick={() => setStatus(2)}>
+            <div className="squarebox" onClick={() => {setStatus(2);setPage(1)}}>
               <h1>{box.working}</h1>
             </div>
             <div className="second-row-text">Luths Working</div>
           </div>
           <div className="outerbox">
-            <div className="squarebox" onClick={() => setStatus(3)}>
+            <div className="squarebox" onClick={() => {setStatus(3);setPage(1)}}>
               <h1>{box.need_attention}</h1>
             </div>
             <div className="second-row-text">Need Your Attention</div>
           </div>
           <div className="outerbox">
-            <div className="squarebox" onClick={() => setStatus(4)}>
+            <div className="squarebox" onClick={() => {setStatus(4);setPage(1)}}>
               <h1>{box.closed}</h1>
             </div>
             <div className="second-row-text">Closed</div>
@@ -197,7 +197,7 @@ const ServiceList = ({FirstPageAction}) => {
               <option value="two">two</option>
               <option value="three">three</option>
             </select> */}
-            <button className="searchbtn" onClick={() => fetchSeconddata()}>
+            <button className="searchbtn" onClick={() => {setPage(1);fetchSeconddata()}}>
               Search
             </button>
           </div>

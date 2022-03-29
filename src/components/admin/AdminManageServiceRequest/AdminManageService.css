@@ -494,3 +494,14 @@
   text-align: left;
 }
 
+.adminclhrFirst {
+  background-color: #f2f3f2;
+  border: 1.5px solid #f2f3f2;
+  position: relative;
+  width: 170px;
+}
+
+.admincheckbox{
+  height: 18px;
+  width: 15px;
+}

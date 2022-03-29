@@ -28,7 +28,7 @@
 }
 
 .butable{
-    width: 960px;
+    width: 1000px;
     margin-top: 10px;
 }
 
@@ -38,15 +38,19 @@
 }
 
 .buiemail{
-    width: 340px;
+    width: 300px;
 }
 
 .buname{
-    width: 200px;
+    width: 180px;
+}
+
+.buPassData{
+   width: 150px;
 }
 
 .bunumber{
-    width: 200px;
+    width: 180px;
 }
 
 .bustatus{
@@ -54,6 +58,10 @@
 }
 .butr{
    border-bottom: none;
+}
+
+.butr:hover{
+  background-color:  #f2f2f2;
 }
 .buselecttag{
     width: 180px;
@@ -81,3 +89,108 @@
 }
 
 
+.bausermodal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    overflow: auto;
+    border-radius: 25px;
+    outline: none;
+    padding: 20px 20px 20px 20px;
+    width: 850px;
+    height: 380px;
+    z-index: 1000;
+  }
+  
+  .bauseroverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+  }
+  
+  .bauserdialogclose {
+    text-align-last: right;
+  }
+  .bauserdialog-row1 {
+    margin-left: 30px;
+  }
+  
+  
+  .bauserdialog-row2 {
+    margin-left: 30px;
+  }
+  
+  
+  .bainput {
+    border-radius: 10px;
+    border: solid 1px #cfcece;
+    background-color: #fff;
+    width: 300px;
+    height: 45px;
+    margin-top: 20px;
+    padding-left: 10px;
+    color: #000;
+  }
+  
+  .bainput-label {
+    color: #999;
+    position: relative;
+    pointer-events: none;
+    right: 291px;
+    transition: 0.2s;
+    font-size: 15px;
+  }
+  
+  .bainput:focus ~ .bainput-label,
+  .bainput:valid ~ .bainput-label {
+    bottom: 23px;
+    right: 291px;
+    position: relative;
+    font-size: small;
+    color: #525252;
+    background-color: #fff;
+    padding: 0 5px 0 5px;
+  }
+  
+  .ba2input {
+    border-radius: 10px;
+    border: solid 1px #cfcece;
+    background-color: #fff;
+    width: 300px;
+    height: 45px;
+    margin-top: 20px;
+    margin-left: 23px;
+    padding-left: 10px;
+    color: #000;
+  }
+  
+  .ba2input-label {
+    color: #999;
+    position: relative;
+    pointer-events: none;
+    right: 290px;
+    transition: 0.2s;
+    font-size: 15px;
+  }
+  
+  .ba2input:focus ~ .ba2input-label,
+  .ba2input:valid ~ .ba2input-label {
+    bottom: 23px;
+    right: 290px;
+    position: relative;
+    font-size: small;
+    color: #525252;
+    background-color: #fff;
+    padding: 0 5px 0 5px;
+  }
+
+
+.bustatusdata{
+  z-index: 1000;
+}

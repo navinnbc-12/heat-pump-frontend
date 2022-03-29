@@ -135,11 +135,18 @@ function AdminRCA({adminFirstPageAction}) {
         newAttachments.splice(index, 1);
         setAttachments(newAttachments); */
       };
+
+      useEffect(() => {
+        console.log(inputData);
+      })
+
+      console.log(inputData)
     
       const newUpload = (e) => {
         setLoader(true);
         const token = JSON.parse(localStorage.getItem("user"));
-        const data = {...inputData,status:approval }
+        const data = {...inputData }
+        console.log(inputData);
       debugger
         axios({
           method: "patch",
@@ -170,8 +177,8 @@ function AdminRCA({adminFirstPageAction}) {
       };
 
       const classess = useStyles();
-      console.log(approval);
-      console.log(state)
+     
+      
   return (
     <div className="adminRCAcontainer" >
     <div className="adminRCAtitle">Manage Customer Account Request</div>
@@ -179,7 +186,7 @@ function AdminRCA({adminFirstPageAction}) {
     <div className="adminRCApaper">
 
         <div className="adminRCAfirstrow">
-          <div className="adminRCAnames">{inputData.name}</div>  <div className="adminRCAnew" >{inputData.status==1?"New":(inputData.status==2)?"In Progress":(inputData.status==3)?"Aprrove":(inputData.status==5)?"Reject":(inputData.status == 6)?"Inactive":"New"}</div>
+          <div className="adminRCAnames">{inputData.name}</div>  <div className="adminRCAnew" >{inputData.status==1?"New":(inputData.status==2)?"In Progress":(inputData.status==3)?"Approve":(inputData.status==5)?"Reject":(inputData.status == 6)?"Inactive":"New"}</div>
           <div style={{ fontSize: "small",marginTop:"5px" }}>{`${inputData.address_1},${inputData.city}`}</div>
           <hr className="adminRCAhrFirst" />
         </div>
