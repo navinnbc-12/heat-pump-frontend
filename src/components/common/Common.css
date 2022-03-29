@@ -1,0 +1,191 @@
+.sidebar{
+    
+    height: 100vw;
+    margin-left: 0px;
+    background-color: linear-gradient(to right, #f4f2ea 0%, #d9d6c9 100%);
+  
+   position: absolute;
+    top:0;
+    left: 0;
+    transform: translate(-100%);
+    
+  
+   
+}
+
+.firstli{
+    margin-top: 50px;
+}
+
+li{
+    list-style: none;
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+.sidebar1{
+    
+    background-image:linear-gradient(to right, #f4f2ea 0%, #d9d6c9 100%);
+    width: 290px;
+    height: 100;
+    
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+    background-color: #d9d6c9;
+}
+
+.HPDSideBar {
+    margin: 25px 0  0 40px;
+    display: inline-block;
+  }
+
+
+ .navbar{
+     width: 100%;
+     background-color: #fff;
+     display: inline-block;
+     height: 10vh;
+    
+     
+     /* transition:all 0.5s ease; */
+ }
+.navbar1{
+    width:100%;
+    height: 10vh;
+    
+    background-color: #fff;
+    display: inline-block;
+    /* transition:all 0.5s ease; */
+    
+   
+}
+
+.collapse-icon{
+    margin-top: 25px;
+    margin-left: 40px;
+}
+
+.collapse-left{
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+.home-icon{
+    margin-top: 25px;
+    margin-left: 120px;
+   
+}
+
+
+.bell-icon{
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
+.name-icon{
+    display: inline-block;
+    position: relative;
+}
+
+.account-icon{
+    margin-top: 25px;
+    margin-left: 80px;
+}
+
+
+
+.redbar1hidden{
+    position: relative;
+    left: 95.5px;
+    visibility: hidden;
+}
+.redbar1{
+    position: relative;
+    left: 95.5px;
+    visibility: visible;
+}
+
+.redbar2hidden{
+    position: relative;
+    left: 105px;
+    visibility: hidden;
+}
+
+.redbar2{
+    position: relative;
+    left: 105px;
+    visibility: visible;
+}
+
+.redbar3hidden{
+    position: relative;
+    left: 46px;
+    visibility: hidden;
+}
+
+.redbar3{
+    position: relative;
+    left: 46px;
+    visibility: visible;
+}
+
+.logoutmodal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    overflow: auto;
+    border-radius: 25px;
+    outline: none;
+    padding: 20px 20px 20px 20px;
+    z-index: 1000;
+    width: 450px;
+  }
+  
+  .myoverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+  }
+  
+  .logclose {
+    text-align-last: right;
+  }
+  .log-row1 {
+    margin-left: 10px;
+  }
+  
+  .log-row2 {
+    margin-left: 30px;
+    margin-top: 40px;
+    
+  }
+  .yesbtn {
+    width: 130px;
+    height: 40px;
+    border: #000;
+    border-radius: 50px;
+    background-color: #000;
+    color: white;
+    font-weight: 100;
+    cursor: pointer;
+  }
+  .nobtn {
+    margin-left: 10px;
+    width: 130px;
+    height: 40px;
+    border: grey ridge;
+    border-radius: 50px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+  }

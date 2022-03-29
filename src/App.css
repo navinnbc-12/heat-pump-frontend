@@ -2,3 +2,23 @@ input::-ms-reveal,
 input::-ms-clear {
   display: none;
 }
+
+* {
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+}
+.customLoader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.081);
+  z-index: 99999999999;
+}
+.customLoader > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

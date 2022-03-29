@@ -1,0 +1,693 @@
+* {
+    box-sizing: border-box;
+  }
+  .adminRCAcontainer {
+    padding: 10px !important;
+   display: inline-block;
+    margin-left: 40px;
+    margin-right: 50px;
+    width: 90%;
+    height: fit-content;
+  }
+  .adminRCAcontainerhr {
+    width: 77%;
+    margin-left: 173px;
+    background-color: #f2f3f2;
+    border: 1px solid #f2f3f2;
+    margin-top: 10px;
+  }
+  .adminRCApaper {
+    border-style: solid;
+    border-radius: 30px;
+    border-color: #f2f3f2;
+    padding: 30px !important;
+    margin-top: 40px;
+    width: auto;
+    
+  }
+
+  .adminRCAtitle{
+    font-weight: 500;
+    font-size: 45px;
+  }
+
+  .adminRCAnames {
+    color: #fa5e00;
+    font-size: 22px;
+    display: inline-block;
+    
+    
+  }
+  
+  .adminRCAnew {
+    color: #fa5e00;
+    font-size: 20px;
+    display: inline-block;
+    
+    margin-left:50%;
+  }
+  .adminRCAfirstrow {
+   
+    
+    margin-bottom: 2%;
+  }
+  .adminRCAhrFirst {
+    background-color: #f2f3f2;
+    border: 1.5px solid #f2f3f2;
+    position: relative;
+    width: 60%;
+    margin-top: 3px;
+  }
+
+  .progressbtn{
+      background-color:black;
+      color: aliceblue;
+      width: 13%;
+      height: 50px;
+      font-weight: 300;
+      border-radius: 32.5px;
+      border: none;
+  }
+
+  
+  .approvebtn{
+    background-color:black;
+    color: aliceblue;
+    width: 13%;
+    height: 50px;
+    font-weight: 300;
+    border-radius: 32.5px;
+    border: none;
+    margin-left: 15px;
+}
+
+  
+
+.rejectbtn{
+    background-color: #f9f9f9;
+    color: #000;
+    border: solid 1px #8d8c8c;
+    width: 13%;
+    height: 50px;
+    font-weight: 300;
+    border-radius: 32.5px;
+    margin-left: 15px;
+}
+
+.rejectbtn:hover{
+  background-color:black;
+  color: aliceblue;
+  width: 13%;
+  height: 50px;
+  font-weight: 300;
+  border-radius: 32.5px;
+  border: none;
+  margin-left: 15px;
+}
+
+.Inactivebtn{
+   background-color: #f9f9f9;
+   border: solid 1px #8d8c8c;
+    width: 13%;
+    height: 50px;
+    font-weight: 300;
+    border-radius: 32.5px;
+    margin-left: 15px;
+    color: #000;
+}
+
+.Inactivebtn:hover{
+  background-color:black;
+  color: aliceblue;
+  width: 13%;
+  height: 50px;
+  font-weight: 300;
+  border-radius: 32.5px;
+  border: none;
+  margin-left: 15px;
+}
+
+
+.accordion {
+   
+    width: 420px;
+    
+    margin: auto;
+    margin-top: 50px;
+ }
+ 
+ .accordiantitle {
+   height: 60px;
+   width:100%;
+   border-bottom: 3px solid #f2f3f2;
+   letter-spacing: 1px;
+   text-align: left;
+   line-height: 2;
+   font-weight: lighter;
+   position: relative;
+   padding: 10px;
+   z-index: 20;
+   border-radius: 4px;
+   margin-top: 20px;
+   font-size: 25px;
+   /* transition: all .2s ease-in; */
+ }
+ 
+ .title-text {
+   margin-left: 10px;
+ }
+ 
+ .title:hover {
+   cursor: pointer;
+  
+ }
+ 
+ .title:active {
+   background-color: rgba(0, 0, 0, .55);
+ }
+ 
+ .content {
+   height: 30px;
+   width: 100%;
+   background-color: transparent;
+   border-radius: 4px;
+   color: black;
+   font-size: 14px;
+   text-align: center;
+   position: relative;
+   z-index: 1;
+   margin-top: -30px;
+   text-align: left;
+   /* transition: all 200ms cubic-bezier(0.600, -0.280, 0.735, 0.045); */
+  /*  transition: all 100ms ease-in; */
+ }
+ 
+ .content-open {
+   margin-top: 0px;
+   height: auto;
+   color:black;
+   /* transition: all 350ms cubic-bezier(0.080, 1.090, 0.320, 1.275); */
+ }
+ 
+ .content-text {
+   padding: 15px;
+   visibility: hidden;
+   opacity: 0;
+   overflow: auto;
+   /* transition: all .2s ease-in; */
+ }
+ 
+ .content-text-open {
+   visibility: visible;
+   opacity: 1;
+   
+   /* transition: all .8s ease-in; */
+ }
+ 
+ .fa-angle-down {
+   font-size: 20px;
+   color: #000;
+   transition: all .6s cubic-bezier(0.080, 1.090, 0.320, 1.275);
+ }
+ 
+ .fa-rotate-180 {
+   color: rgb(161, 18, 18);
+   transform: rotate(180deg);
+ }
+ 
+ .arrow-wrapper {
+     float: right;
+   /* position: absolute;
+   margin-left: 500px; */
+ }
+ 
+ .admininputfields {
+    width: 400px;
+    height: 48px;
+    margin: 15px 0px 0px 10px;
+    padding-left: 10px;
+    padding-top: 2px;
+   
+    border-radius: 10px;
+    border: solid 1px #cdcdcd;
+    background-color: #fff;
+  }
+
+ .admininput1-label{
+    color: #999;
+    position: relative;
+    pointer-events: none;
+    right: 390px;
+    bottom: 2px;
+   
+    transition: 0.2s;
+    font-size: 12px;
+  }
+  
+  .admininput1:focus ~ .admininput1-label, .admininput1:valid ~ .admininput1-label{
+    bottom: 25px;
+    right: 390px;
+    position: relative;
+    font-size: x-small;
+    color: #525252;
+    background-color:#fff;
+    padding:0 5px 0 5px;
+  }
+  
+  .admininput21-label{
+    color: #999;
+    position: relative;
+    pointer-events: none;
+    right: 390px;
+    bottom: 2px;
+   
+    transition: 0.2s;
+    font-size: 12px;
+  }
+  
+  .admininput21:focus ~ .admininput21-label, .admininput21:valid ~ .admininput21-label{
+    bottom: 25px;
+    right: 390px;
+    position: relative;
+    font-size: x-small;
+    color: #525252;
+    background-color:#fff;
+    padding:0 5px 0 5px;
+  }
+  
+  .admininput3-label{
+    color: #999;
+    position: relative;
+    pointer-events: none;
+    right: 390px;
+    bottom: 2px;
+   
+    transition: 0.2s;
+    font-size: 12px;
+  }
+  
+  .admininput3:focus ~ .admininput3-label, .admininput3:valid ~ .admininput3-label{
+    bottom: 25px;
+    right: 390px;
+    position: relative;
+    font-size: x-small;
+    color: #525252;
+    background-color:#fff;
+    padding:0 5px 0 5px;
+  }
+  
+  .admininput4-label{
+    color: #999;
+    position: relative;
+    pointer-events: none;
+    right: 390px;
+    bottom: 0px;
+    
+    transition: 0.2s;
+    font-size: 12px;
+  }
+  
+
+  
+  /* .input4:focus ~ .dummyNum, .input4:valid ~ .dummyNum{
+    color:#3b3b3b;
+    font-size: 13px;
+    position: relative;
+    right: 530px;
+    display: inline-block;
+    width: fit-content;
+  } */
+  
+  .admininput4:focus ~ .admininput4-label, .admininput4:valid ~ .admininput4-label{
+    bottom: 25px;
+    right: 390px;
+    position: relative;
+    font-size: x-small;
+    color: #525252;
+    background-color:#fff;
+    padding:0 5px 0 5px;
+    
+  }
+  .admininput4 {
+      margin-left: 10px;
+  }
+
+  .admininput5-label{
+    color: #999;
+    position: absolute;
+    pointer-events: none;
+   left: 40px;
+   bottom: 95px;
+   font-weight: 600;
+   letter-spacing: 0.5px;
+    transition: 0.2s;
+    font-size: 12px;
+  }
+  
+  .admininput5:focus ~ .admininput5-label, .admininput5:valid ~ .admininput5-label{
+    bottom: 120px;
+    right: 330px;;
+    position: absolute;
+    font-size: x-small;
+    color: #525252;
+    background-color:#fff;
+    padding:0 5px 0 5px;
+    width: 143px;
+  }
+
+  .admininput6-label{
+    color: #999;
+    position: absolute;
+    pointer-events: none;
+    left: 560px;
+    bottom: 95px;
+   
+    transition: 0.2s;
+    font-size: 12px;
+  }
+  
+  .admininput6:focus ~ .admininput6-label, .admininput6:valid ~ .admininput6-label{
+    left: 560px;
+    bottom: 120px;
+    position: absolute;
+    font-size: x-small;
+    color: #525252;
+    background-color:#fff;
+    padding:0 5px 0 5px;
+  }
+
+  .input7-label{
+    color: #999;
+    position: relative;
+    pointer-events: none;
+    right: 390px;
+    bottom: 2px;
+   
+    transition: 0.2s;
+    font-size: 12px;
+  }
+  
+  .admininput7:focus ~ .admininput7-label, .admininput7:valid ~ .admininput7-label{
+    bottom: 25px;
+    right: 390px;
+    position: relative;
+    font-size: x-small;
+    color: #525252;
+    background-color:#fff;
+    padding:0 5px 0 5px;
+  }
+
+  .admininput7:focus ~ .admincommondropdown{
+    transform: rotate(0deg);
+  }
+
+  .admininput8-label{
+    color: #999;
+    position: relative;
+    pointer-events: none;
+    right: 390px;
+    bottom: 2px;
+   
+    transition: 0.2s;
+    font-size: 12px;
+  }
+  
+  .admininput8:focus ~ .admininput8-label, .admininput8:valid ~ .admininput8-label{
+    bottom: 25px;
+    right: 390px;
+    position: relative;
+    font-size: x-small;
+    color: #525252;
+    background-color:#fff;
+    padding:0 5px 0 5px;
+  }
+
+ /* admin */
+
+  .admininput9-label{
+    color: #999;
+    position: relative;
+    pointer-events: none;
+    right: 390px;
+    
+   
+    transition: 0.2s;
+    font-size: 12px;
+  }
+  
+  .admininput9:focus ~ .admininput9-label, .admininput9:valid ~ .admininput9-label{
+    bottom: 25px;
+    right: 390px;
+    position: relative;
+    font-size: x-small;
+    color: #525252;
+    background-color:#fff;
+    padding:0 5px 0 5px;
+  }
+
+  .admininput10-label{
+    color: #999;
+    position: relative;
+    pointer-events: none;
+    right: 390px;
+  
+   
+    transition: 0.2s;
+    font-size: 12px;
+  }
+  
+  .admininput10:focus ~ .adminadmininput10-label, .admininput10:valid ~ .admininput10-label{
+    bottom: 25px;
+    right: 390px;
+    position: relative;
+    font-size: x-small;
+    color: #525252;
+    background-color:#fff;
+    padding:0 5px 0 5px;
+  }
+
+  .admininput11-label{
+    color: #999;
+    position: relative;
+    pointer-events: none;
+    right: 390px;
+
+   
+    transition: 0.2s;
+    font-size: 12px;
+  }
+  
+  .admininput11:focus ~ .admininput11-label, .admininput11:valid ~ .admininput11-label{
+    bottom: 25px;
+    right: 390px;
+    position: relative;
+    font-size: x-small;
+    color: #525252;
+    background-color:#fff;
+    padding:0 5px 0 5px;
+  }
+
+  .admininput12-label{
+    color: #999;
+    position: relative;
+    pointer-events: none;
+    right: 390px;
+  
+   
+    transition: 0.2s;
+    font-size: 12px;
+  }
+  
+  .admininput12:focus ~ .admininput12-label, .admininput12:valid ~ .admininput12-label{
+    bottom: 25px;
+    right: 390px;
+    position: relative;
+    font-size: x-small;
+    color: #525252;
+    background-color:#fff;
+    padding:0 5px 0 5px;
+  }
+
+
+  ::placeholder{
+    color: #999;
+  }
+
+  .adminoptioncolor{
+    color: #999;
+  }
+
+  .adminoption{
+    height: 20px;
+    margin: 10px;
+    font-size: large;
+    
+  }
+
+  .businesstypecolor{
+    color: #999999;
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+  }
+
+  .adminrca2subtitle3{
+    font-weight: 300;
+    font-size: 15px;
+    width:fit-content;
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 2%;
+  }
+
+  .adminDocumentBtn{
+    width: 20%;
+    height: 50px;
+    background-color: #000;
+    color: white;
+    font-weight: 300;
+    border: none;
+    border-radius: 32.5px;
+    letter-spacing: 0.03px;
+  }
+
+  .adminclhr2{
+    width: 18%;
+    background-color: #f2f3f2;
+    border: 1px solid #f2f3f2 ;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.adminname1{
+  margin-left: 100px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  color: #fa5e00;
+}
+
+.adminfile{
+    
+  width:25%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: #f6f6f6;
+  height:50px;
+  display: flex;
+  flex-direction: row;
+  
+  align-items: center;
+  justify-content: space-between;
+}
+
+.adminfileName{
+  font-weight: 300;
+  font-size:medium;
+  align-items: center;
+  position: relative;
+  left: 10px;
+  bottom: 5px;
+  
+}
+
+.adminsavebtn{
+   margin-top: 30px;
+  width: 10%;
+  height: 40px;
+  background-color: #000;
+  color: white;
+  font-weight: 300;
+  border: none;
+  border-radius: 32.5px;
+  letter-spacing: 0.03px;
+}
+
+/* dropdown design */
+
+ 
+.admindropdown {
+  width: 400px;
+  height: 45px;
+  margin: 13px 0px 0px 10px;
+  padding-left: 11px;
+  padding-top: 2px;
+  font-size: 13px;
+  border-radius: 10px;
+  border: solid 1px #cdcdcd;
+  background-color: #fff;
+  color: #505050;
+}
+
+.admindropdown-header {
+padding-top: 12px;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.admindropdown-body {
+padding: 5px;
+border-top: 1px solid #E5E8EC;
+display: none;
+z-index: 10000;
+}
+
+.admindropdown-body.adminopen {
+display: block;
+position: absolute;
+background-color: white;
+z-index: 10000;
+width: 400px;
+left:25px;
+top:136px;
+border-radius: 10px;
+border: solid 1px #cdcdcd;
+}
+
+.admindropdown-item {
+padding: 10px;
+z-index: 10000;
+}
+
+.admindropdown-item:hover {
+cursor: pointer;
+background-color: #f2f2f2;
+z-index: 10000;
+}
+
+.admindropdown-item-dot {
+opacity: 0;
+color: #91A5BE;
+transition: all .2s ease-in-out;
+}
+
+.admindropdown-item-dot.selected {
+opacity: 1;
+}
+
+.adminicon {
+font-size: 13px;
+color: #91A5BE;
+transform: rotate(270deg);
+transition: all .2s ease-in-out;
+}
+
+.adminicon.open {
+transform: rotate(90deg);
+}
+
+.admincommondropdown{
+  position: relative;
+  right: 28px;
+  width: 15px;
+  height: 9px;
+  transform: rotate(180deg);
+ transition: all 100ms ease-in-out;
+}
+
+

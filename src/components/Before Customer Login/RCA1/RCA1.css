@@ -1,0 +1,314 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+}
+
+
+
+.rca1{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0 0 0 0;
+  background-color: #fff;
+}
+
+
+.rca1firstHalf {
+  min-width: 870px;
+  display: inline-block;
+  
+}
+.rca1HPD {
+  margin: 40px 0 50px 45px;
+  
+  display: inline-block;
+}
+
+.left-bar{
+  width: 225px;
+  height: 7px;
+  background-color: rgba(250, 96, 0, 0.664);
+  margin: 20px 0px 0px 103px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  display: inline-block;
+  position: relative;
+}
+
+.circle{
+  width: 14px;
+  height: 15px;
+  border-radius: 14px;
+  display: inline-block;
+  background-color: rgb(250, 130, 56);
+  position: absolute;
+  left: 321px;
+  top: 222px;
+ 
+}
+
+
+
+.right-bar{
+  width: 225px;
+  height: 7px;
+  background-color: #e1e1e1;
+  margin: 20px 0px 0px 0px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  display: inline-block;
+}
+
+.rca1div1{
+  width:590px;
+  margin:5px 0px 0px 100px;
+  position:relative;
+  font-weight:300px;
+  font-family:Outfit;
+  color:#000000;
+  font-size: 45px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.41px;
+  text-align: left;
+}
+
+.inputfields {
+  width: 450px;
+  height: 48px;
+  margin: 15px 0px 0px 100px;
+  padding-left: 10px;
+  padding-top: 2px;
+ 
+  border-radius: 10px;
+  border: solid 1px #cdcdcd;
+  background-color: #fff;
+}
+
+
+.rca1Rectangle-side {
+  min-width: 660px;;
+  height: 100vh;
+  margin-left: auto;
+ 
+  background-image: linear-gradient(to bottom, #f4f2ea 0%, #d9d6c9 100%);
+ 
+}
+
+.rca1couplesideImg{
+  width: 490px;
+  height: 455px;
+  margin-left: 95px;
+  position: absolute;
+  bottom: 1px;
+  
+}
+.continue{
+  height: 50px;
+  width: 130px;
+  background-color: black;
+  color: white;
+  border-radius: 22.5px;
+  margin-left: 100px;
+  margin-top: 15px;
+  box-shadow: none;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.input1-label{
+  color: #999;
+  position: relative;
+  pointer-events: none;
+  right: 440px;
+  bottom: 2px;
+ 
+  transition: 0.2s;
+  font-size: 15px;
+}
+
+.input1:focus ~ .input1-label, .input1:valid ~ .input1-label{
+  bottom: 25px;
+  right: 440px;
+  position: relative;
+  font-size: x-small;
+  color: #525252;
+  background-color:#fff;
+  padding:0 5px 0 5px;
+}
+
+.input21-label{
+  color: #999;
+  position: relative;
+  pointer-events: none;
+  right: 440px;
+  bottom: 2px;
+ 
+  transition: 0.2s;
+  font-size: 15px;
+}
+
+.input21:focus ~ .input21-label, .input21:valid ~ .input21-label{
+  bottom: 25px;
+  right: 440px;
+  position: relative;
+  font-size: x-small;
+  color: #525252;
+  background-color:#fff;
+  padding:0 5px 0 5px;
+}
+
+.input3-label{
+  color: #999;
+  position: relative;
+  pointer-events: none;
+  right: 440px;
+  bottom: 2px;
+ 
+  transition: 0.2s;
+  font-size: 15px;
+}
+
+.input3:focus ~ .input3-label, .input3:valid ~ .input3-label{
+  bottom: 25px;
+  right: 440px;
+  position: relative;
+  font-size: x-small;
+  color: #525252;
+  background-color:#fff;
+  padding:0 5px 0 5px;
+}
+
+.input4-label{
+  color: #999;
+  position: relative;
+  pointer-events: none;
+  right: 410px;
+  bottom: 0px;
+  
+  transition: 0.2s;
+  font-size: 15px;
+}
+
+.dummyNum{
+  color:#3b3b3b;
+  font-size: 13px;
+  position: relative;
+  left: 110px;
+  bottom: 31px;
+  display: block;
+  width: fit-content;
+}
+
+.input4{
+  padding-left: 35px;
+  position: relative;
+}
+
+/* .input4:focus ~ .dummyNum, .input4:valid ~ .dummyNum{
+  color:#3b3b3b;
+  font-size: 13px;
+  position: relative;
+  right: 530px;
+  display: inline-block;
+  width: fit-content;
+} */
+
+.input4:focus ~ .input4-label, .input4:valid ~ .input4-label{
+  bottom: 25px;
+  right: 410px;
+  position: relative;
+  font-size: x-small;
+  color: #525252;
+  background-color:#fff;
+  padding:0 5px 0 5px;
+  
+}
+
+.myWarningModal{
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  height: 200px;
+  width: 400px;
+  border-radius: 10px;
+
+}
+
+.ModalButton{
+  width: 40px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-left:180px ;
+  margin-top: 30px;
+  color: #999;
+  border: 1px solid #999;
+}
+
+
+.myWarningOverlay{
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.rca1span11{
+  margin-left: 100px;
+  margin-top: 0px;
+  display: block;
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.inputError{
+  color: rgba(255, 0, 0, 0.699);
+}
+
+.input1Error{
+  position: absolute;
+  left: 560px;
+  top: 315px ;
+}
+
+.input2Error{
+  position: absolute;
+  left: 560px;
+  top: 380px ;
+  
+}
+
+.input3Error{
+  position: absolute;
+  left: 560px;
+  top: 440px ;
+}
+
+.input4Error{
+  position: absolute;
+  left: 560px;
+  bottom: 205px ;
+  
+}

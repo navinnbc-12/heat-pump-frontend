@@ -1,0 +1,116 @@
+*{
+    box-sizing: border-box;
+  }
+  
+  body{
+    padding: 0;
+    margin: 0;
+  }
+  
+  
+  
+  .rca3{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0 0 0 0;
+    background-color: #fff;
+  }
+  
+  
+  .rca3firstHalf {
+    width: 870px;
+    display: inline-block;
+    
+  }
+
+  .rca3HPD {
+    margin: 40px 0 50px 45px;
+    
+    display: inline-block;
+  }
+  .sandesh{
+    font-family: cursive;
+  }
+  
+  .rca3left-bar{
+    width: 450px;
+    height: 7px;
+    background-color: rgba(250, 96, 0, 0.664);
+    margin: 20px 0px 0px 103px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    display: inline-block;
+    position: relative;
+  }
+  .greentick{
+      width: 22px;
+      height: 22px;
+      position: relative;
+      right: 10px;
+      top: 7px;
+  }
+
+  .rca3div1{
+    width:590px;
+    margin:5px 0px 0px 100px;
+    position:relative;
+    font-weight:300px;
+    font-family:Outfit;
+    color:#000000;
+    font-size: 45px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.41px;
+    text-align: left;
+  }
+
+  
+.rca3buttonstart{
+  margin-top: 60px;
+   margin-left: 100px;
+   border-radius: 32.5px;
+  background-color: #000;
+  color:white;
+   width:200px;
+   height:50px;
+   position: absolute;
+   
+}
+
+.rca3iconright{
+  margin-left: 90px;
+}
+
+
+  .rca3Rectangle-side {
+    min-width: 660px;;
+    height: 100vh;
+    margin-left: auto;
+   
+    background-image: linear-gradient(to bottom, #f4f2ea 0%, #d9d6c9 100%);
+   
+  }
+  
+  .rca3couplesideImg{
+    width: 490px;
+    height: 465px;
+    margin-left: 100px;
+    position: absolute;
+    bottom: 1px;
+    
+  }
+
+  .rca3buttonstart{
+    margin-top: 30px;
+     margin-left: 100px;
+     border-radius: 32.5px;
+    background-color: #000;
+    color:white;
+     width:200px;
+     height:50px;
+     position: absolute;
+     
+  }

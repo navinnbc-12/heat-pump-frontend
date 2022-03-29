@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+  
+}
+.-Login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0 0 0 45px;
+  background-color: #fff;
+}
+
+.HPD-Existing-Logo---01-1 {
+  width: 7vh;
+  height: 7vh;
+  margin: 40px 0 80px 0;
+  
+  display: inline-block;
+}
+.Login {
+  
+  height: 63px;
+  flex-grow: 0;
+ 
+  font-size: 50px;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.41px;
+  text-align: left;
+  color: #000;
+  margin-left: 55px;
+  
+}
+
+.firstHalf {
+  min-width: 830px;
+  display: inline-block;
+  
+}
+
+.email {
+  width: 440px;
+  height: 48px;
+  margin: 45px 0px 0px 55px;
+  padding-left: 30px;
+  padding-top: 2px;
+  position: relative;
+  border-radius: 10px;
+  border: solid 1px #cdcdcd;
+  background-color: #fff;
+}
+.email-label{
+        color: #999;
+        position: absolute;
+        pointer-events: none;
+        left: 130px;
+        top: 295px;
+        transition: 0.2s;
+        font-size: 14px;
+}
+.email:focus ~ .email-label,.email:valid ~ .email-label{
+  top: 270px;
+  left: 120px;
+  font-size: small;
+  color: #525252;
+  background-color:#fff;
+  padding:0 5px 0 5px;
+}
+.emailIcon {
+  position: relative;
+  right: 430px;
+  top: 1px;
+}
+.password {
+  width: 440px;
+  height: 48px;
+  margin: 5px 0px 0px 55px;
+  padding-left: 30px;
+  position: relative;
+  border-radius: 10px;
+  border: solid 1px #cdcdcd;
+  background-color: #fff;
+}
+
+.password-label{
+  color: #999;
+  position: absolute;
+  pointer-events: none;
+  left: 130px;
+  top: 377px;
+  transition: 0.2s;
+  font-size: 14px;
+
+}
+.password:focus ~ .password-label, .password:valid ~ .password-label{
+  top: 353px;
+  left: 120px;
+  font-size: small;
+  color: #525252;
+  background-color:#fff;
+  padding:0 5px 0 5px;
+}
+.passwordIcon {
+  position: relative;
+  right: 430px;
+  top: 2px;
+  height:16px;
+  width:13px;
+}
+
+.loginspan1{
+  color:#a4a4a4 ;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 55px;
+  margin-bottom: 5px;
+  display: block;
+  font-weight: 300;
+
+}
+.loginspan2{
+  color:red ;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 100px;
+  margin-bottom: 5px;
+ display: block;
+  font-weight: 300;
+
+}
+.eyeIcon {
+  position: relative;
+  right: 50px;
+  top: 2px;
+  height:13px;
+  width:16px;
+}
+.eyeIconOpen{
+  position: relative;
+  right: 50px;
+  top: 2px;
+  height:15px;
+  width:16px;
+
+}
+.icontick{
+  margin: 32px 0px 0px 55px ;
+  width: 440px;
+}
+
+
+
+.remember{
+  padding-left: 5px;
+  font-weight: 600;
+  font-size:13px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.36px;
+  margin-bottom: 10px;
+  position: relative;
+  bottom: 1px;
+  
+  
+}
+
+.Forgot-password{
+  float: right;
+  color: #fa5e00;
+  cursor:pointer;
+}
+
+.login-button{
+  width: 200px;
+  height: 47px;
+  border-radius: 32.5px;
+  background-color: #000;
+  color:white ;
+  margin: 32px 0px 0px 175px ;
+  cursor:pointer
+}
+
+.terms-policies{
+  text-decoration: underline;
+  margin:5px 0px 0px 189px;
+  font-size:13px;
+  
+  cursor:pointer;
+  color: #000;
+}
+
+.Rectangle-2 {
+  min-width: 660px;
+  height: 100vh;
+  margin-left: auto;
+  background-image: linear-gradient(to bottom, #f4f2ea 0%, #d9d6c9 100%);
+ 
+}
+
+.couple1Img{
+  width: 490px;
+  height: 265px;
+  margin-left: 90px;
+  position: absolute;
+  bottom: 1px;
+  
+}
+
+.inputLogin1Error{
+  color:  rgba(255, 0, 0, 0.699);
+}
+
+.inputLogin2Error{
+ color:  rgba(255, 0, 0, 0.699);
+ position: relative;
+ right: 15px;
+}

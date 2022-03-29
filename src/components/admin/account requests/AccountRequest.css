@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  padding: 10px !important;
+  display: inline-block;
+  margin-left: 40px;
+  margin-right: 50px;
+  width: 90%;
+}
+.containerhr {
+  width: 77%;
+  margin-left: 173px;
+  background-color: #f2f3f2;
+  border: 1px solid #f2f3f2;
+  margin-top: 10px;
+}
+.paper {
+  border-style: solid;
+  border-radius: 30px;
+  border-color: #f2f3f2;
+  padding: 30px !important;
+  margin-top: 40px;
+}
+.title {
+  font-weight: 500;
+  font-size: 45px;
+}
+.hrFirst {
+  background-color: #f2f3f2;
+  border: 1.5px solid #f2f3f2;
+  position: relative;
+  width: 250px;
+}
+.secondrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 60%;
+  margin: auto;
+}
+
+.squarebox {
+  border: 1px solid #d3d3d3;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color:#f2f2f2;
+}
+.second-row-text {
+  text-align: center;
+  display: table-caption;
+  display: -ms-grid;
+  -ms-grid-columns: min-content;
+}
+.outerbox {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.third-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 4%;
+  margin-bottom: 3%;
+}
+
+.select-box {
+  height: 40px;
+  width: 17%;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin-right: 20px;
+  padding-left: 6px;
+}
+.search-by {
+  height: 50px;
+  width: 10%;
+  margin-right: 2%;
+  padding-top: 8px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600px;
+}
+.box1 {
+  width: 24%;
+  color: rgba(0, 0, 0, 0.6);
+}
+table {
+  width: 100%;
+  border-spacing: 30px;
+}
+td {
+  font-weight:300;
+}
+th {
+  font-size: 18px;
+}
+.specifictr:hover{
+  cursor: pointer;
+  background-color: #f2f2f2;
+}
+
+.adminsearchbtn{
+ 
+    width: 115px;
+    border: #000;
+    border-radius: 50px;
+    background-color: #000;
+    color: white;
+    font-weight: 100;
+    height: 40px;
+  
+}
