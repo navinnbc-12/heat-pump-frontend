@@ -70,6 +70,8 @@ const AdminManageService = ({ adminFirstPageAction }) => {
   const [priority, setPriority] = useState("");
   const [assigned, setAssigned] = useState("");
   const [focused, setFocused] = React.useState("");
+  const [focused1, setFocused1] = React.useState("");
+  const [focused2, setFocused2] = React.useState("");
   const [baUser, setBauser] = useState([]);
 
   const [updatedBy, setUpdatedBy] = useState("");
@@ -477,9 +479,10 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                   name="priority"
                   IconComponent={() =>
                     focused ? (
-                      <KeyboardArrowDownIcon />
-                    ) : (
                       <KeyboardArrowUpIcon />
+                      
+                    ) : (
+                      <KeyboardArrowDownIcon />
                     )
                   }
                 >
@@ -502,14 +505,15 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                   value={status}
                   // label="Status"
                   onChange={stateHandler}
-                  onFocus={() => setFocused(true)}
-                  onBlur={() => setFocused(false)}
+                  onFocus={() => setFocused1(true)}
+                  onBlur={() => setFocused1(false)}
                   name="status"
                   IconComponent={() =>
-                    focused ? (
-                      <KeyboardArrowDownIcon />
-                    ) : (
+                    focused1 ? (
                       <KeyboardArrowUpIcon />
+                      
+                    ) : (
+                      <KeyboardArrowDownIcon />
                     )
                   }
                 >
@@ -564,14 +568,15 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                   id="demo-simple-select"
                   value={assigned}
                   onChange={stateHandler}
-                  onFocus={() => setFocused(true)}
-                  onBlur={() => setFocused(false)}
+                  onFocus={() => setFocused2(true)}
+                  onBlur={() => setFocused2(false)}
                   name="assigned_to"
                   IconComponent={() =>
-                    focused ? (
-                      <KeyboardArrowDownIcon />
-                    ) : (
+                    focused2 ? (
                       <KeyboardArrowUpIcon />
+                      
+                    ) : (
+                      <KeyboardArrowDownIcon />
                     )
                   }
                 >

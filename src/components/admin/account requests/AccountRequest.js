@@ -213,9 +213,9 @@ const AccountRequest = ({adminFirstPageAction}) => {
                   label="Priority"
                   IconComponent={() =>
                     focused ? (
-                      <KeyboardArrowDownIcon />
-                    ) : (
                       <KeyboardArrowUpIcon />
+                    ) : (
+                      <KeyboardArrowDownIcon />
                     )
                   }
                 >

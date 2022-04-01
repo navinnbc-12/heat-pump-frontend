@@ -205,15 +205,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
               justifyContent: "space-between",
             }}
           >
-          {/* //   <select
-          //     className=" adminslselect-box adminslbox1"
-          //     value={priority}
-          //     onChange={(e) => setPriority(e.target.value)}
-          //   > <option value=""  > Priority </option>
-          //     <option value="1">High</option>
-          //     <option value="2">Medium</option>
-          //     <option value="3">Low</option>
-          //   </select> */}
+          
           <div style={{display:"inline-block",width:"200px"}}>
             <FormControl className={classes.selectfield}>
             <InputLabel id="demo-simple-select-label" className={classes.selectinput}>Priority</InputLabel>
@@ -227,9 +219,9 @@ const AdminServiceList = ({adminFirstPageAction}) => {
                   label="Priority"
                   IconComponent={() =>
                     focused ? (
-                      <KeyboardArrowDownIcon />
-                    ) : (
                       <KeyboardArrowUpIcon />
+                    ) : (
+                      <KeyboardArrowDownIcon />
                     )
                   }
                 >
@@ -259,17 +251,17 @@ const AdminServiceList = ({adminFirstPageAction}) => {
               >
                 <th className="adminslth" style={{width:"90px"}}>Priority</th>
                 <th className="adminslth" style={{width:"140px"}}>SR No.</th>
-                <th className="adminslth" scope="col" style={{width:"290px"}}>Title</th>
+                <th className="adminslth" scope="col" style={{width:"250px"}}>Title</th>
                 <th className="adminslth" scope="col" style={{ width: "220px" }}>
                   Site Details
                 </th>
-                <th className="adminslth" scope="col"style={{width:"160px"}}>SR Type</th>
-                <th className="adminslth" scope="col" style={{width:"170px"}}>
+                <th className="adminslth" scope="col"style={{width:"200px"}}>SR Type</th>
+                <th className="adminslth" scope="col" style={{width:"190px"}}>
                   Last Updated
                   <br />
                   Date & Time
                 </th>
-                <th className="adminslth" scope="col" style={{width:"135px"}}>Status</th>
+                <th className="adminslth" scope="col" style={{width:"115px"}}>Status</th>
               </tr>
             </thead>
             <tbody className="adminslsortable">

@@ -257,9 +257,9 @@ const ServiceList = ({ FirstPageAction }) => {
                   label="Priority"
                   IconComponent={() =>
                     focused ? (
-                      <KeyboardArrowDownIcon />
-                    ) : (
                       <KeyboardArrowUpIcon />
+                    ) : (
+                      <KeyboardArrowDownIcon />
                     )
                   }
                 >
@@ -304,12 +304,12 @@ const ServiceList = ({ FirstPageAction }) => {
                 <th scope="col" style={{ width: "200px" }}>
                   SR Type
                 </th>
-                <th scope="col" style={{ width: "180px" }}>
+                <th scope="col" style={{ width: "190px" }}>
                   Last Updated
                   <br />
                   Date & Time
                 </th>
-                <th scope="col" style={{ width: "125px" }}>
+                <th scope="col" style={{ width: "115px" }}>
                   Status
                 </th>
               </tr>
