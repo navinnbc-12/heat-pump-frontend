@@ -227,10 +227,6 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
   const newUpload = (e) => {
     setLoader(true);
     const token = JSON.parse(localStorage.getItem("user"));
-    // const data = {
-    //   attachments: attachments,
-    // };
-    // const newVal = availableFiles.concat(attachments);
     axios({
       method: "post",
       url: URL + globalAPI.addnotes + `?srid=${state}`,
@@ -263,14 +259,13 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
       });
   };
   const closingsr = (e) => {
-    debugger;
     if (closetext.length >= 1) {
       setLoader(true);
       const token = JSON.parse(localStorage.getItem("user"));
       axios({
-        method: "patch",
-        url: URL + globalAPI.myreq + `/${state}`,
-        data: { status: 4, description: closetext, type: 1 },
+        method: "post",
+        url: URL + globalAPI.addnotes + `?srid=${state}`,
+        data: {description: closetext, type: 1,title: closetext, },
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -280,7 +275,6 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
           togglesrModal();
           const res = response.data;
           if (res.success) {
-            // navigate("/common/servicerequest");
             fetchData();
             fetchSeconddata();
             toast.success("Updated Successfully");

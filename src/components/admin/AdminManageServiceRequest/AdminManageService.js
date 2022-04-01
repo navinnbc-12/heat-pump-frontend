@@ -342,9 +342,9 @@ const AdminManageService = ({ adminFirstPageAction }) => {
       setLoader(true);
       const token = JSON.parse(localStorage.getItem("user"));
       axios({
-        method: "patch",
-        url: URL + globalAPI.myreq + `/${state._id}`,
-        data: { status: 4, description: closetext, type: 2 },
+        method: "post",
+        url: URL + globalAPI.addnotes + `?srid=${state._id}`,
+        data: {description: closetext, type: 2,title:closetext },
         headers: {
           Authorization: `Bearer ${token}`,
         },
