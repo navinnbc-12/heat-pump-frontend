@@ -35,14 +35,17 @@
 .buhead{
     width: 750px;
    border-bottom: 1px solid #f2f3f2;
+   
 }
 
 .buiemail{
     width: 300px;
+    font-weight: bold;
 }
 
 .buname{
     width: 180px;
+    font-weight: bold;
 }
 
 .buPassData{
@@ -51,10 +54,12 @@
 
 .bunumber{
     width: 180px;
+    font-weight: bold;
 }
 
 .bustatus{
     width: 210px;
+    font-weight: bold;
 }
 .butr{
    border-bottom: none;

@@ -10,6 +10,14 @@ import {TailSpin} from "react-loader-spinner";
 import usePagination from "../../Pagination/Pagination";
 import moment from "moment";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { TextField } from "@mui/material";
+import { makeStyles } from '@mui/styles';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import InputLabel from "@mui/material/InputLabel";
 
 import { connect } from "react-redux";
 import { adminFirstPageAction } from "../../../Redux/AdminFirstPage/adminFirstPage.action";
@@ -21,63 +29,49 @@ const theme = createTheme({
   },
 });
 
+const useStyles = makeStyles({
+  textfield:{
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiOutlinedInput-root': {
+      borderRadius:"10px",
+      marginRight: "20px",
+      height:"50px",
+      '&.Mui-focused fieldset': {
+        borderColor: 'black',
+      },
+    },
+  },
+  selectfield: {
+    "& label.Mui-focused": {
+      color: "black",
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "10px",
+      marginRight: "20px",
+      width: "170px",
+      height: "50px",
+      fontWeight: "bolder",
+      fontFamily: "outfit",
+      backgroundColor: "white",
+
+      "&.Mui-focused fieldset": {
+        borderColor: "black",
+      },
+    },
+  },
+  selectinput:{
+    marginBottom:"5px",
+    fontFamily:"outfit",
+    fontWeight: "bolder",
+    
+  }
+})
+
+
 const AdminServiceList = ({adminFirstPageAction}) => {
-  // const list = [
-  //   {
-  //     priority: "H",
-  //     srno: "SR12345678",
-  //     title: "heat pump",
-  //     site_details: "7 covaburn avenue,hamilton ML3 7TR",
-  //     sr_type: "SR Type",
-  //     time: "10/11/2021 05:00 PM",
-  //     status: "luthus working",
-  //   },
-  //   {
-  //     priority: "H",
-  //     srno: "SR12345678",
-  //     title: "heat pump",
-  //     site_details: "7 covaburn avenue,hamilton ML3 7TR",
-  //     sr_type: "SR Type",
-  //     time: "10/11/2021 05:00 PM",
-  //     status: "luthus working",
-  //   },
-  //   {
-  //     priority: "H",
-  //     srno: "SR12345678",
-  //     title: "heat pump",
-  //     site_details: "7 covaburn avenue,hamilton ML3 7TR",
-  //     sr_type: "SR Type",
-  //     time: "10/11/2021 05:00 PM",
-  //     status: "luthus working",
-  //   },
-  //   {
-  //     priority: "H",
-  //     srno: "SR12345678",
-  //     title: "heat pump",
-  //     site_details: "7 covaburn avenue,hamilton ML3 7TR",
-  //     sr_type: "NR Type",
-  //     time: "10/11/2021 05:00 PM",
-  //     status: "luthus working",
-  //   },
-  //   {
-  //     priority: "H",
-  //     srno: "SR12345678",
-  //     title: "heat pump",
-  //     site_details: "7 covaburn avenue,hamilton ML3 7TR",
-  //     sr_type: "NR Type",
-  //     time: "10/11/2021 05:00 PM",
-  //     status: "luthus working",
-  //   },
-  //   {
-  //     priority: "H",
-  //     srno: "SR12345678",
-  //     title: "heat pump",
-  //     site_details: "7 covaburn avenue,hamilton ML3 7TR",
-  //     sr_type: "NR Type",
-  //     time: "10/11/2021 05:00 PM",
-  //     status: "luthus working",
-  //   },
-  // ];
+  const classes = useStyles();
   const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
   const [serviceno, setServiceno] = useState("");
@@ -95,6 +89,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
   
   const userData = JSON.parse(localStorage.getItem("userData"));
   const userName = userData.name;
+  const [focused, setFocused] = React.useState("");
  
   useEffect(()=>{
     adminFirstPageAction(true)
@@ -102,7 +97,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
 
   useEffect(() => {
     fetchData();
-    fetchSeconddata();
+    // fetchSeconddata();
   }, [page,status]);
 
   function fetchData() {
@@ -117,6 +112,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
         setLoader(false);
         const res = response.data;
         setBox(res.data);
+        fetchSeconddata();
       })
       .catch((e) => {
         setLoader(false);
@@ -170,15 +166,9 @@ const AdminServiceList = ({adminFirstPageAction}) => {
           <TailSpin color="#fa5e00" height="100" width="100" />
         </div>
       )}
-      <div className="adminsltitle">My Service Requests</div>
+      <div className="adminsltitle">Service Requests</div>
       <hr className="adminslcontainerhr" />
       <div className="adminslpaper">
-       {/*  <div className="adminslfirstrow">
-          <div className="adminslnames">{userName}</div>
-          <div style={{ fontSize: "small" }}>Heat Pump Scotland,Glasgow</div>
-          <hr className="adminslhrFirst" />
-        </div> */}
-
         <div className="adminslsecondrow">
           <div className="adminslouterbox">
             <div className="adminslsquarebox" onClick={()=>setStatus(1)}>
@@ -215,35 +205,44 @@ const AdminServiceList = ({adminFirstPageAction}) => {
               justifyContent: "space-between",
             }}
           >
-            <select
-              className=" adminslselect-box adminslbox1"
-              value={priority}
-              onChange={(e) => setPriority(e.target.value)}
-            > <option value=""  > Priority </option>
-              <option value="1">High</option>
-              <option value="2">Medium</option>
-              <option value="3">Low</option>
-            </select>
-            <input
-              className="  adminslselect-box adminslbox1"
-              type="text"
-              placeholder="Service Request No"
-              value={serviceno}
-              onChange={(e) => setServiceno(e.target.value)}
-            />
-              <input
-              className="  adminslselect-box adminslbox1"
-              type="text"
-              placeholder="Customer Name"
-              value={serviceno}
-              onChange={(e) => setCustomerName(e.target.value)}
-            />
-            <input
-              className="  adminslselect-box adminslbox1"
-              value={title}
-              placeholder="Title"
-              onChange={(e) => setTitle(e.target.value)}
-            />
+          {/* //   <select
+          //     className=" adminslselect-box adminslbox1"
+          //     value={priority}
+          //     onChange={(e) => setPriority(e.target.value)}
+          //   > <option value=""  > Priority </option>
+          //     <option value="1">High</option>
+          //     <option value="2">Medium</option>
+          //     <option value="3">Low</option>
+          //   </select> */}
+          <div style={{display:"inline-block",width:"200px"}}>
+            <FormControl className={classes.selectfield}>
+            <InputLabel id="demo-simple-select-label" className={classes.selectinput}>Priority</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={priority}
+                  onChange={(e) => setPriority(e.target.value)}
+                  onFocus={() => setFocused(true)}
+                  onBlur={() => setFocused(false)}
+                  label="Priority"
+                  IconComponent={() =>
+                    focused ? (
+                      <KeyboardArrowDownIcon />
+                    ) : (
+                      <KeyboardArrowUpIcon />
+                    )
+                  }
+                >
+                  <MenuItem value="1"> High </MenuItem>
+                  <MenuItem value="2"> Medium </MenuItem>
+                  <MenuItem value="3"> Low </MenuItem>
+                </Select>
+              </FormControl>
+              </div>
+            <TextField label="Service Request No" className={classes.textfield} value={serviceno} onChange={(e) => setServiceno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px"} }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+            <TextField label="Customer Name" className={classes.textfield} value={customerName} onChange={(e) => setCustomerName(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+            <TextField label="Title" className={classes.textfield} value={title} onChange={(e) => setTitle(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+
               <button className="adminsearchbtn" onClick={() => fetchSeconddata()}>
               Search
             </button>
@@ -348,12 +347,12 @@ const AdminServiceList = ({adminFirstPageAction}) => {
             </ThemeProvider>
           </div>
         )}
-        <button
+        {/* <button
           className="adminslbtnjob"
           onClick={(e) => navigate("/common/createlist")}
         >
           Create a Service Request
-        </button>
+        </button> */}
       </div>
     </div>
   );

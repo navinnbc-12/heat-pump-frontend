@@ -53,25 +53,51 @@ const Login = () => {
     }
   };
 
-  const handleLogin = (e) => {
-    debugger
-    e.preventDefault();
+  const blurFunc = () => {
+   
     if(emailValue == ""){
-      setInputLogin1Error("Email Address cannot be Empty");
-      return false;
-    }
-    if(password.value == ""){
-      setInputLogin2Error("Password cannot be Empty");
+     
       return false;
     }
     if (!validator.isEmail(emailValue)) {
       setInputLogin1Error("Please enter valid Email");
       return false;
     }
+ 
+  }
+
+  const blurFunc1 = () => {
+    if(password.value == ""){
+      
+      return false;
+    }
     if (!validator.isLength(password.value,{min:8,max:undefined})) {
      setInputLogin2Error("Must be at least 8 characters");
       return false;
     }
+  }
+
+  const handleLogin = (e) => {
+    debugger
+    e.preventDefault();
+    if (!validator.isEmail(emailValue)) {
+      setInputLogin1Error("Please enter valid Email");
+      /* return false; */
+    }
+    if(emailValue == ""){
+      setInputLogin1Error("Email Address cannot be Empty");
+      /* return false; */
+    }
+    if (!validator.isLength(password.value,{min:8,max:undefined})) {
+      setInputLogin2Error("Must be at least 8 characters");
+       return false;
+     }
+  
+    if(password.value == ""){
+      setInputLogin2Error("Password cannot be Empty");
+      /* return false; */
+    }
+    
     if (emailValue !== "" && password.value !== "" && !loader) {
       debugger
       setLoader(true);
@@ -128,8 +154,10 @@ const Login = () => {
               className="HBD"
             />
           </div>
-          <div className="Login">Login</div>
+          <div className="Login">Login</div> 
+          
           <form action=""  >
+          <div style={{position:"relative"}} >
             <input
               type="text"
               className="email "
@@ -137,6 +165,7 @@ const Login = () => {
               onChange={changeHandler}
               name="email"
               required
+              onBlur={blurFunc}
               
             />
             
@@ -146,11 +175,14 @@ const Login = () => {
               width={"16px"}
               alt=""
               className="emailIcon"
+             
             />
             <label className="email-label" >Email Address </label> <span className='inputLogin1Error inputLoginError' >{inputLogin1Error}</span>
             <span style={{ visibility: `${visibility}` }} className="loginspan2">
             Both passwords should match
             </span>
+            </div>
+            <div style={{position:"relative"}} >
             <input
               type={password.type}
               value={password.value}
@@ -158,6 +190,7 @@ const Login = () => {
               className="password"
               name="password"
               required
+              onBlur={blurFunc1}
             />
             <img
               src={require("../../../Img/icon2.png")}
@@ -183,6 +216,7 @@ const Login = () => {
             <span className="loginspan1" style={{ color: `${color}` }}>
               Must be at least 8 characters
             </span>
+            </div>
             <div className="icontick">
               {remember ? (
                 <div

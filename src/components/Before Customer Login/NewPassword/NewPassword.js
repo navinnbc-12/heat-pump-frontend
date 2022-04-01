@@ -121,9 +121,11 @@ function NewPassword() {
     console.log("hello")
     if (password.newPassword.length < 8) {
       setColor("red");
+      return
     }
     if (password.newPassword != password.confirmPassword) {
       setVisibility("");
+      return
     } else {
       const reset_token = JSON.parse(localStorage.getItem("reset_token"));
       const data = {

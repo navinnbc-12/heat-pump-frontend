@@ -38,6 +38,8 @@ function RCA1({customerDetails,customerDetailsAction}) {
     const [input2Error, setInput2Error] = useState("")
     const [input3Error, setInput3Error] = useState("")
     const [input4Error, setInput4Error] = useState("")
+
+
   
 const clickHandler = (e) => {
   e.preventDefault();
@@ -47,24 +49,26 @@ const clickHandler = (e) => {
   } */
   if(customerDetails.name == "" ){
     setInput1Error("Mandatory field cannot be Empty")
-    return false
-  }
-  if(customerDetails.email =="" ){
-    setInput2Error("Mandatory field cannot be empty")
-    return false
+    /* return false */
   }
   if (!validator.isEmail(customerDetails.email)) {
     setInput2Error("Please enter valid Email Address")
-    return false;
+    /* return false; */
+  }
+  if(customerDetails.email =="" ){
+    setInput2Error("Mandatory field cannot be empty")
+   /*  return false */
+  }
+ 
+  if (!validator.isLength(customerDetails.password,{min:8,max:undefined})) {
+    setInput3Error("Must be atleast 8 characters")
+    /* return false; */
   }
   if(customerDetails.password == "" ){
     setInput3Error("Mandatory field cannot be empty")
-    return false
+   /*  return false */
   }
-  if (!validator.isLength(customerDetails.password,{min:8,max:undefined})) {
-    setInput3Error("Must be atleast 8 characters")
-    return false;
-  }
+ 
   if(customerDetails.mobile == ""){
     setInput4Error("Mandatory field cannot be empty")
     return false
@@ -94,6 +98,50 @@ const clickHandler = (e) => {
     setIsOpen(true);
   }
 }
+
+const blurFunc2 = () => {
+  if(customerDetails.email =="" ){
+   
+    return false
+  }
+  if (!validator.isEmail(customerDetails.email)) {
+    setInput2Error("Please enter valid Email Address")
+    /* return false; */
+  }
+}
+
+const blurFunc3 = () => {
+  if(customerDetails.password == "" ){
+    /* setInput3Error("Mandatory field cannot be empty") */
+    return false
+  }
+  if (!validator.isLength(customerDetails.password,{min:8,max:undefined})) {
+    setInput3Error("Must be atleast 8 characters")
+    /* return false; */
+  }
+  
+}
+
+const blurFunc4 = () => {
+  if(customerDetails.mobile == ""){
+    /* setInput4Error("Mandatory field cannot be empty") */
+    return false
+  }
+  if(customerDetails.mobile.startsWith("0")){
+    if (!validator.isLength(customerDetails.mobile,{min:11,max:11})) {
+      setInput4Error("Please enter valid Mobile Number")
+      
+      return false;
+    }
+   
+  } else{
+  if (!validator.isLength(customerDetails.mobile,{min:10,max:10})) {
+    setInput4Error("Please enter valid Mobile Number")
+    
+    return false;
+  }
+}
+}
     
  const changeHandler = (e) => {
    e.preventDefault();
@@ -120,14 +168,14 @@ const clickHandler = (e) => {
         <div  style={{margin:"10px 0px 0px 100px",width:"590px",fontWeight:"300",marginTop:"30px"}} >Your Name and Contact Details</div>       
        
         <form action=""  >
-          <input required className='inputfields input1' type="text" value={customerDetails.name} onChange={changeHandler} name="name"  /> <label className="input1-label" >Full Name*</label> <span className='input1Error inputError' >{input1Error}</span>
-          <input required className='inputfields input21 ' type="text" value={customerDetails.email} onChange={changeHandler} name="email" /> <label className="input21-label" >Email Address*</label>  <span className=' inputError input2Error' >{input2Error}</span>
-          <input required className='inputfields input3 ' type="password" value={customerDetails.password} onChange={changeHandler} name="password"  /> <label className="input3-label" >Password*</label> <span className='input3Error inputError' >{input3Error}</span>
+          <input required className='inputfields input1' type="text"  value={customerDetails.name} onChange={changeHandler} name="name"  /> <label className="input1-label" >Full Name*</label> <span className='input1Error inputError' >{input1Error}</span>
+          <input required className='inputfields input21 ' type="text" onBlur={blurFunc2} value={customerDetails.email} onChange={changeHandler} name="email" /> <label className="input21-label" >Email Address*</label>  <span className=' inputError input2Error' >{input2Error}</span>
+          <input required className='inputfields input3 ' type="password" onBlur={blurFunc3} value={customerDetails.password} onChange={changeHandler} name="password"  /> <label className="input3-label" >Password*</label> <span className='input3Error inputError' >{input3Error}</span>
           <span className="rca1span11" style={{ color: `${color}` }}>
               Must be atleast 8 characters
           </span>
           
-          <input required className='inputfields input4 ' type="text" value={customerDetails.mobile} onChange={changeHandler} name="mobile"  /> <label className="input4-label" >Mobile Number*</label> <span className=' inputError input4Error ' >{input4Error}</span>
+          <input required className='inputfields input4 ' onBlur={blurFunc4} type="text" value={customerDetails.mobile} onChange={changeHandler} name="mobile"  /> <label className="input4-label" >Mobile Number*</label> <span className=' inputError input4Error ' >{input4Error}</span>
           <div className='dummyNum' >+44</div>
         </form>
         

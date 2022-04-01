@@ -317,7 +317,7 @@ function RCA2({ customerDetails, customerDetailsAction,suggestionList,setSuggest
           <div className="rca2subtitle1">
             Your Business Details
           </div>
-
+          <div>
           <form action="">
             <input
               required
@@ -492,6 +492,7 @@ function RCA2({ customerDetails, customerDetailsAction,suggestionList,setSuggest
            
           </div>
           </form>
+          </div>
         </div>
 
         <div className="rca2Rectangle-side">

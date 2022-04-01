@@ -22,6 +22,7 @@
   grid-template-columns: 330px auto;
   grid-gap: 20px;
   grid-template-rows: auto 1fr;
+  min-width: 1000px;
 }
 .adminmsrtitle {
   font-weight: 500;
@@ -40,6 +41,7 @@
   border-radius: 30px;
   border-color: #f2f3f2;
   padding: 20px !important;
+  width: fit-content;
 }
 .adminmsrgrid3 {
   border-style: solid;
@@ -64,8 +66,9 @@
   display: grid;
   grid-template-columns: 117px auto;
   row-gap: 20px;
-  column-gap: 20px;
+  column-gap: 10px;
   margin-top: 10px;
+  margin-left: 5px;
 }
 
 .adminmsrtitle2 {
@@ -146,6 +149,10 @@
   border-radius: 30px;
   margin-left: 30px;
   font-weight: 300;
+}
+.adminmsrbutton3:hover {
+  background-color: #000;
+  color: white;
 }
 
 .adminmsrimage {
@@ -233,7 +240,7 @@
   outline: none;
   padding: 20px 20px 20px 20px;
   width: 700px;
-  height: 360px;
+  height: 370px;
   z-index: 1000;
 }
 
@@ -276,7 +283,7 @@
 
 .adminsubmitbtn {
   width: 130px;
-  height: 40px;
+  height: 47px;
   border: #000;
   border-radius: 50px;
   background-color: #000;
@@ -287,12 +294,17 @@
 .adminclosebtn {
   margin-left: 10px;
   width: 130px;
-  height: 40px;
+  height: 47px;
   border: grey ridge;
   border-radius: 50px;
   background-color: white;
   color: black;
   cursor: pointer;
+  
+}
+.adminclosebtn:hover {
+  background-color: #000;
+  color: white;
 }
 .admindisplaygrid1 {
   font-weight: 300;
@@ -382,21 +394,6 @@
   display: none;
 }
 
-
- .adminballIcon{
-   position: relative;
-   top: 5px;
-   height: 20px;
-   left: 50px;
-}
-
-.adminballIcon{
-  position: relative;
-  top: 5px;
-  height: 20px;
-  left: 50px;
-}
-
 .priorityLabel{
    font-size: 12px;
    color: #8b8b8b;
@@ -410,6 +407,7 @@
   font-size: 15px;
   border-radius: 10px;
   padding-left: 5px;
+  margin-top: 30px;
 }
 
 .admsrselect1:focus ~ .adminDropdown{
@@ -440,6 +438,11 @@
    font-size: 12px;
    color: #8b8b8b;
    font-weight: 300;
+}
+.assignedtoLabel{
+  font-size: 12px;
+  color: #8b8b8b;
+  font-weight: 300;
 }
 
 .adminSearchIcon{
@@ -473,17 +476,9 @@
    font-weight: 300;
    border: none;
    height: 55px;
+   margin-left: 62px;
 }
 
-.adminIgnoreBtn{
-   width: 35%;
-   margin-left: 20px;
-   height: 55px;
-   border-radius: 32.5px;
-   border: none;
-   background-color:  #f9f9f9;
-   border: 1px solid #d3d3d3;
-} 
 
 .miniadmindisplaygrid1{
   font-weight: 600;
@@ -505,3 +500,9 @@
   height: 18px;
   width: 15px;
 }
+
+.adminselectdrop{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+

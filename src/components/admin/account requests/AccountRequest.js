@@ -11,6 +11,14 @@ import moment from "moment";
 import { useNavigate } from "react-router-dom";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { TextField } from "@mui/material";
+import { makeStyles } from '@mui/styles';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import InputLabel from "@mui/material/InputLabel";
 
 import { connect } from "react-redux";
 import { adminFirstPageAction } from "../../../Redux/AdminFirstPage/adminFirstPage.action";
@@ -20,34 +28,47 @@ const theme = createTheme({
     primary: {main:"#000000	"},
   },
 });
+const useStyles = makeStyles({
+  textfield:{
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiOutlinedInput-root': {
+      borderRadius:"10px",
+      marginRight: "20px",
+      height:"50px",
+      '&.Mui-focused fieldset': {
+        borderColor: 'black',
+      },
+    },
+  },
+  selectfield: {
+    "& label.Mui-focused": {
+      color: "black",
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "10px",
+      marginRight: "20px",
+      width: "210px",
+      height: "50px",
+      fontWeight: "bolder",
+      fontFamily: "outfit",
+      backgroundColor: "white",
 
+      "&.Mui-focused fieldset": {
+        borderColor: "black",
+      },
+    },
+  },
+  selectinput:{
+    marginBottom:"5px",
+    fontFamily:"outfit",
+    fontWeight: "bolder",
+    
+  }
+})
 const AccountRequest = ({adminFirstPageAction}) => {
-  // const list = [
-  //   {
-  //     customer_name: "Joe Bloggs",
-  //     mobile_no: "9787668994",
-  //     email: "joe@gmail.com",
-  //     business_name: "Heat Pump Scotland,Glasgow",
-  //     time: "10/11/2021 05:00 PM",
-  //     status: "In Progress",
-  //   },
-  //   {
-  //     customer_name: "Joe Bloggs",
-  //     mobile_no: "9787668994",
-  //     email: "joe@gmail.com",
-  //     business_name: "Heat Pump Scotland,Glasgow",
-  //     time: "10/11/2021 05:00 PM",
-  //     status: "In Progress",
-  //   },
-  //   {
-  //     customer_name: "Joe Bloggs",
-  //     mobile_no: "9787668994",
-  //     email: "joe@gmail.com",
-  //     business_name: "Heat Pump Scotland,Glasgow",
-  //     time: "10/11/2021 05:00 PM",
-  //     status: "In Progress",
-  //   },
-  // ];
+  const classes = useStyles();
   const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
   const [box, setBox] = useState([]);
@@ -60,11 +81,11 @@ const AccountRequest = ({adminFirstPageAction}) => {
   const [count, setCount] = useState(1);
   const _DATA = usePagination(data, PER_PAGE);
   const [status, setStatus] = useState(1);
-
+  const [focused, setFocused] = React.useState("");
 
   useEffect(() => {
     fetchData();
-    fetchSeconddata();
+    // fetchSeconddata();
   }, [page,status]);
 
   useEffect(()=>{
@@ -83,6 +104,7 @@ const AccountRequest = ({adminFirstPageAction}) => {
         setLoader(false);
         const res = response.data;
         setBox(res.data);
+        fetchSeconddata();
       })
       .catch((e) => {
         setLoader(false);
@@ -166,7 +188,7 @@ const AccountRequest = ({adminFirstPageAction}) => {
               justifyContent: "space-between",
             }}
           >
-            <select
+            {/* <select
               className="select-box box1"
               value={status}
               onChange={(e) => {setStatus(e.target.value)}}
@@ -177,19 +199,35 @@ const AccountRequest = ({adminFirstPageAction}) => {
               <option value="1">New</option>
               <option value="2">Inprogress</option>
               <option value="3">Active</option>
-            </select>
-            <input
-              className="select-box box1"
-              value={mobno}
-              placeholder="Mobile No."
-              onChange={(e) => {setMobno(e.target.value)}}
-            />
-            <input
-              className="select-box box1"
-              value={business}
-              placeholder="Business Name"
-              onChange={(e) => {setBusiness(e.target.value)}}
-            />
+            </select> */}
+            <div style={{display:"inline-block",width:"200px"}}>
+            <FormControl className={classes.selectfield}>
+            <InputLabel id="demo-simple-select-label" className={classes.selectinput}>Status</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                  onFocus={() => setFocused(true)}
+                  onBlur={() => setFocused(false)}
+                  label="Priority"
+                  IconComponent={() =>
+                    focused ? (
+                      <KeyboardArrowDownIcon />
+                    ) : (
+                      <KeyboardArrowUpIcon />
+                    )
+                  }
+                >
+                  <MenuItem value="1"> New </MenuItem>
+                  <MenuItem value="2"> Inprogress </MenuItem>
+                  <MenuItem value="3"> Active </MenuItem>
+                </Select>
+              </FormControl>
+              </div>
+            <TextField label="Mobile No" style={{marginLeft:"30px"}}className={classes.textfield} value={mobno} onChange={(e) => setMobno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }}/>
+            <TextField label="Business Name" className={classes.textfield} value={business} onChange={(e) => setBusiness(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px"} }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }}/>
+
             <button
               className="adminsearchbtn"
               type={"button"}

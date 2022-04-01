@@ -22,7 +22,7 @@ body{
 .rca1firstHalf {
   min-width: 870px;
   display: inline-block;
-  
+ 
 }
 .rca1HPD {
   margin: 40px 0 50px 45px;
@@ -95,11 +95,17 @@ body{
 
 .rca1Rectangle-side {
   min-width: 660px;;
-  height: 100vh;
+  height: 100vh ;
   margin-left: auto;
  
   background-image: linear-gradient(to bottom, #f4f2ea 0%, #d9d6c9 100%);
  
+}
+
+@media screen and (max-height: 650px) {
+  .rca1Rectangle-side {
+    height: auto;
+  }
 }
 
 .rca1couplesideImg{
@@ -309,6 +315,6 @@ input[type=number] {
 .input4Error{
   position: absolute;
   left: 560px;
-  bottom: 205px ;
+  top: 520px ;
   
 }

@@ -85,6 +85,12 @@
     background-image: linear-gradient(to bottom, #f4f2ea 0%, #d9d6c9 100%);
    
   }
+
+  @media screen and (max-height: 400px) {
+    .otpRectangle-side {
+      height: auto;
+    }
+  }
   
   .otpcouplesideImg{
     width: 490px;

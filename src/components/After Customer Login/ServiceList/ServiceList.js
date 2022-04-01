@@ -9,25 +9,70 @@ import globalAPI from "../../../GlobalApi";
 import { TailSpin } from "react-loader-spinner";
 import usePagination from "../../Pagination/Pagination";
 import moment from "moment";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-
-
+import { ThemeProvider, createTheme,styled, } from "@mui/material/styles";
+import { TextField } from "@mui/material";
+import { makeStyles } from '@mui/styles';
 import { connect } from "react-redux";
 import { FirstPageAction } from "../../../Redux/FirstPage/FirstPage.action";
-
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import InputLabel from "@mui/material/InputLabel";
 
 const theme = createTheme({
   palette: {
-    primary: {main:"#000000	"},
+    primary: { main: "#000000	" },
   },
 });
 
-const ServiceList = ({FirstPageAction}) => {
+const useStyles = makeStyles({
+  textfield:{
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '& .MuiOutlinedInput-root': {
+      borderRadius:"10px",
+      marginRight: "20px",
+      height:"50px",
+      '&.Mui-focused fieldset': {
+        borderColor: 'black',
+      },
+    },
+  },
+  selectfield: {
+    "& label.Mui-focused": {
+      color: "black",
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "10px",
+      marginRight: "20px",
+      width: "200px",
+      height: "50px",
+      fontWeight: "bolder",
+      fontFamily: "outfit",
+      backgroundColor: "white",
+
+      "&.Mui-focused fieldset": {
+        borderColor: "black",
+      },
+    },
+  },
+  selectinput:{
+    marginBottom:"5px",
+    fontFamily:"outfit",
+    fontWeight: "bolder",
+    
+  }
+})
+
+const ServiceList = ({ FirstPageAction }) => {
   const navigate = useNavigate();
+  const classes = useStyles();
   const [loader, setLoader] = useState(false);
   const [serviceno, setServiceno] = useState("");
   const [title, setTitle] = useState("");
-  // const [updated, setUpdated] = useState("");
   const [priority, setPriority] = useState("");
   const [box, setBox] = useState([]);
   const [data, setData] = useState([]);
@@ -38,17 +83,16 @@ const ServiceList = ({FirstPageAction}) => {
   const [status, setStatus] = useState(1);
   const userData = JSON.parse(localStorage.getItem("userData"));
   const userName = userData.name;
+  const [focused, setFocused] = React.useState("");
 
   useEffect(() => {
     fetchData();
-    fetchSeconddata();
+    // fetchSeconddata();
   }, [page, status]);
 
   useEffect(() => {
-    FirstPageAction(true)
-  
-  }, [])
-  
+    FirstPageAction(true);
+  }, []);
 
   function fetchData() {
     const token = JSON.parse(localStorage.getItem("user"));
@@ -62,6 +106,7 @@ const ServiceList = ({FirstPageAction}) => {
         setLoader(false);
         const res = response.data;
         setBox(res.data);
+        fetchSeconddata();
       })
       .catch((e) => {
         setLoader(false);
@@ -87,6 +132,7 @@ const ServiceList = ({FirstPageAction}) => {
           const res = response.data.data;
           setCount(res.total_pages);
           setData(res.data);
+          debugger;
         } else {
           toast.error(response.data.message);
         }
@@ -116,31 +162,57 @@ const ServiceList = ({FirstPageAction}) => {
       <div className="paper">
         <div className="firstrow">
           <div className="names">{userName}</div>
-          <div style={{ fontSize: "small" }}>{userData.business_trade_name},{userData.city}</div>
+          <div style={{ fontSize: "small" }}>
+            {userData.business_trade_name},{userData.city}
+          </div>
           <hr className="hrFirst" />
         </div>
 
         <div className="secondrow">
           <div className="outerbox">
-            <div className="squarebox" onClick={() => {setStatus(1);setPage(1)}}>
+            <div
+              className="squarebox"
+              onClick={() => {
+                setStatus(1);
+                setPage(1);
+              }}
+            >
               <h1>{box.new}</h1>
             </div>
             <div className="second-row-text">New</div>
           </div>
           <div className="outerbox">
-            <div className="squarebox" onClick={() => {setStatus(2);setPage(1)}}>
+            <div
+              className="squarebox"
+              onClick={() => {
+                setStatus(2);
+                setPage(1);
+              }}
+            >
               <h1>{box.working}</h1>
             </div>
             <div className="second-row-text">Luths Working</div>
           </div>
           <div className="outerbox">
-            <div className="squarebox" onClick={() => {setStatus(3);setPage(1)}}>
+            <div
+              className="squarebox"
+              onClick={() => {
+                setStatus(3);
+                setPage(1);
+              }}
+            >
               <h1>{box.need_attention}</h1>
             </div>
             <div className="second-row-text">Need Your Attention</div>
           </div>
           <div className="outerbox">
-            <div className="squarebox" onClick={() => {setStatus(4);setPage(1)}}>
+            <div
+              className="squarebox"
+              onClick={() => {
+                setStatus(4);
+                setPage(1);
+              }}
+            >
               <h1>{box.closed}</h1>
             </div>
             <div className="second-row-text">Closed</div>
@@ -156,7 +228,7 @@ const ServiceList = ({FirstPageAction}) => {
               justifyContent: "space-between",
             }}
           >
-            <select
+            {/* <select
               className=" select-box box1"
               value={priority}
               onChange={(e) =>
@@ -171,33 +243,44 @@ const ServiceList = ({FirstPageAction}) => {
               <option value="1">High</option>
               <option value="2">Medium</option>
               <option value="3">Low</option>
-            </select>
-            <input
-              className="  select-box box1"
-              type="text"
-              placeholder="Service Request No"
-              value={serviceno}
-              onChange={(e) => setServiceno(e.target.value)}
-            />
-            <input
-              className="  select-box box1"
-              value={title}
-              placeholder="Title"
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            {/* <select
-              className="  select-box box1"
-              value={updated}
-              onChange={(e) => setUpdated(e.target.value)}
-            >
-              <option value="" defaultValue hidden disabled>
-                  Updated
-                </option>
-              <option value="one">one</option>
-              <option value="two">two</option>
-              <option value="three">three</option>
             </select> */}
-            <button className="searchbtn" onClick={() => {setPage(1);fetchSeconddata()}}>
+            <div style={{display:"inline-block",width:"200px"}}>
+            <FormControl className={classes.selectfield}>
+            <InputLabel id="demo-simple-select-label" className={classes.selectinput}>Priority</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={priority}
+                  onChange={(e) => setPriority(e.target.value)}
+                  onFocus={() => setFocused(true)}
+                  onBlur={() => setFocused(false)}
+                  label="Priority"
+                  IconComponent={() =>
+                    focused ? (
+                      <KeyboardArrowDownIcon />
+                    ) : (
+                      <KeyboardArrowUpIcon />
+                    )
+                  }
+                >
+                  <MenuItem value="1"> High </MenuItem>
+                  <MenuItem value="2"> Medium </MenuItem>
+                  <MenuItem value="3"> Low </MenuItem>
+                </Select>
+              </FormControl>
+              </div>
+            
+            <TextField label="Service Request No" style={{marginLeft:"15px"}} className={classes.textfield} value={serviceno} onChange={(e) => setServiceno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+
+            <TextField label="Title" className={classes.textfield}  value={title}  onChange={(e) => setTitle(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+
+            <button
+              className="searchbtn"
+              onClick={() => {
+                setPage(1);
+                fetchSeconddata();
+              }}
+            >
               Search
             </button>
           </div>
@@ -268,7 +351,6 @@ const ServiceList = ({FirstPageAction}) => {
                     <td>
                       {moment(item.updatedAt).format("DD/MM/YYYY h:mm a")}
                     </td>
-                    {/* <td>{item.status}</td> */}
                     {item.status == 1 && <td>New</td>}
                     {item.status == 2 && <td>Luths Working</td>}
                     {item.status == 3 && <td>Need Your Attention</td>}
@@ -278,7 +360,6 @@ const ServiceList = ({FirstPageAction}) => {
               })}
             </tbody>
           </table>
-          {/* {_DATA.currentData().length >= 3 && <hr className="hrfourth" />} */}
           {_DATA.currentData().length == 0 && (
             <h4
               style={{
@@ -304,7 +385,7 @@ const ServiceList = ({FirstPageAction}) => {
                 className="pagination"
                 count={count}
                 page={page}
-               /*  variant="outlined" */
+                /*  variant="outlined" */
                 onChange={handleChange}
                 color="primary"
               />
@@ -323,7 +404,7 @@ const ServiceList = ({FirstPageAction}) => {
 };
 
 const mapDispatchtoProps = (dispatch) => ({
-FirstPageAction:(value) => dispatch(FirstPageAction(value))
-})
+  FirstPageAction: (value) => dispatch(FirstPageAction(value)),
+});
 
-export default connect(null,mapDispatchtoProps)(ServiceList);
+export default connect(null, mapDispatchtoProps)(ServiceList);

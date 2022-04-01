@@ -179,7 +179,7 @@ const CreateList = ({ FirstPageAction }) => {
           const res = response.data;
           setLoader(false);
           if (res.success) {
-            toast.success("File Added");
+            // toast.success("File Added");
             attachments.push(res.data.message[0]);
             setFiles([...files, e]);
           } else {
@@ -263,7 +263,7 @@ const CreateList = ({ FirstPageAction }) => {
             <div className="clfirstrow">
               <div className="clnames">{userName}</div>
               <div style={{ fontSize: "small" }}>
-                {userData.business_trade_name},{userData.city}
+                {userData.business_trade_name} , {userData.city}
               </div>
               <hr className="clhrFirst" />
             </div>
@@ -436,7 +436,7 @@ const CreateList = ({ FirstPageAction }) => {
                   priority !== "" &&
                   title !== "" &&
                   details !== "" &&
-                  files.length >= 1 && (
+                   (
                     <button
                       className="submitBtn"
                       onClick={(e) => uploadMapping(e)}
@@ -455,7 +455,7 @@ const CreateList = ({ FirstPageAction }) => {
             <div className="subfirstrow">
               <div className="subnames">{userName}</div>
               <div >
-                {userData.business_trade_name},{userData.city}
+                {userData.business_trade_name}, {userData.city}
               </div>
               <hr className="subhrFirst" />
 

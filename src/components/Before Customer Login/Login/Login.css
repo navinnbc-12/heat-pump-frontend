@@ -23,7 +23,7 @@
   height: 63px;
   flex-grow: 0;
  
-  font-size: 50px;
+  font-size: 3.5vw;
   font-weight: 400;
   font-stretch: normal;
   font-style: normal;
@@ -56,14 +56,14 @@
         color: #999;
         position: absolute;
         pointer-events: none;
-        left: 130px;
-        top: 295px;
+        left: 90px;
+        top: 61px;
         transition: 0.2s;
         font-size: 14px;
 }
 .email:focus ~ .email-label,.email:valid ~ .email-label{
-  top: 270px;
-  left: 120px;
+  top: 36px;
+  left: 80px;
   font-size: small;
   color: #525252;
   background-color:#fff;
@@ -89,15 +89,15 @@
   color: #999;
   position: absolute;
   pointer-events: none;
-  left: 130px;
-  top: 377px;
+  left: 90px;
+  top: 21px;
   transition: 0.2s;
   font-size: 14px;
 
 }
 .password:focus ~ .password-label, .password:valid ~ .password-label{
-  top: 353px;
-  left: 120px;
+  top: -4px;
+  left: 80px;
   font-size: small;
   color: #525252;
   background-color:#fff;
@@ -201,6 +201,12 @@
  
 }
 
+@media screen and (max-height: 700px) {
+  .Rectangle-2 {
+    height: auto;
+  }
+}
+
 .couple1Img{
   width: 490px;
   height: 265px;
@@ -212,10 +218,12 @@
 
 .inputLogin1Error{
   color:  rgba(255, 0, 0, 0.699);
+  font-size: 13px;
 }
 
 .inputLogin2Error{
  color:  rgba(255, 0, 0, 0.699);
  position: relative;
  right: 15px;
+ font-size: 13px;
 }

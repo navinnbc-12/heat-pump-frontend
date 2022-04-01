@@ -43,12 +43,14 @@
 .squarebox {
   border: 1px solid #d3d3d3;
   height: 60px;
-  width: 60px;
+  min-width: 60px;
+  width: fit-content;
+  padding:0 5px 0 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background-color:#f2f2f2;
+  background-color:#f4f2ea;
 }
 .second-row-text {
   text-align: center;

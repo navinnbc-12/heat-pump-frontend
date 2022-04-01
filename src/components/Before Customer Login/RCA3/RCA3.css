@@ -93,13 +93,19 @@
     background-image: linear-gradient(to bottom, #f4f2ea 0%, #d9d6c9 100%);
    
   }
+
+  @media screen and (max-height: 700px) {
+    .rca3Rectangle-side {
+      height: auto;
+    }
+  }
   
   .rca3couplesideImg{
     width: 490px;
     height: 465px;
     margin-left: 100px;
     position: absolute;
-    bottom: 1px;
+    bottom: 0px;
     
   }
 

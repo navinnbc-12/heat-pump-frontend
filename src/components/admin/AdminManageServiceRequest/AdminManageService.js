@@ -18,8 +18,38 @@ import { toast } from "react-toastify";
 import { connect } from "react-redux";
 import { adminFirstPageAction } from "../../../Redux/AdminFirstPage/adminFirstPage.action";
 
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { makeStyles } from "@mui/styles";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+
+const useStyles = makeStyles({
+  selectfield: {
+    "& label.Mui-focused": {
+      color: "black",
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "10px",
+      marginRight: "20px",
+      width: "280px",
+      height: "45px",
+      fontWeight: "bolder",
+      fontFamily: "outfit",
+      backgroundColor: "white",
+
+      "&.Mui-focused fieldset": {
+        borderColor: "black",
+      },
+    },
+  },
+});
+
 const fileTypes = ["PDF", "PNG", "JPEG"];
-const AdminManageService = ({adminFirstPageAction}) => {
+
+const AdminManageService = ({ adminFirstPageAction }) => {
+  const classes = useStyles();
   const { state } = useLocation();
   const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
@@ -35,34 +65,31 @@ const AdminManageService = ({adminFirstPageAction}) => {
   const [availableFiles, setavailableFiles] = useState([]);
   const [noupdate, setNoupdate] = useState(false);
   const [noclose, setNoclose] = useState(false);
-  const[inputData,setInputData] = useState(useLocation().state)
+  const [inputData, setInputData] = useState(useLocation().state);
+  const [status, setStatus] = useState("");
+  const [priority, setPriority] = useState("");
+  const [assigned, setAssigned] = useState("");
+  const [focused, setFocused] = React.useState("");
+  const [baUser, setBauser] = useState([]);
 
-  const [updatedBy, setUpdatedBy] = useState("")
+  const [updatedBy, setUpdatedBy] = useState("");
   const [checkedtype, setCheckedType] = useState(2);
 
-  
-  const [d3, setd3] = useState(false)
-  const [summary, setSummary] = useState({
-      priority:"2",
-      status:"Luths Working",
-      lastUpdated:"25/01/2022 10:00 AM",
-      lastUpdatedBy:"Joe Bloggs",
-      created:"24/01/2022 10:00 AM",
-      createdBy:"Joe Bloggs",
-      jobReference:"JR12345678",
-      site:"29 Windyridge Hamilton,ML3 7PS"
-  })
+  const [d3, setd3] = useState(false);
 
   useEffect(() => {
     fetchData();
     fetchSeconddata();
+    fetchUserAdmin();
   }, []);
 
-  useEffect(()=>{
-    adminFirstPageAction(false)
- },[])
+  useEffect(() => {
+    adminFirstPageAction(false);
+  }, []);
 
-  const toggleModal = () => {
+  const toggleModal = (e) => {
+    debugger
+    e.preventDefault();
     setOpenupdate(!openupdate);
     setText("");
   };
@@ -89,7 +116,8 @@ const AdminManageService = ({adminFirstPageAction}) => {
       .then((response) => {
         setLoader(false);
         const res = response.data;
-        setNotes(res.data);
+        debugger;
+        setNotes(res.data.reverse());
       })
       .catch((e) => {
         setLoader(false);
@@ -109,6 +137,9 @@ const AdminManageService = ({adminFirstPageAction}) => {
         setLoader(false);
         const res = response.data;
         setDetails(res.data);
+        setStatus(res.data.status);
+        setPriority(res.data.priority);
+        setAssigned(res.data.assigned_to);
         console.log("details", details);
         setavailableFiles(res.data.attachments);
       })
@@ -117,19 +148,42 @@ const AdminManageService = ({adminFirstPageAction}) => {
         toast.error("Something went wrong");
       });
   }
-  
-
+  function fetchUserAdmin() {
+    const token = JSON.parse(localStorage.getItem("user"));
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    setLoader(true);
+    axios
+      .get(
+        URL + globalAPI.accountlist + `?page=1&perPage=10&status=1,6&badm=1`,
+        config
+      )
+      .then((response) => {
+        setLoader(false);
+        debugger;
+        if (response) {
+          const res = response.data.data.data;
+          setBauser(res);
+        } else {
+          toast.error("error");
+        }
+      })
+      .catch((e) => {
+        setLoader(false);
+        toast.error("Something went wrong");
+      });
+  }
   async function printTickets(index) {
     const { data } = await getTicketsPdf(index);
-    const blob = new Blob([data],);
-    const att = availableFiles[index].split('.').pop();
+    const blob = new Blob([data]);
+    const att = availableFiles[index].split(".").pop();
     saveAs(blob, `Application${index + 1}.${att}`);
   }
 
   async function getTicketsPdf(index) {
     const token = JSON.parse(localStorage.getItem("user"));
-    // const att = availableFiles[index].replace(`${details.creator_id}/`, "");
-    const att = availableFiles[index]
+    const att = availableFiles[index];
     return axios.get(URL + globalAPI.getFile + `?fp=${att}`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -157,9 +211,9 @@ const AdminManageService = ({adminFirstPageAction}) => {
         if (res.success) {
           // toast.success("success");
           setTimeout(() => {
-           /*  window.location.reload(false); */
-           fetchData();
-           fetchSeconddata();
+            /*  window.location.reload(false); */
+            fetchData();
+            fetchSeconddata();
           }, 2000);
         } else {
           toast.error(res.data.message);
@@ -174,7 +228,7 @@ const AdminManageService = ({adminFirstPageAction}) => {
   console.log(state);
   const addUpdate = (e) => {
     e.preventDefault();
-    debugger
+    debugger;
     if (text.length >= 1) {
       setLoader(true);
       setNoupdate(false);
@@ -191,16 +245,12 @@ const AdminManageService = ({adminFirstPageAction}) => {
           const res = response.data;
           setLoader(false);
           toggleModal();
-          console.log(res)
+          console.log(res);
           if (res.success) {
-            // toast.success("Successfully Added");
-            /* setTimeout(() => {
-              window.location.reload(false);
-            }, 2000); */
-            setCheckedType(2)
+            setCheckedType(2);
             fetchData();
             fetchSeconddata();
-            
+            toast.success("Updated Successfully");
           } else {
             toast.error(res.data.message);
           }
@@ -234,7 +284,7 @@ const AdminManageService = ({adminFirstPageAction}) => {
           const res = response.data;
           setLoader(false);
           if (res.success) {
-            toast.success("File Added");
+            // toast.success("File Added");
             attachments.push(res.data.message[0]);
             setFiles([...files, e]);
           } else {
@@ -253,10 +303,6 @@ const AdminManageService = ({adminFirstPageAction}) => {
   const newUpload = (e) => {
     setLoader(true);
     const token = JSON.parse(localStorage.getItem("user"));
-    // const data = {
-    //   attachments: attachments,
-    // };
-    // const newVal = availableFiles.concat(attachments);
     axios({
       method: "post",
       url: URL + globalAPI.addnotes + `?srid=${state._id}`,
@@ -275,12 +321,9 @@ const AdminManageService = ({adminFirstPageAction}) => {
         togglefileModal();
         const res = response.data;
         if (res.success) {
-          // toast.success("success");
-          setTimeout(() => {
-            /* window.location.reload(false); */
-            fetchData();
-            fetchSeconddata();
-          }, 2000);
+          fetchData();
+          fetchSeconddata();
+          toast.success("File added successfully");
         } else {
           toast.error(res.data.message);
         }
@@ -299,7 +342,7 @@ const AdminManageService = ({adminFirstPageAction}) => {
       axios({
         method: "patch",
         url: URL + globalAPI.myreq + `/${state._id}`,
-        data: { status: 2, description: closetext, type: 2 },
+        data: { status: 4, description: closetext, type: 2 },
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -309,11 +352,9 @@ const AdminManageService = ({adminFirstPageAction}) => {
           togglesrModal();
           const res = response.data;
           if (res.success) {
-            setTimeout(() => {
-            /*   window.location.reload(false); */
             fetchData();
             fetchSeconddata();
-            }, 2000);
+            toast.success("Updated Successfully");
           } else {
             toast.error(res.data.message);
           }
@@ -342,14 +383,10 @@ const AdminManageService = ({adminFirstPageAction}) => {
       .then((response) => {
         setLoader(false);
         const res = response.data;
-        
+
         if (res.success) {
-          setTimeout(() => {
-          
-          navigate("/admincommon/adminsrl");
-          }, 1000);
-          toast.success('Updated Successfully')
-          
+          //   navigate("/admincommon/adminsrl");
+          toast.success("Updated Successfully");
         } else {
           toast.error(res.data.message);
         }
@@ -360,20 +397,48 @@ const AdminManageService = ({adminFirstPageAction}) => {
       });
   };
   const stateHandler = (e) => {
-    e.target.blur();
-      setDetails(details => ({...details,[e.target.name]:e.target.value}))
-  }
+    debugger;
+    if (e.target.name == "status") {
+      setStatus(e.target.value);
+      setDetails((details) => ({
+        ...details,
+        [e.target.name]: e.target.value,
+      }));
+      return;
+    }
+    if (e.target.name == "priority") {
+      setPriority(e.target.value);
+      setDetails((details) => ({
+        ...details,
+        [e.target.name]: e.target.value,
+      }));
+      return;
+    }
+    if (e.target.name == "assigned_to") {
+      setAssigned(e.target.value);
+      setDetails((details) => ({
+        ...details,
+        [e.target.name]: e.target.value,
+      }));
+      return;
+    }
+  };
 
-  
-const stateHandler2 = (e) => {
-  /* setInputData(inputData => ({...inputData,job_reference_id:{...inputData.job_reference_id,job_ref_number:e.target.value}})) */
-  setDetails(details => ({...details,job_ref_number:e.target.value,job_reference_id:{...details.job_reference_id,job_ref_number:e.target.value}}))
-}
+  const stateHandler2 = (e) => {
+    /* setInputData(inputData => ({...inputData,job_reference_id:{...inputData.job_reference_id,job_ref_number:e.target.value}})) */
+    setDetails((details) => ({
+      ...details,
+      job_ref_number: e.target.value,
+      job_reference_id: {
+        ...details.job_reference_id,
+        job_ref_number: e.target.value,
+      },
+    }));
+  };
 
-
-  console.log(inputData)
+  console.log(inputData);
   const handleChecked = (e) => {
-    debugger
+    debugger;
     if (e.target.checked) {
       setCheckedType(3);
       console.log("checked");
@@ -390,58 +455,137 @@ const stateHandler2 = (e) => {
           <TailSpin color="#fa5e00" height="100" width="100" />
         </div>
       )}
-      <div className="adminmsrcontainer"  >
+      <div className="adminmsrcontainer">
         <div className="adminmsrtitle">Manage Service Request</div>
         <hr className="adminmsrcontainerhr" />
         <div className="adminmsrpaper">
           <div className="adminmsrgrid1">
-          <div className="adminmsrtitle1">Service Request Summary <img src={require("../../../Img/adminballIcon.png")} className="adminballIcon" ></img> </div>
+            <div className="adminmsrtitle1">Service Request Summary </div>
             <hr className="adminmsrhr1" />
-            <div>
-                 <label htmlFor="" className='priorityLabel' >Priority</label> <br />
-                 <select className='admsrselect1' name="priority" id=""  onChange={stateHandler} >
-                     <option value="3" selected={details.priority===3?true:false} > Low </option>
-                     <option value="2" selected={details.priority===2?true:false} > Medium </option>
-                     <option value="1" selected={details.priority===1?true:false}  > High </option>
-                 </select>
-                 <img src={require("../../../Img/adminDropdown.png")} className={"adminDropdown"} />
+            <div className="admsrselect1">
+              <label htmlFor="" className="priorityLabel">
+                Priority
+              </label>
+              <FormControl className={classes.selectfield}>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={priority}
+                  onChange={stateHandler}
+                  onFocus={() => setFocused(true)}
+                  onBlur={() => setFocused(false)}
+                  name="priority"
+                  IconComponent={() =>
+                    focused ? (
+                      <KeyboardArrowDownIcon />
+                    ) : (
+                      <KeyboardArrowUpIcon />
+                    )
+                  }
+                >
+                  <MenuItem value="1"> High </MenuItem>
+                  <MenuItem value="2"> Medium</MenuItem>
+                  <MenuItem value="3"> Low </MenuItem>
+                </Select>
+              </FormControl>
             </div>
 
-            <div>
-                 <label htmlFor="" className='statusLabel' >Status</label> <br />
-                 <select className='admsrselect1' name="status" id=""  onChange={stateHandler} >
-                     <option value="1" selected={details.status===1?true:false} > New </option>
-                     <option value="2" selected={details.status===2?true:false} > Luths Working </option>
-                     <option value="3" selected={details.status===3?true:false} > Need Your Attention </option>
-                     <option value="4" selected={details.status===4?true:false} > Resolved </option>
-                 </select>
-                 <img src={require("../../../Img/adminDropdown.png")} className="adminDropdown"  />
+            <div className="admsrselect1">
+              <label htmlFor="" className="statusLabel">
+                Status
+              </label>
+              <FormControl className={classes.selectfield}>
+                {/* <InputLabel id="demo-simple-select-label">Status</InputLabel> */}
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={status}
+                  // label="Status"
+                  onChange={stateHandler}
+                  onFocus={() => setFocused(true)}
+                  onBlur={() => setFocused(false)}
+                  name="status"
+                  IconComponent={() =>
+                    focused ? (
+                      <KeyboardArrowDownIcon />
+                    ) : (
+                      <KeyboardArrowUpIcon />
+                    )
+                  }
+                >
+                  <MenuItem value="1"> New </MenuItem>
+                  <MenuItem value="2"> Luths Working </MenuItem>
+                  <MenuItem value="3"> Need Your Attention </MenuItem>
+                  <MenuItem value="4"> Resolved </MenuItem>
+                </Select>
+              </FormControl>
             </div>
 
-            <div>
-                 <label htmlFor="" className='jobReferenceLabel' >Job Reference</label> <br />
-                 <input className='admsrinput1' value={details.job_reference_id?details.job_reference_id.job_ref_number:""} onChange={stateHandler2} name="job_reference_id" id="" >
-                 </input>
-                 <img src={require("../../../Img/adminSearchIcon.png")} className={"adminSearchIcon"} />
-            </div>  
+            <div></div>
+
+            <div style={{ marginTop: "30px", marginLeft: "5px" }}>
+              <label htmlFor="" className="jobReferenceLabel">
+                Job Reference
+              </label>{" "}
+              <br />
+              <input
+                className="admsrinput1"
+                value={
+                  details.job_reference_id
+                    ? details.job_reference_id.job_ref_number
+                    : ""
+                }
+                onChange={stateHandler2}
+                name="job_reference_id"
+                id=""
+              ></input>
+              <img
+                src={require("../../../Img/adminSearchIcon.png")}
+                className={"adminSearchIcon"}
+              />
+            </div>
 
             <div className="admindisplaygrid">
-                     <div className="miniadmindisplaygrid1">Site</div>
-                     <div className="minidisplaygrid1">{details.job_reference_id?details.job_reference_id.site_details:"-"}</div>
-            </div>  
+              <div className="miniadmindisplaygrid1">Site</div>
+              <div className="minidisplaygrid1">
+                {details.job_reference_id
+                  ? details.job_reference_id.site_details
+                  : "-"}
+              </div>
+            </div>
 
-            <div style={{marginTop:"30px"}} >
-                 <select className='admsrselect1' name="" id="" onClick={() => setd3(!d3)} >
-                     <option value="">Assigned </option>
-                     <option value=""> Assigned1 </option>
-                     <option value=""> Assigned2 </option>
-                 </select>
-                 <img src={require("../../../Img/adminDropdown.png")} className={d3?"adminDropdown adminRotate":"adminDropdown"} />
+            <div style={{ marginLeft: "5px", marginTop: "20px" }}>
+              <label htmlFor="" className="statusLabel">
+                Assigned To
+              </label>
+              <FormControl className={classes.selectfield}>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={assigned}
+                  onChange={stateHandler}
+                  onFocus={() => setFocused(true)}
+                  onBlur={() => setFocused(false)}
+                  name="assigned_to"
+                  IconComponent={() =>
+                    focused ? (
+                      <KeyboardArrowDownIcon />
+                    ) : (
+                      <KeyboardArrowUpIcon />
+                    )
+                  }
+                >
+                  {baUser &&
+                    baUser.map((item, index) => {
+                      return (
+                          <MenuItem key={item._id} value={item.name}> {item.name} </MenuItem>
+                      );
+                    })}
+                </Select>
+              </FormControl>
             </div>
 
             <div className="admindisplaygrid">
-              
-              
               {/* <div>Status</div>
               {details.status == 1 && <div className="admindisplaygrid1">New</div>}
               {details.status == 2 && (
@@ -473,20 +617,30 @@ const stateHandler2 = (e) => {
                   ? details.job_reference_id.site_details
                   : "-"}
               </div> */}
-               <div className="miniadmindisplaygrid1">Last Updated</div>
-                     <div className="minidisplaygrid1">{moment(details.updatedAt).format("DD/MM/YYYY h:mm a")}</div>
-                     <div className="miniadmindisplaygrid1">Last Updated by</div>
-                     <div className="minidisplaygrid1">{details.last_updated_by?details.last_updated_by:"-"}</div>
-                     <div className="miniadmindisplaygrid1">Created</div>
-                     <div className="minidisplaygrid1">{moment(details.createdAt).format("DD/MM/YYYY h:mm a")}</div>
-                     <div className="miniadmindisplaygrid1">Created By</div>
-                     <div className="minidisplaygrid1">{details.creator_name}</div>
+              <div className="miniadmindisplaygrid1">Last Updated</div>
+              <div className="minidisplaygrid1">
+                {moment(details.updatedAt).format("DD/MM/YYYY h:mm a")}
+              </div>
+              <div className="miniadmindisplaygrid1">Last Updated by</div>
+              <div className="minidisplaygrid1">
+                {details.last_updated_by ? details.last_updated_by : "-"}
+              </div>
+              <div className="miniadmindisplaygrid1">Created</div>
+              <div className="minidisplaygrid1">
+                {moment(details.createdAt).format("DD/MM/YYYY h:mm a")}
+              </div>
+              <div className="miniadmindisplaygrid1">Created By</div>
+              <div className="minidisplaygrid1">{details.creator_name}</div>
             </div>
 
             <div>
-                     <button className='adminUpdateStatusBtn' onClick={(e)=>updatingSR(e)}>Update Status</button>
-                     <button className='adminIgnoreBtn' >Ignore</button>
-                 </div>
+              <button
+                className="adminUpdateStatusBtn"
+                onClick={(e) => updatingSR(e)}
+              >
+                Update Status
+              </button>
+            </div>
             <div className="adminmsrtitle2">Attachments</div>
             <hr className="adminmsrhr1" />
             {availableFiles &&
@@ -496,8 +650,11 @@ const stateHandler2 = (e) => {
                     src={require("../../../Img/attachIcon1.png")}
                     className="adminmsrattachIcon"
                   />
-                  <div className="admindiv-name" onClick={() => printTickets(index)}>
-                    Attachment {index + 1}.pdf
+                  <div
+                    className="admindiv-name"
+                    onClick={() => printTickets(index)}
+                  >
+                    Attachment {index + 1}
                   </div>
                   <span>
                     <img
@@ -511,17 +668,23 @@ const stateHandler2 = (e) => {
           </div>
           <div className="adminmsrgrid2">
             <div className="adminmsrtitle3">
-              {details.service_ref_number}-{details.title}
+              {details.service_ref_number} - {details.title}
             </div>
             <span className="adminmsrspan1">{details.description}</span>
             <div style={{ marginTop: "80px" }}>
-              <button className="adminmsrbutton1" onClick={() => toggleModal()}>
+              <button className="adminmsrbutton1" onClick={(e) => toggleModal(e)}>
                 Add Update
               </button>
-              <button className="adminmsrbutton2" onClick={() => togglefileModal()}>
+              <button
+                className="adminmsrbutton2"
+                onClick={() => togglefileModal()}
+              >
                 Add Attachments
               </button>
-              <button className="adminmsrbutton3" onClick={() => togglesrModal()}>
+              <button
+                className="adminmsrbutton3"
+                onClick={() => togglesrModal()}
+              >
                 Close SR
               </button>
             </div>
@@ -572,7 +735,7 @@ const stateHandler2 = (e) => {
                         {item.type == 3 && (
                           <span className="adminmsrspan21">Internal Notes</span>
                         )}
-                        
+
                         {item.type == 4 && (
                           <span className="adminmsrspan21">System Update</span>
                         )}
@@ -587,7 +750,9 @@ const stateHandler2 = (e) => {
                   </>
                 );
               })}
-              {notes.length===0&&<div style={{textAlign:"center"}} >No Notes Found</div>}
+            {notes.length === 0 && (
+              <div style={{ textAlign: "center" }}>No Notes Found</div>
+            )}
           </div>
         </div>
       </div>
@@ -611,7 +776,7 @@ const stateHandler2 = (e) => {
               </h5>
               <hr className="adminclhrFirst" />
               <h5 className="admindialogname">
-                {details.service_ref_number}-{details.title}
+                {details.service_ref_number} - {details.title}
               </h5>
             </div>
             <div className="admindialog-row2">
@@ -622,11 +787,23 @@ const stateHandler2 = (e) => {
                   setText(e.target.value);
                   setNoupdate(false);
                 }}
-                placeholder="Update Details"
+                placeholder="Update details"
               ></textarea>
-              <div style={{marginTop:"10px",marginBottom:"20px"}}>
-                <input className="admincheckbox" type="checkbox"  onChange={handleChecked} />
-                <label style={{marginLeft:"5px",position:"relative",bottom:"4px"}}>Internal Notes</label>
+              <div style={{ marginTop: "10px", marginBottom: "20px" }}>
+                <input
+                  className="admincheckbox"
+                  type="checkbox"
+                  onChange={handleChecked}
+                />
+                <label
+                  style={{
+                    marginLeft: "5px",
+                    position: "relative",
+                    bottom: "4px",
+                  }}
+                >
+                  Internal Notes
+                </label>
               </div>
               {noupdate && (
                 <span style={{ color: "red", display: "block" }}>
@@ -634,10 +811,13 @@ const stateHandler2 = (e) => {
                 </span>
               )}
               <div style={{ marginTop: "10px" }}>
-                <button className="adminsubmitbtn" onClick={(e) => addUpdate(e)}>
+                <button
+                  className="adminsubmitbtn"
+                  onClick={(e) => addUpdate(e)}
+                >
                   Submit
                 </button>
-                <button className="adminclosebtn" onClick={() => toggleModal()}>
+                <button className="adminclosebtn" onClick={(e) => toggleModal(e)}>
                   Cancel
                 </button>
               </div>
@@ -664,7 +844,7 @@ const stateHandler2 = (e) => {
             </h5>
             <hr className="adminclhrFirst" />
             <h5 className="admindialogname">
-              {details.service_ref_number}-{details.title}
+              {details.service_ref_number} - {details.title}
             </h5>
           </div>
           <div className="admindialog-row2">
@@ -710,7 +890,7 @@ const stateHandler2 = (e) => {
             </h5>
             <hr className="adminclhrFirst" />
             <h5 className="admindialogname">
-              {details.service_ref_number}-{details.title}
+              {details.service_ref_number} - {details.title}
             </h5>
           </div>
           <div className="admindialog-row2">
@@ -768,7 +948,9 @@ const stateHandler2 = (e) => {
                       style={{ marginLeft: "20px" }}
                     />
 
-                    <span className="adminfileName">Attachment-{index + 1}</span>
+                    <span className="adminfileName">
+                      Attachment-{index + 1}
+                    </span>
                   </span>
 
                   <img
@@ -785,7 +967,10 @@ const stateHandler2 = (e) => {
               <button className="adminsubmitbtn" onClick={() => newUpload()}>
                 Submit
               </button>
-              <button className="adminclosebtn" onClick={() => togglefileModal()}>
+              <button
+                className="adminclosebtn"
+                onClick={() => togglefileModal()}
+              >
                 Cancel
               </button>
             </div>
@@ -797,8 +982,7 @@ const stateHandler2 = (e) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  adminFirstPageAction:value => dispatch(adminFirstPageAction(value))
-})
+  adminFirstPageAction: (value) => dispatch(adminFirstPageAction(value)),
+});
 
-export default connect(null,mapDispatchToProps)(AdminManageService);
-
+export default connect(null, mapDispatchToProps)(AdminManageService);

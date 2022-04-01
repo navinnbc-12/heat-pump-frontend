@@ -106,7 +106,7 @@ function AdminRCA({adminFirstPageAction}) {
               const res = response.data;
               setLoader(false);
               if (res.success) {
-                toast.success("File Added");
+              /*   toast.success("File Added"); */
                 attachments.push(res.data.message[0]);
                 /* setFiles([...files, e]); */
                 setInputData({...inputData,evidences:[...inputData.evidences,res.data.message[0]]})
@@ -186,8 +186,8 @@ function AdminRCA({adminFirstPageAction}) {
     <div className="adminRCApaper">
 
         <div className="adminRCAfirstrow">
-          <div className="adminRCAnames">{inputData.name}</div>  <div className="adminRCAnew" >{inputData.status==1?"New":(inputData.status==2)?"In Progress":(inputData.status==3)?"Approve":(inputData.status==5)?"Reject":(inputData.status == 6)?"Inactive":"New"}</div>
-          <div style={{ fontSize: "small",marginTop:"5px" }}>{`${inputData.address_1},${inputData.city}`}</div>
+          <div className="adminRCAnames">{inputData.name}</div>  <div className="adminRCAnew" >{inputData.status==1?"New":(inputData.status==2)?"In Progress":(inputData.status==3)?"Approved":(inputData.status==5)?"Rejected":(inputData.status == 6)?"Inactive":"New"}</div>
+          <div style={{ fontSize: "small",marginTop:"5px" }}>{`${inputData.address_1}, ${inputData.city}`}</div>
           <hr className="adminRCAhrFirst" />
         </div>
 
@@ -213,8 +213,8 @@ function AdminRCA({adminFirstPageAction}) {
               height="8px"
               width={"10px"}
               className={i
-                ? "fa fa-angle-down fa-rotate-180" 
-                : "fa fa-angle-down"}
+                ? "fa fa-angle-down " 
+                : "fa fa-angle-down fa-rotate-180"}
             />
          </div>
          <span className="title-text">
@@ -250,8 +250,8 @@ function AdminRCA({adminFirstPageAction}) {
               height="8px"
               width={"10px"}
               className={i1
-                ? "fa fa-angle-down fa-rotate-180" 
-                : "fa fa-angle-down"}
+                ? "fa fa-angle-down " 
+                : "fa fa-angle-down fa-rotate-180"}
             />
          </div>
          <span className="title-text">
@@ -275,7 +275,7 @@ function AdminRCA({adminFirstPageAction}) {
               onChange={changeHandler}
               name="business_registered_name"
               
-            /> <label className={i?"adminrcanone":"admininput5-label"} >Business Registered Name*</label>  </div>
+            /> <label className={"admininput5-label"} >Business Registered Name*</label>  </div>
             <input
               required
               className="admininputfields admininput6"
@@ -308,8 +308,8 @@ function AdminRCA({adminFirstPageAction}) {
               height="8px"
               width={"10px"}
               className={i2
-                ? "fa fa-angle-down fa-rotate-180" 
-                : "fa fa-angle-down"}
+                ? "fa fa-angle-down " 
+                : "fa fa-angle-down fa-rotate-180"}
             />
          </div>
          <span className="title-text">
@@ -399,12 +399,12 @@ function AdminRCA({adminFirstPageAction}) {
               height="8px"
               width={"10px"}
               className={i3
-                ? "fa fa-angle-down fa-rotate-180" 
-                : "fa fa-angle-down"}
+                ? "fa fa-angle-down " 
+                : "fa fa-angle-down fa-rotate-180"}
             />
          </div>
          <span className="title-text">
-           Business Details
+           Supporting Documents
          </span>
        </div>
        <div className={i3
@@ -472,8 +472,9 @@ function AdminRCA({adminFirstPageAction}) {
             </h5>
             <hr className="clhrFirst" />
             <h5 className="dialogname">
-              {details.service_ref_number}-{details.title}
+            {inputData.name}
             </h5>
+           
           </div>
           <div className="dialog-row2">
             <div>

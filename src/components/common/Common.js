@@ -10,6 +10,14 @@ import { useNavigate } from "react-router-dom";
 
 import "./Common.css";
 import { connect } from "react-redux";
+import Button from "@mui/material/Button";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import Grow from "@mui/material/Grow";
+import Paper from "@mui/material/Paper";
+import Popper from "@mui/material/Popper";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import Stack from "@mui/material/Stack";
 
 
 
@@ -34,6 +42,40 @@ function Common({firstPageStatus}) {
 
   }
   console.log(firstPageStatus)
+  
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
+
+  const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  function handleListKeyDown(event) {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      setOpen(false);
+    } else if (event.key === "Escape") {
+      setOpen(false);
+    }
+  }
+
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = React.useRef(open);
+  React.useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus();
+    }
+
+    prevOpen.current = open;
+  }, [open]);
   return (
    
       <div style={{ display: "flex",height:"100%" }}>
@@ -189,20 +231,81 @@ function Common({firstPageStatus}) {
                   <span
                     style={{
                       position: "relative",
-                      bottom: "15px",
-                      left: "70px",
-                      color: "rgba(0, 0, 0, 0.6)",
+                    top: "17px",
+                    marginLeft: "10px",
+                    color: "rgba(0, 0, 0, 0.6)",
+                    display: "inline-block",
+                    float:"right",
+                    marginRight:"15px",
                     }}
                   >
                     {userInfo.name}
                   </span>
-                  <img
-                    src={require("../../Img/account.png")}
-                    height="40px"
-                    width={"40px"}
-                    className="account-icon"
-                    onClick={() => toggleModal()}
-                  />
+                  <div>
+                  <Button
+                    ref={anchorRef}
+                    id="composition-button"
+                    aria-controls={open ? "composition-menu" : undefined}
+                    aria-expanded={open ? "true" : undefined}
+                    aria-haspopup="true"
+                    onClick={handleToggle}
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      marginLeft: "120px",
+                      position: "relative",
+                      bottom: "18px",
+                      display: "inline-block",
+                      left:"45px",
+                    }}
+                  >
+                    <img
+                      src={require("../../Img/account.png")}
+                      height="40px"
+                      width={"40px"}
+                    />
+                  </Button>
+                  <Popper
+                    open={open}
+                    anchorEl={anchorRef.current}
+                    role={undefined}
+                    placement="bottom-start"
+                    transition
+                    disablePortal
+                  >
+                    {({ TransitionProps, placement }) => (
+                      <Grow
+                        {...TransitionProps}
+                        style={{
+                          transformOrigin:
+                            placement === "bottom-start"
+                              ? "left top"
+                              : "left bottom",
+                        }}
+                      >
+                        <Paper>
+                          <ClickAwayListener onClickAway={handleClose}>
+                            <MenuList
+                              autoFocusItem={open}
+                              id="composition-menu"
+                              aria-labelledby="composition-button"
+                              onKeyDown={handleListKeyDown}
+                            >
+                              <MenuItem onClick={handleClose}>Profile</MenuItem>
+                              <MenuItem onClick={handleClose}>
+                                My account
+                              </MenuItem>
+                              <MenuItem onClick={() => toggleModal()}>
+                                Logout
+                              </MenuItem>
+                            </MenuList>
+                          </ClickAwayListener>
+                        </Paper>
+                      </Grow>
+                    )}
+                  </Popper>
+                </div>
+                  
                 </div>
               </div>
             </div>

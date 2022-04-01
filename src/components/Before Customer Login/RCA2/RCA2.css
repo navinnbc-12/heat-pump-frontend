@@ -20,6 +20,7 @@
 
   .rca2firstHalf {
     min-width: 870px;
+    max-width: 870px;
     display: inline-block;
     
   }
@@ -131,6 +132,21 @@
    
   }
 
+  @media screen and (max-height: 700px) {
+    .rca2Rectangle-side {
+      height: auto;
+    }
+  }
+
+  @media screen and (max-width: 1400px) {
+    
+    .rca2ellipse1{
+      position: absolute;
+      left:620px;
+      bottom: 1%;
+    }
+  }
+
   .rca2couplesideImg{
     width: 390px;
     height: 415px;
@@ -141,8 +157,8 @@
   }
 
   .rca2ellipse1{
-    position: fixed;
-    left:627px;
+    position: absolute;
+    right:660px;
     bottom: 1%;
   }
 
@@ -410,57 +426,58 @@
 
   .rca2inputError{
     color: rgba(255, 0, 0, 0.699);
+    font-size: 13px;
   }
 
   .input5Error{
     position: absolute;
     left: 560px;
-    top: 210px ;
+    top: 213px ;
   }
   
   .input6Error{
     position: absolute;
     left: 560px;
-    top: 265px ;
+    top: 268px ;
     
   }
   
   .input7Error{
     position: absolute;
     left: 560px;
-    top: 320px ;
+    top: 323px ;
   }
   
   .input8Error{
     position: absolute;
     left: 560px;
-    bottom: 310px ;
+    top:503px
     
   }
 
   .input9Error{
     position: absolute;
     left: 560px;
-    bottom: 255px ;
+   top: 473px;
   }
   
   .input10Error{
     position: absolute;
     left: 560px;
-    bottom: 200px ;
+    top: 528px;
     
   }
   
   .input11Error{
     position: absolute;
     left: 560px;
-    bottom: 145px ;
+    top: 583px;
   }
   
   .input12Error{
     position: absolute;
     left: 560px;
-    bottom: 93px ;
+   top: 635px;
     
   }
 
@@ -543,10 +560,10 @@
     right: 15px;
     width: 15px;
     height: 9px;
-    transform: rotate(180deg);
+    
    transition: all 100ms ease-in-out;
 }
 
 .commondropdownrotate{
-  transform: rotate(0deg);
+  transform: rotate(180deg);
 }

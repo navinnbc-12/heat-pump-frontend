@@ -8,7 +8,7 @@
 
 .request-a-customer-account {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-wrap: nowrap;
   padding: 0 0 0 0;
@@ -19,7 +19,7 @@
 .firstHalf1 {
   min-width: 740px;
   display: inline-block;
-  height: 100vh;
+  
   
 }
 .HPD-Existing-Logo {
@@ -64,11 +64,20 @@
 
 .Rectangle-side {
   min-width: 620px;;
-  max-height: 100vh;
+  height: 100vh;
   margin-left: auto;
  
   background-image: linear-gradient(to bottom, #f4f2ea 0%, #d9d6c9 100%);
  
+}
+
+@media screen and (max-height: 660px) {
+  .Rectangle-side {
+    height: auto;
+  }
+/*   .RACAcouplesideImg{
+    top: 60%;
+  } */
 }
 
 .RACAcouplesideImg{
