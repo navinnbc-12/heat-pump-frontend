@@ -344,7 +344,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
       axios({
         method: "post",
         url: URL + globalAPI.addnotes + `?srid=${state._id}`,
-        data: {description: closetext, type: 2,title:closetext },
+        data: {description: closetext, type: 2,title:"--closed--" },
         headers: {
           Authorization: `Bearer ${token}`,
         },

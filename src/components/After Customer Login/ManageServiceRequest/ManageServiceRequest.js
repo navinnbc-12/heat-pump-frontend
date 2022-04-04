@@ -265,7 +265,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
       axios({
         method: "post",
         url: URL + globalAPI.addnotes + `?srid=${state}`,
-        data: {description: closetext, type: 1,title: closetext, },
+        data: {description: closetext, type: 1,title: "--closed--", },
         headers: {
           Authorization: `Bearer ${token}`,
         },

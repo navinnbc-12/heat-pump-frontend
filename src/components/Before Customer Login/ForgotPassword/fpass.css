@@ -6,13 +6,14 @@
   body{
     padding: 0;
     margin: 0;
+    
   }
   
   
   
   .forgotpassword{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-wrap: nowrap;
     padding: 0 0 0 0;
@@ -22,27 +23,27 @@
   
   
   .fpfirstHalf {
-    /* min-width: 870px; */
-    width: 870px;
+    width: 56.6vw;
     display: inline-block;
     
   }
 
   .fpHPD {
-    margin: 40px 0 50px 45px;
-    
+    margin: 5.4vh 0 6vh 3vw;
+    height: 5vh;
+    width: 2.5vw;
     display: inline-block;
   }
   
   .fpdiv1{
-    width:590px;
-    margin:5px 0px 0px 100px;
+    width:38.4vw;
+    margin:0.7vh 0px 0px 6.6vw;
     position:relative;
-    font-weight:300px;
+    font-weight:20vw;
     font-family:Outfit;
     
     color:#000000;
-    font-size: 45px;
+    font-size: 3vw;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -51,7 +52,7 @@
   }
 
   .fpRectangle-side {
-    /* min-width: 660px;; */
+    width: 43vw;;
     height: 100vh;
     margin-left: auto;
    
@@ -59,27 +60,27 @@
    
   }
 
-  @media screen and (max-height: 700px) {
+/*   @media screen and (max-height: 700px) {
     .fpRectangle-side {
       height: auto;
     }
-  }
+  } */
   
   .fpcouplesideImg{
-    width: 490px;
-    height: 465px;
-    margin-left: 100px;
+    width: 32vw;
+    height: 62.4vh;
+    margin-left: 6.6vw;
     position: absolute;
-    bottom: 1px;
+    bottom: 0.15vh;
     
   }
 
   .fpinputfield {
-    width: 450px;
-    height: 48px;
-    margin: 20px 0px 0px 100px;
-    padding-left: 10px;
-    padding-top: 2px;
+    width: 30vw;
+    height:6.5vh;
+    margin: 3vh 0px 0px 6.6vw;
+    padding-left: 0.6vw;
+    padding-top: 0.12vw;
    
     border-radius: 10px;
     border: solid 1px #cdcdcd;
@@ -87,7 +88,7 @@
   }
 
   .fphr{
-    margin:240px 0px 0px 100px;
+    margin:32vh 0px 0px 6.6vw;
     background-color: #f2f3f2;
     border: 2px solid #f2f3f2 ;
     width: 60%;
@@ -95,40 +96,42 @@
 
   .learnmore{
     color: #fa5e00;
-    margin-left: 5px;
+    margin-left: 0.33vw;
   }
 
   .input13-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 441px;
+    right: 28.7vw;
+    bottom: 0.3vh;
   
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.8vw;
   }
   
   .input13:focus ~ .input13-label, .input13:valid ~ .input13-label{
-    bottom:23px;
-    right: 440px;
+    bottom:3.4vh;
+    right: 28.64vw;
     position: relative;
-    font-size: 11px;
+    font-size: 0.73vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    padding:0 0.33vw 0 0.7vh;
   }
 
   .format{
-    margin-left: 100px;
+    margin-left: 6.6vw;
     font-size: small;
-    margin-top: 5px;
+    margin-top: 0.8vh;
     color: #cdcdcd;
   }
 
   .input13Error{
     position: absolute;
-    left: 570px;
-    top: 310px;
+    left: 37vw;
+    top: 37vh;
     color: rgba(255, 0, 0, 0.699);
+    font-size: 1vw;
   }
