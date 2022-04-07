@@ -285,11 +285,11 @@ function Common({firstPageStatus}) {
                               aria-labelledby="composition-button"
                               onKeyDown={handleListKeyDown}
                             >
-                              <MenuItem onClick={handleClose}>Profile</MenuItem>
-                              <MenuItem onClick={handleClose}>
+                              <MenuItem style={{fontWeight:600}}onClick={handleClose}>Profile</MenuItem>
+                              <MenuItem style={{fontWeight:600}} onClick={handleClose}>
                                 My account
                               </MenuItem>
-                              <MenuItem onClick={() => toggleModal()}>
+                              <MenuItem style={{fontWeight:600}} onClick={() => toggleModal()}>
                                 Logout
                               </MenuItem>
                             </MenuList>
