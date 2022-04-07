@@ -522,7 +522,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                   }
                 >
                   <MenuItem value="1"> New </MenuItem>
-                  <MenuItem value="2"> Luths Working </MenuItem>
+                  <MenuItem value="2"> HPD Working </MenuItem>
                   <MenuItem value="3"> Need Your Attention </MenuItem>
                   <MenuItem value="4"> Resolved </MenuItem>
                 </Select>
