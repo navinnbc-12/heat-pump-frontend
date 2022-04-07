@@ -97,7 +97,7 @@ function PriorityComponent() {
           <Route path="/forgotpassword" element={(!token)?<ForgotPassword />:(userData.admin)?<Navigate to = "/admincommon/accountrequest"/>:<Navigate to = "/common/servicerequest"/>} />
           <Route path="/otp" element={(!token)?<OTP />:(userData.admin)?<Navigate to = "/admincommon/accountrequest"/>:<Navigate to = "/common/servicerequest"/>} />
           <Route path="/newpassword" element={(!token)?<NewPassword />:(userData.admin)?<Navigate to = "/admincommon/accountrequest"/>:<Navigate to = "/common/servicerequest"/>} />
-          <Route path="/fpass" element = {<Fpass/>} />
+          {/* <Route path="/fpass" element = {<Fpass/>} /> */}
         
           {userData&&!userData.admin&&<Route path={"/common"} element={<Common/>}>
               <Route path = "createlist" element={<CreateList/>}/>

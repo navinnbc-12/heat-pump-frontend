@@ -8,28 +8,35 @@
     top:0;
     left: 0;
     transform: translate(-100%);
-    
-  
-   
 }
 
 .firstli{
-    margin-top: 50px;
+    margin-top: 6.7vh;
+    font-size: 0.92vw;
 }
 
-li{
+.myquotes-text{
+    font-size: 0.92vw;
+}
+
+.my-servicerequest{
+    font-size: 0.92vw;
+}
+
+
+.li{
     list-style: none;
-    padding: 0.5rem 1rem;
-    font-size: 14px;
+    padding: 1.2vh 1.2vw;
+    font-size: 0.92vw;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2vw;
     cursor: pointer;
 }
 .sidebar1{
     
     background-image:linear-gradient(to right, #f4f2ea 0%, #d9d6c9 100%);
-    width: 290px;
+    width: 18.88vw;
     height: 100;
     
     border-top-right-radius: 5px;
@@ -39,8 +46,15 @@ li{
 }
 
 .HPDSideBar {
-    margin: 25px 0  0 40px;
+    margin: 4.4vh 0 6vh 2.5vw;
+    height: 5vh;
+    width: 2.5vw;
     display: inline-block;
+  }
+
+  .sidbar-icon{
+    height:2.7vh;
+    width:1.3vw
   }
 
 
@@ -65,73 +79,102 @@ li{
 }
 
 .collapse-icon{
-    margin-top: 25px;
-    margin-left: 40px;
+    margin-top: 3vh;
+    margin-left: 2.44vw;
+    height: 5.36vh;
+    width: 2.6vw;
 }
 
 .collapse-left{
-    margin-top: 25px;
-    margin-left: 10px;
+    margin-top: 3vh;
+    margin-left: 0.61vw;
+    height: 5.36vh;
+    width: 2.6vw;
 }
 
 .home-icon{
-    margin-top: 25px;
-    margin-left: 60px;
+    margin-top: 3vh;
+    margin-left: 8vw;
+    height: 5.36vh;
+    width: 2.6vw;
    
 }
 
 
 .bell-icon{
-    margin-top: 25px;
-    margin-left: 10px;
+    margin-top: 3.35vh;
+    margin-left: 0.61vw;
+    height: 5.36vh;
+    width: 2.6vw;
 }
 
 .name-icon{
     display: inline-block;
     position: relative;
+    
 }
 
 .account-icon{
-    margin-top: 25px;
-    margin-left: 80px;
+    /* margin-top: 2.35vh; */
+    margin-left: 1.20vw;
+    height: 5.36vh;
+    width: 2.6vw;
+
 }
 
 
 
 .redbar1hidden{
     position: relative;
-    left: 95.5px;
+    left: 5.7vw;
     visibility: hidden;
+    height: 6.71vh;
+    width: 0.65vw;
 }
+
 .redbar1{
     position: relative;
-    left: 95.5px;
+    left: 5.7vw;
     visibility: visible;
+    height: 6.71vh;
+    width: 0.65vw;
 }
 
 .redbar2hidden{
     position: relative;
-    left: 105px;
+    left: 6.7vw;
     visibility: hidden;
+    height: 6.71vh;
+    width: 0.65vw;
 }
+
 
 .redbar2{
     position: relative;
-    left: 105px;
+    left: 6.4vw;
     visibility: visible;
+    height: 6.71vh;
+    width: 0.65vw;
 }
+
 
 .redbar3hidden{
     position: relative;
-    left: 46px;
+    left:2.5vw;
     visibility: hidden;
+    height: 6.71vh;
+    width: 0.65vw;
 }
+
 
 .redbar3{
     position: relative;
-    left: 46px;
+    left:2.5vw;
     visibility: visible;
+    height: 6.71vh;
+    width: 0.65vw;
 }
+
 
 .logoutmodal {
     position: fixed;
@@ -140,11 +183,11 @@ li{
     transform: translate(-50%, -50%);
     background: #fff;
     overflow: auto;
-    border-radius: 25px;
+    border-radius: 1.5vw;
     outline: none;
-    padding: 20px 20px 20px 20px;
+    padding: 2.7vh 1.33vw;
     z-index: 1000;
-    width: 450px;
+    width: 29.3vw;
   }
   
   .myoverlay {
@@ -161,31 +204,36 @@ li{
     text-align-last: right;
   }
   .log-row1 {
-    margin-left: 10px;
+    margin-left: 0.66vw;
   }
   
   .log-row2 {
-    margin-left: 30px;
-    margin-top: 40px;
+    margin-left: 1.8vw;
+    margin-top: 6vh;
     
   }
   .yesbtn {
-    width: 130px;
-    height: 40px;
+    width: 8vw;
+    height: 6vh;
     border: #000;
-    border-radius: 50px;
+    border-radius: 3.255vw;
     background-color: #000;
     color: white;
     font-weight: 100;
     cursor: pointer;
   }
   .nobtn {
-    margin-left: 10px;
-    width: 130px;
-    height: 40px;
+    margin-left: 0.66vw;
+    width: 8vw;
+    height: 6vh;
     border: grey ridge;
-    border-radius: 50px;
+    border-radius: 3.255vw;
     background-color: white;
     color: black;
     cursor: pointer;
+  }
+
+  .ellipse{
+      height: 48.4vh;
+      width: 16.3vw;
   }

@@ -16,31 +16,16 @@ import URL from "../../../GlobalUrl";
 import globalAPI from "../../../GlobalApi";
 
 const useStyles = makeStyles({
-  heading: {
-    margin: "25px 0px 0px 100px",
-    fontSize: "50px",
-    fontWeight: "200",
-    fontStretch: "normal",
-    fontStyle: "normal",
-    lineHeight: "normal",
-    letterSpacing: "0.41px",
-    textAlign: "left",
-    color: " #000",
-    display: "block",
-  },
-  subtitle: {
-    margin: "20px 0px 0px 100px",
-    fontSize: "17px",
-    width: "420px",
-  },
+  
   button: {
     textTransform: "none",
-    margin: "20px 0px 0px 100px ",
+    margin: "2.68vh 0px 0px 6.51vw ",
     backgroundColor: "black",
     color: "white",
-    width: "170px",
-    height: "50px",
-    borderRadius: "32.5px",
+    width: "11.06vw",
+    height: "6.71vh",
+    borderRadius: "2.11vw",
+    fontSize:"1vw",
     "&:hover": {
       textTransform: "none",
       background: "black",
@@ -49,13 +34,14 @@ const useStyles = makeStyles({
   },
   buttons: {
     textTransform: "none",
-    margin: "20px 0px 0px 20px ",
-    border: "solid 1px #d3d3d3",
+    margin: "2.7vh 0px 0px 1.3vw ",
+    border: "solid 0.134vh #d3d3d3",
     backgroundColor: "#f9f9f9",
     color: " #000",
-    width: "150px",
-    height: "50px",
-    borderRadius: "32.5px",
+    width: "9.5vw",
+    height: "6.71vh",
+    borderRadius: "2.11vw",
+    fontSize:"1vw",
     "&:hover": {
       textTransform: "none",
       backgroundColor: "#f9f9f9",
@@ -167,8 +153,7 @@ function NewPassword() {
           <div className="npHPD">
             <img
               src={require("../../../Img/HPDD.jpeg")}
-              height="50px"
-              width={"50px"}
+              style={{height:"6.5vh"}}
             />
           </div>
 
@@ -176,16 +161,17 @@ function NewPassword() {
 
           <div
             style={{
-              margin: "10px 0px 0px 100px",
-              width: "390px",
+              margin: "1.33vh 0px 0px 6.51vw",
+              width: "25.4vw",
               fontWeight: "300",
-              marginTop: "30px",
+              marginTop: "2vh",
+              fontSize:"1.02vw"
             }}
           >
             Your new password must be different from the previous used
             passwords.
           </div>
-
+          <div style={{marginTop:"3vh"}} >
           <span className="npspan">Password</span>
           <input
             type={showpassword.type}
@@ -249,7 +235,8 @@ function NewPassword() {
           <span style={{ visibility: `${visibility}` }} className="npspan2">
             Both passwords should match
           </span>
-          <div style={{ marginTop: "30px" }}>
+          </div>
+          <div style={{ marginTop: "4vh" }}>
             <Button className={classes.button} onClick={submitHandler}>
               Reset Password
             </Button>

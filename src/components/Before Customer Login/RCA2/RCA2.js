@@ -1,7 +1,7 @@
 import "./RCA2.css";
 import React, { useState,useEffect } from "react";
 
-import { makeStyles } from "@material-ui/core";
+import { makeStyles,createStyles } from "@material-ui/core";
 import { Typography, Button } from "@material-ui/core";
 import { width } from "@mui/system";
 import Radio from "@mui/material/Radio";
@@ -30,35 +30,23 @@ import Modal from "react-modal"
 
 
 Modal.setAppElement("#root");
-
+/* 
 const useStyles = makeStyles({
-  subtitle: {
-    fontSize: "15px",
-    fontWeight: "300",
-    fontStretch: "normal",
-    fontStyle: "normal",
-    lineHeight: "normal",
-    color: "rgb(59,59,59)",
-    letterSpacing: "0.03px",
-    margin: "25px 0px 0px 100px",
-    width: "450px",
-    fontWeight: "600",
-    fontSize: "17px",
-  },
+
   radio: {
-    height: "20px",
-    width: "20px",
+    height: "1vh",
+    width: "1vw",
   },
   button: {
-    marginLeft:"100px",
+    marginLeft:"2vw",
    // display: "inline-block",
     backgroundColor: "black",
     color: "white",
-    width: "110px",
-    height: "40px",
-    marginTop: "15px",
-    fontSize:"15px",
-    borderRadius: "32.5px",
+    width: "7.16vw",
+    height: "5.36vh",
+    marginTop: "2vh",
+    fontSize:"1vw",
+    borderRadius: "2.11vw",
     textTransform:"none",
     "&:hover":{
       background: "black",
@@ -66,16 +54,16 @@ const useStyles = makeStyles({
     },
   },
     buttons: {
-      margin: "15px 0px 0px 40px ",
-      border: "solid 1px #d3d3d3",
+      margin: "2vh 0px 0px 6.51vw ",
+      border: "solid 0.134vh #d3d3d3",
       backgroundColor: "#f9f9f9",
       color: " #000",
       fontFamily:"outfit",
-      fontSize:"15px",
-      width: "180px",
-      height: "40px",
+      fontSize:"1vw",
+      width: "11.7vw",
+      height: "5.36vh",
       textTransform: "none",
-      borderRadius: "32.5px",
+      borderRadius: "2.11vw",
       "&:hover": {
         textTransform: "none",
         backgroundColor: "#f9f9f9",
@@ -83,7 +71,56 @@ const useStyles = makeStyles({
       },
     },
  
-});
+}); */
+
+const useStyles = makeStyles(theme =>
+  createStyles({
+    smallRadioButton: {
+      "& svg": {
+        width: "1vw",
+        height: "2vh"
+      }
+    }
+  ,
+  radio: {
+    height: "0.5vh",
+    width: "0.5vw",
+  },
+  button: {
+    marginLeft:"2vw",
+   // display: "inline-block",
+    backgroundColor: "black",
+    color: "white",
+    width: "7.16vw",
+    height: "5.36vh",
+    marginTop: "2vh",
+    fontSize:"1vw",
+    borderRadius: "2.11vw",
+    textTransform:"none",
+    "&:hover":{
+      background: "black",
+      color: "white",
+    },
+  },
+    buttons: {
+      margin: "2vh 0px 0px 6.51vw ",
+      border: "solid 0.134vh #d3d3d3",
+      backgroundColor: "#f9f9f9",
+      color: " #000",
+      fontFamily:"outfit",
+      fontSize:"1vw",
+      width: "11.7vw",
+      height: "5.36vh",
+      textTransform: "none",
+      borderRadius: "2.11vw",
+      "&:hover": {
+        textTransform: "none",
+        backgroundColor: "#f9f9f9",
+        color: "#000",
+      },
+    },
+  }));
+
 
 /* const business = {
   registeredName: "",
@@ -304,15 +341,16 @@ function RCA2({ customerDetails, customerDetailsAction,suggestionList,setSuggest
           <div className="rca2HPD">
             <img
               src={require("../../../Img/HPDD.jpeg")}
-              height="50px"
-              width={"50px"}
+              style={{height:"6.5vh"}}
             />
           </div>
           <h1 className="rca2div1">Request a Customer Account</h1>
 
+          <div style={{position:"relative"}} >
           <div className="rca2left-bar"></div>
           <div className="rca2circle"></div>
           <div className="rca2right-bar"></div>
+          </div>
 
           <div className="rca2subtitle1">
             Your Business Details
@@ -369,12 +407,12 @@ function RCA2({ customerDetails, customerDetailsAction,suggestionList,setSuggest
              
             /> <label className="input7-label" >Business Type*</label> */}
 
-            <div style={{display:"flex",margin:"20px 0px 0px 100px"}}>
+            <div style={{display:"flex",margin:"2.7vh 0px 0px 6.51vw"}}>
               <div
                 
                 style={{
                   display: "inline-block",
-                  fontSize: "15px",
+                  fontSize: "1vw",
                   fontWeight: "300",
                 }}
               >
@@ -389,6 +427,7 @@ function RCA2({ customerDetails, customerDetailsAction,suggestionList,setSuggest
                   type="radio"
                   name="radio"
                   className={classes.radio}
+                  
                   checked={checked}
                   onClick={() => {
                     checked ? setChecked(false) : setChecked(true);
@@ -454,8 +493,9 @@ function RCA2({ customerDetails, customerDetailsAction,suggestionList,setSuggest
             /> {checked &&<label className="input12-label" >PostCode*</label>}     <span className=' rca2inputError input12Error' >{input12Error}</span>
             <img
             src={require("../../../Img/ellipse1.png")}
-            height="360px"
-            width={"250px"}
+            /* height="360px"
+            width={"250px"} */
+            style={{height:"48.32vh",width:"16.3vw"}}
             alt=""
             className="rca2ellipse1"
           />
@@ -468,15 +508,9 @@ function RCA2({ customerDetails, customerDetailsAction,suggestionList,setSuggest
               Submit
             </Button> */}
             <div>
-              <Button
-                className={classes.button}
-                onClick={(e) => handleSubmit(e)}
-              >
-                Submit
-              </Button>
             <Button
               className={classes.buttons}
-              style={{ paddingLeft: "50px", position: "relative" }}
+              style={{ paddingLeft: "3.255vw", position: "relative" }}
               onClick={()=>navigate("/rca1")}
             >
               Previous
@@ -484,11 +518,18 @@ function RCA2({ customerDetails, customerDetailsAction,suggestionList,setSuggest
             <ArrowBackIosNewIcon
               style={{
                 position: "relative",
-                right: "170px",
-                top: "12px",
-                fontSize: "medium",
+                right: "11.06vw",
+                top: "1.6vh",
+                fontSize: "1vw",
               }}
             />
+              <Button
+                className={classes.button}
+                onClick={(e) => handleSubmit(e)}
+              >
+                Submit
+              </Button>
+           
            
           </div>
           </form>

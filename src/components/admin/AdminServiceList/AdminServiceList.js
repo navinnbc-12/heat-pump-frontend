@@ -31,13 +31,16 @@ const theme = createTheme({
 
 const useStyles = makeStyles({
   textfield:{
+   
     '& label.Mui-focused': {
       color: 'black',
+      fontSize:"1vw",
     },
     '& .MuiOutlinedInput-root': {
-      borderRadius:"10px",
-      marginRight: "20px",
-      height:"50px",
+      borderRadius:"0.66vw",
+      marginRight: "1.33vw",
+      height:"6.71vh",
+      fontSize:"1vw",
       '&.Mui-focused fieldset': {
         borderColor: 'black',
       },
@@ -48,10 +51,10 @@ const useStyles = makeStyles({
       color: "black",
     },
     "& .MuiOutlinedInput-root": {
-      borderRadius: "10px",
-      marginRight: "20px",
-      width: "170px",
-      height: "50px",
+      borderRadius: "0.66vw",
+      marginRight: "1.33vw",
+      height:"6.71vh",
+      width:"11.06vw",
       fontWeight: "bolder",
       fontFamily: "outfit",
       backgroundColor: "white",
@@ -62,10 +65,10 @@ const useStyles = makeStyles({
     },
   },
   selectinput:{
-    marginBottom:"5px",
+    marginBottom:"0.67vh",
     fontFamily:"outfit",
     fontWeight: "bolder",
-    
+    fontSize:"1vw"
   }
 })
 
@@ -206,7 +209,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
             }}
           >
           
-          <div style={{display:"inline-block",width:"200px"}}>
+          <div style={{display:"inline-block",width:"13.3vw"}}>
             <FormControl className={classes.selectfield}>
             <InputLabel id="demo-simple-select-label" className={classes.selectinput}>Priority</InputLabel>
                 <Select
@@ -225,15 +228,15 @@ const AdminServiceList = ({adminFirstPageAction}) => {
                     )
                   }
                 >
-                  <MenuItem value="1"> High </MenuItem>
-                  <MenuItem value="2"> Medium </MenuItem>
-                  <MenuItem value="3"> Low </MenuItem>
+                  <MenuItem style={{fontWeight:"600",fontSize:"1vw"}} value="1"> High </MenuItem>
+                  <MenuItem style={{fontWeight:"600",fontSize:"1vw"}} value="2"> Medium </MenuItem>
+                  <MenuItem style={{fontWeight:"600",fontSize:"1vw"}} value="3"> Low </MenuItem>
                 </Select>
               </FormControl>
               </div>
-            <TextField label="Service Request No" className={classes.textfield} value={serviceno} onChange={(e) => setServiceno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px"} }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
-            <TextField label="Customer Name" className={classes.textfield} value={customerName} onChange={(e) => setCustomerName(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
-            <TextField label="Title" className={classes.textfield} value={title} onChange={(e) => setTitle(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+            <TextField label="Service Request No" className={classes.textfield} value={serviceno} onChange={(e) => setServiceno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh", fontSize:"1vw"} }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+            <TextField label="Customer Name" className={classes.textfield} value={customerName} onChange={(e) => setCustomerName(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh", fontSize:"1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+            <TextField label="Title" className={classes.textfield} value={title} onChange={(e) => setTitle(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh", fontSize:"1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
 
               <button className="adminsearchbtn" onClick={() => fetchSeconddata()}>
               Search
@@ -241,7 +244,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
           </div>
         </div>
         <div className="adminslfourth-row">
-          <div style={{ fontSize: "24px", fontWeight: "bold" }}>
+          <div style={{ fontSize: "1.5vw", fontWeight: "bold" }}>
             Service Requests List
           </div>
           <hr className="adminslhrFirst" />
@@ -249,19 +252,19 @@ const AdminServiceList = ({adminFirstPageAction}) => {
             <thead>
               <tr className="adminsltr"
               >
-                <th className="adminslth" style={{width:"90px"}}>Priority</th>
-                <th className="adminslth" style={{width:"140px"}}>SR No.</th>
-                <th className="adminslth" scope="col" style={{width:"250px"}}>Title</th>
-                <th className="adminslth" scope="col" style={{ width: "220px" }}>
+                <th className="adminslth" style={{width:"5.9vw"}}>Priority</th>
+                <th className="adminslth" style={{width:"9.11vw"}}>SR No.</th>
+                <th className="adminslth" scope="col" style={{width:"16.27vw"}}>Title</th>
+                <th className="adminslth" scope="col" style={{ width: "14.32vw" }}>
                   Site Details
                 </th>
-                <th className="adminslth" scope="col"style={{width:"200px"}}>SR Type</th>
-                <th className="adminslth" scope="col" style={{width:"190px"}}>
+                <th className="adminslth" scope="col"style={{width:"14.32vw"}}>SR Type</th>
+                <th className="adminslth" scope="col" style={{width:"12.36vw"}}>
                   Last Updated
                   <br />
                   Date & Time
                 </th>
-                <th className="adminslth" scope="col" style={{width:"115px"}}>Status</th>
+                <th className="adminslth" scope="col" style={{width:"7.48vw"}}>Status</th>
               </tr>
             </thead>
             <tbody className="adminslsortable">
@@ -270,23 +273,23 @@ const AdminServiceList = ({adminFirstPageAction}) => {
                   <tr
                     onClick={() => manageService(item)}
                     key={index}
-                    style={{ borderBottom: "solid 1px #d3d3d3", }}
+                    style={{ borderBottom: "solid 0.134vh #d3d3d3", }}
                     className="adminsltr"
                   >
                     {item.priority == 1 && (
-                      <td style={{paddingLeft:"10px"}} className="adminsltd" >
+                      <td style={{paddingLeft:"0.66vw"}} className="adminsltd" >
                         {" "}
                         <div className="adminslhroundcircle">H</div>{" "}
                       </td>
                     )}
                     {item.priority == 2 && (
-                      <td style={{paddingLeft:"10px"}} className="adminsltd" >
+                      <td style={{paddingLeft:"0.66vw"}} className="adminsltd" >
                         {" "}
                         <div className="adminslmroundcircle">M</div>{" "}
                       </td>
                     )}
                     {item.priority == 3 && (
-                      <td style={{paddingLeft:"10px"}} className="adminsltd"  >
+                      <td style={{paddingLeft:"0.66vw"}} className="adminsltd"  >
                         {" "}
                         <div className="adminsllroundcircle">L</div>{" "}
                       </td>
@@ -312,7 +315,8 @@ const AdminServiceList = ({adminFirstPageAction}) => {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "40px",
+                marginTop: "5.36vh",
+                fontSize:"1vw"
               }}
             >
               No  matching records found
@@ -324,7 +328,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
             style={{
               display: "flex",
               justifyContent: "center",
-              marginTop: "15px",
+              marginTop: "2vh",
             }}
           >
            <ThemeProvider theme={theme}>

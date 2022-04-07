@@ -17,20 +17,22 @@ import validator from 'validator'
 
 const useStyles = makeStyles({
   subtitle: {
-    margin: "20px 0px 0px 100px",
-    fontSize: "15px",
-    width: "420px",
+    margin: "2.7vh 0px 0px 6.6vw",
+    fontSize: "1vw",
+    width: "27vw",
     fontWeight: "600",
   },
   button: {
-    margin: "20px 0px 0px 100px ",
+    margin: "2.7vh 0px 0px 1.3vw ",
+  
     backgroundColor: "black",
     color: "white",
-    width: "180px",
-    height: "50px",
+    width: "11.71vw",
+    height: "6.7vh",
     fontFamily:"outfit",
-    borderRadius: "32.5px",
+    borderRadius: "2vw",
     textTransform: "none",
+    fontSize:"1vw",
     "&:hover": {
       textTransform: "none",
       background: "black",
@@ -38,15 +40,17 @@ const useStyles = makeStyles({
     },
   },
   buttons: {
-    margin: "20px 0px 0px 20px ",
-    border: "solid 1px #d3d3d3",
+    margin: "2.7vh 0px 0px 6.6vw",
+    border: "solid 0.134vh #d3d3d3",
     backgroundColor: "#f9f9f9",
     color: " #000",
     fontFamily:"outfit",
-    width: "200px",
-    height: "50px",
+    width: "13vw",
+    height: "6.7vh",
     textTransform: "none",
-    borderRadius: "32.5px",
+    borderRadius: "2vw",
+    fontSize:"1vw",
+ 
     "&:hover": {
       textTransform: "none",
       backgroundColor: "#f9f9f9",
@@ -55,7 +59,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ForgotPassword({ emailNum, changeEmailNum }) {
+function Fpass({ emailNum, changeEmailNum }) {
   const classes = useStyles();
   const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
@@ -112,11 +116,12 @@ function ForgotPassword({ emailNum, changeEmailNum }) {
       )}
       <div className="forgotpassword">
         <div className="fpfirstHalf">
-          <div className="fpHPD">
+          <div className="fpHPD"  >
             <img
               src={require("../../../Img/HPDD.jpeg")}
-              height="50px"
-              width={"50px"}
+              /* height="30px"
+              width="30px" */
+              style={{height:"6.5vh"}}
             />
           </div>
 
@@ -124,10 +129,11 @@ function ForgotPassword({ emailNum, changeEmailNum }) {
 
           <div
             style={{
-              margin: "10px 0px 0px 100px",
-              width: "590px",
+              margin: "1.3vh 0px 0px 6.6vw",
+              width: "38.4vw",
               fontWeight: "300",
-              marginTop: "30px",
+              marginTop: "4vh",
+              fontSize:"1.1vw"
             }}
           >
             No worries, we’ll send you reset instructions. Enter Email you've used before and we'll try to
@@ -144,16 +150,10 @@ function ForgotPassword({ emailNum, changeEmailNum }) {
           /> <label className="input13-label" >Email Address</label>  <span className="input13Error" > {input13Error} </span>
     
           
-          <div>
-              <Button
-                className={classes.button}
-                onClick={(e) => handleSubmit(e)}
-              >
-                Reset Password
-              </Button>
-            <Button
+          <div style={{marginTop:"2vh"}} >
+          <Button
               className={classes.buttons}
-              style={{ paddingLeft: "50px", position: "relative" }}
+              style={{ paddingLeft: "3.3vw", position: "relative" }}
               onClick={()=>navigate("/")}
             >
               Back to Login
@@ -161,14 +161,23 @@ function ForgotPassword({ emailNum, changeEmailNum }) {
             <ArrowBackIosNewIcon
               style={{
                 position: "relative",
-                right: "190px",
-                top: "15px",
-                fontSize: "medium",
+                right: "13.36vw",
+                top: "1.65vh",
+                height:"2.2vh",
+                width:"4vw"
               }}
             />
+              <Button
+                className={classes.button}
+                onClick={(e) => handleSubmit(e)}
+              >
+                Reset Password
+              </Button>
+           
+         
           </div>
           <hr className="fphr" />
-          <div style={{margin:"5px 0px 0px 100px",fontWeight:"600",fontSize:"15px"}} >Need more Help?<Link to = "/" className="learnmore" ><span>Learn more</span></Link></div>
+          <div style={{margin:"0.7vh 0px 0px 6.6vw",fontWeight:"600",fontSize:"1vw"}} >Need more Help?<Link to = "/" className="learnmore" ><span>Learn more</span></Link></div>
         </div>
          
         <div class="fpRectangle-side">
@@ -192,4 +201,4 @@ const mapDispatchToProps = (dispatch) => ({
   addCountryCode: (emailNum) => dispatch(addCountryCode(emailNum))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ForgotPassword);
+export default connect(mapStateToProps, mapDispatchToProps)(Fpass);

@@ -20,81 +20,81 @@ body{
 
 
 .rca1firstHalf {
-  min-width: 870px;
+  min-width:56.65vw;
   display: inline-block;
  
 }
 .rca1HPD {
-  margin: 40px 0 50px 45px;
-  
+  margin: 5.4vh 0 6vh 3vw;
+  height: 6vh;
+  width: 3vw;
   display: inline-block;
 }
 
 .left-bar{
-  width: 225px;
-  height: 7px;
+  width: 14.65vw;
+  height: 1vh;
   background-color: rgba(250, 96, 0, 0.664);
-  margin: 20px 0px 0px 103px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  margin: 2.75vh 0px 0px 6.7vw;
+  border-top-left-radius: 0.33vw;
+  border-bottom-left-radius: 0.33vw;
   display: inline-block;
   position: relative;
 }
 
 .circle{
-  width: 14px;
-  height: 15px;
-  border-radius: 14px;
+  width: 0.9vw;
+  height: 2vh;
+  border-radius:0.9vw;
   display: inline-block;
   background-color: rgb(250, 130, 56);
   position: absolute;
-  left: 321px;
-  top: 222px;
+  left: 20.9vw;
+  top:2.2vh;
  
 }
 
 
 
 .right-bar{
-  width: 225px;
-  height: 7px;
+  width: 14.64vw;
+  height: 1vh;
   background-color: #e1e1e1;
-  margin: 20px 0px 0px 0px;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+  margin: 2.75vh 0px 0px 0px;
+  border-top-right-radius: 0.33vw;
+  border-bottom-right-radius: 0.33vw;
   display: inline-block;
 }
 
 .rca1div1{
-  width:590px;
-  margin:5px 0px 0px 100px;
+  width:38.4vw;
+  margin:0.67vh 0px 0px 6.51vw;
   position:relative;
-  font-weight:300px;
+  font-weight:600;
   font-family:Outfit;
   color:#000000;
-  font-size: 45px;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: 0.41px;
+  font-size: 2.8vw;
+ 
+ 
   text-align: left;
 }
 
 .inputfields {
-  width: 450px;
-  height: 48px;
-  margin: 15px 0px 0px 100px;
-  padding-left: 10px;
-  padding-top: 2px;
+  width:29vw;
+  height: 6.5vh;
+  margin: 2vh 0px 0px 6.51vw;
+  padding-left: 0.66vw;
+  padding-top: 0.26vh;
+  font-size: 0.85vw;
  
-  border-radius: 10px;
-  border: solid 1px #cdcdcd;
+  border-radius: 0.66vw;
+  border: solid 0.065vw #cdcdcd;
   background-color: #fff;
 }
 
 
 .rca1Rectangle-side {
-  min-width: 660px;;
+  min-width: 43vw;
   height: 100vh ;
   margin-left: auto;
  
@@ -102,29 +102,32 @@ body{
  
 }
 
-@media screen and (max-height: 650px) {
+/* @media screen and (max-height: 650px) {
   .rca1Rectangle-side {
     height: auto;
   }
-}
+} */
 
 .rca1couplesideImg{
-  width: 490px;
-  height: 455px;
-  margin-left: 95px;
+  width: 32vw;
+  height: 29.62;
+  margin-left: 6vw;
   position: absolute;
   bottom: 1px;
   
 }
 .continue{
-  height: 50px;
-  width: 130px;
+  height: 6.71vh;
+  width: 8.5vw;
   background-color: black;
   color: white;
-  border-radius: 22.5px;
-  margin-left: 100px;
-  margin-top: 15px;
+  border-radius: 1.5vw;
+  margin-left: 6.51vw;
+  margin-top: 2vh;
   box-shadow: none;
+  font-size: 1vw;
+  letter-spacing: 0.05vw;
+  border: none;
 }
 
 
@@ -143,88 +146,88 @@ input[type=number] {
   color: #999;
   position: relative;
   pointer-events: none;
-  right: 440px;
-  bottom: 2px;
+  right: 28.64vw;
+  bottom: 0.26vh;
  
   transition: 0.2s;
-  font-size: 15px;
+  font-size: 1vw;
 }
 
 .input1:focus ~ .input1-label, .input1:valid ~ .input1-label{
-  bottom: 25px;
-  right: 440px;
+  bottom: 3.4vh;
+  right: 28.64vw;
   position: relative;
-  font-size: x-small;
+  font-size:0.65vw;
   color: #525252;
   background-color:#fff;
-  padding:0 5px 0 5px;
+  padding:0 0.33vw 0 0.33vw;
 }
 
 .input21-label{
   color: #999;
   position: relative;
   pointer-events: none;
-  right: 440px;
+  right: 28.64vw;
   bottom: 2px;
  
   transition: 0.2s;
-  font-size: 15px;
+  font-size: 1vw;
 }
 
 .input21:focus ~ .input21-label, .input21:valid ~ .input21-label{
-  bottom: 25px;
-  right: 440px;
+  bottom: 3.4vh;
+  right: 28.64vw;
   position: relative;
-  font-size: x-small;
+  font-size:0.65vw;
   color: #525252;
   background-color:#fff;
-  padding:0 5px 0 5px;
+  padding:0 0.33vw 0 0.33vw;
 }
 
 .input3-label{
   color: #999;
   position: relative;
   pointer-events: none;
-  right: 440px;
-  bottom: 2px;
+  right: 28.64vw;
+  bottom: 0.27vh;
  
   transition: 0.2s;
-  font-size: 15px;
+  font-size: 1vw;
 }
 
 .input3:focus ~ .input3-label, .input3:valid ~ .input3-label{
-  bottom: 25px;
-  right: 440px;
+  bottom: 3.4vh;
+  right: 28.64vw;
   position: relative;
-  font-size: x-small;
+  font-size:0.65vw;
   color: #525252;
   background-color:#fff;
-  padding:0 5px 0 5px;
+  padding:0 0.33vw 0 0.33vw;
 }
 
 .input4-label{
   color: #999;
   position: relative;
   pointer-events: none;
-  right: 410px;
-  bottom: 0px;
+  right: 26.7vw;
+
   
   transition: 0.2s;
-  font-size: 15px;
+  font-size: 1vw;
 }
 
 .dummyNum{
   color:#3b3b3b;
-  font-size: 13px;
+  font-size: 0.82vw;
   position: relative;
-  left: 110px;
-  bottom: 31px;
+  left: 7.16vw;
+  bottom: 4.16vh;
   display: block;
   width: fit-content;
 }
 
 .input4{
-  padding-left: 35px;
+  padding-left: 2.3vw;
   position: relative;
 }
 
@@ -238,13 +241,13 @@ input[type=number] {
 } */
 
 .input4:focus ~ .input4-label, .input4:valid ~ .input4-label{
-  bottom: 25px;
-  right: 410px;
+  bottom: 3.4vh;
+  right: 26.7vw;
   position: relative;
-  font-size: x-small;
+  font-size:0.65vw;
   color: #525252;
   background-color:#fff;
-  padding:0 5px 0 5px;
+  padding:0 0.33vw 0 0.33vw;
   
 }
 
@@ -256,7 +259,7 @@ input[type=number] {
   background-color: white;
   height: 200px;
   width: 400px;
-  border-radius: 10px;
+  border-radius: 0.66vw;
 
 }
 
@@ -282,11 +285,11 @@ input[type=number] {
 }
 
 .rca1span11{
-  margin-left: 100px;
+  margin-left: 6.51vw;
   margin-top: 0px;
   display: block;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 0.8vw;
 }
 
 .inputError{
@@ -295,26 +298,28 @@ input[type=number] {
 
 .input1Error{
   position: absolute;
-  left: 560px;
-  top: 315px ;
+  left: 36.5vw;
+  top: 40.3vh ;
+  font-size: 1vw;
 }
 
 .input2Error{
   position: absolute;
-  left: 560px;
-  top: 380px ;
-  
+  left: 36.5vw;
+  top: 49vh;
+  font-size: 1vw;
 }
 
 .input3Error{
   position: absolute;
-  left: 560px;
-  top: 440px ;
+  left: 36.5vw;
+  top: 57vh ;
+  font-size: 1vw;
 }
 
 .input4Error{
   position: absolute;
-  left: 560px;
-  top: 520px ;
-  
+  left: 36.5vw;
+  top: 67vh ;
+  font-size: 1vw;
 }

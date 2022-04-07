@@ -216,7 +216,7 @@ function BusinessUser({adminFirstPageAction}) {
       )}
       <h1 className="butitle">Business Users</h1>
       <hr className=" bucontainerhr" />
-      <div style={{ marginTop: "50px" }}>
+      <div style={{ marginTop: "6vh" }}>
         <table className="butable">
           <thead className="buhead">
             <td className="buiemail">Email</td>{" "}
@@ -225,7 +225,7 @@ function BusinessUser({adminFirstPageAction}) {
             <td className="bustatus">Status</td>
           </thead>
           {
-            <tbody>
+            <tbody style={{fontSize:"1vw"}} >
               {_DATA.currentData() ?
                 _DATA.currentData().map((item) => {
                   return (
@@ -276,7 +276,7 @@ function BusinessUser({adminFirstPageAction}) {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "40px",
+                marginTop: "5.5vh",
               }}
             >
               No  matching records found
@@ -290,7 +290,7 @@ function BusinessUser({adminFirstPageAction}) {
             style={{
               display: "flex",
               justifyContent: "center",
-              marginTop: "15px",
+              marginTop: "2vh",
             }}
           >
              <ThemeProvider theme={theme}>
@@ -320,7 +320,7 @@ function BusinessUser({adminFirstPageAction}) {
             </IconButton>
           </div>
           <div className="bauserdialog-row1">
-            <h5 style={{ fontSize: "22px", margin: "5px 0 0 0" }}>
+            <h5 style={{ fontSize: "1.5vw", margin: "0.67vh 0 0 0" }}>
               New Business User
             </h5>
             <hr className="clhrFirst" />
@@ -378,7 +378,7 @@ function BusinessUser({adminFirstPageAction}) {
                 <label className="bainput-label">Status</label>
               </div>
             </div> */}
-            <div style={{ marginTop: "10px" }}>
+            <div style={{ marginTop: "1.37vh" }}>
               <button className="submitbtn" onClick={handleSubmit}>
                 Submit
               </button>
@@ -402,7 +402,7 @@ function BusinessUser({adminFirstPageAction}) {
             </IconButton>
           </div>
           <div className="bauserdialog-row1">
-            <h5 style={{ fontSize: "22px", margin: "5px 0 0 0" }}>
+            <h5 style={{ fontSize: "1.5vw", margin: "0.67vh 0 0 0" }}>
             Update Business User details
             </h5>
             <hr className="clhrFirst" />
@@ -464,7 +464,7 @@ function BusinessUser({adminFirstPageAction}) {
                 <label className="bainput-label">Status</label>
               </div>
             </div> */}
-            <div style={{ marginTop: "20px" }}>
+            <div style={{ marginTop: "2.8vh" }}>
               <button className="submitbtn" onClick={statusChange1}>
                 Submit
               </button>

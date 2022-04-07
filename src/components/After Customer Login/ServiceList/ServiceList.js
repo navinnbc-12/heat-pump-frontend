@@ -33,23 +33,24 @@ const useStyles = makeStyles({
       color: 'black',
     },
     '& .MuiOutlinedInput-root': {
-      borderRadius:"10px",
-      marginRight: "20px",
-      height:"50px",
+      borderRadius:"0.61vw",
+      marginRight: "1.22vw",
+      height:"7.51vh",
       '&.Mui-focused fieldset': {
         borderColor: 'black',
       },
     },
+    width:"30%"
   },
   selectfield: {
     "& label.Mui-focused": {
       color: "black",
     },
     "& .MuiOutlinedInput-root": {
-      borderRadius: "10px",
-      marginRight: "20px",
-      width: "200px",
-      height: "50px",
+      borderRadius: "0.61vw",
+      marginRight: "1.22vw",
+      width: "12.22vw",
+      height: "7.51vh",
       fontWeight: "bolder",
       fontFamily: "outfit",
       backgroundColor: "white",
@@ -58,11 +59,15 @@ const useStyles = makeStyles({
         borderColor: "black",
       },
     },
+    icons:{
+      fontSize:"0.5vw"
+    },
   },
   selectinput:{
-    marginBottom:"5px",
+    marginBottom:"0.67vh",
     fontFamily:"outfit",
     fontWeight: "bolder",
+    fontSize:"1vw",
     
   }
 })
@@ -162,7 +167,7 @@ const ServiceList = ({ FirstPageAction }) => {
       <div className="paper">
         <div className="firstrow">
           <div className="names">{userName}</div>
-          <div style={{ fontSize: "small" }}>
+          <div style={{ fontSize: "0.9vw" }}>
             {userData.business_trade_name},{userData.city}
           </div>
           <hr className="hrFirst" />
@@ -177,7 +182,7 @@ const ServiceList = ({ FirstPageAction }) => {
                 setPage(1);
               }}
             >
-              <h1>{box.new}</h1>
+              <h1 style={{fontSize:"2vw"}}>{box.new}</h1>
             </div>
             <div className="second-row-text">New</div>
           </div>
@@ -189,7 +194,7 @@ const ServiceList = ({ FirstPageAction }) => {
                 setPage(1);
               }}
             >
-              <h1>{box.working}</h1>
+              <h1 style={{fontSize:"2vw"}}>{box.working}</h1>
             </div>
             <div className="second-row-text">Luths Working</div>
           </div>
@@ -201,7 +206,7 @@ const ServiceList = ({ FirstPageAction }) => {
                 setPage(1);
               }}
             >
-              <h1>{box.need_attention}</h1>
+              <h1 style={{fontSize:"2vw"}}>{box.need_attention}</h1>
             </div>
             <div className="second-row-text">Need Your Attention</div>
           </div>
@@ -213,7 +218,7 @@ const ServiceList = ({ FirstPageAction }) => {
                 setPage(1);
               }}
             >
-              <h1>{box.closed}</h1>
+              <h1 style={{fontSize:"2vw"}}>{box.closed}</h1>
             </div>
             <div className="second-row-text">Closed</div>
           </div>
@@ -228,23 +233,8 @@ const ServiceList = ({ FirstPageAction }) => {
               justifyContent: "space-between",
             }}
           >
-            {/* <select
-              className=" select-box box1"
-              value={priority}
-              onChange={(e) =>
-                setPriority(
-                  e.target.value == "1" ? 1 : e.target.value == "2" ? 2 : 3
-                )
-              }
-            >
-              <option value="" defaultValue hidden disabled>
-                Priority
-              </option>
-              <option value="1">High</option>
-              <option value="2">Medium</option>
-              <option value="3">Low</option>
-            </select> */}
-            <div style={{display:"inline-block",width:"200px"}}>
+           
+            <div style={{display:"inline-block",width:"12.22vw"}}>
             <FormControl className={classes.selectfield}>
             <InputLabel id="demo-simple-select-label" className={classes.selectinput}>Priority</InputLabel>
                 <Select
@@ -257,9 +247,9 @@ const ServiceList = ({ FirstPageAction }) => {
                   label="Priority"
                   IconComponent={() =>
                     focused ? (
-                      <KeyboardArrowUpIcon />
+                      <KeyboardArrowUpIcon className={classes.icons}/>
                     ) : (
-                      <KeyboardArrowDownIcon />
+                      <KeyboardArrowDownIcon className={classes.icons} />
                     )
                   }
                 >
@@ -270,9 +260,9 @@ const ServiceList = ({ FirstPageAction }) => {
               </FormControl>
               </div>
             
-            <TextField label="Service Request No" style={{marginLeft:"15px"}} className={classes.textfield} value={serviceno} onChange={(e) => setServiceno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+            <TextField label="Service Request No" style={{marginLeft:"0.9vw"}} className={classes.textfield} value={serviceno} onChange={(e) => setServiceno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh",fontSize:"1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
 
-            <TextField label="Title" className={classes.textfield}  value={title}  onChange={(e) => setTitle(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+            <TextField label="Title" className={classes.textfield}  value={title}  onChange={(e) => setTitle(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh",fontSize:"1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
 
             <button
               className="searchbtn"
@@ -286,30 +276,30 @@ const ServiceList = ({ FirstPageAction }) => {
           </div>
         </div>
         <div className="fourth-row">
-          <div style={{ fontSize: "24px", fontWeight: "bold" }}>
+          <div style={{ fontSize: "2.2vw", fontWeight: "600" }}>
             Service Requests List
           </div>
           <hr className="hrFirst" />
           <table>
             <thead>
               <tr>
-                <th style={{ width: "90px" }}>Priority</th>
-                <th style={{ width: "140px" }}>SR No.</th>
-                <th scope="col" style={{ width: "250px" }}>
+                <th style={{ width: "5.05vw",fontSize:"1.2vw" }}>Priority</th>
+                <th style={{ width: "8.58vw",fontSize:"1.2vw" }}>SR No.</th>
+                <th scope="col" style={{ width: "15.28vw",fontSize:"1.2vw" }}>
                   Title
                 </th>
-                <th scope="col" style={{ width: "220px" }}>
+                <th scope="col" style={{ width: "13.44vw",fontSize:"1.2vw" }}>
                   Site Details
                 </th>
-                <th scope="col" style={{ width: "200px" }}>
+                <th scope="col" style={{ width: "12.22vw",fontSize:"1.2vw" }}>
                   SR Type
                 </th>
-                <th scope="col" style={{ width: "190px" }}>
+                <th scope="col" style={{ width: "11.61vw",fontSize:"1.2vw" }}>
                   Last Updated
                   <br />
                   Date & Time
                 </th>
-                <th scope="col" style={{ width: "115px" }}>
+                <th scope="col" style={{ width: "7.02vw",fontSize:"1.2vw" }}>
                   Status
                 </th>
               </tr>
@@ -323,38 +313,38 @@ const ServiceList = ({ FirstPageAction }) => {
                     style={{ borderBottom: "solid 1px #d3d3d3" }}
                   >
                     {item.priority == 1 && (
-                      <td style={{ paddingLeft: "10px" }}>
+                      <td style={{ paddingLeft: "1.34vh",fontSize:"1vw" }}>
                         {" "}
                         <div className="hroundcircle">H</div>{" "}
                       </td>
                     )}
                     {item.priority == 2 && (
-                      <td style={{ paddingLeft: "10px" }}>
+                      <td style={{ paddingLeft: "1.34vh",fontSize:"1vw" }}>
                         {" "}
                         <div className="mroundcircle">M</div>{" "}
                       </td>
                     )}
                     {item.priority == 3 && (
-                      <td style={{ paddingLeft: "10px" }}>
+                      <td style={{ paddingLeft: "1.34vh",fontSize:"1vw" }}>
                         {" "}
                         <div className="lroundcircle">L</div>{" "}
                       </td>
                     )}
-                    <td>{item.service_ref_number}</td>
-                    <td>{item.title}</td>
-                    <td>
+                    <td style={{fontSize:"1vw"}}>{item.service_ref_number}</td>
+                    <td style={{fontSize:"1vw"}}>{item.title}</td>
+                    <td style={{fontSize:"1vw"}}>
                       {item.job_reference_id
                         ? item.job_reference_id.site_details
                         : "-"}
                     </td>
-                    <td>{item.type ? item.type : "-"}</td>
-                    <td>
+                    <td style={{fontSize:"1vw"}}>{item.type ? item.type : "-"}</td>
+                    <td style={{fontSize:"1vw"}}>
                       {moment(item.updatedAt).format("DD/MM/YYYY h:mm a")}
                     </td>
-                    {item.status == 1 && <td>New</td>}
-                    {item.status == 2 && <td>Luths Working</td>}
-                    {item.status == 3 && <td>Need Your Attention</td>}
-                    {item.status == 4 && <td>Resolved</td>}
+                    {item.status == 1 && <td style={{fontSize:"1vw"}}>New</td>}
+                    {item.status == 2 && <td style={{fontSize:"1vw"}}>Luths Working</td>}
+                    {item.status == 3 && <td style={{fontSize:"1vw"}}>Need Your Attention</td>}
+                    {item.status == 4 && <td style={{fontSize:"1vw"}}>Resolved</td>}
                   </tr>
                 );
               })}
@@ -365,7 +355,7 @@ const ServiceList = ({ FirstPageAction }) => {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "40px",
+                marginTop: "5.36vh",
               }}
             >
               No matching records found
@@ -377,7 +367,7 @@ const ServiceList = ({ FirstPageAction }) => {
             style={{
               display: "flex",
               justifyContent: "center",
-              marginTop: "15px",
+              marginTop: "2.12vh",
             }}
           >
             <ThemeProvider theme={theme}>
@@ -393,7 +383,7 @@ const ServiceList = ({ FirstPageAction }) => {
           </div>
         )}
         <button
-          className="btnjob"
+          className="btnnjob"
           onClick={(e) => navigate("/common/createlist")}
         >
           Create a Service Request

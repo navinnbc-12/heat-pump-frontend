@@ -30,15 +30,20 @@ const theme = createTheme({
 });
 const useStyles = makeStyles({
   textfield:{
+    fontSize:"1vw",
     '& label.Mui-focused': {
       color: 'black',
+
     },
     '& .MuiOutlinedInput-root': {
-      borderRadius:"10px",
-      marginRight: "20px",
-      height:"50px",
+      borderRadius:"0.66vw",
+      marginRight: "1.33vw",
+      height:"6.71vh",
+      width:"16vw",
+     
       '&.Mui-focused fieldset': {
         borderColor: 'black',
+        
       },
     },
   },
@@ -47,11 +52,12 @@ const useStyles = makeStyles({
       color: "black",
     },
     "& .MuiOutlinedInput-root": {
-      borderRadius: "10px",
-      marginRight: "20px",
-      width: "210px",
-      height: "50px",
+      borderRadius: "0.66vw",
+      marginRight: "1.33vw",
+      width: "13.67vw",
+      height: "6.7vh",
       fontWeight: "bolder",
+      fontSize:"1vw",
       fontFamily: "outfit",
       backgroundColor: "white",
 
@@ -61,9 +67,10 @@ const useStyles = makeStyles({
     },
   },
   selectinput:{
-    marginBottom:"5px",
+    marginBottom:"0.67vh",
     fontFamily:"outfit",
     fontWeight: "bolder",
+    fontSize:"1.1vw"
     
   }
 })
@@ -149,37 +156,37 @@ const AccountRequest = ({adminFirstPageAction}) => {
     navigate("/admincommon/adminRCA", {state:item});
   };
   return (
-    <div className="container">
+    <div className="arcontainer">
       {loader && (
         <div className="customLoader">
           <TailSpin color="#fa5e00" height="100" width="100" />
         </div>
       )}
-      <div className="title">Customer Account Requests</div>
-      <hr className="containerhr" />
-      <div className="paper">
-        <div className="secondrow">
-          <div className="outerbox" onClick={()=>{setStatus(1);setPage(1)}} >
-            <div className="squarebox" >
+      <div className="artitle">Customer Account Requests</div>
+      <hr className="arcontainerhr" />
+      <div className="arpaper">
+        <div className="arsecondrow">
+          <div className="arouterbox" onClick={()=>{setStatus(1);setPage(1)}} >
+            <div className="arsquarebox" >
               <h1>{box.new?box.new:0}</h1>
             </div>
-            <div className="second-row-text">New</div>
+            <div className="arsecond-row-text">New</div>
           </div>
-          <div className="outerbox" onClick={()=>{setStatus(2);setPage(1)}} >
-            <div className="squarebox" >
+          <div className="arouterbox" onClick={()=>{setStatus(2);setPage(1)}} >
+            <div className="arsquarebox" >
               <h1>{box.inprogress?box.inprogress:0}</h1>
             </div>
-            <div className="second-row-text">Inprogress</div>
+            <div className="arsecond-row-text">Inprogress</div>
           </div>
-          <div className="outerbox" onClick={()=>{setStatus(3);setPage(1)}} >
-            <div className="squarebox" >
+          <div className="arouterbox" onClick={()=>{setStatus(3);setPage(1)}} >
+            <div className="arsquarebox" >
               <h1>{box.active?box.active:0}</h1>
             </div>
-            <div className="second-row-text">Active</div>
+            <div className="arsecond-row-text">Active</div>
           </div>
         </div>
-        <div className="third-row">
-          <div className="search-by">Search By</div>
+        <div className="arthird-row">
+          <div className="arsearch-by">Search By</div>
           <div
             style={{
               width: "90%",
@@ -200,7 +207,7 @@ const AccountRequest = ({adminFirstPageAction}) => {
               <option value="2">Inprogress</option>
               <option value="3">Active</option>
             </select> */}
-            <div style={{display:"inline-block",width:"200px"}}>
+            <div style={{display:"inline-block",width:"1.4vw"}}>
             <FormControl className={classes.selectfield}>
             <InputLabel id="demo-simple-select-label" className={classes.selectinput}>Status</InputLabel>
                 <Select
@@ -225,11 +232,11 @@ const AccountRequest = ({adminFirstPageAction}) => {
                 </Select>
               </FormControl>
               </div>
-            <TextField label="Mobile No" style={{marginLeft:"30px"}}className={classes.textfield} value={mobno} onChange={(e) => setMobno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }}/>
-            <TextField label="Business Name" className={classes.textfield} value={business} onChange={(e) => setBusiness(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px"} }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }}/>
+            <TextField label="Mobile No" style={{marginLeft:"14vw"}}className={classes.textfield} value={mobno} onChange={(e) => setMobno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px",fontSize:"1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }}/>
+            <TextField label="Business Name" className={classes.textfield} value={business} onChange={(e) => setBusiness(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px",fontSize:"1vw"} }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }}/>
 
             <button
-              className="adminsearchbtn"
+              className="aradminsearchbtn"
               type={"button"}
               value={business}
               placeholder="Search"
@@ -237,14 +244,14 @@ const AccountRequest = ({adminFirstPageAction}) => {
             >Search </button>
           </div>
         </div>
-        <div className="fourth-row">
-          <div style={{ fontSize: "24px", fontWeight: "bold" }}>
+        <div className="arfourth-row">
+          <div style={{ fontSize: "1.7vw", fontWeight: "bold" }}>
             Customer Account Requests List
           </div>
-          <hr className="hrFirst" />
+          <hr className="arhrFirst" />
           <table>
-            <thead className="thead">
-              <tr>
+            <thead className="arthead">
+              <tr >
                 <th>Customer Name</th>
                 <th>Mobile Number</th>
                 <th scope="col">Email</th>
@@ -253,14 +260,14 @@ const AccountRequest = ({adminFirstPageAction}) => {
                 <th scope="col">Status</th>
               </tr>
             </thead>
-            <tbody className="tbody">
+            <tbody className="artbody">
               {_DATA &&
                 _DATA.currentData().map((item, index) => {
                   return (
                     <tr
                     onClick={() => manageService(item)}
                     key={index}
-                    className="specifictr"
+                    className="arspecifictr"
                     >
                       <td scope="row"> {item.name}</td>
                       <td>{item.mobile}</td>

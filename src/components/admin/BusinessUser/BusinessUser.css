@@ -1,64 +1,65 @@
 .bucontainer{
-    padding: 10px;
-    margin-left: 40px;
+    padding: 1.67vh 0.67vw;
+    margin-left: 2.7vw;
     
 }
 .butitle{
     font-weight: 300;
-    font-size: 45px;
+    font-size: 2.9vw;
 }
 
 .bucontainerhr{
     width: 77%;
-  margin-left: 173px;
+  margin-left: 11.26vw;
   background-color: #f2f3f2;
-  border: 1px solid #f2f3f2;
-  margin-top: 10px;
+  border: 0.134vh solid #f2f3f2;
+  margin-top: 1.67vh;
 }
 
 .bubtn{
     background-color:black ;
     color: aliceblue;
     border: none;
-    height: 45px;
-    width: 160px;
-    border-radius: 32.5px;
-    margin-top: 50px;
+    height: 6.1vh;
+    width: 12vw;
+    border-radius: 2.11vw;
+    margin-top: 4vh;
+    font-size: 1vw;
 
 }
 
 .butable{
-    width: 1000px;
-    margin-top: 10px;
+    width: 65.1vw;
+    margin-top: 1.34vh;
 }
 
 .buhead{
-    width: 750px;
-   border-bottom: 1px solid #f2f3f2;
-   
+    width: 48.82vw;
+   border-bottom: 0.134vh solid #f2f3f2;
+   font-size: 1vw;
 }
 
 .buiemail{
-    width: 300px;
+    width: 19.53vw;
     font-weight: bold;
 }
 
 .buname{
-    width: 180px;
+    width: 11.71vw;
     font-weight: bold;
 }
 
 .buPassData{
-   width: 150px;
+   width: 9.76vw;
 }
 
 .bunumber{
-    width: 180px;
+    width: 11.71vw;
     font-weight: bold;
 }
 
 .bustatus{
-    width: 210px;
+    width: 13.67vw;
     font-weight: bold;
 }
 .butr{
@@ -69,12 +70,12 @@
   background-color:  #f2f2f2;
 }
 .buselecttag{
-    width: 180px;
-    font-size: 18px;
-    border-radius: 5px;
-    border: solid 1px #cdcdcd;    height: 30px;
-    padding-left: 10px;
-    height: 35px;
+    width: 11.71vw;
+    font-size: 1.17vw;
+    border-radius: 0.33vw;
+    border: solid 0.134vw #cdcdcd;    height: 30px;
+    padding-left: 0.66vw;
+    height: 4.7vh;
     font-weight: 300;
 }
 
@@ -83,13 +84,13 @@
 }
 .buoption1,.buoption2{
     font-weight: 300;
-    padding-top: 10px;
+    padding-top: 1.34vh;
 }
 .budropdownimg{
-    height: 8px;
-    width: 12px;
+    height:1vh;
+    width: 0.76vw;
     position: relative;
-    right: 25px;
+    right: 1.6vw;
     transition: all 150ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -101,11 +102,11 @@
     transform: translate(-50%, -50%);
     background: #fff;
     overflow: auto;
-    border-radius: 25px;
+    border-radius: 1.6vw;
     outline: none;
-    padding: 20px 20px 20px 20px;
-    width: 850px;
-    height: 380px;
+    padding: 2.8vh 1.33vw;
+    width: 55.38vw;
+    height: 51vh;
     z-index: 1000;
   }
   
@@ -123,23 +124,23 @@
     text-align-last: right;
   }
   .bauserdialog-row1 {
-    margin-left: 30px;
+    margin-left: 1.8vw;
   }
   
   
   .bauserdialog-row2 {
-    margin-left: 30px;
+    margin-left: 1.8vw;
   }
   
   
   .bainput {
-    border-radius: 10px;
-    border: solid 1px #cfcece;
+    border-radius: 0.66vw;
+    border: solid 0.134vh #cfcece;
     background-color: #fff;
-    width: 300px;
-    height: 45px;
-    margin-top: 20px;
-    padding-left: 10px;
+    width: 19.53vw;
+    height: 2.9vh;
+    margin-top: 2.8vh;
+    padding-left: 0.66vw;
     color: #000;
   }
   
@@ -147,31 +148,31 @@
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 291px;
+    right: 18.94vw;
     transition: 0.2s;
-    font-size: 15px;
+    font-size: 1vw;
   }
   
   .bainput:focus ~ .bainput-label,
   .bainput:valid ~ .bainput-label {
-    bottom: 23px;
-    right: 291px;
+    bottom:3.08vh;
+    right:19.45vw;
     position: relative;
-    font-size: small;
+    font-size: 0.7vw;
     color: #525252;
     background-color: #fff;
-    padding: 0 5px 0 5px;
+    padding: 0 0.33vw 0 0.33vw;
   }
   
   .ba2input {
-    border-radius: 10px;
-    border: solid 1px #cfcece;
+    border-radius: 0.66vw;
+    border: solid 0.134vh #cfcece;
     background-color: #fff;
-    width: 300px;
-    height: 45px;
-    margin-top: 20px;
-    margin-left: 23px;
-    padding-left: 10px;
+    width: 19.53vw;
+    height: 6.1vh;
+    margin-top: 2.7vh;
+    margin-left: 1.5vw;
+    padding-left: 0.66vw;
     color: #000;
   }
   
@@ -179,20 +180,20 @@
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 290px;
+    right: 18.88vw;
     transition: 0.2s;
-    font-size: 15px;
+    font-size: 1vw;
   }
   
   .ba2input:focus ~ .ba2input-label,
   .ba2input:valid ~ .ba2input-label {
-    bottom: 23px;
-    right: 290px;
+    bottom: 3vh;
+    right: 18.88vw;
     position: relative;
-    font-size: small;
+    font-size: 0.7vw;
     color: #525252;
     background-color: #fff;
-    padding: 0 5px 0 5px;
+    padding: 0 0.33vw 0 0.33vw;
   }
 
 

@@ -146,12 +146,12 @@ const Login = () => {
       )}
       <div className="-Login">
         <div className="firstHalf">
-          <div className="HPD-Existing-Logo---01-1">
+          <div  className="HPD-Existing-Logo---01-11" >
             <img
               src={require("../../../Img/HPDD.jpeg")}
-              height="50px"
-              width={"50px"}
-              className="HBD"
+              /* height="50px"
+              width={"50px"} */
+              style={{height:"6.5vh"}}
             />
           </div>
           <div className="Login">Login</div> 
@@ -171,8 +171,8 @@ const Login = () => {
             
             <img
               src={require("../../../Img/icon.png")}
-              height="12px"
-              width={"16px"}
+             
+           
               alt=""
               className="emailIcon"
              
@@ -221,26 +221,27 @@ const Login = () => {
               {remember ? (
                 <div
                   style={{
-                    border: "2px solid black",
-                    display: "inline-block",
-                    height: "12px",
-                    width: "12px",
+                   border:"0.12vw solid black",
+                    display: "inline-block"
+                    
                   }}
+                  className="remember-me1"
                   onClick={() => setRemember(false)}
                 />
               ) : (
                 <img
                   src={require("../../../Img/icontick.png")}
-                  height="12px"
-                  width={"12px"}
+                 /*  height="12px"
+                  width={"12px"} */
+                  className="remember-me1"
                   alt=""
                   onClick={() => setRemember(true)}
                 />
               )}
-              <span style={{}} className="remember">
+              <span  className="remember">
                 Remember me
               </span>
-              <Link to="/forgotpassword">
+              <Link to="/forgotpassword" style={{margin:"0px"}} >
                 <span className="Forgot-password">Forgot password?</span>{" "}
               </Link>
             </div>
@@ -250,7 +251,7 @@ const Login = () => {
             </button>
           </form>
 
-          <div style={{ margin: "22px 0px 0px 165px" }}>
+          <div style={{ margin: "2vh 0px 0px 11vw" }}>
             <span
               class="Dont-have-an-account-Sign-Up"
               style={{ fontWeight: "600" }}
@@ -258,13 +259,14 @@ const Login = () => {
               Don’t have an account?
               <Link
                 to="/signup"
-                style={{ color: "#fa5e00", marginLeft: "2px" }}
+                style={{ color: "#fa5e00", marginLeft: "0.12vw" }}
               >
                 <span
                   style={{
                     fontWeight: 600,
                     color: "#fa5e00",
                     cursor: "pointer",
+                    fontSize:"1vw"
                   }}
                 >
                   {" "}
@@ -276,8 +278,8 @@ const Login = () => {
 
           <div
             style={{
-              margin: "30px 0px 0px 185px",
-              fontSize: "13px",
+              margin: "4.02vh 0px 0px 12vw",
+              fontSize: "0.85vw",
               fontWeight: "600",
             }}
           >
@@ -286,7 +288,7 @@ const Login = () => {
 
           <div className="terms-policies">
             <span style={{ fontWeight: "300" }}>Terms of Service</span>
-            <span style={{ marginLeft: "5px", fontWeight: "300" }}>
+            <span style={{ marginLeft: "0.33vw", fontWeight: "300" }}>
               Privacy Policy
             </span>
           </div>

@@ -262,12 +262,12 @@ const CreateList = ({ FirstPageAction }) => {
           <div className="clpaper">
             <div className="clfirstrow">
               <div className="clnames">{userName}</div>
-              <div style={{ fontSize: "small" }}>
+              <div style={{ fontSize: "0.8vw" }}>
                 {userData.business_trade_name} , {userData.city}
               </div>
               <hr className="clhrFirst" />
             </div>
-            <button className="btnjob" onClick={toggleModal}>
+            <button className="btnjob" style={{fontSize:"1vw"}} onClick={toggleModal}>
               Job Reference
             </button>
             <div className="gridmove">
@@ -289,10 +289,10 @@ const CreateList = ({ FirstPageAction }) => {
                 <option value="" defaultValue hidden disabled>
                   Service Type
                 </option>
-                <option style={{fontSize:"20px"}} value="Enquiry" className="optiontag">
+                <option style={{fontSize:"1.3vw"}} value="Enquiry" className="optiontag">
                   Enquiry
                 </option  >
-                <option style={{fontSize:"20px"}} value="Design Clarifications" className="optiontag">
+                <option style={{fontSize:"1.3vw"}} value="Design Clarifications" className="optiontag">
                   Design Clarifications
                 </option>
                 {/* <option value="three" className="optiontag">
@@ -323,7 +323,7 @@ const CreateList = ({ FirstPageAction }) => {
               ></textarea>
               <label className="cltextarea-label">Details</label>
 
-              <h4 className="name1">Attachments</h4>
+              <h4 className="name1" style={{fontSize:"1.2vw"}}>Attachments</h4>
 
               <hr className="clhr2" />
 
@@ -340,9 +340,9 @@ const CreateList = ({ FirstPageAction }) => {
                       Drag and Drop Here
                       <img
                         src={require("../../../Img/iconcloud.png")}
-                        height="25px"
-                        width={"25px"}
-                        style={{ marginLeft: "20px" }}
+                       /*  height="25px"
+                        width={"25px"} */
+                        style={{ marginLeft: "20px",height:"3.35vh",width:"1.63vw" }}
                       />
                     </span>
                   }
@@ -370,15 +370,14 @@ const CreateList = ({ FirstPageAction }) => {
                   return (
                     <div
                       className="filemap"
-                      style={{ borderRadius: "30px" }}
+                      style={{ borderRadius: "1.8vw" }}
                       key={index}
                     >
-                      <span style={{ float: "left", marginLeft: "15px" }}>
+                      <span style={{ float: "left", marginLeft: "1vw" }}>
                         <img
                           src={require("../../../Img/attachIcon.png")}
-                          height="20px"
-                          width={"15px"}
-                          style={{ marginLeft: "20px" }}
+                        
+                          style={{ marginLeft: "20px",height:"2.8vh",width:"1vw" }}
                         />
 
                         <span className="fileName">Attachment-{index + 1}</span>
@@ -387,15 +386,14 @@ const CreateList = ({ FirstPageAction }) => {
                       <img
                         src={require("../../../Img/iconDelete.png")}
                         onClick={() => removeFile(index)}
-                        height="22px"
-                        width={"20px"}
-                        style={{ marginRight: "20px" }}
+                       
+                        style={{ marginRight: "20px",width:"1.3vw",height:"2.9vh" }}
                       />
                     </div>
                   );
                 })}
 
-              <h4 className="name2">Priority</h4>
+              <h4 className="name2" style={{fontSize:"1.2vw"}} >Priority</h4>
 
               <hr className="clhr2" />
 

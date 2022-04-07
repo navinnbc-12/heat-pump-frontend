@@ -31,18 +31,21 @@ const useStyles = makeStyles({
       color: "black",
     },
     "& .MuiOutlinedInput-root": {
-      borderRadius: "10px",
-      marginRight: "20px",
-      width: "280px",
-      height: "45px",
+      borderRadius: "0.61vw",
+      marginRight: "2.68vw",
+      width: "17.15vw",
+      height: "6.04vh",
       fontWeight: "bolder",
       fontFamily: "outfit",
       backgroundColor: "white",
-
+      fontSize:"1vw",
       "&.Mui-focused fieldset": {
         borderColor: "black",
       },
     },
+  },
+  icons:{
+    fontSize:"2vw"
   },
 });
 
@@ -464,7 +467,8 @@ const AdminManageService = ({ adminFirstPageAction }) => {
           <div className="adminmsrgrid1">
             <div className="adminmsrtitle1">Service Request Summary </div>
             <hr className="adminmsrhr1" />
-            <div className="admsrselect1">
+
+            <div >
               <label htmlFor="" className="priorityLabel">
                 Priority
               </label>
@@ -479,10 +483,10 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                   name="priority"
                   IconComponent={() =>
                     focused ? (
-                      <KeyboardArrowUpIcon />
+                      <KeyboardArrowUpIcon className={classes.icons}/>
                       
                     ) : (
-                      <KeyboardArrowDownIcon />
+                      <KeyboardArrowDownIcon className={classes.icons}/>
                     )
                   }
                 >
@@ -493,7 +497,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
               </FormControl>
             </div>
 
-            <div className="admsrselect1">
+            <div >
               <label htmlFor="" className="statusLabel">
                 Status
               </label>
@@ -510,10 +514,10 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                   name="status"
                   IconComponent={() =>
                     focused1 ? (
-                      <KeyboardArrowUpIcon />
+                      <KeyboardArrowUpIcon className={classes.icons}/>
                       
                     ) : (
-                      <KeyboardArrowDownIcon />
+                      <KeyboardArrowDownIcon className={classes.icons}/>
                     )
                   }
                 >
@@ -525,9 +529,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
               </FormControl>
             </div>
 
-            <div></div>
-
-            <div style={{ marginTop: "30px", marginLeft: "5px" }}>
+            <div >
               <label htmlFor="" className="jobReferenceLabel">
                 Job Reference
               </label>{" "}
@@ -558,7 +560,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
               </div>
             </div>
 
-            <div style={{ marginLeft: "5px", marginTop: "20px" }}>
+            <div style={{marginTop:"1.5vh"}}>
               <label htmlFor="" className="statusLabel">
                 Assigned To
               </label>
@@ -591,37 +593,6 @@ const AdminManageService = ({ adminFirstPageAction }) => {
             </div>
 
             <div className="admindisplaygrid">
-              {/* <div>Status</div>
-              {details.status == 1 && <div className="admindisplaygrid1">New</div>}
-              {details.status == 2 && (
-                <div className="admindisplaygrid1">Luths Working</div>
-              )}
-              {details.status == 3 && (
-                <div className="admindisplaygrid1">Need Your Attention</div>
-              )}
-              {details.status == 4 && (
-                <div className="admindisplaygrid1">Closed</div>
-              )}
-              <div>Last Updated</div>
-              <div className="admindisplaygrid1">
-                {moment(details.updatedAt).format("DD/MM/YYYY h:mm a")}
-              </div>
-              <div>Created</div>
-              <div className="admindisplaygrid1">
-                {moment(details.createdAt).format("DD/MM/YYYY h:mm a")}
-              </div>
-              <div>Job Reference</div>
-              <div className="admindisplaygrid1">
-                {details.job_reference_id
-                  ? details.job_reference_id.job_ref_number
-                  : "-"}
-              </div>
-              <div>Site</div>
-              <div className="admindisplaygrid1">
-                {details.job_reference_id
-                  ? details.job_reference_id.site_details
-                  : "-"}
-              </div> */}
               <div className="miniadmindisplaygrid1">Last Updated</div>
               <div className="minidisplaygrid1">
                 {moment(details.updatedAt).format("DD/MM/YYYY h:mm a")}
@@ -676,7 +647,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
               {details.service_ref_number} - {details.title}
             </div>
             <span className="adminmsrspan1">{details.description}</span>
-            <div style={{ marginTop: "80px" }}>
+            <div style={{ marginTop: "10.7vh" }}>
               <button className="adminmsrbutton1" onClick={(e) => toggleModal(e)}>
                 Add Update
               </button>
@@ -751,7 +722,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                         <div className="adminmsrdiv3">{item.description}</div>
                       </div>
                     </div>
-                    <hr className="adminmsrhr1" />
+                    <hr className="adminmsrhr2" />
                   </>
                 );
               })}
@@ -772,11 +743,11 @@ const AdminManageService = ({ adminFirstPageAction }) => {
           <form>
             <div className="admindialogclose">
               <IconButton onClick={toggleModal}>
-                <CloseIcon sx={{ color: "black" }}></CloseIcon>
+                <CloseIcon sx={{ color: "black",height:"1.5vw",width:"2.5vh" }}></CloseIcon>
               </IconButton>
             </div>
             <div className="admindialog-row1">
-              <h5 style={{ fontSize: "22px", margin: "5px 0 0 0" }}>
+              <h5 style={{ fontSize: "1.34vw", margin: "0.81vh 0 0 0" }}>
                 Add Update
               </h5>
               <hr className="adminclhrFirst" />
@@ -794,7 +765,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                 }}
                 placeholder="Update details"
               ></textarea>
-              <div style={{ marginTop: "10px", marginBottom: "20px" }}>
+              <div style={{ marginTop: "1.25vh", marginBottom: "2.68vh" }}>
                 <input
                   className="admincheckbox"
                   type="checkbox"
@@ -802,9 +773,10 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                 />
                 <label
                   style={{
-                    marginLeft: "5px",
+                    marginLeft: "0.30vw",
                     position: "relative",
                     bottom: "4px",
+                    fontSize:"1vw",
                   }}
                 >
                   Internal Notes
@@ -815,7 +787,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                   No Updates Given
                 </span>
               )}
-              <div style={{ marginTop: "10px" }}>
+              <div style={{ marginTop: "1.344vh" }}>
                 <button
                   className="adminsubmitbtn"
                   onClick={(e) => addUpdate(e)}
@@ -840,11 +812,11 @@ const AdminManageService = ({ adminFirstPageAction }) => {
         <div>
           <div className="admindialogclose">
             <IconButton onClick={togglesrModal}>
-              <CloseIcon sx={{ color: "black" }}></CloseIcon>
+              <CloseIcon sx={{ color: "black",height:"1.5vw",width:"2.5vh" }}></CloseIcon>
             </IconButton>
           </div>
           <div className="admindialog-row1">
-            <h5 style={{ fontSize: "22px", margin: "5px 0 0 0" }}>
+            <h5 style={{ fontSize: "1.34vw", margin: "0.67vh 0 0 0" }}>
               Close Service Request
             </h5>
             <hr className="adminclhrFirst" />
@@ -865,7 +837,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                 No Reason Given
               </span>
             )}
-            <div style={{ marginTop: "10px" }}>
+            <div style={{ marginTop: "1.34vh" }}>
               <button className="adminsubmitbtn" onClick={() => closingsr()}>
                 Submit
               </button>
@@ -886,11 +858,11 @@ const AdminManageService = ({ adminFirstPageAction }) => {
         <div>
           <div className="admindialogclose">
             <IconButton onClick={() => togglefileModal()}>
-              <CloseIcon sx={{ color: "black" }}></CloseIcon>
+              <CloseIcon sx={{ color: "black",height:"1.5vw",width:"2.5vh" }}></CloseIcon>
             </IconButton>
           </div>
           <div className="admindialog-row1">
-            <h5 style={{ fontSize: "22px", margin: "5px 0 0 0" }}>
+            <h5 style={{ fontSize: "1.34vw", margin: "0.67vh 0 0 0" }}>
               Add Attachment
             </h5>
             <hr className="adminclhrFirst" />
@@ -912,9 +884,8 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                     Drag and Drop Here
                     <img
                       src={require("../../../Img/iconcloud.png")}
-                      height="25px"
-                      width={"25px"}
-                      style={{ marginLeft: "20px" }}
+                      
+                      style={{ marginLeft: "1.22vw",height:"3vh",width:"1.3vw" }}
                     />
                   </span>
                 }
@@ -942,15 +913,13 @@ const AdminManageService = ({ adminFirstPageAction }) => {
               return (
                 <div
                   className="adminfile"
-                  style={{ borderRadius: "30px" }}
+                  style={{ borderRadius: "1.83vw" }}
                   key={index}
                 >
-                  <span style={{ float: "left", marginLeft: "15px" }}>
+                  <span style={{ float: "left", marginLeft: "0.91vw" }}>
                     <img
                       src={require("../../../Img/attachIcon.png")}
-                      height="20px"
-                      width={"15px"}
-                      style={{ marginLeft: "20px" }}
+                      style={{ marginLeft: "1.22vw",height:"2.7vh",width:"0.9vw" }}
                     />
 
                     <span className="adminfileName">
@@ -961,14 +930,12 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                   <img
                     src={require("../../../Img/iconDelete.png")}
                     onClick={() => removeFile(index)}
-                    height="22px"
-                    width={"20px"}
-                    style={{ marginRight: "20px" }}
+                    style={{ marginRight: "1.2vw",height:"2.95vh",width:"1.25vw" }}
                   />
                 </div>
               );
             })}
-            <div style={{ marginTop: "10px" }}>
+            <div style={{ marginTop: "1.34vh" }}>
               <button className="adminsubmitbtn" onClick={() => newUpload()}>
                 Submit
               </button>

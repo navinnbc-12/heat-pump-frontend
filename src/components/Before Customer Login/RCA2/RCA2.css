@@ -19,119 +19,117 @@
   }
 
   .rca2firstHalf {
-    min-width: 870px;
-    max-width: 870px;
+    min-width: 56.64;
+   /*  max-width: 870px; */
     display: inline-block;
     
   }
   .rca2HPD {
-    margin: 20px 0 10px 45px;
+    margin: 2.8vh 0 1.34vh 2.9vw;
     
     display: inline-block;
   }
 
   .rca2left-bar{
-    width: 325px;
-    height: 7px;
+    width: 21.15vw;
+    height: 0.9vh;
     background-color: rgba(250, 96, 0, 0.664);
-    margin: 0px 0px 0px 103px;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+    margin: 0px 0px 0px 6.7vw;
+    border-top-left-radius: 0.26vw;
+    border-bottom-left-radius:  0.26vw;
     display: inline-block;
     position: relative;
   }
   
   .rca2circle{
-    width: 14px;
-    height: 15px;
-    border-radius: 14px;
+    width: 0.9vw;
+    height: 2vh;
+    border-radius: 0.9vw;
     display: inline-block;
     background-color: rgb(250, 130, 56);
     
     position: absolute;
-    left: 421px;
-    top: 146px;
+    left: 27.4vw;
+    top:.7vh;
    
   }
   
   .rca2right-bar{
-    width: 125px;
-    height: 7px;
+    width: 8.14vw;
+    height: 0.9vh;
     background-color: #e1e1e1;
     margin: 0px 0px 0px 0px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-top-right-radius: 0.26vw;
+    border-bottom-right-radius: 0.26vw;
     display: inline-block;
   }
 
   .rca2inputfields{
-    width: 450px;
-    height: 42px;
-    margin: 13px 0px 0px 100px;
-    padding-left: 11px;
-    padding-top: 2px;
-    font-size: 13px;
-    border-radius: 10px;
-    border: solid 1px #cdcdcd;
+    width: 29vw;
+    height: 5.63vh;
+    margin: 1.75vh 0px 0px 6.51vw;
+    padding-left: 0.71vw;
+    padding-top: 0.27vh;
+    font-size: 0.85vw;
+    border-radius: 0.66vw;
+    border: solid 0.134vh #cdcdcd;
     background-color: #fff;
     color: #505050;
     
   }
 
   .top{
-      margin-top: 10px;
+      margin-top: 1.34vh;
       position: relative
   }
 
   .radio{
-     height: 20px;
-     width: 20px;
+     height: 2.7vh;
+     width: 1.32vw;
       
   }
 
   .rca2div1{
-    width:590px;
-    margin:0px 0px 0px 100px;
+    width:38.4vw;
+    margin:0px 0px 0px 6.51vw;
     position:relative;
-    font-weight:300px;
+    font-weight:600;
     font-family:Outfit;
     color:#000000;
-    font-size: 45px;
+    font-size: 2.8vw;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
-    letter-spacing: 0.41px;
+    
     text-align: left;
   }
 
   .rca2subtitle1{
     font-weight: 300;
-    margin-top: 10px;
-    margin-left: 100px;
+    margin-top: 1.34vh;
+    margin-left: 6.51vw;
   }
 
-  .rca2right{
 
-  }
 
   .rca2subtitle3{
     font-weight: 300;
-    font-size: 15px;
+    font-size: 0.95vw;
     width:fit-content;
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 0.66vw;
     margin-left: 27%;
   }
 
   .rca2Rectangle-side {
-    min-width: 660px;;
+    min-width: 43vw;
     height: 100vh;
     margin-left: auto;
    
     background-image: linear-gradient(to bottom, #f4f2ea 0%, #d9d6c9 100%);
    
   }
-
+/* 
   @media screen and (max-height: 700px) {
     .rca2Rectangle-side {
       height: auto;
@@ -145,12 +143,12 @@
       left:620px;
       bottom: 1%;
     }
-  }
+  } */
 
   .rca2couplesideImg{
-    width: 390px;
-    height: 415px;
-    margin-left: 135px;
+    width: 25.4vw;
+    height: 55.7vh;
+    margin-left: 8.8vw;
     position: absolute;
     bottom: 1px;
     
@@ -158,7 +156,7 @@
 
   .rca2ellipse1{
     position: absolute;
-    right:660px;
+    right:42.96vw;
     bottom: 1%;
   }
 
@@ -166,26 +164,28 @@
   .result-block {
     animation: slide-in ease-in-out 0.8s;
     background-color: white;
-    border-radius: 0.3em;
+    border-radius: 0.32vw;
     box-shadow: 0px 7px 9px 0px #a7a6a633;
     overflow: auto;
-    padding: 2em 2em;
-    width: 450px;
-    height: 250px;
+    font-size: 1vw;
+    padding: 0.5vh 0.3vw;
+    width: 28.9vw;
+    height: 33.6vh;
     position: absolute;
-    margin-left: 100px;
+    margin-left: 6.51vw;
     z-index: 10;
-    border-radius: 5px;
+    border-radius: 0.33vw;
   }
   
   .item {
     animation: slide-in ease-in-out 0.8s;
-    border-radius: 0.1em;
+    border-radius: 0.1vw;
     color: #555555;
     cursor: pointer;
     font-family: "Outfit";
     list-style: none;
-    padding: 0.6em 1em;
+    padding: 0.6vh 0.5vw;
+    font-size: 1vw;
     
   }
   .item:hover {
@@ -194,7 +194,7 @@
   }
   .item.no-result {
     cursor: default;
-    font-size: 1.5em;
+    font-size: 1vw;
     opacity: 0.5;
    
   }
@@ -202,7 +202,7 @@
     background: transparent;
     color: #555555;
   }
-  
+/*   
   @keyframes slide-in {
     from {
       opacity: 0;
@@ -212,7 +212,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
+  } */
 /* 
   input[type="text"]:disabled {
     background: #dddddd;
@@ -228,173 +228,174 @@
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 440px;
-    bottom: 2px;
+    right:28.64vw;
+    bottom: 0.27vh;
    font-weight: 600;
-   letter-spacing: 0.5px;
+   letter-spacing: 0.032vw;
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .input5:focus ~ .input5-label, .input5:valid ~ .input5-label{
     bottom: 20px;
-    right: 440px;
+    right:28.64vw;
     position: relative;
-    font-size: x-small;
+    font-size:0.6vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    letter-spacing: 0.032vw;
+    padding:0 0.33vw 0 0.33vw;
   }
 
   .input6-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 440px;
-    bottom: 2px;
+    right:28.64vw;
+    bottom: 0.27vh;
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .input6:focus ~ .input6-label, .input6:valid ~ .input6-label{
-    bottom:20px;
-    right: 440px;
+    bottom:2.68vw;
+    right:28.64vw;
     position: relative;
-    font-size: x-small;
+    font-size:0.6vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+   padding:0 0.33vw 0 0.33vw;
   }
 
   .input7-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 440px;
-    bottom: 2px;
+    right:28.64vw;
+    bottom: 0.27vh;
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .input7:focus ~ .input7-label, .input7:valid ~ .input7-label{
-    bottom:20px;
-    right: 440px;
+    bottom:2.68vw;
+    right:28.64vw;
     position: relative;
-    font-size: x-small;
+    font-size:0.6vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+   padding:0 0.33vw 0 0.33vw;
   }
 
   .input8-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 440px;
-    bottom: 2px;
+    right:28.64vw;
+    bottom: 0.27vh;
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .input8:focus ~ .input8-label, .input8:valid ~ .input8-label{
-    bottom:20px;
-    right: 440px;
+    bottom:2.68vw;
+    right:28.64vw;
     position: relative;
-    font-size: x-small;
+    font-size:0.6vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+   padding:0 0.33vw 0 0.33vw;
   }
 
   .input9 ,.input10 , .input11 , .input12 {
-    font-size: 12px;
+    font-size: 0.78vw;
     }
 
   .input9-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 441px;
+    right: 28.71vw;
     
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .input9:focus ~ .input9-label, .input9:valid ~ .input9-label{
-    bottom:20px;
-    right: 440px;
+    bottom:2.68vw;
+    right:28.64vw;
     position: relative;
-    font-size: x-small;
+    font-size:0.6vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+   padding:0 0.33vw 0 0.33vw;
   }
 
   .input10-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 441px;
+    right: 28.71vw;
   
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .input10:focus ~ .input10-label, .input10:valid ~ .input10-label{
-    bottom:20px;
-    right: 440px;
+    bottom:2.68vw;
+    right:28.64vw;
     position: relative;
-    font-size: x-small;
+    font-size:0.6vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+   padding:0 0.33vw 0 0.33vw;
   }
 
   .input11-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 441px;
+    right: 28.71vw;
 
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .input11:focus ~ .input11-label, .input11:valid ~ .input11-label{
-    bottom:20px;
-    right: 441px;
+    bottom:2.68vw;
+    right: 28.71vw;
     position: relative;
-    font-size: x-small;
+    font-size:0.6vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+   padding:0 0.33vw 0 0.33vw;
   }
 
   .input12-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 441px;
+    right: 28.71vw;
   
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .input12:focus ~ .input12-label, .input12:valid ~ .input12-label{
-    bottom:20px;
-    right: 440px;
+    bottom:2.68vw;
+    right:28.64vw;
     position: relative;
-    font-size: x-small;
+    font-size:0.6vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+   padding:0 0.33vw 0 0.33vw;
   }
 
 
@@ -407,8 +408,8 @@
   }
 
   .option{
-    height: 20px;
-    margin: 10px;
+    height: 2.7vh;
+    margin: 0.66vw;
     font-size: large;
     
   }
@@ -426,58 +427,58 @@
 
   .rca2inputError{
     color: rgba(255, 0, 0, 0.699);
-    font-size: 13px;
+    font-size: 0.85vw;
   }
 
   .input5Error{
     position: absolute;
-    left: 560px;
-    top: 213px ;
+    left: 36.5vw;
+    top: 28.6vh ;
   }
   
   .input6Error{
     position: absolute;
-    left: 560px;
-    top: 268px ;
+    left: 36.5vw;
+    top: 36vh ;
     
   }
   
   .input7Error{
     position: absolute;
-    left: 560px;
-    top: 323px ;
+    left: 36.5vw;
+    top:43.35vh ;
   }
   
   .input8Error{
     position: absolute;
-    left: 560px;
-    top:503px
+    left: 36.5vw;
+    top:67.5vh
     
   }
 
   .input9Error{
     position: absolute;
-    left: 560px;
-   top: 473px;
+    left: 36.5vw;
+   top: 63.5vh;
   }
   
   .input10Error{
     position: absolute;
-    left: 560px;
-    top: 528px;
+    left: 36.5vw;
+    top: 71vh;
     
   }
   
   .input11Error{
     position: absolute;
-    left: 560px;
-    top: 583px;
+    left: 36.5vw;
+    top: 78.25vh;
   }
   
   .input12Error{
     position: absolute;
-    left: 560px;
-   top: 635px;
+    left: 36.5vw;
+   top: 85.2vh;
     
   }
 
@@ -487,20 +488,20 @@
 
   
 .dropdown {
-    width: 450px;
-    height: 42px;
-    margin: 13px 0px 0px 100px;
-    padding-left: 11px;
-    padding-top: 2px;
-    font-size: 13px;
-    border-radius: 10px;
-    border: solid 1px #cdcdcd;
+    width: 29vw;
+    height: 5.63vh;
+    margin: 1.75vh 0px 0px 6.51vw;
+    padding-left: 0.71vw;
+    padding-top: 0.27vh;
+    font-size: 0.85vw;
+    border-radius: 0.66vw;
+    border: solid 0.065vw #cdcdcd;
     background-color: #fff;
     color: #505050;
 }
 
 .dropdown-header {
-  padding-top: 10px;
+  padding-top: 1.35vh;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -508,8 +509,8 @@
 }
 
 .dropdown-body {
-  padding: 5px;
-  border-top: 1px solid #E5E8EC;
+  padding: 0.33vw;
+  border-top: 0.134vh solid #E5E8EC;
   display: none;
 }
 
@@ -518,15 +519,15 @@
   position: absolute;
   background-color: white;
   z-index: 1000;
-  width: 450px;
-  left:100px;
-  top:352px;
-  border-radius: 10px;
-  border: solid 1px #cdcdcd;
+  width: 29vw;
+  left:6.51vw;
+  top:47.25vh;
+  border-radius: 0.66vw;
+  border: solid 0.134vh #cdcdcd;
 }
 
 .dropdown-item {
-  padding: 10px;
+  padding: 0.66vw;
 }
 
 .dropdown-item:hover {
@@ -545,7 +546,7 @@
 }
 
 .icon {
-  font-size: 13px;
+  font-size: 0.85vw;
   color: #91A5BE;
   transform: rotate(270deg);
   transition: all .2s ease-in-out;
@@ -557,9 +558,9 @@
 
 .commondropdown{
     position: relative;
-    right: 15px;
-    width: 15px;
-    height: 9px;
+    right: 0.97vw;
+    width: 0.97vw;
+    height: 1.3vh;
     
    transition: all 100ms ease-in-out;
 }

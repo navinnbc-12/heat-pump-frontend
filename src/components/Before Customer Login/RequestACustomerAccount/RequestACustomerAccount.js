@@ -62,17 +62,17 @@ function RequestACustomerAccount() {
     <div >
       <div className='request-a-customer-account' >
       <div className='firstHalf1' >
-      <div className ="HPD-Existing-Logo"><img src={require("../../../Img/HPDD.jpeg")} height="50px" width={"50px"}  /></div>
+      <div className='HPD-Existing-Logo' ><img style={{height:"6.5vh"}} src={require("../../../Img/HPDD.jpeg")}  /></div>
      
       
       <h1 className='div1'  >Request a Customer Account</h1>
-      <div  style={{margin:"10px 0px 0px 100px",width:"450px",fontWeight:"300"}} >You must have a customer account with us to submit job details and get a quote from us.</div>
+      <div  style={{margin:"1.35vh 0px 0px 6.51vw",width:"29vw",fontSize:"1vw",fontWeight:"300"}} >You must have a customer account with us to submit job details and get a quote from us.</div>
       
-      <Link to="/rca1" ><button  className="buttonstart"   > Start Now   <img src={require("../../../Img/iconright.png")} height="10px" width={"6px"} className="iconright"  alt=""  /> </button>  </Link>
+      <Link to="/rca1" ><button  className="buttonstart"   > Start Now   <img src={require("../../../Img/iconright.png")} className="iconright"  alt=""  /> </button>  </Link>
 
 
 
-      <img src={require("../../../Img/ellipse.png")} height="380px" width={"270px"}  alt="" className='ellipse' />
+      <img src={require("../../../Img/ellipse.png")} alt="" className='ellipse' />
 
       </div>
 

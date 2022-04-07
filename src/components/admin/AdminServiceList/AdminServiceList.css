@@ -2,33 +2,33 @@
     box-sizing: border-box;
   }
   .adminslcontainer {
-    padding: 10px !important;
+    padding: 1.34vh 0.66vw !important;
     display: inline-block;
-    margin-left: 40px;
-    margin-right: 50px;
+    margin-left: 2.6vw;
+    margin-right: 3.255vw;
     width: 90%;
   }
   .adminslcontainerhr {
     width: 70%;
-    margin-left: 300px;
+   margin-left: 19.53vw;
     background-color: #f2f3f2;
-    border: 1px solid #f2f3f2;
-    margin-top: 10px;
+    border: 0.134vh solid #f2f3f2;
+    margin-top: 1.34vh;
   }
   .adminslpaper {
     border-style: solid;
-    border-radius: 30px;
+    border-radius: 1.8vw;
     border-color: #f2f3f2;
-    padding: 30px !important;
-    margin-top: 40px;
+    padding: 4vh 1.8vw !important;
+    margin-top: 5.36vh;
   }
   .adminsltitle {
     font-weight: 500;
-    font-size: 45px;
+    font-size: 2.8vw;
   }
   .adminslnames {
     color: #fa5e00;
-    font-size: 22px;
+    font-size: 1.43vw;
   }
   .adminslfirstrow {
     display: flex;
@@ -37,7 +37,7 @@
   }
   .adminslhrFirst {
     background-color: #f2f3f2;
-    border: 1.5px solid #f2f3f2;
+    border: 0.2vh solid #f2f3f2;
     position: relative;
     width: 250px;
   }
@@ -47,7 +47,7 @@
     top: 90px;
     left: 35px;
     background-color: #f2f3f2;
-    border: 1.5px solid #f2f3f2;
+    border: 0.2vh solid #f2f3f2;
   }
   .hrSecondline {
     width: 91.2%;
@@ -55,7 +55,7 @@
     top: 150px;
     left: 35px;
     background-color: #f2f3f2;
-    border: 1.5px solid #f2f3f2;
+    border: 0.2vh solid #f2f3f2;
   }
   .hrThirdline {
     width: 91.2%;
@@ -63,13 +63,13 @@
     top: 210px;
     left: 35px;
     background-color: #f2f3f2;
-    border: 1.5px solid #f2f3f2;
+    border: 0.2vh solid #f2f3f2;
   }
   .hrfourth {
     width: 91.2%;
     margin-left: 35px;
     background-color: #f2f3f2;
-    border: 1.5px solid #f2f3f2;
+    border: 0.2vh solid #f2f3f2;
   } */
   .adminslsecondrow {
     display: flex;
@@ -80,26 +80,29 @@
   }
   
   .adminslsquarebox {
-    border: 1px solid #d3d3d3;
-    height: 60px;
+    border: 0.134vh solid #d3d3d3;
+    height: 8.05vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 0.66vw;
     background-color: #f4f2ea;
     cursor: pointer;
-    min-width: 60px;
+    min-width: 4.9vw;
   width: fit-content;
-  padding:0 5px 0 5px;
+  padding:0 0.33vw 0 0.33vw;
+  font-size: 1.2vw;
   }
   .adminslsecond-row-text {
     text-align: center;
     display: table-caption;
     display: -ms-grid;
     -ms-grid-columns: min-content;
+    width: 12vw;
+    font-size: 1.1vw;
   }
   .adminslouterbox {
-    width: 150px;
+    width: 13.5vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,96 +116,99 @@
     width: 90%;
     margin-top: 3%;
     margin-bottom: 3%;
+    font-size: 1vw;
   }
   
   .adminslselect-box {
-    height: 40px;
+    height: 5.5vh;
     width: 17%;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    margin-right: 20px;
+    border: 0.134vh solid lightgray;
+    border-radius: 0.66vw;
+    margin-right: 1.33vw;
   }
   .adminslsearch-by {
-    height: 50px;
-    width: 10%;
+    height: 6.71vw;
+    width: 13%;
     margin-right: 2%;
-    padding-top: 8px;
+    padding-top:1.1vh;
     text-align: center;
-    font-size: 20px;
-    font-weight: 600px;
+    font-size: 1.33vw;
+    font-weight: 600;
   }
   .adminslbox1 {
     width: 24%;
     color: rgba(0, 0, 0, 0.6);
-    padding-left: 10px;
+    padding-left: 0.66vw;
   }
   .adminsltable {
     width: 100%;
-    border-spacing: 30px;
+    border-spacing: 1.8vw;
     border-collapse: collapse;
+    font-size: 1vw;
   }
   .adminslth,
   .adminsltd {
-    border-bottom: 2px solid #f2f3f2;
+    border-bottom: 0.26vh solid #f2f3f2;
     text-align: left;
   }
   
   .adminsltr {
-    height: 60px;
+    height: 8.05vh;
   }
   .adminslsortable tr {
     cursor: pointer;
   }
   .adminslhroundcircle {
-    width: 30px;
-    height: 30px;
+    width: 1.8vw;
+    height: 4vh;
     border-radius: 50%;
-    font-size: 15px;
+    font-size: 1vw;
     color: black;
     background-color: #ff8282;
-    padding-top: 5px;
+    padding-top: 0.67vh;
     text-align: center;
   }
   .adminslmroundcircle {
-    width: 30px;
-    height: 30px;
+    width: 1.8vw;
+    height: 4vh;
     border-radius: 50%;
-    font-size: 15px;
+    font-size: 1vw;
     color: black;
     background-color: #ffe289;
-    padding-top: 5px;
+    padding-top: 0.67vh;
     text-align: center;
   }
   .adminsllroundcircle {
-    width: 30px;
-    height: 30px;
+    width: 1.8vw;
+    height: 4vh;
     border-radius: 50%;
-    font-size: 15px;
+    font-size: 1vw;
     color: black;
     background-color: #c0f587;
-    padding-top: 5px;
+    padding-top: 0.67vh;
     text-align: center;
   }
   .adminslbtnjob {
     font-weight: 300;
-    border-radius: 32.5px;
+    border-radius: 2.11vw;
     background-color: #000;
-    width: 175px;
-    height: 45px;
+    width: 11.4vw;
+    height:6.04vh;
     color: white;
     position: relative;
     border: #000;
     font-weight: 100;
-    margin-top: 25px;
+    margin-top: 3.2vh;
     cursor: pointer;
   }
   
   .adminsearchbtn {
-    width: 115px;
+    width: 7.5vw;
     border: #000;
-    border-radius: 50px;
+    border-radius: 3.255vw;
     background-color: #000;
     color: white;
     font-weight: 100;
-    height: 40px;
+    height: 5.5vh;
+    font-size: 1vw;
   }

@@ -2,39 +2,39 @@
     box-sizing: border-box;
   }
   .adminRCAcontainer {
-    padding: 10px !important;
+    padding: 1.33vh 0.66vw !important;
    display: inline-block;
-    margin-left: 40px;
-    margin-right: 50px;
+    margin-left: 2.6vw;
+    margin-right: 3.255vw;
     width: 90%;
     height: fit-content;
   }
   .adminRCAcontainerhr {
     width: 77%;
-    margin-left: 173px;
+    margin-left: 1.27vw;
     background-color: #f2f3f2;
-    border: 1px solid #f2f3f2;
-    margin-top: 10px;
+    border: 0.134vh solid #f2f3f2;
+    margin-top: 1.34vh;
   }
   .adminRCApaper {
     border-style: solid;
-    border-radius: 30px;
+    border-radius: 1.8vw;
     border-color: #f2f3f2;
-    padding: 30px !important;
-    margin-top: 40px;
-    min-width: 1100px;
+    padding: 4vh 1.8vw !important;
+    margin-top: 5.36vh;
+    min-width: 71.61vw;
     width: auto;
     
-  }
+  }-text
 
   .adminRCAtitle{
     font-weight: 500;
-    font-size: 45px;
+    font-size: 2.8vw;
   }
 
   .adminRCAnames {
     color: #fa5e00;
-    font-size: 22px;
+    font-size: 1.41vw;
     display: inline-block;
     
     
@@ -42,7 +42,7 @@
   
   .adminRCAnew {
     color: #fa5e00;
-    font-size: 20px;
+    font-size: 1.33vw;
     display: inline-block;
     
     margin-left:50%;
@@ -54,20 +54,21 @@
   }
   .adminRCAhrFirst {
     background-color: #f2f3f2;
-    border: 1.5px solid #f2f3f2;
+    border: 0.09vw solid #f2f3f2;
     position: relative;
     width: 60%;
-    margin-top: 3px;
+    margin-top: 0.4vh;
   }
 
   .progressbtn{
       background-color:black;
       color: aliceblue;
       width: 13%;
-      height: 50px;
+      height: 6.71vh;
       font-weight: 300;
-      border-radius: 32.5px;
+      border-radius: 2.11vw;
       border: none;
+      font-size: 0.95vw;
   }
 
   
@@ -75,11 +76,12 @@
     background-color:black;
     color: aliceblue;
     width: 13%;
-    height: 50px;
+    height: 6.71vh;
     font-weight: 300;
-    border-radius: 32.5px;
+    border-radius: 2.11vw;
     border: none;
-    margin-left: 15px;
+    margin-left: 1vw;
+    font-size: 0.95vw;
 }
 
   
@@ -89,73 +91,76 @@
     color: #000;
     border: solid 1px #8d8c8c;
     width: 13%;
-    height: 50px;
+    height: 6.71vh;
     font-weight: 300;
-    border-radius: 32.5px;
-    margin-left: 15px;
+    border-radius: 2.11vw;
+    margin-left: 1vw;
+    font-size: 0.95vw;
 }
 
 .rejectbtn:hover{
   background-color:black;
   color: aliceblue;
   width: 13%;
-  height: 50px;
+  height: 6.71vh;
   font-weight: 300;
-  border-radius: 32.5px;
+  border-radius: 2.11vw;
   border: none;
-  margin-left: 15px;
+  margin-left: 1vw;
 }
 
 .Inactivebtn{
    background-color: #f9f9f9;
    border: solid 1px #8d8c8c;
     width: 13%;
-    height: 50px;
+    height: 6.71vh;
     font-weight: 300;
-    border-radius: 32.5px;
-    margin-left: 15px;
+    border-radius: 2.11vw;
+    margin-left: 1vw;
     color: #000;
+    font-size: 0.95vw;
 }
 
 .Inactivebtn:hover{
   background-color:black;
   color: aliceblue;
   width: 13%;
-  height: 50px;
+  height: 6.71vh;
   font-weight: 300;
-  border-radius: 32.5px;
+  border-radius: 2.11vw;
   border: none;
-  margin-left: 15px;
+  margin-left: 1vw;
 }
 
 
 .accordion {
    
-    width: 420px;
+    width: 27.34vw;
     
     margin: auto;
-    margin-top: 50px;
+    margin-top: 6.71vh;
  }
  
  .accordiantitle {
-   height: 60px;
+   height: 8.05vh;
    width:100%;
-   border-bottom: 3px solid #f2f3f2;
-   letter-spacing: 1px;
+   border-bottom: 0.4vh solid #f2f3f2;
+   letter-spacing: 0.06vw;
    text-align: left;
    line-height: 2;
    font-weight: lighter;
    position: relative;
-   padding: 10px;
+   padding: 1.34vh 0.66vw;
    z-index: 20;
-   border-radius: 4px;
-   margin-top: 20px;
-   font-size: 25px;
+   border-radius: 0.26vw;
+   margin-top: 2.8vh;
+   font-size: 1.62vw;
    /* transition: all .2s ease-in; */
  }
  
  .title-text {
-   margin-left: 10px;
+  margin-left: 0.66vw;
+  font-size: 1.5vw;
  }
  
  .title:hover {
@@ -168,16 +173,16 @@
  }
  
  .content {
-   height: 30px;
+   height: 4vh;
    width: 100%;
    background-color: transparent;
-   border-radius: 4px;
+   border-radius: 0.26vw;
    color: black;
-   font-size: 14px;
+   font-size: 0.9vw;
    text-align: center;
    position: relative;
    z-index: 1;
-   margin-top: -30px;
+   margin-top: -4h;
    text-align: left;
    /* transition: all 200ms cubic-bezier(0.600, -0.280, 0.735, 0.045); */
   /*  transition: all 100ms ease-in; */
@@ -191,7 +196,7 @@
  }
  
  .content-text {
-   padding: 15px;
+   padding: 2vh 1vw;
    visibility: hidden;
    opacity: 0;
    overflow: auto;
@@ -206,7 +211,7 @@
  }
  
  .fa-angle-down {
-   font-size: 20px;
+   font-size: 1.3vw;
    color: #000;
    transition: all .6s cubic-bezier(0.080, 1.090, 0.320, 1.275);
  }
@@ -223,14 +228,14 @@
  }
  
  .admininputfields {
-    width: 400px;
-    height: 48px;
-    margin: 15px 0px 0px 10px;
-    padding-left: 10px;
-    padding-top: 2px;
-   
-    border-radius: 10px;
-    border: solid 1px #cdcdcd;
+    width: 26vw;
+    height: 6.5vh;
+    margin: 2vh 0px 0px 0.66vw;
+    padding-left: 0.66vw;
+    padding-top: 0.3vh;
+    font-size: 1vw;
+    border-radius: 0.66vw;
+    border: solid 0.134vh #cdcdcd;
     background-color: #fff;
   }
 
@@ -238,74 +243,74 @@
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 390px;
-    bottom: 2px;
+    right: 25vw;
+      bottom:0.26vh;
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .admininput1:focus ~ .admininput1-label, .admininput1:valid ~ .admininput1-label{
-    bottom: 25px;
-    right: 390px;
+    bottom: 3.35vh;
+    right: 25vw;
     position: relative;
-    font-size: x-small;
+    font-size: 0.7vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    padding:0 0.33vw 0 0.33vw;
   }
   
   .admininput21-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 390px;
-    bottom: 2px;
+    right: 25vw;
+      bottom:0.26vh;
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .admininput21:focus ~ .admininput21-label, .admininput21:valid ~ .admininput21-label{
-    bottom: 25px;
-    right: 390px;
+    bottom: 3.35vh;
+    right: 25vw;
     position: relative;
-    font-size: x-small;
+    font-size: 0.7vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    padding:0 0.33vw 0 0.33vw;
   }
   
   .admininput3-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 390px;
-    bottom: 2px;
+    right: 25vw;
+      bottom:0.26vh;
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .admininput3:focus ~ .admininput3-label, .admininput3:valid ~ .admininput3-label{
-    bottom: 25px;
-    right: 390px;
+    bottom: 3.35vh;
+    right: 25vw;
     position: relative;
-    font-size: x-small;
+    font-size: 0.7vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    padding:0 0.33vw 0 0.33vw;
   }
   
   .admininput4-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 390px;
+    right: 25vw;
     bottom: 0px;
     
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
 
@@ -320,82 +325,82 @@
   } */
   
   .admininput4:focus ~ .admininput4-label, .admininput4:valid ~ .admininput4-label{
-    bottom: 25px;
-    right: 390px;
+    bottom: 3.35vh;
+    right: 25vw;
     position: relative;
-    font-size: x-small;
+    font-size: 0.7vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    padding:0 0.33vw 0 0.33vw;
     
   }
   .admininput4 {
-      margin-left: 10px;
+     margin-left: 0.66vw;
   }
 
   .admininput5-label{
     color: #999;
     position: absolute;
     pointer-events: none;
-   left: 40px;
-   bottom: 95px;
+   left: 2.6vw;
+   bottom: 12.75vh;
    font-weight: 600;
-   letter-spacing: 0.5px;
+   letter-spacing: 0.03vw;
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .admininput5:focus ~ .admininput5-label, .admininput5:valid ~ .admininput5-label{
-    bottom: 120px;
-    right: 330px;;
+    bottom: 16.1vh;
+    right: 21.48vw;;
     position: absolute;
-    font-size: x-small;
+    font-size: 0.7vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
-    width: 143px;
+    padding:0 0.33vw 0 0.33vw;
+    width: 10vw;
   }
 
   .admininput6-label{
     color: #999;
     position: absolute;
     pointer-events: none;
-    left: 560px;
-    bottom: 95px;
+    left: 36.45vw;
+    bottom: 12.75vh;
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .admininput6:focus ~ .admininput6-label, .admininput6:valid ~ .admininput6-label{
-    left: 560px;
-    bottom: 120px;
+    left: 36.45vw;
+    bottom: 16.1vh;
     position: absolute;
-    font-size: x-small;
+    font-size: 0.7vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    padding:0 0.33vw 0 0.33vw;
   }
 
   .input7-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 390px;
-    bottom: 2px;
+    right: 25vw;
+      bottom:0.26vh;
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .admininput7:focus ~ .admininput7-label, .admininput7:valid ~ .admininput7-label{
-    bottom: 25px;
-    right: 390px;
+    bottom: 3.35vh;
+    right: 25vw;
     position: relative;
-    font-size: x-small;
+    font-size: 0.7vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    padding:0 0.33vw 0 0.33vw;
   }
 
   .admininput7:focus ~ .admincommondropdown{
@@ -406,21 +411,21 @@
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 390px;
-    bottom: 2px;
+    right: 25vw;
+      bottom:0.26vh;
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .admininput8:focus ~ .admininput8-label, .admininput8:valid ~ .admininput8-label{
-    bottom: 25px;
-    right: 390px;
+    bottom: 3.35vh;
+    right: 25vw;
     position: relative;
-    font-size: x-small;
+    font-size: 0.7vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    padding:0 0.33vw 0 0.33vw;
   }
 
  /* admin */
@@ -429,84 +434,84 @@
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 390px;
+    right: 25vw;
     
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .admininput9:focus ~ .admininput9-label, .admininput9:valid ~ .admininput9-label{
-    bottom: 25px;
-    right: 390px;
+    bottom: 3.35vh;
+    right: 25vw;
     position: relative;
-    font-size: x-small;
+    font-size: 0.7vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    padding:0 0.33vw 0 0.33vw;
   }
 
   .admininput10-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 390px;
+    right: 25vw;
   
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .admininput10:focus ~ .adminadmininput10-label, .admininput10:valid ~ .admininput10-label{
-    bottom: 25px;
-    right: 390px;
+    bottom: 3.35vh;
+    right: 25vw;
     position: relative;
-    font-size: x-small;
+    font-size: 0.7vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    padding:0 0.33vw 0 0.33vw;
   }
 
   .admininput11-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 390px;
+    right: 25vw;
 
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .admininput11:focus ~ .admininput11-label, .admininput11:valid ~ .admininput11-label{
-    bottom: 25px;
-    right: 390px;
+    bottom: 3.35vh;
+    right: 25vw;
     position: relative;
-    font-size: x-small;
+    font-size: 0.7vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    padding:0 0.33vw 0 0.33vw;
   }
 
   .admininput12-label{
     color: #999;
     position: relative;
     pointer-events: none;
-    right: 390px;
+    right: 25vw;
   
    
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 0.78vw;
   }
   
   .admininput12:focus ~ .admininput12-label, .admininput12:valid ~ .admininput12-label{
-    bottom: 25px;
-    right: 390px;
+    bottom: 3.35vh;
+    right: 25vw;
     position: relative;
-    font-size: x-small;
+    font-size: 0.7vw;
     color: #525252;
     background-color:#fff;
-    padding:0 5px 0 5px;
+    padding:0 0.33vw 0 0.33vw;
   }
 
 
@@ -519,8 +524,8 @@
   }
 
   .adminoption{
-    height: 20px;
-    margin: 10px;
+    height: 2.8vh;
+    margin: 1.34vh 0.66vw;
     font-size: large;
     
   }
@@ -538,28 +543,29 @@
 
   .adminrca2subtitle3{
     font-weight: 300;
-    font-size: 15px;
+    font-size: 1vw;
     width:fit-content;
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 0.66vw;
     margin-left: 2%;
   }
 
   .adminDocumentBtn{
     width: 20%;
-    height: 50px;
+    height: 6.71vh;
     background-color: #000;
     color: white;
     font-weight: 300;
     border: none;
-    border-radius: 32.5px;
+    border-radius: 2.11vw;
     letter-spacing: 0.03px;
+    font-size: 0.95vw;
   }
 
   .adminclhr2{
     width: 18%;
     background-color: #f2f3f2;
-    border: 1px solid #f2f3f2 ;
+    border: 0.134vh solid #f2f3f2 ;
     margin-top: 10px;
     margin-bottom: 20px;
 }
@@ -573,11 +579,11 @@
 .adminfile{
     
   width:25%;
-  margin-top: 5px;
-  margin-bottom: 10px;
+  margin-top: 0.7vh;
+  margin-bottom: 1.34vh;
   text-align: center;
   background-color: #f6f6f6;
-  height:50px;
+  height:6.71vh;
   display: flex;
   flex-direction: row;
   
@@ -587,24 +593,25 @@
 
 .adminfileName{
   font-weight: 300;
-  font-size:medium;
+
   align-items: center;
   position: relative;
-  left: 10px;
-  bottom: 5px;
+  left: 0.66vw;
+  bottom: 0.67vh;
   
 }
 
 .adminsavebtn{
    margin-top: 30px;
   width: 10%;
-  height: 40px;
+  height: 5.36vh;
   background-color: #000;
   color: white;
   font-weight: 300;
   border: none;
-  border-radius: 32.5px;
+  border-radius: 2.11vw;
   letter-spacing: 0.03px;
+  font-size: 0.9vw;
 }
 
 /* dropdown design */

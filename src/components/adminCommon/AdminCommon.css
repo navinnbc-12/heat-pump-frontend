@@ -8,28 +8,37 @@
     top:0;
     left: 0;
     transform: translate(-100%);
-    
-   display: none;
+    display: none;
    
 }
 
 .adminfirstli{
-    margin-top: 50px;
+    margin-top: 6.7vh;
+    font-size: 0.92vw;
 }
 
 li{
     list-style: none;
-    padding: 0.5rem 1rem;
-    font-size: 14px;
+    padding: 1.2vh 1.2vw;
+    font-size: 0.92vw;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2vw;
     cursor: pointer;
+}
+
+.adminmyquotes-text{
+    font-size: 0.92vw;
+}
+
+.adminmy-servicerequest{
+    font-size: 0.92vw;
 }
 .adminsidebar1{
     
+    
     background-image:linear-gradient(to right, #f4f2ea 0%, #d9d6c9 100%);
-    width: 290px;
+    width: 18.88vw;
     height: 100;
     
     border-top-right-radius: 5px;
@@ -40,10 +49,15 @@ li{
 }
 
 .adminHPDSideBar {
-    margin: 25px 0  0 40px;
+    margin: 4.4vh 0 6vh 2.5vw;
+    height: 5vh;
+    width: 2.5vw;
     display: inline-block;
   }
-
+  .adminsidbar-icon{
+    height:2.7vh;
+    width:1.3vw
+  }
 
  .adminnavbar{
      width: 100%;
@@ -66,25 +80,33 @@ li{
 }
 
 .admincollapse-icon{
-    margin-top: 25px;
-    margin-left: 40px;
+    margin-top: 3vh;
+    margin-left: 2.44vw;
+    height: 5.36vh;
+    width: 2.6vw;
 }
 
 .admincollapse-left{
-    margin-top: 25px;
-    margin-left: 10px;
+    margin-top: 3vh;
+    margin-left: 0.61vw;
+    height: 5.36vh;
+    width: 2.6vw;
 }
 
 .adminhome-icon{
-    margin-top: 25px;
-    margin-left: 60px;
+    margin-top: 3vh;
+    margin-left: 8vw;
+    height: 5.36vh;
+    width: 2.6vw;
    
 }
 
 
 .adminbell-icon{
-    margin-top: 25px;
-    margin-left: 10px;
+    margin-top: 3.35vh;
+    margin-left: 0.61vw;
+    height: 5.36vh;
+    width: 2.6vw;
 }
 
 .adminname-icon{
@@ -93,30 +115,44 @@ li{
 }
 
 .adminaccount-icon{
-    margin-top: 25px;
-    margin-left: 80px;
+    margin-left: 1.20vw;
+    height: 5.36vh;
+    width: 2.6vw;
 }
 
 .adminredbar1{
     position: relative;
-    left: 63px;
+    left: 3.6vw;
     visibility: visible;
+    height: 6.71vh;
+    width: 0.65vw;
 }
 
 .adminredbar2{
     position: relative;
-    left: 74px;
+    left: 4.3vw;
     visibility: visible;
+    height: 6.71vh;
+    width: 0.65vw;
 }
 
 .adminredbar3{
     position: relative;
-    left: 68px;
+    left:3.9vw;
     visibility: visible;
+    height: 6.71vh;
+    width: 0.65vw;
 }
 
 .adminredbar4{
     position: relative;
-    left: 83px;
+    left: 4.9vw;
     visibility: visible;
+    height: 6.71vh;
+    width: 0.65vw;
+}
+
+.adminellipse{
+    height: 48.4vh;
+    width: 16.3vw;
 }

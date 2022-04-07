@@ -22,63 +22,65 @@
 
   
   .otpfirstHalf {
-    width: 870px;
+    width: 56.64vw;
     display: inline-block;
     
   }
 
   .otpHPD {
-    margin: 40px 0 50px 45px; 
+    margin: 5.4vh 0 6vh 3vw;
+    height: 5vh;
+    width: 2.5vw;
     display: inline-block;
   }
 
   .otpdiv1{
-    width:590px;
-    margin:5px 0px 0px 100px;
+    width:38.4vw;
+    margin:4.67vh 0px 0px 6.51vw;
     position:relative;
-    font-weight:300px;
+    font-weight:600;
     font-family:Outfit;
-    
+   
     color:#000000;
-    font-size: 45px;
+    font-size: 2.8vw;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
-    letter-spacing: 0.41px;
+  
     text-align: left;
   }
 
   .otpdiv{
-    margin-left: 80px;
-    margin-top: 30px;
-    width: 300px;
+    margin-left: 5.2vw;
+    margin-top: 4vh;
+    width: 19.53vw;
     position: relative;
     display: inline-block;
-   
+    
   }
   .otpgreentick{
-    width: 22px;
-    height: 22px;
+    width: 1.432vw;
+    height: 3vh;
 }
 .span{
   position: relative;
   display:inline-block ;
-  width: 300px;
+  width: 19.53vw;
   
-  bottom: 12px;
+  bottom: 1.61vh;
 }
   
 
   .otpInput{
-    height: 45px;
-    margin-left: 20px;
-    font-size: 45px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    height: 6.04vh;
+    margin-left: 1.3vw;
+    font-size: 2.8vw;
+    padding-top: 0.67vh;
+    padding-bottom: 0.67vh;
   }
   
   .otpRectangle-side {
-    min-width: 660px;;
+    min-width: 43vw;
     height: 100vh;
     margin-left: auto;
    
@@ -86,16 +88,16 @@
    
   }
 
-  @media screen and (max-height: 400px) {
+/*   @media screen and (max-height: 400px) {
     .otpRectangle-side {
       height: auto;
     }
-  }
+  } */
   
   .otpcouplesideImg{
-    width: 490px;
-    height: 465px;
-    margin-left: 100px;
+    width: 31.9vw;
+    height: 62.4vh;
+    margin-left: 6.51vw;
     position: absolute;
     bottom: 1px;
     

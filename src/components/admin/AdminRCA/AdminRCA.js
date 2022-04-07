@@ -24,8 +24,8 @@ import { adminFirstPageAction } from "../../../Redux/AdminFirstPage/adminFirstPa
 const fileTypes = ["PDF", "PNG", "JPEG"];
 const useStyles = makeStyles({
     radio: {
-        height: "20px",
-        width: "20px",
+        height: "2.8vh",
+        width: "1.33vw",
       }
 })
 
@@ -181,13 +181,13 @@ function AdminRCA({adminFirstPageAction}) {
       
   return (
     <div className="adminRCAcontainer" >
-    <div className="adminRCAtitle">Manage Customer Account Request</div>
+    <div className="adminRCAtitle" style={{fontSize:"2.9vw"}} >Manage Customer Account Request</div>
     <hr className="adminRCAcontainerhr"/>
     <div className="adminRCApaper">
 
         <div className="adminRCAfirstrow">
           <div className="adminRCAnames">{inputData.name}</div>  <div className="adminRCAnew" >{inputData.status==1?"New":(inputData.status==2)?"In Progress":(inputData.status==3)?"Approved":(inputData.status==5)?"Rejected":(inputData.status == 6)?"Inactive":"New"}</div>
-          <div style={{ fontSize: "small",marginTop:"5px" }}>{`${inputData.address_1}, ${inputData.city}`}</div>
+          <div style={{ fontSize: "0.7vw",marginTop:"0.67vh" }}>{`${inputData.address_1}, ${inputData.city}`}</div>
           <hr className="adminRCAhrFirst" />
         </div>
 
@@ -198,7 +198,7 @@ function AdminRCA({adminFirstPageAction}) {
             <button className='Inactivebtn' onClick={()=>setInputData({...inputData,status:6})} >Inactive</button>
         </div>
 
-        <div style={{minWidth:"1022px"}} >
+        <div style={{minWidth:"66.53vw"}} >
         <div 
           className="accordiantitle" 
           onClick={() => seti(!i)}
@@ -210,8 +210,8 @@ function AdminRCA({adminFirstPageAction}) {
            >a</div> */}
            <img
               src={require("../../../Img/adminarrow.png")}
-              height="8px"
-              width={"10px"}
+            
+              style={{height:"1.1vh",width:"0.66vw"}}
               className={i
                 ? "fa fa-angle-down " 
                 : "fa fa-angle-down fa-rotate-180"}
@@ -230,16 +230,16 @@ function AdminRCA({adminFirstPageAction}) {
             : "content-text"}
           > 
           
-          <div style={{display:"inline-block",width:"520px"}}  ><input required className='admininputfields admininput1' onChange={changeHandler} value={inputData.name} type="text"  name="name"  /> <label className="admininput1-label" >Full Name</label> </div>
+          <div style={{display:"inline-block",width:"33.85vw"}}  ><input required className='admininputfields admininput1' onChange={changeHandler} value={inputData.name} type="text"  name="name"  /> <label className="admininput1-label" >Full Name</label> </div>
           <input required className='admininputfields admininput21 ' onChange={changeHandler} value={inputData.email} type="text"   name="email" /> <label className="admininput21-label" >Email Address</label>  
-          <div style={{display:"inline-block",width:"520px"}}  ><input required className='admininputfields admininput3 ' onChange={changeHandler} value={inputData.password} type="password" name="password"  /> <label className="admininput3-label" >Password*</label> </div>
+          <div style={{display:"inline-block",width:"33.85vw"}}  ><input required className='admininputfields admininput3 ' onChange={changeHandler} value={inputData.password} type="password" name="password"  /> <label className="admininput3-label" >Password*</label> </div>
           <input required className='admininputfields admininput4 ' onChange={changeHandler} value={inputData.mobile} type="text"  name="mobile"  /> <label className="admininput4-label" >Mobile Number*</label>
 
           </div>
         </div>
       </div>
 
-      <div style={{minWidth:"1022px"}} >
+      <div style={{minWidth:"66.53vw"}} >
         <div 
           className="accordiantitle" 
           onClick={() => seti1(!i1)}
@@ -247,8 +247,9 @@ function AdminRCA({adminFirstPageAction}) {
          <div className="arrow-wrapper">
          <img
               src={require("../../../Img/adminarrow.png")}
-              height="8px"
-              width={"10px"}
+            /*   height="8px"
+              width={"10px"} */
+              style={{height:"1.1vh",width:"0.66vw"}}
               className={i1
                 ? "fa fa-angle-down " 
                 : "fa fa-angle-down fa-rotate-180"}
@@ -267,7 +268,7 @@ function AdminRCA({adminFirstPageAction}) {
             : "content-text"}
           > 
           
-          <div style={{display:"inline-block",width:"520px"}} ><input
+          <div style={{display:"inline-block",width:"33.85vw"}} ><input
               required
               className="admininputfields  admininput5"
               type="text"
@@ -297,7 +298,7 @@ function AdminRCA({adminFirstPageAction}) {
       </div>
 
 
-      <div style={{minWidth:"1022px"}} >
+      <div style={{minWidth:"66.53vw"}} >
         <div 
           className="accordiantitle" 
           onClick={() => seti2(!i2)}
@@ -305,8 +306,9 @@ function AdminRCA({adminFirstPageAction}) {
          <div className="arrow-wrapper">
          <img
               src={require("../../../Img/adminarrow.png")}
-              height="8px"
-              width={"10px"}
+            /*   height="8px"
+              width={"10px"} */
+              style={{height:"1.1vh",width:"0.66vw"}}
               className={i2
                 ? "fa fa-angle-down " 
                 : "fa fa-angle-down fa-rotate-180"}
@@ -325,7 +327,7 @@ function AdminRCA({adminFirstPageAction}) {
             : "content-text"}
           > 
 
-<div style={{display:"inline-block",width:"520px"}}  ><input required className='admininputfields admininput1' onChange={changeHandler} value={inputData.name} type="text"  name="name"  /> <label className="admininput1-label" >Full Name</label> </div>   
+<div style={{display:"inline-block",width:"33.85vw"}}  ><input required className='admininputfields admininput1' onChange={changeHandler} value={inputData.name} type="text"  name="name"  /> <label className="admininput1-label" >Full Name</label> </div>   
 <div className="adminrca2subtitle3"
                 >
                   Enter Address manually
@@ -340,7 +342,7 @@ function AdminRCA({adminFirstPageAction}) {
                     show === false&&setShow(!show)
                   }} />  <br></br>
 
-<div style={{display:"inline-block",width:"520px"}}  ><input
+<div style={{display:"inline-block",width:"33.85vw"}}  ><input
               required
               className="admininputfields admininput9"
               type="text"
@@ -362,7 +364,7 @@ function AdminRCA({adminFirstPageAction}) {
               disabled={checked === false ? true : false}
             /> {checked && <label className="admininput10-label" >Address line 2*</label>} 
 
-<div style={{display:"inline-block",width:"520px"}}  ><input
+<div style={{display:"inline-block",width:"33.85vw"}}  ><input
               required
               className="admininputfields admininput11"
               type="text"
@@ -388,7 +390,7 @@ function AdminRCA({adminFirstPageAction}) {
       </div>
 
 
-      <div style={{minWidth:"1022px"}} >
+      <div style={{minWidth:"66.53vw"}} >
         <div 
           className="accordiantitle" 
           onClick={() => seti3(!i3)}
@@ -396,8 +398,9 @@ function AdminRCA({adminFirstPageAction}) {
          <div className="arrow-wrapper">
          <img
               src={require("../../../Img/adminarrow.png")}
-              height="8px"
-              width={"10px"}
+            /*   height="8px"
+              width={"10px"} */
+              style={{height:"1.1vh",width:"0.66vw"}}
               className={i3
                 ? "fa fa-angle-down " 
                 : "fa fa-angle-down fa-rotate-180"}
@@ -424,18 +427,18 @@ function AdminRCA({adminFirstPageAction}) {
               return (
                 <div
                   className="adminfile"
-                  style={{ borderRadius: "30px" }}
+                  style={{ borderRadius: "1.9vw" }}
                   key={index}
                 >
-                  <span style={{ float: "left", marginLeft: "15px" }}>
+                  <span style={{ float: "left", marginLeft: "1vw" }}>
                     <img
                       src={require("../../../Img/attachIcon.png")}
-                      height="20px"
-                      width={"15px"}
-                      style={{ marginLeft: "20px" }}
+                    /*   height="20px"
+                      width={"15px"} */
+                      style={{ marginLeft: "1.33vw",height:"2.8vh",width:"1vw" }}
                     />
 
-                    <span className="adminfileName">Attachment-{index + 1}</span>
+                    <span className="adminfileName" style={{fontSize:"1vw"}} >Attachment-{index + 1}</span>
                   </span>
 
                   <img
@@ -443,11 +446,11 @@ function AdminRCA({adminFirstPageAction}) {
                     onClick={() => removeFile(index)}
                     height="22px"
                     width={"20px"}
-                    style={{ marginRight: "20px" }}
+                    style={{ marginRight: "1.33vw",height:"3vh",width:"1.33vw" }}
                   />
                 </div>
               );
-            }):<span style={{marginLeft:"30px"}} >No attachments found</span>}
+            }):<span style={{marginLeft:"1.9vw",fontSize:"0.9vw"}} >No attachments found</span>}
                <br />
             <button className='adminsavebtn' onClick={() => newUpload()} >Save</button>
           </div>
@@ -467,7 +470,7 @@ function AdminRCA({adminFirstPageAction}) {
             </IconButton>
           </div>
           <div className="dialog-row1">
-            <h5 style={{ fontSize: "22px", margin: "5px 0 0 0" }}>
+            <h5 style={{ fontSize: "1.4vw", margin: "0.67vh 0 0 0" }}>
               Add Attachment
             </h5>
             <hr className="clhrFirst" />
@@ -490,9 +493,9 @@ function AdminRCA({adminFirstPageAction}) {
                     Drag and Drop Here
                     <img
                       src={require("../../../Img/iconcloud.png")}
-                      height="25px"
-                      width={"25px"}
-                      style={{ marginLeft: "20px" }}
+                      /* height="25px"
+                      width={"25px"} */
+                      style={{ marginLeft: "1.33vw",height:"3.3vh",width:"1.6vw" }}
                     />
                   </span>
                 }
@@ -520,15 +523,15 @@ function AdminRCA({adminFirstPageAction}) {
               return (
                 <div
                   className="file"
-                  style={{ borderRadius: "30px" }}
+                  style={{ borderRadius: "1.9vw" }}
                   key={index}
                 >
-                  <span style={{ float: "left", marginLeft: "15px" }}>
+                  <span style={{ float: "left", marginLeft: "1vw" }}>
                     <img
                       src={require("../../../Img/attachIcon.png")}
-                      height="20px"
-                      width={"15px"}
-                      style={{ marginLeft: "20px" }}
+                    /*   height="20px"
+                      width={"15px"} */
+                      style={{ marginLeft: "1.33vw",height:"2.8vh",width:"1vw" }}
                     />
 
                     <span className="fileName">Attachment-{index + 1}</span>
@@ -537,9 +540,9 @@ function AdminRCA({adminFirstPageAction}) {
                   <img
                     src={require("../../../Img/iconDelete.png")}
                     onClick={() => removeFile(index)}
-                    height="22px"
-                    width={"20px"}
-                    style={{ marginRight: "20px" }}
+                    /* height="22px"
+                    width={"20px"} */
+                    style={{ marginRight: "1.33vw",height:"3vh",width:"1.33vw" }}
                   />
                 </div>
               );

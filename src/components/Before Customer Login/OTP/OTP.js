@@ -17,12 +17,13 @@ import { connect } from "react-redux";
 
 const useStyles = makeStyles({
   button: {
-    margin: "20px 0px 0px 100px ",
+    margin: "2.68vh 0px 0px 6.51vw ",
     backgroundColor: "black",
     color: "white",
-    width: "150px",
-    height: "50px",
-    borderRadius: "32.5px",
+    width: "9.76vw",
+    height: "6.71vh",
+    borderRadius: "2.11vw",
+    fontSize:"0.9vw",
     textTransform: "none",
     "&:hover": {
       background: "black",
@@ -32,13 +33,14 @@ const useStyles = makeStyles({
   },
   buttons: {
     textTransform: "none",
-    margin: "20px 0px 0px 20px ",
-    border: "solid 1px #d3d3d3",
+    margin: "2.68vh 0px 0px 1.3vw ",
+    border: "solid 0.134vh #d3d3d3",
     backgroundColor: "#f9f9f9",
     color: " #000",
-    width: "200px",
-    height: "50px",
-    borderRadius: "32.5px",
+    width: "13vw",
+    fontSize:"0.9vw",
+    height: "6.71vh",
+    borderRadius: "2.11vw",
     "&:hover": {
       backgroundColor: "#f9f9f9",
       textTransform: "none",
@@ -116,8 +118,7 @@ function OTP({ emailNum }) {
           <div className="otpHPD">
             <img
               src={require("../../../Img/HPDD.jpeg")}
-              height="50px"
-              width={"50px"}
+              style={{height:"6.5vh"}}
             />
           </div>
 
@@ -125,10 +126,11 @@ function OTP({ emailNum }) {
 
           <div
             style={{
-              margin: "10px 0px 0px 100px",
+              margin: "1.3vh 0px 0px 6.51vw",
               width: "590px",
               fontWeight: "300",
               marginTop: "30px",
+              fontSize:"1vw"
             }}
           >
             {" "}
@@ -165,7 +167,7 @@ function OTP({ emailNum }) {
               src={require("../../../Img/cross.png")}
               className="greentick"
             />
-            <span>Invalid Code</span>
+            <span style={{fontSize:"1vw",position:"relative",top:"0.3vh"}}>Invalid Code</span>
           </div>
 
           <div style={{ marginTop: "20px" }}>

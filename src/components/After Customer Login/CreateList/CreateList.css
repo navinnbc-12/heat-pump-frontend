@@ -5,35 +5,35 @@
 .clcontainer {
   padding: 10px !important;
   display: inline-block;
-  margin-left: 40px;
-  margin-right: 50px;
+  margin-left: 2.6vw;
+  margin-right: 3.255vw;
   width: 85%;
 }
 
 .cltitle {
   font-weight: 500;
-  font-size: 45px;
+  font-size: 2.8vw;
 }
 
 .clcontainerhr {
   width: 82%;
-  margin-left: 170px;
+  margin-left: 11.067vw;
   background-color: #f2f3f2;
-  border: 1px solid #f2f3f2;
-  margin-top: 10px;
+  border: 0.134vw solid #f2f3f2;
+  margin-top: 1.34vh;
 }
 
 .clpaper {
   border-style: solid;
-  border-radius: 30px;
+  border-radius:  1.95vw;
   border-color: #f2f3f2;
   padding: 20px !important;
-  margin-top: 30px;
+  margin-top:4vh;
 }
 
 .clnames {
   color: #fa5e00;
-  font-size: 22px;
+  font-size: 1.5vw;
 }
 .clfirstrow {
   display: flex;
@@ -42,29 +42,30 @@
 }
 .clhrFirst {
   background-color: #f2f3f2;
-  border: 1.5px solid #f2f3f2;
+  border: 0.1vw solid #f2f3f2;
   position: relative;
-  width: 170px;
+  width: 11.06vw;
 }
 
 .btnjob {
   font-weight: 300;
-  border-radius: 32.5px;
+  border-radius: 2.11vw;
   background-color: #000;
-  width: 175px;
-  height: 45px;
+  width: 11.4vw;
+  height: 6.04vh;
   color: white;
   position: relative;
   border: #000;
   font-weight: 100;
+  
 }
 
 .gridmove {
   position: relative;
   display: inline-block;
   width: 60%;
-  bottom: 30px;
-  left: 400px;
+  bottom: 4vh;
+  left: 16.51vw;
 }
 
 .gridbox1 {
@@ -72,18 +73,19 @@
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
-  row-gap: 30px;
-  column-gap: 32px;
+  row-gap: 4vh;
+  column-gap: 2.1vw;
+  font-size: 0.9vw;
 }
 
 .servicetype {
-  border-radius: 10px;
-  border: solid 1px #cfcece;
+  border-radius: 0.66vw;
+  border: solid 0.134vh #cfcece;
   background-color: #fff;
-  width: 400px;
-  height: 45px;
-  margin-top: 30px;
-  padding-left: 10px;
+  width: 26vw;
+  height: 6.04vh;
+  margin-top: 4vh;
+  padding-left: 0.66vw;
   color: #000;
   
 }
@@ -96,39 +98,39 @@
   width: 80%;
 
   background-color: #f2f3f2;
-  border: 1px solid #f2f3f2;
-  margin-top: 10px;
+  border: 0.134vh solid #f2f3f2;
+  margin-top: 1.4vh;
 }
 .clinput {
-  border-radius: 10px;
-  border: solid 1px #cfcece;
+  border-radius: 0.66vw;
+  border: solid 0.134vh #cfcece;
   background-color: #fff;
-  width: 400px;
-  height: 45px;
-  margin-top: 20px;
-  padding-left: 10px;
+  width: 26vw;
+  height: 6.04vh;
+  margin-top: 2.7vh;
+  padding-left: 0.66vw;
   color: #000;
 }
 
 .cltextarea {
-  border-radius: 15px;
-  border: solid 1px #cdcdcd;
-  width: 400px;
-  margin-top: 20px;
-  padding-left: 10px;
-  padding-top: 15px;
+  border-radius: 1vw;
+  border: solid 0.134vh #cdcdcd;
+  width: 26vw;
+  margin-top: 2.7vh;
+  padding-left: 0.66vw;
+  padding-top: 2vh;
 }
 
 .name1 {
-  margin-left: 100px;
-  margin-top: 20px;
-  margin-bottom: 0px;
+  margin-left: 6.51vw;
+  margin-top: 2.7vh;
+  
   color: #fa5e00;
 }
 
 .dragndrop {
-  border-radius: 10px;
-  height: 145px;
+  border-radius: 0.66vw;
+  height: 19.5vh;
   width: 50%;
   background-color: #f0f0f0;
   color: #000;
@@ -137,52 +139,54 @@
   position: relative;
   display: flex;
   font-weight: 300;
+  font-size: 1.3vw;
 }
 
 .or {
   position: relative;
   left: 55%;
-  bottom: 95px;
+  bottom: 12.75vh;
 }
 
 .browse {
   position: relative;
   left: 60%;
-  bottom: 95px;
+  bottom: 12.75vh;
 }
 
 .browsebtn {
-  width: 130px;
-  height: 50px;
+  width: 8.5vw;
+  height: 6.71vh;
   border: #000;
-  border-radius: 50px;
+  border-radius: 3.3vw;
   background-color: #000;
   color: white;
   font-weight: 100;
+  font-size: 1vw;
 }
 
 .clhr2 {
   width: 18%;
   background-color: #f2f3f2;
-  border: 1px solid #f2f3f2;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  border: 0.134vh solid #f2f3f2;
+  margin-top: 1.34vh;
+  margin-bottom: 2.7vh;
 }
 
 .name2 {
-  margin-left: 100px;
-  margin-top: 20px;
-  margin-bottom: 0px;
+  margin-left: 6.51vh;
+  margin-top: 2.8vh;
+
   color: #fa5e00;
 }
 
 .filemap {
   width: 30%;
-  margin-top: 5px;
-  margin-bottom: 10px;
+  margin-top: 0.67vh;
+  margin-bottom: 1.34vh;
   text-align: center;
   background-color: #f6f6f6;
-  height: 50px;
+  height: 6.71vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -194,16 +198,17 @@
   font-size: medium;
   align-items: center;
   position: relative;
-  left: 10px;
-  bottom: 5px;
+  left: 0.66vw;
+  bottom: 0.67vh;
 }
 
 .highBtn {
-  height: 50px;
-  width: 120px;
-  border-radius: 50px;
-  border: solid 1px #d3d3d3;
+  height: 6.7vh;
+  width:7.81vw;
+  border-radius: 3.3vw;
+  border: solid 0.134vh #d3d3d3;
   background-color: #fff;
+  font-size: 1vw;
 }
 
 .highBtnActive {
@@ -211,12 +216,13 @@
 }
 
 .mediumBtn {
-  height: 50px;
-  width: 120px;
-  border-radius: 50px;
-  border: solid 1px #d3d3d3;
+  height: 6.7vh;
+  width: 7.81vw;
+  border-radius: 3.3vw;
+  border: solid 0.134vh #d3d3d3;
   background-color: #fff;
-  margin-left: 30px;
+  margin-left: 2.8vw;
+  font-size: 1vw;
 }
 
 .mediumBtnActive {
@@ -224,12 +230,13 @@
 }
 
 .lowBtn {
-  height: 50px;
-  width: 120px;
-  border-radius: 50px;
-  border: solid 1px #d3d3d3;
+  height:6.7vh;
+  width: 7.81vw;
+  border-radius: 3.3vw;
+  border: solid 0.134vh #d3d3d3;
   background-color: #fff;
-  margin-left: 30px;
+  margin-left: 2.8vw;
+  font-size: 1vw;
 }
 
 .lowBtnActive {
@@ -237,16 +244,17 @@
 }
 
 .submitBtn {
-  height: 50px;
-  width: 120px;
-  border-radius: 50px;
-  border: solid 1px #d3d3d3;
+  height:6.7vh;
+  width: 7.81vw;
+  border-radius: 3.3vw;
+  border: solid 0.134vh #d3d3d3;
   background-color: #000;
   border: #000;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 5.4vh;
+  margin-bottom: 5.4vh;
   color: white;
   font-weight: 100;
+  font-size: 1.2vw;
 }
 
 .createmodal {
@@ -275,24 +283,24 @@
   text-align-last: right;
 }
 .dialog-row1 {
-  margin-left: 30px;
+  margin-left: 1.8vw;
 }
 .dialogname {
-  font-size: 22px;
+  font-size: 1.4vw;
   color: #fa5e00;
 }
 
 .subpaper {
   border-style: solid;
-  border-radius: 30px;
+  border-radius: 1.8vw;
   border-color: #f2f3f2;
-  padding: 20px !important;
-  margin-top: 30px;
+  padding: 2.8vh 1.3vw !important;
+  margin-top: 4vh;
 }
 
 .subnames {
   color: #fa5e00;
-  font-size: 28px;
+  font-size: 1.8vw;
 }
 .subfirstrow {
   display: flex;
@@ -301,13 +309,13 @@
 }
 .subhrFirst {
   background-color: #f2f3f2;
-  border: 1.5px solid #f2f3f2;
+  border: 0.2vh solid #f2f3f2;
   position: relative;
-  width: 250px;
+  width: 16.27%;
 }
 .subtext {
-  font-size: 19px;
-  margin-top: 50px;
+  font-size: 1.23vw;
+  margin-top:6.7vh;
   font-weight: 300;
   width: 75%;
 }
@@ -327,41 +335,42 @@
   color: #999;
   position: relative;
   pointer-events: none;
-  right: 390px;
-  bottom: 2px;
+  right: 25.4vw;
+  bottom: 0.27vh;
   transition: 0.2s;
-  font-size: 15px;
+  font-size: 1vw;
 }
 
 .clinput:focus ~ .clinput-label,
 .clinput:valid ~ .clinput-label {
-  bottom: 25px;
-  right: 390px;
+  bottom: 3.35vh;
+  right: 25.4vw;
   position: relative;
-  font-size: small;
+  font-size: 0.7vw;
   color: #525252;
   background-color: #fff;
-  padding: 0 5px 0 5px;
+  padding: 0 0.33vw 0 0.33vw;
+
 }
 .cltextarea-label {
   color: #999;
   position: relative;
   pointer-events: none;
-  right: 390px;
-  bottom: 160px;
+  right: 25.4vw;
+  bottom: 21.5vh;
   transition: 0.2s;
-  font-size: 15px;
+  font-size: 1vw;
 }
 
 .cltextarea:focus ~ .cltextarea-label,
 .cltextarea:valid ~ .cltextarea-label {
-  bottom: 180px;
-  right: 390px;
+  bottom: 24.2vh;
+  right: 25.4vw;
   position: relative;
-  font-size: small;
+  font-size: 0.7vw;
   color: #525252;
   background-color: #fff;
-  padding: 0 5px 0 5px;
+  padding: 0 0.33vw 0 0.33vw;
 }
 
 .optiontag {
@@ -388,11 +397,11 @@ button{
 
 .admsrselect1{
   width: 100%;
-  height: 45px;
+  height: 6.04vh;
   border-color: #cdcdcd;
-  font-size: 15px;
-  border-radius: 10px;
-  padding-left: 5px;
+  font-size: 1vw;
+  border-radius: 0.66vw;
+  padding-left: 0.33vw;
 }
 
 .admsrselect1:focus ~ .clDropdown{
@@ -400,11 +409,11 @@ button{
 }
 
 .clDropdown{
-   height: 10px;
-   width: 15px;
+   height: 1.34vh;
+   width: 1vw;
  
    
-   right: 25px;
+   right: 1.62vw;
    transition: all .1s ease-in-out;
    position: relative;
 }

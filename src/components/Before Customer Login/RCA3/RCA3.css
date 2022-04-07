@@ -20,13 +20,13 @@
   
   
   .rca3firstHalf {
-    width: 870px;
+    width: 56.6vw;
     display: inline-block;
     
   }
 
   .rca3HPD {
-    margin: 40px 0 50px 45px;
+    margin: 5.8vh 0 5.34vh 2.9vw;
     
     display: inline-block;
   }
@@ -35,58 +35,60 @@
   }
   
   .rca3left-bar{
-    width: 450px;
-    height: 7px;
+
+
+    width: 29.3vw;
+    height: 0.9vh;
     background-color: rgba(250, 96, 0, 0.664);
-    margin: 20px 0px 0px 103px;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+    margin: 0px 0px 0px 6.7vw;
+    border-top-left-radius: 0.26vw;
+    border-bottom-left-radius:  0.26vw;
     display: inline-block;
     position: relative;
   }
   .greentick{
-      width: 22px;
-      height: 22px;
+      width: 1.41vw;
+      height: 3vh;
       position: relative;
-      right: 10px;
-      top: 7px;
+      right: 0.66vw;
+      top: 1vh;
   }
 
   .rca3div1{
-    width:590px;
-    margin:5px 0px 0px 100px;
+    width:38.4vw;
+    margin:0.67vh 0px 0px 6.51vw;
     position:relative;
-    font-weight:300px;
+    font-weight:600;
     font-family:Outfit;
     color:#000000;
-    font-size: 45px;
-    font-stretch: normal;
+    font-size: 2.8vw;
+    /* font-stretch: normal;
     font-style: normal;
-    line-height: normal;
-    letter-spacing: 0.41px;
+    line-height: normal; */
+  /*   letter-spacing: 0.41px; */
     text-align: left;
   }
 
   
 .rca3buttonstart{
-  margin-top: 60px;
-   margin-left: 100px;
-   border-radius: 32.5px;
+  margin-top: 8.05vh;
+   margin-left: 6.51vw;
+   border-radius: 4.36vw;
   background-color: #000;
   color:white;
-   width:200px;
-   height:50px;
+   width:13.02vw;
+   height:6.71vh;
    position: absolute;
    
 }
 
 .rca3iconright{
-  margin-left: 90px;
+  margin-left: 5.86vw;
 }
 
 
   .rca3Rectangle-side {
-    min-width: 660px;;
+    min-width: 43vw;
     height: 100vh;
     margin-left: auto;
    
@@ -94,29 +96,31 @@
    
   }
 
-  @media screen and (max-height: 700px) {
+/*   @media screen and (max-height: 700px) {
     .rca3Rectangle-side {
       height: auto;
     }
-  }
+  } */
   
   .rca3couplesideImg{
-    width: 490px;
-    height: 465px;
-    margin-left: 100px;
+    width: 31.9vw;
+    height: 62.4vh;
+    margin-left: 6.51vw;
     position: absolute;
     bottom: 0px;
     
   }
 
   .rca3buttonstart{
-    margin-top: 30px;
-     margin-left: 100px;
-     border-radius: 32.5px;
+    margin-top: 4.06vh;
+     margin-left: 6.51vw;
+     border-radius: 2.11vw;
     background-color: #000;
     color:white;
-     width:200px;
-     height:50px;
+     width:13vw;
+     height:6.71vh;
      position: absolute;
+     border: none;
+     font-size: 0.9vw;
      
   }

@@ -7,20 +7,19 @@
   height: 100%;
   display: flex;
   flex-wrap: nowrap;
-  padding: 0 0 0 45px;
+  padding: 0 0 0 3vw;
   background-color: #fff;
 }
 
-.HPD-Existing-Logo---01-1 {
-  width: 7vh;
-  height: 7vh;
-  margin: 40px 0 80px 0;
-  
+.HPD-Existing-Logo---01-11 {
+  margin: 5vh 0 6vh 1vw;
+  height: 5vh;
+  width: 2.5vw;
   display: inline-block;
 }
 .Login {
   
-  height: 63px;
+  height: 9vh;
   flex-grow: 0;
  
   font-size: 3.5vw;
@@ -31,186 +30,209 @@
   letter-spacing: 0.41px;
   text-align: left;
   color: #000;
-  margin-left: 55px;
+  margin-left: 3.58vw;
   
 }
 
 .firstHalf {
-  min-width: 830px;
+  min-width: 54vw;
   display: inline-block;
   
 }
 
 .email {
-  width: 440px;
-  height: 48px;
-  margin: 45px 0px 0px 55px;
-  padding-left: 30px;
-  padding-top: 2px;
+  width: 28.64vw;
+  height: 6.45vh;
+  margin: 6.04vh 0px 0px 3.58vw;
+  padding-left: 2.2vw;
+  padding-top: 0.26vh;
   position: relative;
-  border-radius: 10px;
-  border: solid 1px #cdcdcd;
+  border-radius: 0.66vw;
+  border: solid 0.13vh #cdcdcd;
   background-color: #fff;
+  font-size: 1vw;
 }
 .email-label{
         color: #999;
         position: absolute;
         pointer-events: none;
-        left: 90px;
-        top: 61px;
+        left: 6vw;
+        top: 8.18vh;
         transition: 0.2s;
-        font-size: 14px;
+        font-size: 0.91vw;
 }
 .email:focus ~ .email-label,.email:valid ~ .email-label{
-  top: 36px;
-  left: 80px;
-  font-size: small;
+  top: 4.95vh;
+  left:5.2vw;
+  font-size: 0.8vw;
   color: #525252;
   background-color:#fff;
-  padding:0 5px 0 5px;
+  padding:0 0.33vw 0 0.33vw;
 }
 .emailIcon {
   position: relative;
-  right: 430px;
-  top: 1px;
+  right: 28vw;
+  top: 0.2vh;
+  height: 1.61vh;
+  width: 1.1vw;
 }
 .password {
-  width: 440px;
-  height: 48px;
-  margin: 5px 0px 0px 55px;
-  padding-left: 30px;
+  width: 28.64vw;
+  height: 6.45vh;
+  margin: 0.67vh 0px 0px 3.58vw;
+  padding-left: 2vw;
   position: relative;
-  border-radius: 10px;
-  border: solid 1px #cdcdcd;
+  border-radius: 0.66vw;
+  border: solid 0.13vh #cdcdcd;
   background-color: #fff;
+  font-size: 1vw;
 }
 
 .password-label{
   color: #999;
   position: absolute;
   pointer-events: none;
-  left: 90px;
-  top: 21px;
+  left: 6vw;
+  top: 2.82vh;
   transition: 0.2s;
-  font-size: 14px;
+  font-size: 0.91vw;
 
 }
 .password:focus ~ .password-label, .password:valid ~ .password-label{
-  top: -4px;
-  left: 80px;
-  font-size: small;
+  top: -0.53vh;
+  left: 5.2vw;
+  font-size: 0.8vw;
   color: #525252;
   background-color:#fff;
-  padding:0 5px 0 5px;
+  padding:0 0.33vw 0 0.33vw;
 }
 .passwordIcon {
   position: relative;
-  right: 430px;
-  top: 2px;
-  height:16px;
-  width:13px;
+  right: 28vw;
+  top: 0.23vh;
+  height:2.15vh;
+  width:0.91vw;
 }
 
 .loginspan1{
   color:#a4a4a4 ;
-  font-size: 14px;
-  margin-top: 10px;
-  margin-left: 55px;
-  margin-bottom: 5px;
+  font-size: 0.91vw;
+  margin-top: 1.34vh;
+  margin-left: 3.58vw;
+  margin-bottom: 0.67vh;
   display: block;
   font-weight: 300;
 
 }
 .loginspan2{
   color:red ;
-  font-size: 14px;
-  margin-top: 5px;
-  margin-left: 100px;
-  margin-bottom: 5px;
+  font-size: 0.91vw;
+  margin-top: 0.67vh;
+  margin-left: 6.51vw;
+  margin-bottom: 0.67vh;
  display: block;
   font-weight: 300;
 
 }
 .eyeIcon {
   position: relative;
-  right: 50px;
-  top: 2px;
-  height:13px;
-  width:16px;
+  right: 3.255vw;
+  top: 0.27vh;
+  height:1.75vh;
+  width:1.04vw;
 }
 .eyeIconOpen{
   position: relative;
-  right: 50px;
-  top: 2px;
-  height:15px;
-  width:16px;
+  right:3.255vw;
+  top: 0.27vh;
+  height:2.013vh;
+  width:1.04vw;
 
 }
 .icontick{
-  margin: 32px 0px 0px 55px ;
-  width: 440px;
+  margin: 4.3vh 0px 0px 3.58vw ;
+  width: 28.64vw;
 }
 
 
 
 .remember{
-  padding-left: 5px;
+  padding-left: 0.33vw;
   font-weight: 600;
-  font-size:13px;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.36px;
-  margin-bottom: 10px;
+  font-size:0.83vw;
+ 
+
+  margin-bottom: 1.34vh;
   position: relative;
-  bottom: 1px;
-  
+  bottom: 0.134vh;
+  float: left;
   
 }
+.remember-me1{
+  width: 0.78vw;
+  height: 1.61vh;
+  float: left;
+  margin-top: 0.08vw;
+}
+
+.remember-me{
+  width: 0.78vw;
+  height: 1.61vh;
+  float: left;
+  margin-top: 0.08vw;
+}
+
 
 .Forgot-password{
   float: right;
   color: #fa5e00;
   cursor:pointer;
+  font-size: 0.95vw;
+  display: inline-block;
+
+  position: relative;
+  top:"0.2vw";
+  margin-bottom: 1.34vh;
 }
 
 .login-button{
-  width: 200px;
-  height: 47px;
+  width: 13vw;
+  height: 6.3vh;
   border-radius: 32.5px;
   background-color: #000;
   color:white ;
-  margin: 32px 0px 0px 175px ;
-  cursor:pointer
+  margin: 4.3vh 0px 0px 11.4vw ;
+  cursor:pointer;
+  font-size: 0.95vw;
 }
 
 .terms-policies{
   text-decoration: underline;
-  margin:5px 0px 0px 189px;
-  font-size:13px;
+  margin:0.67vh 0px 0px 12.3vw;
+  font-size:0.85vw;
   
   cursor:pointer;
   color: #000;
 }
 
 .Rectangle-2 {
-  min-width: 660px;
+  min-width: 43vw;
   height: 100vh;
   margin-left: auto;
   background-image: linear-gradient(to bottom, #f4f2ea 0%, #d9d6c9 100%);
  
 }
 
-@media screen and (max-height: 700px) {
+/* @media screen and (max-height: 700px) {
   .Rectangle-2 {
     height: auto;
   }
-}
+} */
 
 .couple1Img{
-  width: 490px;
-  height: 265px;
-  margin-left: 90px;
+  width: 32vw;
+  height: 35.6vh;
+  margin-left: 6vw;
   position: absolute;
   bottom: 1px;
   
@@ -218,12 +240,17 @@
 
 .inputLogin1Error{
   color:  rgba(255, 0, 0, 0.699);
-  font-size: 13px;
+  font-size: 0.85vw;
 }
 
 .inputLogin2Error{
  color:  rgba(255, 0, 0, 0.699);
  position: relative;
- right: 15px;
- font-size: 13px;
+ right: 1vw;
+ font-size: 0.85vw;
 }
+
+.Dont-have-an-account-Sign-Up{
+  font-size: 1vw;
+}
+

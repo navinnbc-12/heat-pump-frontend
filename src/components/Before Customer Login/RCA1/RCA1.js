@@ -157,15 +157,15 @@ const blurFunc4 = () => {
     <div>
        <div className='rca1' >
         <div className='rca1firstHalf' >
-        <div className ="rca1HPD"><img src={require("../../../Img/HPDD.jpeg")} height="50px" width={"50px"}  /></div>
+        <div className ="rca1HPD"><img src={require("../../../Img/HPDD.jpeg")} style={{height:"6.5vh"}}  /></div>
             
         <h1 className='rca1div1' >Request a Customer Account</h1>
-        
+        <div style={{position:"relative"}} >
         <div className='left-bar' ></div>
         <div className="circle"></div>
         <div className='right-bar' ></div>
-
-        <div  style={{margin:"10px 0px 0px 100px",width:"590px",fontWeight:"300",marginTop:"30px"}} >Your Name and Contact Details</div>       
+        </div>
+        <div  style={{margin:"1.35vh 0px 0px 6.51vw",width:"38.4vw",fontSize:"1vw",fontWeight:"300",marginTop:"30px"}} >Your Name and Contact Details</div>       
        
         <form action=""  >
           <input required className='inputfields input1' type="text"  value={customerDetails.name} onChange={changeHandler} name="name"  /> <label className="input1-label" >Full Name*</label> <span className='input1Error inputError' >{input1Error}</span>

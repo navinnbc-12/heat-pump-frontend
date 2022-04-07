@@ -76,8 +76,8 @@ function AdminCommon({ adminFirstPageStatus }) {
         <div className="HPDSideBar">
           <img
             src={require("../../Img/HPDD.jpeg")}
-            height="40px"
-            width={"40px"}
+         
+            style={{height:"6.5vh"}}
           />
         </div>
 
@@ -98,14 +98,12 @@ function AdminCommon({ adminFirstPageStatus }) {
             {" "}
             <img
               src={require("../../Img/sidebaradmin1.png")}
-              height="20px"
-              width={"20px"}
+            
+              className="adminsidbar-icon"
             />{" "}
             Account Requests{" "}
             <img
               src={require("../../Img/redbar.png")}
-              height="50px"
-              width={"10px"}
               className="adminredbar1"
               style={
                 display == "redbar1"
@@ -120,18 +118,16 @@ function AdminCommon({ adminFirstPageStatus }) {
           style={
             display == "redbar2" ? { fontWeight: "600" } : { fontWeight: "300" }
           }
+          className="adminmyquotes-text li"
         >
           {" "}
           <img
             src={require("../../Img/sidebaradmin2.png")}
-            height="20px"
-            width={"20px"}
+            className="adminsidbar-icon"
           />{" "}
           Quotes Request{" "}
           <img
             src={require("../../Img/redbar.png")}
-            height="50px"
-            width={"10px"}
             className="adminredbar2"
             style={
               display == "redbar2"
@@ -148,18 +144,16 @@ function AdminCommon({ adminFirstPageStatus }) {
                 ? { fontWeight: "600" }
                 : { fontWeight: "300" }
             }
+            className="adminmy-servicerequest li"
           >
             {" "}
             <img
               src={require("../../Img/sidebaradmin3.png")}
-              height="20px"
-              width={"20px"}
+              className="adminsidbar-icon"
             />{" "}
             Service Requests{" "}
             <img
               src={require("../../Img/redbar.png")}
-              height="50px"
-              width={"10px"}
               className="adminredbar3"
               style={
                 display == "redbar3"
@@ -180,19 +174,17 @@ function AdminCommon({ adminFirstPageStatus }) {
                 ? { fontWeight: "600" }
                 : { fontWeight: "300" }
             }
+            className="adminmy-servicerequest li"
           >
             {" "}
             <img
               src={require("../../Img/sidebaradmin41.jpg")}
-              height="20px"
-              width={"20px"}
-              style={{ borderRadius: "5px" }}
+              style={{ borderRadius: "0.33vw" }}
+              className="adminsidbar-icon"
             />{" "}
             Business Users{" "}
             <img
               src={require("../../Img/redbar.png")}
-              height="50px"
-              width={"10px"}
               className="adminredbar4"
               style={
                 display == "redbar4"
@@ -204,8 +196,6 @@ function AdminCommon({ adminFirstPageStatus }) {
         </Link>
         <img
           src={require("../../Img/ellipse.png")}
-          height="360px"
-          width={"250px"}
           alt=""
           className="adminellipse"
         />
@@ -217,8 +207,8 @@ function AdminCommon({ adminFirstPageStatus }) {
             <img
               src={require("../../Img/toggleSideBar.png")}
               onClick={() => setCollapse(!collapse)}
-              height="40px"
-              width={"40px"}
+          /*     height="5.5vh"
+              width={"2.6vw"} */
               className="admincollapse-icon"
             />
             {!adminFirstPageStatus ? (
@@ -227,23 +217,21 @@ function AdminCommon({ adminFirstPageStatus }) {
                 onClick={() => {
                   window.history.back();
                 }}
-                height="40px"
-                width={"40px"}
+            /*     height="40px"
+                width={"40px"} */
                 className="admincollapse-left"
               />
             ) : null}
 
-            <div style={{ float: "right", marginRight: "160px" }}>
+            <div style={{ float: "right", marginRight: "10.41vw" }}>
               <img
                 src={require("../../Img/homeIcon.png")}
-                height="40px"
-                width={"40px"}
+               
                 className="adminhome-icon"
               />
               <img
                 src={require("../../Img/bell.png")}
-                height="40px"
-                width={"40px"}
+           
                 className="adminbell-icon"
               />
 
@@ -251,12 +239,14 @@ function AdminCommon({ adminFirstPageStatus }) {
                 <span
                   style={{
                     position: "relative",
-                    top: "17px",
-                    marginLeft: "10px",
+                    top: "2.3vh",
+                    marginLeft: "0.66vw",
                     color: "rgba(0, 0, 0, 0.6)",
                     display: "inline-block",
                     float:"right",
-                    marginRight:"15px",
+                    marginRight:"1vw",
+                    fontSize:"1vw",
+                   fontWeight:"600"
                   }}
                 >
                   {userInfo.name}
@@ -271,19 +261,18 @@ function AdminCommon({ adminFirstPageStatus }) {
                     aria-haspopup="true"
                     onClick={handleToggle}
                     style={{
-                      width: "50px",
-                      height: "50px",
-                      marginLeft: "120px",
+                      width: "3.25vw",
+                      height: "6.71vh",
+                      marginLeft: "7.81vw",
                       position: "relative",
-                      bottom: "18px",
+                      bottom: "2.5vh",
                       display: "inline-block",
-                      left:"45px",
+                      left:"2.8vw",
                     }}
                   >
                     <img
                       src={require("../../Img/account.png")}
-                      height="40px"
-                      width={"40px"}
+                       className="adminaccount-icon"
                     />
                   </Button>
                   <Popper
@@ -312,11 +301,11 @@ function AdminCommon({ adminFirstPageStatus }) {
                               aria-labelledby="composition-button"
                               onKeyDown={handleListKeyDown}
                             >
-                              <MenuItem onClick={handleClose}>Profile</MenuItem>
-                              <MenuItem onClick={handleClose}>
+                              <MenuItem style={{fontWeight:600}} onClick={handleClose}>Profile</MenuItem>
+                              <MenuItem style={{fontWeight:600}} onClick={handleClose}>
                                 My account
                               </MenuItem>
-                              <MenuItem onClick={() => toggleModal()}>
+                              <MenuItem style={{fontWeight:600}} onClick={() => toggleModal()}>
                                 Logout
                               </MenuItem>
                             </MenuList>
@@ -345,12 +334,12 @@ function AdminCommon({ adminFirstPageStatus }) {
                 </IconButton>
               </div>
               <div className="log-row1">
-                <h5 style={{ fontSize: "22px", margin: "5px 0 0 0" }}>
+                <h5 style={{ fontSize: "1.43vw", margin: "0.67vh 0 0 0" }}>
                   Are you sure you want to logout?
                 </h5>
               </div>
               <div className="log-row2">
-                <div style={{ marginTop: "10px" }}>
+                <div style={{ marginTop: "1.6vh" }}>
                   <button className="yesbtn" onClick={() => signout()}>
                     yes
                   </button>

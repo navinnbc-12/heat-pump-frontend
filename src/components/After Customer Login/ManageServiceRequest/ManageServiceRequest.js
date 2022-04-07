@@ -307,7 +307,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
             <div className="msrtitle1">Service Request Summary</div>
             <hr className="msrhr1" />
             <div className="displaygrid">
-              <div>Priority</div>
+              <div className="displayleft">Priority</div>
               {details.priority == 1 && (
                 <div className="displaygrid1">
                   <div className="hroundcircle">H</div>
@@ -323,7 +323,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                   <div className="lroundcircle">L</div>
                 </div>
               )}
-              <div>Status</div>
+              <div className="displayleft">Status</div>
               {details.status == 1 && (<div className="displaygrid1">New</div>)}
               {details.status == 2 && (
                 <div className="displaygrid1">Luths Working</div>
@@ -334,21 +334,21 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
               {details.status == 4 && (
                 <div className="displaygrid1">Closed</div>
               )}
-              <div>Last Updated</div>
+              <div className="displayleft">Last Updated</div>
               <div className="displaygrid1">
                 {moment(details.updatedAt).format("DD/MM/YYYY h:mm a")}
               </div>
-              <div>Created</div>
+              <div className="displayleft">Created</div>
               <div className="displaygrid1">
                 {moment(details.createdAt).format("DD/MM/YYYY h:mm a")}
               </div>
-              <div>Job Reference</div>
+              <div className="displayleft">Job Reference</div>
               <div className="displaygrid1">
                 {details.job_reference_id
                   ? details.job_reference_id.job_ref_number
                   : "-"}
               </div>
-              <div>Site</div>
+              <div className="displayleft">Site</div>
               <div className="displaygrid1">
                 {details.job_reference_id
                   ? details.job_reference_id.site_details
@@ -382,7 +382,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
               {details.service_ref_number} - {details.title}
             </div>
             <span className="msrspan1">{details.description}</span>
-            <div style={{ marginTop: "80px" }}>
+            <div style={{ marginTop: "10.73vh" }}>
               <button className="msrbutton1" onClick={(e) => toggleModal(e)}>
                 Add Update
               </button>
@@ -441,7 +441,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                         <div className="msrdiv3">{item.description}</div>
                       </div>
                     </div>
-                    <hr className="msrhr1" />
+                    <hr className="msrhr11" />
                   </>
                 );
               })}
@@ -450,7 +450,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
             )}
           </div>
         </div>
-        <div style={{height:"65px"}}>
+        <div style={{height:"8.72vh"}}>
         </div>
       </div>
       
@@ -468,7 +468,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
               </IconButton>
             </div>
             <div className="dialog-row1">
-              <h5 style={{ fontSize: "22px", margin: "5px 0 0 0" }}>
+              <h5 style={{ fontSize: "1.34vw", margin: "0.8vh 0 0 0" }}>
                 Add Update
               </h5>
               <hr className="clhrFirst" />
@@ -491,7 +491,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                   No Updates Given
                 </span>
               )}
-              <div style={{ marginTop: "10px" }}>
+              <div style={{ marginTop: "1.34vh" }}>
                 <button className="submitbtn" onClick={(e) => addUpdate(e)}>
                   Submit
                 </button>
@@ -517,7 +517,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
             </IconButton>
           </div>
           <div className="dialog-row1">
-            <h5 style={{ fontSize: "22px", margin: "5px 0 0 0" }}>
+            <h5 style={{ fontSize: "1.34vw", margin: "0.67vh 0 0 0" }}>
               Close Service Request
             </h5>
             <hr className="clhrFirst" />
@@ -538,7 +538,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                 No Reason Given
               </span>
             )}
-            <div style={{ marginTop: "10px" }}>
+            <div style={{ marginTop: "1.34vh" }}>
               <button className="submitbtn" onClick={() => closingsr()}>
                 Submit
               </button>
@@ -563,7 +563,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
             </IconButton>
           </div>
           <div className="dialog-row1">
-            <h5 style={{ fontSize: "22px", margin: "5px 0 0 0" }}>
+            <h5 style={{ fontSize: "1.34vw", margin: "0.67vh 0 0 0" }}>
               Add Attachment
             </h5>
             <hr className="clhrFirst" />
@@ -585,9 +585,9 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                     Drag and Drop Here
                     <img
                       src={require("../../../Img/iconcloud.png")}
-                      height="25px"
-                      width={"25px"}
-                      style={{ marginLeft: "20px" }}
+                      height="3.35vw"
+                      width={"1.52vw"}
+                      style={{ marginLeft: "1.22vw" }}
                     />
                   </span>
                 }
@@ -615,15 +615,15 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
               return (
                 <div
                   className="file"
-                  style={{ borderRadius: "30px" }}
+                  style={{ borderRadius: "1.92vw" }}
                   key={index}
                 >
-                  <span style={{ float: "left", marginLeft: "15px" }}>
+                  <span style={{ float: "left", marginLeft: "0.9vw" }}>
                     <img
                       src={require("../../../Img/attachIcon.png")}
-                      height="20px"
-                      width={"15px"}
-                      style={{ marginLeft: "20px" }}
+                      height="2.68vh"
+                      width={"0.91vw"}
+                      style={{ marginLeft: "1.22vw" }}
                     />
 
                     <span className="fileName">Attachment-{index + 1}</span>
@@ -632,14 +632,14 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                   <img
                     src={require("../../../Img/iconDelete.png")}
                     onClick={() => removeFile(index)}
-                    height="22px"
-                    width={"20px"}
-                    style={{ marginRight: "20px" }}
+                    height="2.95vh"
+                    width={"1.22vw"}
+                    style={{ marginRight: "1.22vw" }}
                   />
                 </div>
               );
             })}
-            <div style={{ marginTop: "10px" }}>
+            <div style={{ marginTop: "1.34vh" }}>
               <button className="submitbtn" onClick={() => newUpload()}>
                 Submit
               </button>
@@ -650,7 +650,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
           </div>
         </div>
       </Modal>
-      <div style={{ height: "61px" }}></div>
+      <div style={{ height: "8.18vh" }}></div>
     </div>
   );
 };

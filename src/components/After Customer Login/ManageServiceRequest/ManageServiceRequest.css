@@ -2,151 +2,165 @@
   box-sizing: border-box;
 }
 .msrcontainer {
-  padding: 10px !important;
+  padding: 0.61vw !important;
   display: inline-block;
-  margin-left: 40px;
-  margin-right: 50px;
+  margin-left: 2.44vw;
+  margin-right: 3.05vw;
   width: 90%;
 }
 .msrcontainerhr {
   width: 70%;
-  margin-left: 300px;
+  margin-left: 9.12vw;
   background-color: #f2f3f2;
-  border: 1px solid #f2f3f2;
-  margin-top: 10px;
+  border: 0.1vw solid #f2f3f2;
+  margin-top: 1.34vh;
 }
 .msrpaper {
-  padding: 10px !important;
-  margin-top: 40px;
+  padding: 0.61vw !important;
+  margin-top: 5.36vh;
   display: grid;
-  grid-template-columns: 330px auto;
-  grid-gap: 20px;
+  grid-template-columns: 20.17vw auto;
+  grid-gap: 1.3vw;
   grid-template-rows: auto 1fr;
-  min-width: 1100px;
+  /* min-width: 167.23vw; */
 }
 .msrtitle {
   font-weight: 500;
-  font-size: 45px;
+  font-size: 2.75vw;
 }
 .msrgrid1 {
   border-style: solid;
-  border-radius: 30px;
+  border-radius:2vw;
   border-color: #f2f3f2;
-  padding: 20px !important;
+  padding: 1.32vw !important;
   grid-row: 1/3;
   background-color: #f9f9f9;
 }
 .msrgrid2 {
   border-style: solid;
-  border-radius: 30px;
+  border-radius: 1.9vw;
   border-color: #f2f3f2;
-  padding: 30px !important;
+  padding: 1.83vw !important;
 }
 .msrgrid3 {
   border-style: solid;
-  border-radius: 30px;
+  border-radius:  1.9vw;
   border-color: #f2f3f2;
-  padding: 30px !important;
+  padding: 1.83vw !important;
 }
 
 .msrtitle1 {
   color: #fa5e00;
   text-align: center;
   font-weight: bolder;
-  font-size: large;
+  font-size: 1.32vw;
 }
 .msrhr1 {
-  width: 220px;
+  width: 13.44vw;
   background-color: #f2f3f2;
-  border: 1px solid #f2f3f2;
-  margin-top: 10px;
+  /* /* border: 0.06 solid #f2f3f2; */
+  border: 0.1vw solid #f2f3f2; 
+  margin-top: 1.34vh;
 }
 .displaygrid {
   display: grid;
   grid-template-columns: auto auto;
-  row-gap: 20px;
-  column-gap: 10px;
-  margin-top: 10px;
+  row-gap: 1.2vw;
+  column-gap: 0.61vw;
+  margin-top: 1.34vh;
+  font-size: 1vw;
+}
+.displayleft{
+  font-size: 1vw;
 }
 
 .msrtitle2 {
   color: #fa5e00;
   text-align: center;
   font-weight: bolder;
-  font-size: large;
-  margin-top: 40px;
+  font-size: 1.32vw;
+  margin-top: 5.36vh;
 }
 
 .msrattachment {
   background-color: #ffffff;
-  border-radius: 32.5px;
-  border: solid 1px rgba(0, 0, 0, 0.5);
-  margin-top: 20px;
-  height: 45px;
-  padding: 10px 20px;
+  border-radius: 1.95vw;
+  border: solid 0.06vw rgba(0, 0, 0, 0.5);
+  margin-top: 2.68vh;
+  height: 6.04vh;
+  padding: 1.34vh 1.3vw;
   display: flex;
 }
 
 .msrattachIcon {
-  width: 18px;
-  height: 22px;
+  width: 1.18vw;
+  height: 2.95vh;
 }
 
 .msrcross1 {
-  height: 12px;
-  width: 12px;
-  margin-top: 5px;
+  height: 1.61vh;
+  width: 0.8vw;
+  margin-top: 0.5vh;
   cursor: pointer;
 }
 
 .div-name {
   display: inline-block;
-  width: 210px;
-  margin-left: 10px;
+  width: 12.83vw;
+  margin-left: 0.61vw;
   cursor: pointer;
+  font-size: 1vw;
 }
 
 .msrtitle3 {
   color: #fa5e00;
 
   font-weight: bolder;
-  font-size: large;
+  font-size: 1.32vw;
 }
 .msrspan1 {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 2.68vh;
   font-weight: 300;
+  font-size: 1.1vw;
 }
 
 .msrbutton1 {
-  width: 180px;
-  height: 50px;
+  width: 11vw;
+  height: 6.71vh;
   background-color: black;
   color: white;
-  border-radius: 30px;
+  border-radius: 1.85vw;
   font-weight: 300;
   cursor: pointer;
+  font-size: 1vw;
+  border: none;
 }
 
 .msrbutton2 {
-  width: 180px;
-  height: 50px;
+  width: 11vw;
+  height: 6.71vh;
   background-color: black;
   color: white;
-  border-radius: 30px;
-  margin-left: 30px;
+  border-radius: 1.85vw;
+  margin-left: 1.85vw;
   font-weight: 300;
   cursor: pointer;
+  font-size: 1vw;
+  border: none;
 }
 
 .msrbutton3 {
-  width: 180px;
-  height: 50px;
+  width: 11vw;
+  height: 6.71vh;
   background-color: #f9f9f9;
   cursor: pointer;
-  border-radius: 30px;
-  margin-left: 30px;
+  border-radius: 1.85vw;
+  margin-left: 1.85vw;
   font-weight: 300;
+  cursor: pointer;
+  font-size: 1vw;
+  border: none;
 }
 .msrbutton3:hover {
   background-color: #000;
@@ -156,73 +170,82 @@
 .msrimage {
   display: inline-block;
 
-  width: 80px;
-  height: 80px;
+  width: 4.88vw;
+  height: 10.73vh;
 }
 
 .msrCommonIcon {
-  height: 36px;
-  width: 40px;
+  height: 4.83vh;
+  width:  2.88vw;
 }
 
 .msrupdatesgrid {
   display: grid;
-  grid-template-columns: 80px auto;
-  margin-top: 10px;
+  grid-template-columns: 10.73vh auto;
+  margin-top: 1.34vh;
   
 }
 
 .msrspan21 {
-  font-size: larger;
+  font-size: 1.32vw;
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 1.34vh;
 }
 
 .msrspan3 {
-  margin-left: 10px;
+  margin-left: 0.611vw;
 
-  font-size: larger;
+  font-size: 1.32vw;
 }
 
 .msrdiv3 {
-  margin-top: 20px;
-  font-weight: 100;
+  margin-top: 2.68vh;
+  font-size: 1vw;
 }
 
-.msrhr1 {
+.msrhr11 {
   width: 80%;
   margin-left: 9%;
+  border: 0.1vw solid #f2f3f2;
+  background-color: #f2f3f2;
+  margin-top: 1.34vh;
+}
+.msrhr1 {
+  width: 13.44vw;
+  background-color: #f2f3f2;
+  border: 0.1vw solid #f2f3f2; 
+  margin-top: 1.34vh;
 }
 .hroundcircle {
-  width: 30px;
-  height: 30px;
+  width: 1.83vw;
+  height: 4.02vh;
   border-radius: 50%;
-  font-size: 15px;
+  font-size: 0.9vw;
   color: black;
   background-color: #ff8282;
-  padding-top: 5px;
+  padding-top: 0.8vh;
   text-align: center;
-  float: left;
+float: left;
 }
 .mroundcircle {
-  width: 30px;
-  height: 30px;
+  width: 1.83vw;
+  height: 4.02vh;
   border-radius: 50%;
-  font-size: 15px;
+  font-size: 0.9vw;
   color: black;
   background-color: #ffe289;
-  padding-top: 5px;
+  padding-top: 0.8vh;
   text-align: center;
   float: left;
 }
 .lroundcircle {
-  width: 30px;
-  height: 30px;
+  width: 1.83vw;
+  height: 4.02vh;
   border-radius: 50%;
-  font-size: 15px;
+  font-size: 0.9vw;
   color: black;
   background-color: #c0f587;
-  padding-top: 5px;
+  padding-top: 0.8vh;
   text-align: center;
   float: left;
 }
@@ -234,11 +257,11 @@
   transform: translate(-50%, -50%);
   background: #fff;
   overflow: auto;
-  border-radius: 25px;
+  border-radius: 1.52vw;
   outline: none;
-  padding: 20px 20px 20px 20px;
-  width: 700px;
-  height: 370px;
+  padding: 2.68vh 1.22vw 2.68vh 1.22vw;
+  width: 42.78vw;
+  height: 49.66vh;
   z-index: 1000;
 }
 
@@ -256,45 +279,45 @@
   text-align-last: right;
 }
 .dialog-row1 {
-  margin-left: 30px;
+  margin-left: 1.83vw;
 }
 .dialogname {
-  font-size: 22px;
+  font-size: 1.34vw;
   color: #fa5e00;
-  margin-top: 12px;
+  margin-top: 1.61vh;
 }
 
 .dialog-row2 {
-  margin-left: 30px;
+  margin-left: 1.83vw;
 }
 
 .modeltextarea {
-  border-radius: 5px;
+  border-radius: 0.30vw;
   border: solid 1px #cdcdcd;
   background-color: #f0f0f0;
-  width: 400px;
-  margin-top: 10px;
-  padding-left: 10px;
-  padding-top: 15px;
-  height: 95px;
+  width: 24.44vw;
+  margin-top: 1.61vh;
+  padding-left: 0.61vw;
+  padding-top: 2.01vh;
+  height: 12.08vh;
 }
 
 .submitbtn {
-  width: 130px;
-  height: 47px;
+  width: 7.94vw;
+  height: 6.30vh;
   border: #000;
-  border-radius: 50px;
+  border-radius: 3.05vw;
   background-color: #000;
   color: white;
   font-weight: 100;
   cursor: pointer;
 }
 .closebtn {
-  margin-left: 10px;
-  width: 130px;
-  height: 47px;
+  margin-left: 0.61vw;
+  width: 7.94vw;
+  height: 6.30vh;
   border: grey ridge;
-  border-radius: 50px;
+  border-radius: 3.05vw;
   background-color: white;
   color: black;
   cursor: pointer;
@@ -305,7 +328,7 @@
 }
 .displaygrid1 {
   font-weight: 300;
-  width:149px;
+  /* width:9.10vw; */
 }
 
 .myattachmodal {
@@ -315,16 +338,16 @@
   transform: translate(-50%, -50%);
   background: #fff;
   overflow: auto;
-  border-radius: 25px;
+  border-radius: 1.52vw;
   outline: none;
-  padding: 20px 20px 20px 20px;
-  width: 750px;
+  padding: 2.68vh 1.22vw 2.68vh 1.22vw;
+  width: 45.84vw;
   /* height: 360px; */
 }
 
 .dragndrop {
-  border-radius: 10px;
-  height: 125px;
+  border-radius: 0.61vw;
+  height: 7.64vw;
   width: 65%;
   background-color: #f0f0f0;
   color: #000;
@@ -333,27 +356,27 @@
   position: relative;
   display: flex;
   font-weight: 300;
-  margin-top: 10px;
+  margin-top: 1.34vh;
   cursor: pointer;
 }
 
 .or {
   position: relative;
   left: 66%;
-  bottom: 95px;
+  bottom: 12.75vh;
 }
 
 .browse {
   position: relative;
   left: 70%;
-  bottom: 95px;
+  bottom: 12.75vh;
 }
 
 .browsebtn {
-  width: 130px;
-  height: 50px;
+  width: 7.94vw;
+  height: 6.71vh;
   border: #000;
-  border-radius: 50px;
+  border-radius: 3.05vw;
   background-color: #000;
   color: white;
   font-weight: 100;
@@ -362,11 +385,11 @@
 
 .file{
   width:35%;
-  margin-top: 5px;
-  margin-bottom: 10px;
+  margin-top: 0.67vh;
+  margin-bottom: 1.34vh;
   text-align: center;
   background-color: #f6f6f6;
-  height:50px;
+  height:6.71vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -375,11 +398,11 @@
 
 .fileName{
   font-weight: 300;
-  font-size:medium;
+  font-size:1vw;
   align-items: center;
   position: relative;
-  left: 10px;
-  bottom: 5px;
+  left: 0.61vw;
+  bottom: 0.67vh;
   
 }
 
