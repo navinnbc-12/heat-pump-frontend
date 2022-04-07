@@ -326,7 +326,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
               <div className="displayleft">Status</div>
               {details.status == 1 && (<div className="displaygrid1">New</div>)}
               {details.status == 2 && (
-                <div className="displaygrid1">Luths Working</div>
+                <div className="displaygrid1">HPD Working</div>
               )}
               {details.status == 3 && (
                 <div className="displaygrid1">Need Your Attention</div>
@@ -410,7 +410,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                         {item.type == 2 && (
                           <img
                             src={require("../../../Img/type2.png")}
-                            className="msrCommonIcon"
+                            className="msrCommonIcon1"
                           />
                         )}
                         {item.type == 4 && (
@@ -423,12 +423,12 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                       <div className="msrbox1">
                         {item.type == 1 && (
                           <span className="msrspan21">
-                            Update from customer
+                            Update from Customer
                           </span>
                         )}
                         {item.type == 2 && (
                           <span className="msrspan21">
-                            Update from Luths Staff
+                            Update from HPD Staff
                           </span>
                         )}
                         {item.type == 3 && (
@@ -621,9 +621,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                   <span style={{ float: "left", marginLeft: "0.9vw" }}>
                     <img
                       src={require("../../../Img/attachIcon.png")}
-                      height="2.68vh"
-                      width={"0.91vw"}
-                      style={{ marginLeft: "1.22vw" }}
+                      style={{ marginLeft: "1.22vw",height:"2.68vh",width:"0.91vw" }}
                     />
 
                     <span className="fileName">Attachment-{index + 1}</span>
@@ -632,9 +630,8 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                   <img
                     src={require("../../../Img/iconDelete.png")}
                     onClick={() => removeFile(index)}
-                    height="2.95vh"
-                    width={"1.22vw"}
-                    style={{ marginRight: "1.22vw" }}
+                    
+                    style={{ marginRight: "1.22vw",height:"2.68vh",width:"0.91vw" }}
                   />
                 </div>
               );

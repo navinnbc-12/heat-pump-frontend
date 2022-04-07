@@ -240,13 +240,10 @@ function AdminCommon({ adminFirstPageStatus }) {
                   style={{
                     position: "relative",
                     top: "2.3vh",
-                    marginLeft: "0.66vw",
                     color: "rgba(0, 0, 0, 0.6)",
-                    display: "inline-block",
-                    float:"right",
-                    marginRight:"1vw",
                     fontSize:"1vw",
-                   fontWeight:"600"
+                   fontWeight:"600",
+                   float:"right"
                   }}
                 >
                   {userInfo.name}
@@ -301,11 +298,11 @@ function AdminCommon({ adminFirstPageStatus }) {
                               aria-labelledby="composition-button"
                               onKeyDown={handleListKeyDown}
                             >
-                              <MenuItem style={{fontWeight:600}} onClick={handleClose}>Profile</MenuItem>
-                              <MenuItem style={{fontWeight:600}} onClick={handleClose}>
+                              <MenuItem style={{fontWeight:600,fontSize:"1vw"}} onClick={handleClose}>Profile</MenuItem>
+                              <MenuItem style={{fontWeight:600,fontSize:"1vw"}} onClick={handleClose}>
                                 My account
                               </MenuItem>
-                              <MenuItem style={{fontWeight:600}} onClick={() => toggleModal()}>
+                              <MenuItem style={{fontWeight:600,fontSize:"1vw"}} onClick={() => toggleModal()}>
                                 Logout
                               </MenuItem>
                             </MenuList>

@@ -16,36 +16,55 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import { connect } from "react-redux";
 import { FirstPageAction } from "../../../Redux/FirstPage/FirstPage.action";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import InputLabel from "@mui/material/InputLabel";
+import { makeStyles } from "@mui/styles";
 
 Modal.setAppElement("#root");
 
 const fileTypes = ["PDF", "PNG", "JPEG"];
-const jobs = [
-  {
-    id: "JR12345678",
-    site: "10 windyridge Hamilton ML37TR",
-    status: "completed",
-  },
-  {
-    id: "JR90815678",
-    site: "7 Covalburn Avenue Hamilton ML37TR",
-    status: "inprogress",
-  },
-  {
-    id: "JR12345678",
-    site: "7 windyridge Avenue Hamilton ML37TR",
-    status: "completed",
-  },
-  { id: "4", site: "east", status: "new" },
-  { id: "5", site: "northeast", status: "admin look" },
-];
+
 const theme = createTheme({
   palette: {
     primary: { main: "#000000	" },
   },
 });
+const useStyles = makeStyles({
+  selectfield: {
+    "& label.Mui-focused": {
+      color: "black",
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "0.61vw",
+      marginRight: "1.22vw",
+      width: "26vw",
+      height: "6.04vh",
+      fontWeight: "bolder",
+      fontFamily: "outfit",
+      backgroundColor: "white",
+
+      "&.Mui-focused fieldset": {
+        borderColor: "black",
+      },
+    },
+    icons: {
+      fontSize: "0.5vw",
+    },
+  },
+  selectinput: {
+    marginBottom: "0.67vh",
+    fontFamily: "outfit",
+    fontWeight: "bold",
+    fontSize: "1vw",
+  },
+});
 const CreateList = ({ FirstPageAction }) => {
   const navigate = useNavigate();
+  const classes = useStyles();
   const [high, setHigh] = useState(false);
   const [medium, setMedium] = useState(false);
   const [low, setLow] = useState(false);
@@ -60,25 +79,7 @@ const CreateList = ({ FirstPageAction }) => {
   const [submitted, setSubmitted] = useState(false);
   const [srno, setSrno] = useState("");
   const [data, setData] = useState([]);
-  // const data = [
-  //   {
-  //     id: "JR12345678",
-  //     site: "10 windyridge Hamilton ML37TR",
-  //     status: "completed",
-  //   },
-  //   {
-  //     id: "JR90815678",
-  //     site: "7 Covalburn Avenue Hamilton ML37TR",
-  //     status: "inprogress",
-  //   },
-  //   {
-  //     id: "JR12345678",
-  //     site: "7 windyridge Avenue Hamilton ML37TR",
-  //     status: "completed",
-  //   },
-  //   { id: "4", site: "east", status: "new" },
-  //   { id: "5", site: "northeast", status: "admin look" },
-  // ];
+  const [focused, setFocused] = React.useState("");
   const [site, setSite] = useState("");
   const [jobid, setJobid] = useState("");
   let [page, setPage] = useState(1);
@@ -221,8 +222,8 @@ const CreateList = ({ FirstPageAction }) => {
       .then((response) => {
         setLoader(false);
         const res = response.data;
+        debugger
         if (res.success) {
-          // toast.success("Submitted Successfully");
           setSubmitted(true);
           setSrno(res.data.service_ref_number);
         } else {
@@ -267,7 +268,11 @@ const CreateList = ({ FirstPageAction }) => {
               </div>
               <hr className="clhrFirst" />
             </div>
-            <button className="btnjob" style={{fontSize:"1vw"}} onClick={toggleModal}>
+            <button
+              className="btnjob"
+              style={{ fontSize: "1vw" }}
+              onClick={toggleModal}
+            >
               Job Reference
             </button>
             <div className="gridmove">
@@ -280,7 +285,7 @@ const CreateList = ({ FirstPageAction }) => {
             </div>
 
             <hr className="clhr1" />
-            <div>
+            {/* <div>
               <select
                 className="servicetype"
                 value={servicetype}
@@ -289,17 +294,54 @@ const CreateList = ({ FirstPageAction }) => {
                 <option value="" defaultValue hidden disabled>
                   Service Type
                 </option>
-                <option style={{fontSize:"1.3vw"}} value="Enquiry" className="optiontag">
+                <option
+                  style={{ fontSize: "1.3vw" }}
+                  value="Enquiry"
+                  className="optiontag"
+                >
                   Enquiry
-                </option  >
-                <option style={{fontSize:"1.3vw"}} value="Design Clarifications" className="optiontag">
+                </option>
+                <option
+                  style={{ fontSize: "1.3vw" }}
+                  value="Design Clarifications"
+                  className="optiontag"
+                >
                   Design Clarifications
                 </option>
-                {/* <option value="three" className="optiontag">
-                  Service 3
-                </option> */}
-              </select> <img src={require("../../../Img/adminDropdown.png")} className="clDropdown"  />
-              {/* <label className='clinput-label'>Service Type</label> */}
+              </select>{" "}
+              <img
+                src={require("../../../Img/adminDropdown.png")}
+                className="clDropdown"
+              />
+            </div> */}
+            <div style={{ marginTop: "4vh" }}>
+              <FormControl className={classes.selectfield}>
+                <InputLabel
+                  id="demo-simple-select-label"
+                  className={classes.selectinput}
+                >
+                  Service Type
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={servicetype}
+                  onChange={(e) => setServicetype(e.target.value)}
+                  onFocus={() => setFocused(true)}
+                  onBlur={() => setFocused(false)}
+                  label="Service Type"
+                  IconComponent={() =>
+                    focused ? (
+                      <KeyboardArrowUpIcon className={classes.icons} />
+                    ) : (
+                      <KeyboardArrowDownIcon className={classes.icons} />
+                    )
+                  }
+                >
+                  <MenuItem style={{fontWeight:600}}value="Enquiry"> Enquiry </MenuItem>
+                  <MenuItem style={{fontWeight:600}}value="Design Clarifications"> Design Clarifications </MenuItem>
+                </Select>
+              </FormControl>
             </div>
             <div>
               <input
@@ -323,7 +365,9 @@ const CreateList = ({ FirstPageAction }) => {
               ></textarea>
               <label className="cltextarea-label">Details</label>
 
-              <h4 className="name1" style={{fontSize:"1.2vw"}}>Attachments</h4>
+              <h4 className="name1" style={{ fontSize: "1.2vw" }}>
+                Attachments
+              </h4>
 
               <hr className="clhr2" />
 
@@ -340,9 +384,13 @@ const CreateList = ({ FirstPageAction }) => {
                       Drag and Drop Here
                       <img
                         src={require("../../../Img/iconcloud.png")}
-                       /*  height="25px"
+                        /*  height="25px"
                         width={"25px"} */
-                        style={{ marginLeft: "20px",height:"3.35vh",width:"1.63vw" }}
+                        style={{
+                          marginLeft: "20px",
+                          height: "3.35vh",
+                          width: "1.63vw",
+                        }}
                       />
                     </span>
                   }
@@ -376,8 +424,11 @@ const CreateList = ({ FirstPageAction }) => {
                       <span style={{ float: "left", marginLeft: "1vw" }}>
                         <img
                           src={require("../../../Img/attachIcon.png")}
-                        
-                          style={{ marginLeft: "20px",height:"2.8vh",width:"1vw" }}
+                          style={{
+                            marginLeft: "20px",
+                            height: "2.8vh",
+                            width: "1vw",
+                          }}
                         />
 
                         <span className="fileName">Attachment-{index + 1}</span>
@@ -386,14 +437,19 @@ const CreateList = ({ FirstPageAction }) => {
                       <img
                         src={require("../../../Img/iconDelete.png")}
                         onClick={() => removeFile(index)}
-                       
-                        style={{ marginRight: "20px",width:"1.3vw",height:"2.9vh" }}
+                        style={{
+                          marginRight: "20px",
+                          width: "1.3vw",
+                          height: "2.9vh",
+                        }}
                       />
                     </div>
                   );
                 })}
 
-              <h4 className="name2" style={{fontSize:"1.2vw"}} >Priority</h4>
+              <h4 className="name2" style={{ fontSize: "1.2vw" }}>
+                Priority
+              </h4>
 
               <hr className="clhr2" />
 
@@ -433,8 +489,7 @@ const CreateList = ({ FirstPageAction }) => {
                 {servicetype !== "" &&
                   priority !== "" &&
                   title !== "" &&
-                  details !== "" &&
-                   (
+                  details !== "" && (
                     <button
                       className="submitBtn"
                       onClick={(e) => uploadMapping(e)}
@@ -449,33 +504,30 @@ const CreateList = ({ FirstPageAction }) => {
 
         {submitted && (
           <>
-          <div className="subpaper">
-            <div className="subfirstrow">
-              <div className="subnames">{userName}</div>
-              <div >
-                {userData.business_trade_name}, {userData.city}
-              </div>
-              <hr className="subhrFirst" />
+            <div className="subpaper">
+              <div className="subfirstrow">
+                <div className="subnames">{userName}</div>
+                <div>
+                  {userData.business_trade_name}, {userData.city}
+                </div>
+                <hr className="subhrFirst" />
 
-              <div className="subtext">
-                Your enquiry submission is successful. Ref:{srno}. You can track
-                the status of your service request using{" "}
-                <Link to="/common/servicerequest" className="subspan">
-                  {" "}
-                  <span>My Service Requests</span>
-                </Link>
+                <div className="subtext">
+                  Your enquiry submission is successful. Ref:{srno}. You can
+                  track the status of your service request using{" "}
+                  <Link to="/common/servicerequest" className="subspan">
+                    {" "}
+                    <span>My Service Requests</span>
+                  </Link>
+                </div>
               </div>
+              <button className="submitBtn" onClick={() => closeSubmitted()}>
+                Close
+              </button>
             </div>
-            <button className="submitBtn" onClick={() => closeSubmitted()}>
-              Close
-            </button>
-          </div>
-          <div style={{height:"160px"}}></div>
-
+            <div style={{ height: "160px" }}></div>
           </>
-          
         )}
-        
 
         <Modal
           isOpen={open}
@@ -517,7 +569,7 @@ const CreateList = ({ FirstPageAction }) => {
                           <td className="">{item.job_ref_number}</td>
                           <td className="">{item.site_details}</td>
                           {item.status == 1 && <td>New</td>}
-                          {item.status == 2 && <td>Luths Working</td>}
+                          {item.status == 2 && <td>HPD Working</td>}
                           {item.status == 3 && <td>Need Your Attention</td>}
                           {item.status == 4 && <td>Resolved</td>}
                         </tr>

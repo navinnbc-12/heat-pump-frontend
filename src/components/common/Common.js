@@ -230,7 +230,8 @@ function Common({firstPageStatus}) {
                       top:"2.4vh",
                       left: "4.55vw",
                       color: "rgba(0, 0, 0, 0.6)",
-                      fontSize:"1vw"
+                      fontSize:"1vw",
+                      fontWeight:"600"
                     }}
                   >
                     {userInfo.name}
@@ -285,11 +286,11 @@ function Common({firstPageStatus}) {
                               aria-labelledby="composition-button"
                               onKeyDown={handleListKeyDown}
                             >
-                              <MenuItem style={{fontWeight:600}}onClick={handleClose}>Profile</MenuItem>
-                              <MenuItem style={{fontWeight:600}} onClick={handleClose}>
+                              <MenuItem style={{fontWeight:600,fontSize:"1vw"}} onClick={handleClose}>Profile</MenuItem>
+                              <MenuItem style={{fontWeight:600,fontSize:"1vw"}} onClick={handleClose}>
                                 My account
                               </MenuItem>
-                              <MenuItem style={{fontWeight:600}} onClick={() => toggleModal()}>
+                              <MenuItem style={{fontWeight:600,fontSize:"1vw"}} onClick={() => toggleModal()}>
                                 Logout
                               </MenuItem>
                             </MenuList>

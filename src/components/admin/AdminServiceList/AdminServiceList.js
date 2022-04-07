@@ -183,7 +183,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
             <div className="adminslsquarebox" onClick={()=>setStatus(2)}>
               <h1>{box.working}</h1>
             </div>
-            <div className="adminslsecond-row-text">Luths Working</div>
+            <div className="adminslsecond-row-text">HPD Working</div>
           </div>
           <div className="adminslouterbox">
             <div className="adminslsquarebox" onClick={()=>setStatus(3)}>
@@ -301,7 +301,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
                     <td className="adminsltd" >{moment(item.updatedAt).format('DD/MM/YYYY h:mm a')}</td>
                     {/* <td>{item.status}</td> */}
                     {item.status == 1 && <td>New</td>}
-                    {item.status == 2 && <td>Luths Working</td>}
+                    {item.status == 2 && <td>HPD Working</td>}
                     {item.status == 3 && <td>Need Your Attention</td>}
                     {item.status == 4 && <td>Resolved</td>}
                   </tr>

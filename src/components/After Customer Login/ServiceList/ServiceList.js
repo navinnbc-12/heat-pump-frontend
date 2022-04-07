@@ -196,7 +196,7 @@ const ServiceList = ({ FirstPageAction }) => {
             >
               <h1 style={{fontSize:"2vw"}}>{box.working}</h1>
             </div>
-            <div className="second-row-text">Luths Working</div>
+            <div className="second-row-text">HPD Working</div>
           </div>
           <div className="outerbox">
             <div
@@ -342,7 +342,7 @@ const ServiceList = ({ FirstPageAction }) => {
                       {moment(item.updatedAt).format("DD/MM/YYYY h:mm a")}
                     </td>
                     {item.status == 1 && <td style={{fontSize:"1vw"}}>New</td>}
-                    {item.status == 2 && <td style={{fontSize:"1vw"}}>Luths Working</td>}
+                    {item.status == 2 && <td style={{fontSize:"1vw"}}>HPD Working</td>}
                     {item.status == 3 && <td style={{fontSize:"1vw"}}>Need Your Attention</td>}
                     {item.status == 4 && <td style={{fontSize:"1vw"}}>Resolved</td>}
                   </tr>

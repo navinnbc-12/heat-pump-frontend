@@ -160,7 +160,7 @@
   font-weight: 300;
   cursor: pointer;
   font-size: 1vw;
-  border: none;
+  border: 0.134px solid #cdcdcd;
 }
 .msrbutton3:hover {
   background-color: #000;
@@ -179,6 +179,11 @@
   width:  2.88vw;
 }
 
+.msrCommonIcon1 {
+  height: 4.5vh;
+  width:  2.1vw;
+}
+
 .msrupdatesgrid {
   display: grid;
   grid-template-columns: 10.73vh auto;
@@ -190,6 +195,7 @@
   font-size: 1.32vw;
   display: inline-block;
   margin-top: 1.34vh;
+  font-weight: 600;
 }
 
 .msrspan3 {

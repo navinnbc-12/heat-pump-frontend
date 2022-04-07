@@ -175,6 +175,12 @@
   height: 4.83vh;
   width:  2.65vw;
 }
+.adminmsrCommonIcon1 {
+
+  height: 4.5vh;
+  width:  2.1vw;
+  
+}
 
 .adminmsrupdatesgrid {
   display: grid;
@@ -187,6 +193,7 @@
   font-size: 1.32vw;
   display: inline-block;
   margin-top: 1.34vh;
+  font-weight: 600;
 }
 
 .adminmsrspan3 {

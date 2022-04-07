@@ -339,6 +339,7 @@
   bottom: 0.27vh;
   transition: 0.2s;
   font-size: 1vw;
+  font-weight: bold;
 }
 
 .clinput:focus ~ .clinput-label,
@@ -350,6 +351,7 @@
   color: #525252;
   background-color: #fff;
   padding: 0 0.33vw 0 0.33vw;
+  font-weight: bold;
 
 }
 .cltextarea-label {
@@ -360,17 +362,19 @@
   bottom: 21.5vh;
   transition: 0.2s;
   font-size: 1vw;
+  font-weight: bold;
 }
 
 .cltextarea:focus ~ .cltextarea-label,
 .cltextarea:valid ~ .cltextarea-label {
-  bottom: 24.2vh;
+  bottom: 25vh;
   right: 25.4vw;
   position: relative;
   font-size: 0.7vw;
   color: #525252;
   background-color: #fff;
   padding: 0 0.33vw 0 0.33vw;
+  font-weight: bold;
 }
 
 .optiontag {
