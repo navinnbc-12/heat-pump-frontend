@@ -77,10 +77,10 @@ const AdminManageService = ({ adminFirstPageAction }) => {
   const [focused2, setFocused2] = React.useState("");
   const [baUser, setBauser] = useState([]);
 
-  const [updatedBy, setUpdatedBy] = useState("");
   const [checkedtype, setCheckedType] = useState(2);
 
-  const [d3, setd3] = useState(false);
+  const [fname,SetFname] = useState([]);
+  const [efname,SetEFname] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -107,6 +107,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
     setAddfiles(!addfiles);
     setAttachments([]);
     setFiles([]);
+    SetFname([])
   };
 
   function fetchData() {
@@ -146,6 +147,19 @@ const AdminManageService = ({ adminFirstPageAction }) => {
         setAssigned(res.data.assigned_to);
         console.log("details", details);
         setavailableFiles(res.data.attachments);
+        const newArray = [];
+        res.data.attachments && res.data.attachments.map((item,index)=>{
+          let a = item.slice(25)
+          if(a.length>20){
+            let b = a.slice(0,21);
+            let c = b + "...";
+            newArray.push(c);
+          }else{
+            newArray.push(a);
+          }
+        }) 
+        SetEFname(newArray)
+        console.log(efname)
       })
       .catch((e) => {
         setLoader(false);
@@ -160,7 +174,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
     setLoader(true);
     axios
       .get(
-        URL + globalAPI.accountlist + `?page=1&perPage=10&status=1,6&badm=1`,
+        URL + globalAPI.accountlist + `?page=1&perPage=10&status=3&badm=1`,
         config
       )
       .then((response) => {
@@ -213,12 +227,11 @@ const AdminManageService = ({ adminFirstPageAction }) => {
         setLoader(false);
         const res = response.data;
         if (res.success) {
-          // toast.success("success");
-          setTimeout(() => {
-            /*  window.location.reload(false); */
-            fetchData();
-            fetchSeconddata();
-          }, 2000);
+          toast.success("File deleted successfully");
+          const newName = [...efname];
+          newName.splice(index, 1);
+          SetEFname(newName);
+          fetchSeconddata();
         } else {
           toast.error(res.data.message);
         }
@@ -227,6 +240,19 @@ const AdminManageService = ({ adminFirstPageAction }) => {
         setLoader(false);
         toast.error("Something went wrong");
       });
+  };
+  const removeTFile = (index) => {
+    const newValue = [...files];
+    newValue.splice(index, 1);
+    setFiles(newValue);
+
+    const newAttachments = [...attachments];
+    newAttachments.splice(index, 1);
+    setAttachments(newAttachments);
+
+    const newName = [...fname];
+    newName.splice(index, 1);
+    SetFname(newName);
   };
 
   console.log(state);
@@ -292,6 +318,22 @@ const AdminManageService = ({ adminFirstPageAction }) => {
             // toast.success("File Added");
             attachments.push(res.data.message[0]);
             setFiles([...files, e]);
+            const newUpload = [];
+            let a = res.data.message[0].slice(25)
+            if(a.length>20){
+              let b = a.slice(0,20);
+              let c = b + "...";
+              newUpload.push(c);
+            }else{
+              newUpload.push(a);
+            }
+            const newName = [...fname];
+            newName.push(newUpload)
+            SetFname(newName);
+
+            const newFile = [...efname];
+            newFile.push(newUpload)
+            SetEFname(newFile);
           } else {
             toast.error(res.data.message);
           }
@@ -306,6 +348,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
     }
   };
   const newUpload = (e) => {
+    if(attachments.length >= 1){
     setLoader(true);
     const token = JSON.parse(localStorage.getItem("user"));
     axios({
@@ -329,6 +372,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
           fetchData();
           fetchSeconddata();
           toast.success("File added successfully");
+          SetFname([]);
         } else {
           toast.error(res.data.message);
         }
@@ -338,6 +382,10 @@ const AdminManageService = ({ adminFirstPageAction }) => {
         togglefileModal();
         toast.error("Something went wrong");
       });
+    }
+    else{
+      toast.error('Add Files')
+    }
   };
   const closingsr = (e) => {
     debugger;
@@ -490,9 +538,9 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                     )
                   }
                 >
-                  <MenuItem value="1"> High </MenuItem>
-                  <MenuItem value="2"> Medium</MenuItem>
-                  <MenuItem value="3"> Low </MenuItem>
+                  <MenuItem value="1" style={{fontWeight:600}}> High </MenuItem>
+                  <MenuItem value="2" style={{fontWeight:600}}> Medium</MenuItem>
+                  <MenuItem value="3" style={{fontWeight:600}}> Low </MenuItem>
                 </Select>
               </FormControl>
             </div>
@@ -521,10 +569,11 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                     )
                   }
                 >
-                  <MenuItem value="1"> New </MenuItem>
-                  <MenuItem value="2"> HPD Working </MenuItem>
-                  <MenuItem value="3"> Need Your Attention </MenuItem>
-                  <MenuItem value="4"> Resolved </MenuItem>
+                  <MenuItem value="1" style={{fontWeight:600}}> New </MenuItem>
+                  <MenuItem value="5" style={{fontWeight:600}}> HPD To Review </MenuItem>
+                  <MenuItem value="2" style={{fontWeight:600}}> HPD Working </MenuItem>
+                  <MenuItem value="3" style={{fontWeight:600}}> Need Your Attention </MenuItem>
+                  <MenuItem value="4" style={{fontWeight:600}}> Resolved </MenuItem>
                 </Select>
               </FormControl>
             </div>
@@ -573,19 +622,20 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                   onFocus={() => setFocused2(true)}
                   onBlur={() => setFocused2(false)}
                   name="assigned_to"
+                  defaultValue="..."
                   IconComponent={() =>
                     focused2 ? (
                       <KeyboardArrowUpIcon />
-                      
                     ) : (
                       <KeyboardArrowDownIcon />
                     )
                   }
                 >
+                  <MenuItem value={assigned} style={{fontWeight:600}}> {assigned} </MenuItem>
                   {baUser &&
                     baUser.map((item, index) => {
                       return (
-                          <MenuItem key={item._id} value={item.name}> {item.name} </MenuItem>
+                            <MenuItem key={item._id} value={item.name} style={{fontWeight:600}}> {item.name} </MenuItem>
                       );
                     })}
                 </Select>
@@ -619,8 +669,8 @@ const AdminManageService = ({ adminFirstPageAction }) => {
             </div>
             <div className="adminmsrtitle2">Attachments</div>
             <hr className="adminmsrhr1" />
-            {availableFiles &&
-              availableFiles.map((item, index) => (
+            {efname &&
+              efname.map((item, index) => (
                 <div key={index} className="adminmsrattachment">
                   <img
                     src={require("../../../Img/attachIcon1.png")}
@@ -630,7 +680,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                     className="admindiv-name"
                     onClick={() => printTickets(index)}
                   >
-                    Attachment {index + 1}
+                    {efname[index]}
                   </div>
                   <span>
                     <img
@@ -877,7 +927,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                 name="file"
                 types={fileTypes}
                 onTypeError={(err) =>
-                  toast.error("Only pdf,png,jpeg files are allowed")
+                  toast.error("Only pdf, png, jpeg files are allowed")
                 }
                 children={
                   <span className="admindragndrop">
@@ -899,7 +949,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                   name="file"
                   types={fileTypes}
                   onTypeError={(err) =>
-                    toast.error("Only pdf,png,jpeg files are allowed")
+                    toast.error("Only pdf, png, jpeg files are allowed")
                   }
                   children={
                     <span className="adminbrowse">
@@ -909,7 +959,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                 />
               </span>
             </div>
-            {files.map((item, index) => {
+            {fname&&fname.map((item, index) => {
               return (
                 <div
                   className="adminfile"
@@ -919,17 +969,17 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                   <span style={{ float: "left", marginLeft: "0.91vw" }}>
                     <img
                       src={require("../../../Img/attachIcon.png")}
-                      style={{ marginLeft: "1.22vw",height:"2.68vh",width:"0.91vw"}}
+                      style={{height:"2.68vh",width:"0.91vw"}}
                     />
 
                     <span className="adminfileName">
-                      Attachment-{index + 1}
+                    {fname[index]}
                     </span>
                   </span>
 
                   <img
                     src={require("../../../Img/iconDelete.png")}
-                    onClick={() => removeFile(index)}
+                    onClick={() => removeTFile(index)}
                     style={{ marginRight: "1.2vw",height:"2.68vh",width:"0.91vw" }}
                   />
                 </div>

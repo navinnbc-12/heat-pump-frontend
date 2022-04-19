@@ -88,6 +88,7 @@ const CreateList = ({ FirstPageAction }) => {
   const _DATA = usePagination(data, PER_PAGE);
   const userData = JSON.parse(localStorage.getItem("userData"));
   const userName = userData.name;
+  const [fname,SetFname] = useState([]);
 
   useEffect(() => {
     FirstPageAction(false);
@@ -97,9 +98,7 @@ const CreateList = ({ FirstPageAction }) => {
     jbModal();
   }, [page]);
 
-  const handleSelectChange = (event) => {
-    setServicetype(event.target.value);
-  };
+
 
   const handleClick = (name) => {
     if (name === "high") {
@@ -129,6 +128,10 @@ const CreateList = ({ FirstPageAction }) => {
     const newAttachments = [...attachments];
     newAttachments.splice(index, 1);
     setattachments(newAttachments);
+
+    const newName = [...fname];
+    newName.splice(index, 1);
+    SetFname(newName);
   };
 
   const handleChange = (e, p) => {
@@ -181,7 +184,20 @@ const CreateList = ({ FirstPageAction }) => {
           setLoader(false);
           if (res.success) {
             // toast.success("File Added");
+            debugger
             attachments.push(res.data.message[0]);
+            const newUpload = [];
+            let a = res.data.message[0].slice(25)
+            if(a.length>20){
+              let b = a.slice(0,27);
+              let c = b + "...";
+              newUpload.push(c);
+            }else{
+              newUpload.push(a);
+            }
+            fname.push(newUpload);
+            // console.log(res.data.message[0].slice(25));
+            // fname.push(res.data.message[0].slice(25));
             setFiles([...files, e]);
           } else {
             toast.error(res.data.message);
@@ -285,35 +301,7 @@ const CreateList = ({ FirstPageAction }) => {
             </div>
 
             <hr className="clhr1" />
-            {/* <div>
-              <select
-                className="servicetype"
-                value={servicetype}
-                onChange={handleSelectChange}
-              >
-                <option value="" defaultValue hidden disabled>
-                  Service Type
-                </option>
-                <option
-                  style={{ fontSize: "1.3vw" }}
-                  value="Enquiry"
-                  className="optiontag"
-                >
-                  Enquiry
-                </option>
-                <option
-                  style={{ fontSize: "1.3vw" }}
-                  value="Design Clarifications"
-                  className="optiontag"
-                >
-                  Design Clarifications
-                </option>
-              </select>{" "}
-              <img
-                src={require("../../../Img/adminDropdown.png")}
-                className="clDropdown"
-              />
-            </div> */}
+           
             <div style={{ marginTop: "4vh" }}>
               <FormControl className={classes.selectfield}>
                 <InputLabel
@@ -377,7 +365,7 @@ const CreateList = ({ FirstPageAction }) => {
                   name="file"
                   types={fileTypes}
                   onTypeError={(err) =>
-                    toast.error("Only pdf,png,jpeg files are allowed")
+                    toast.error("Only pdf, png, jpeg files are allowed")
                   }
                   children={
                     <span className="dragndrop">
@@ -403,7 +391,7 @@ const CreateList = ({ FirstPageAction }) => {
                   name="file"
                   types={fileTypes}
                   onTypeError={(err) =>
-                    toast.error("Only pdf,png,jpeg files are allowed")
+                    toast.error("Only pdf, png, jpeg files are allowed")
                   }
                   children={
                     <span className="browse">
@@ -425,13 +413,12 @@ const CreateList = ({ FirstPageAction }) => {
                         <img
                           src={require("../../../Img/attachIcon.png")}
                           style={{
-                            marginLeft: "20px",
                             height: "2.8vh",
                             width: "1vw",
                           }}
                         />
 
-                        <span className="fileName">Attachment-{index + 1}</span>
+                        <span className="fileName">{fname[index]}</span>
                       </span>
 
                       <img

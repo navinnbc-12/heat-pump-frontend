@@ -138,7 +138,7 @@
     border: solid 0.134vh #cfcece;
     background-color: #fff;
     width: 19.53vw;
-    height: 2.9vh;
+    height: 5.9vh;
     margin-top: 2.8vh;
     padding-left: 0.66vw;
     color: #000;
@@ -199,4 +199,37 @@
 
 .bustatusdata{
   z-index: 1000;
+}
+
+.input1Error{
+  color:  rgba(255, 0, 0, 0.699);
+  font-size: 0.85vw;
+}
+
+.input2Error{
+ color:  rgba(255, 0, 0, 0.699);
+ position: relative;
+ right: 1vw;
+ font-size: 0.85vw;
+}
+.input4Error{
+  color:  rgba(255, 0, 0, 0.699);
+  position: relative;
+  top:0.2vw;
+  font-size: 0.85vw;
+ }
+
+ .eyeeIcon {
+  position: relative;
+  right: 2.255vw;
+  top: 0.27vh;
+  height:1.75vh;
+  width:1.04vw;
+}
+.eyeeIconOpen{
+  position: relative;
+  right:2.255vw;
+  top: 0.27vh;
+  height:2.013vh;
+  width:1.04vw;
 }

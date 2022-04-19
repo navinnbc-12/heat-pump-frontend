@@ -167,6 +167,7 @@
     background-color: #ff8282;
     padding-top: 0.67vh;
     text-align: center;
+    font-weight:bolder;
   }
   .adminslmroundcircle {
     width: 1.8vw;
@@ -177,6 +178,7 @@
     background-color: #ffe289;
     padding-top: 0.67vh;
     text-align: center;
+    font-weight:bolder;
   }
   .adminsllroundcircle {
     width: 1.8vw;
@@ -187,6 +189,7 @@
     background-color: #c0f587;
     padding-top: 0.67vh;
     text-align: center;
+    font-weight:600;
   }
   .adminslbtnjob {
     font-weight: 300;

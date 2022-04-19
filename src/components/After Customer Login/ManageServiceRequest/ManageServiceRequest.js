@@ -37,12 +37,13 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
   const [availableFiles, setavailableFiles] = useState([]);
   const [noupdate, setNoupdate] = useState(false);
   const [noclose, setNoclose] = useState(false);
+  const [fname,SetFname] = useState([]);
+  const [efname,SetEFname] = useState([]);
 
   useEffect(() => {
     fetchData();
     fetchSeconddata();
   }, []);
-
   const toggleModal = (e) => {
     e.preventDefault();
     setOpenupdate(!openupdate);
@@ -58,6 +59,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
     setAddfiles(!addfiles);
     setAttachments([]);
     setFiles([]);
+    SetFname([])
   };
 
   useEffect(() => {
@@ -83,20 +85,35 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
       });
   }
 
-  function fetchSeconddata() {
+  async function fetchSeconddata() {
     const token = JSON.parse(localStorage.getItem("user"));
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
     setLoader(true);
-    axios
+     axios
       .get(URL + globalAPI.myreq + `/${state}`, config)
       .then((response) => {
         setLoader(false);
         const res = response.data;
+        debugger
         setDetails(res.data);
         console.log("details", details);
         setavailableFiles(res.data.attachments);
+        const newArray = [];
+        res.data.attachments && res.data.attachments.map((item,index)=>{
+          let a = item.slice(25)
+          if(a.length>20){
+            let b = a.slice(0,21);
+            let c = b + "...";
+            // newArray.push(item.slice(25));
+            newArray.push(c);
+          }else{
+            newArray.push(a);
+          }
+        }) 
+        SetEFname(newArray)
+        console.log(efname)
       })
       .catch((e) => {
         setLoader(false);
@@ -113,7 +130,6 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
 
   async function getTicketsPdf(index) {
     const token = JSON.parse(localStorage.getItem("user"));
-    // const att = availableFiles[index].replace(`${details.creator_id}/`, "");
     const att = availableFiles[index];
     return axios.get(URL + globalAPI.getFile + `?fp=${att}`, {
       headers: {
@@ -124,6 +140,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
   }
 
   const removeFile = (index) => {
+    debugger
     const newValue = [...availableFiles];
     newValue.splice(index, 1);
     setLoader(true);
@@ -140,9 +157,12 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
         setLoader(false);
         const res = response.data;
         if (res.success) {
-          fetchData();
+          debugger
+          toast.success("File deleted successfully");
+          const newName = [...efname];
+          newName.splice(index, 1);
+          SetEFname(newName);
           fetchSeconddata();
-          toast.success("File Removed")
         } else {
           toast.error(res.data.message);
         }
@@ -151,6 +171,19 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
         setLoader(false);
         toast.error("Something went wrong");
       });
+  };
+  const removeTFile = (index) => {
+    const newValue = [...files];
+    newValue.splice(index, 1);
+    setFiles(newValue);
+
+    const newAttachments = [...attachments];
+    newAttachments.splice(index, 1);
+    setAttachments(newAttachments);
+
+    const newName = [...fname];
+    newName.splice(index, 1);
+    SetFname(newName);
   };
 
   const addUpdate = (e) => {
@@ -189,7 +222,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
       return false;
     }
   };
-  const onFileUpload = (e) => {
+  const onFileUpload =  (e) => {
     if (e) {
       let formData = new FormData();
       formData.append("attachments", e);
@@ -208,9 +241,25 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
           const res = response.data;
           setLoader(false);
           if (res.success) {
-            // toast.success("File Added");
+            debugger
             attachments.push(res.data.message[0]);
             setFiles([...files, e]);
+            const newUpload = [];
+            let a = res.data.message[0].slice(25)
+            if(a.length>20){
+              let b = a.slice(0,20);
+              let c = b + "...";
+              newUpload.push(c);
+            }else{
+              newUpload.push(a);
+            }
+            const newName = [...fname];
+            newName.push(newUpload)
+            SetFname(newName);
+
+            const newFile = [...efname];
+            newFile.push(newUpload)
+            SetEFname(newFile);
           } else {
             toast.error(res.data.message);
           }
@@ -225,8 +274,10 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
     }
   };
   const newUpload = (e) => {
-    setLoader(true);
+    if(attachments.length >= 1){
+      setLoader(true);
     const token = JSON.parse(localStorage.getItem("user"));
+    console.log(attachments)
     axios({
       method: "post",
       url: URL + globalAPI.addnotes + `?srid=${state}`,
@@ -248,6 +299,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
           fetchData();
           fetchSeconddata();
           toast.success("File added successfully");
+          SetFname([]);
         } else {
           toast.error(res.data.message);
         }
@@ -257,6 +309,10 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
         togglefileModal();
         toast.error("Something went wrong");
       });
+    }else{
+      toast.error('Add Files')
+    }
+    
   };
   const closingsr = (e) => {
     if (closetext.length >= 1) {
@@ -334,6 +390,9 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
               {details.status == 4 && (
                 <div className="displaygrid1">Closed</div>
               )}
+              {details.status == 5 && (
+                <div className="displaygrid1">HPD To Review</div>
+              )}
               <div className="displayleft">Last Updated</div>
               <div className="displaygrid1">
                 {moment(details.updatedAt).format("DD/MM/YYYY h:mm a")}
@@ -365,7 +424,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                     className="msrattachIcon"
                   />
                   <div className="div-name" onClick={() => printTickets(index)}>
-                    Attachment {index + 1}
+                    {efname[index]}
                   </div>
                   <span>
                     <img
@@ -398,8 +457,8 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
             {notes &&
               notes.map((item, index) => {
                 return (
-                  <>
-                    <div className="msrupdatesgrid" key={index}>
+                  <div key={index}>
+                   {item.type!=3 && <div className="msrupdatesgrid" >
                       <div className="msrimage">
                         {item.type == 1 && (
                           <img
@@ -431,7 +490,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                             Update from HPD Staff
                           </span>
                         )}
-                        {item.type == 3 && (
+                        {item.type == 4 && (
                           <span className="msrspan21">System Update</span>
                         )}
                         <span className="msrspan3">
@@ -440,9 +499,9 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                         </span>
                         <div className="msrdiv3">{item.description}</div>
                       </div>
-                    </div>
-                    <hr className="msrhr11" />
-                  </>
+                    </div>}
+                    {item.type!=3&&<hr className="msrhr11" />}
+                  </div>
                 );
               })}
             {notes.length === 0 && (
@@ -578,7 +637,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                 name="file"
                 types={fileTypes}
                 onTypeError={(err) =>
-                  toast.error("Only pdf,png,jpeg files are allowed")
+                  toast.error("Only pdf, png, jpeg files are allowed")
                 }
                 children={
                   <span className="dragndrop">
@@ -601,7 +660,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                   name="file"
                   types={fileTypes}
                   onTypeError={(err) =>
-                    toast.error("Only pdf,png,jpeg files are allowed")
+                    toast.error("Only pdf, png, jpeg files are allowed")
                   }
                   children={
                     <span className="browse">
@@ -621,15 +680,14 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                   <span style={{ float: "left", marginLeft: "0.9vw" }}>
                     <img
                       src={require("../../../Img/attachIcon.png")}
-                      style={{ marginLeft: "1.22vw",height:"2.68vh",width:"0.91vw" }}
+                      style={{height:"2.68vh",width:"0.91vw" }}
                     />
-
-                    <span className="fileName">Attachment-{index + 1}</span>
+                    <span className="fileName">{fname[index]}</span>
                   </span>
 
                   <img
                     src={require("../../../Img/iconDelete.png")}
-                    onClick={() => removeFile(index)}
+                    onClick={() => removeTFile(index)}
                     
                     style={{ marginRight: "1.22vw",height:"2.68vh",width:"0.91vw" }}
                   />

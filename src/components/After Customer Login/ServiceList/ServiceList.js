@@ -35,7 +35,7 @@ const useStyles = makeStyles({
     '& .MuiOutlinedInput-root': {
       borderRadius:"0.61vw",
       marginRight: "1.22vw",
-      height:"7.51vh",
+      height:"6.51vh",
       '&.Mui-focused fieldset': {
         borderColor: 'black',
       },
@@ -50,7 +50,7 @@ const useStyles = makeStyles({
       borderRadius: "0.61vw",
       marginRight: "1.22vw",
       width: "12.22vw",
-      height: "7.51vh",
+      height: "6.51vh",
       fontWeight: "bolder",
       fontFamily: "outfit",
       backgroundColor: "white",
@@ -85,7 +85,7 @@ const ServiceList = ({ FirstPageAction }) => {
   const PER_PAGE = 10;
   const [count, setCount] = useState(1);
   const _DATA = usePagination(data, PER_PAGE);
-  const [status, setStatus] = useState(1);
+  const [status, setStatus] = useState("1");
   const userData = JSON.parse(localStorage.getItem("userData"));
   const userName = userData.name;
   const [focused, setFocused] = React.useState("");
@@ -154,7 +154,11 @@ const ServiceList = ({ FirstPageAction }) => {
     setPage(p);
     _DATA.jump(p);
   };
-
+  const searchfilter = ()=>{
+    setStatus("1,2,3,4")
+    setPage(1);
+    fetchSeconddata();
+  }
   return (
     <div className="container">
       {loader && (
@@ -167,7 +171,7 @@ const ServiceList = ({ FirstPageAction }) => {
       <div className="paper">
         <div className="firstrow">
           <div className="names">{userName}</div>
-          <div style={{ fontSize: "0.9vw" }}>
+          <div style={{ fontSize: "1vw",fontWeight:"bold" }}>
             {userData.business_trade_name},{userData.city}
           </div>
           <hr className="hrFirst" />
@@ -253,23 +257,24 @@ const ServiceList = ({ FirstPageAction }) => {
                     )
                   }
                 >
-                  <MenuItem value="1"> High </MenuItem>
-                  <MenuItem value="2"> Medium </MenuItem>
-                  <MenuItem value="3"> Low </MenuItem>
+                  <MenuItem value="1" style={{fontWeight:600}}> High </MenuItem>
+                  <MenuItem value="2" style={{fontWeight:600}}> Medium </MenuItem>
+                  <MenuItem value="3" style={{fontWeight:600}}> Low </MenuItem>
                 </Select>
               </FormControl>
               </div>
             
-            <TextField label="Service Request No" style={{marginLeft:"0.9vw"}} className={classes.textfield} value={serviceno} onChange={(e) => setServiceno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh",fontSize:"1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+            <TextField label="Service Request No" style={{marginLeft:"0.9vw"}} className={classes.textfield} value={serviceno} onChange={(e) => setServiceno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh",fontSize:"1.1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
 
-            <TextField label="Title" className={classes.textfield}  value={title}  onChange={(e) => setTitle(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh",fontSize:"1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+            <TextField label="Title" className={classes.textfield}  value={title}  onChange={(e) => setTitle(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh",fontSize:"1.1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
 
             <button
               className="searchbtn"
-              onClick={() => {
-                setPage(1);
-                fetchSeconddata();
-              }}
+              // onClick={() => {
+              //   setPage(1);
+              //   fetchSeconddata();
+              // }}
+              onClick ={()=>searchfilter()}
             >
               Search
             </button>
@@ -345,6 +350,7 @@ const ServiceList = ({ FirstPageAction }) => {
                     {item.status == 2 && <td style={{fontSize:"1vw"}}>HPD Working</td>}
                     {item.status == 3 && <td style={{fontSize:"1vw"}}>Need Your Attention</td>}
                     {item.status == 4 && <td style={{fontSize:"1vw"}}>Resolved</td>}
+                    {item.status == 5 && <td style={{fontSize:"1vw"}}>HPD To Review</td>}
                   </tr>
                 );
               })}

@@ -53,6 +53,9 @@
   border-radius: 0.66vw;
   background-color:#f4f2ea;
 }
+.arsquarebox:hover{
+  cursor: pointer;
+}
 .arsecond-row-text {
   text-align: center;
   display: table-caption;
@@ -122,5 +125,6 @@ th {
     color: white;
     font-weight: 100;
     height: 5.4vh;
+    margin-left: 5vw;
   
 }

@@ -87,7 +87,7 @@ const AccountRequest = ({adminFirstPageAction}) => {
   const PER_PAGE = 10;
   const [count, setCount] = useState(1);
   const _DATA = usePagination(data, PER_PAGE);
-  const [status, setStatus] = useState(1);
+  const [status, setStatus] = useState("1");
   const [focused, setFocused] = React.useState("");
 
   useEffect(() => {
@@ -155,6 +155,11 @@ const AccountRequest = ({adminFirstPageAction}) => {
   const manageService = (item) => {
     navigate("/admincommon/adminRCA", {state:item});
   };
+  const searchfilter = ()=>{
+    setStatus("1,2,3,4")
+    setPage(1);
+    fetchSeconddata();
+  }
   return (
     <div className="arcontainer">
       {loader && (
@@ -189,7 +194,7 @@ const AccountRequest = ({adminFirstPageAction}) => {
           <div className="arsearch-by">Search By</div>
           <div
             style={{
-              width: "90%",
+              width: "85%",
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
@@ -232,15 +237,15 @@ const AccountRequest = ({adminFirstPageAction}) => {
                 </Select>
               </FormControl>
               </div>
-            <TextField label="Mobile No" style={{marginLeft:"14vw"}}className={classes.textfield} value={mobno} onChange={(e) => setMobno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px",fontSize:"1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }}/>
-            <TextField label="Business Name" className={classes.textfield} value={business} onChange={(e) => setBusiness(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"5px",fontSize:"1vw"} }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }}/>
+            <TextField label="Mobile No" style={{marginLeft:"13vw"}}className={classes.textfield} value={mobno} onChange={(e) => setMobno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"3px",fontSize:"1.1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }}/>
+            <TextField label="Business Name" style={{marginLeft:"5.2vw"}}className={classes.textfield} value={business} onChange={(e) => setBusiness(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"3px",fontSize:"1.1vw"} }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }}/>
 
             <button
               className="aradminsearchbtn"
               type={"button"}
               value={business}
               placeholder="Search"
-              onClick={() => {setPage(1); fetchSeconddata()}}
+              onClick={() => searchfilter()}
             >Search </button>
           </div>
         </div>

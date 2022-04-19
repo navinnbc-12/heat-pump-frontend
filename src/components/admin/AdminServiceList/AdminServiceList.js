@@ -65,7 +65,7 @@ const useStyles = makeStyles({
     },
   },
   selectinput:{
-    marginBottom:"0.67vh",
+    marginBottom:"0.57vh",
     fontFamily:"outfit",
     fontWeight: "bolder",
     fontSize:"1vw"
@@ -88,7 +88,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
   const PER_PAGE = 10;
   const [count, setCount] = useState(1);
   const _DATA = usePagination(data, PER_PAGE);
-  const [status, setStatus] = useState(1);
+  const [status, setStatus] = useState("1");
   
   const userData = JSON.parse(localStorage.getItem("userData"));
   const userName = userData.name;
@@ -133,7 +133,7 @@ const AdminServiceList = ({adminFirstPageAction}) => {
       .get(
         URL +
           globalAPI.adminreq +
-          `?page=${page}&perPage=${PER_PAGE}&status=${status}&f_title=${title}&f_priority=${priority}&f_srid=${serviceno}&f_creator_name=${customerName}`,
+          `?page=${page}&perPage=${PER_PAGE}&status=${status}&f_title=${title}&f_priority=${priority}&f_srid=${serviceno}&f_name=${customerName}`,
         config
       )
       .then((response) => {
@@ -161,6 +161,11 @@ const AdminServiceList = ({adminFirstPageAction}) => {
     setPage(p);
     _DATA.jump(p);
   };
+  const searchfilter = ()=>{
+    setStatus("1,2,3,4")
+    setPage(1);
+    fetchSeconddata();
+  }
   console.log('data:-' ,data)
   return (
     <div className="adminslcontainer">
@@ -178,6 +183,12 @@ const AdminServiceList = ({adminFirstPageAction}) => {
               <h1>{box.new}</h1>
             </div>
             <div className="adminslsecond-row-text">New</div>
+          </div>
+          <div className="adminslouterbox">
+            <div className="adminslsquarebox" onClick={()=>setStatus(5)}>
+              <h1>{box.hpd_review}</h1>
+            </div>
+            <div className="adminslsecond-row-text">HPD To Review</div>
           </div>
           <div className="adminslouterbox">
             <div className="adminslsquarebox" onClick={()=>setStatus(2)}>
@@ -234,11 +245,11 @@ const AdminServiceList = ({adminFirstPageAction}) => {
                 </Select>
               </FormControl>
               </div>
-            <TextField label="Service Request No" className={classes.textfield} value={serviceno} onChange={(e) => setServiceno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh", fontSize:"1vw"} }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
-            <TextField label="Customer Name" className={classes.textfield} value={customerName} onChange={(e) => setCustomerName(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh", fontSize:"1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
-            <TextField label="Title" className={classes.textfield} value={title} onChange={(e) => setTitle(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh", fontSize:"1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+            <TextField label="Service Request No" className={classes.textfield} value={serviceno} onChange={(e) => setServiceno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.47vh", fontSize:"1vw"} }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+            <TextField label="Customer Name" className={classes.textfield} value={customerName} onChange={(e) => setCustomerName(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.47vh", fontSize:"1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+            <TextField label="Title" className={classes.textfield} value={title} onChange={(e) => setTitle(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.47vh", fontSize:"1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
 
-              <button className="adminsearchbtn" onClick={() => fetchSeconddata()}>
+              <button className="adminsearchbtn" onClick={() => searchfilter()}>
               Search
             </button>
           </div>
@@ -259,12 +270,13 @@ const AdminServiceList = ({adminFirstPageAction}) => {
                   Site Details
                 </th>
                 <th className="adminslth" scope="col"style={{width:"14.32vw"}}>SR Type</th>
-                <th className="adminslth" scope="col" style={{width:"12.36vw"}}>
+                <th className="adminslth" scope="col"style={{width:"14.32vw"}}>Customer Name</th>
+                <th className="adminslth" scope="col" style={{width:"13.36vw"}}>
                   Last Updated
                   <br />
                   Date & Time
                 </th>
-                <th className="adminslth" scope="col" style={{width:"7.48vw"}}>Status</th>
+                <th className="adminslth" scope="col" style={{width:"6.48vw"}}>Status</th>
               </tr>
             </thead>
             <tbody className="adminslsortable">
@@ -298,12 +310,14 @@ const AdminServiceList = ({adminFirstPageAction}) => {
                     <td className="adminsltd" >{item.title}</td>
                     <td className="adminsltd" >{item.job_reference_id?item.job_reference_id.site_details:"-"}</td>
                     <td className="adminsltd" >{item.type?item.type:"-"}</td>
+                    <td className="adminsltd" >{item.creator_name?item.creator_name:"-"}</td>
                     <td className="adminsltd" >{moment(item.updatedAt).format('DD/MM/YYYY h:mm a')}</td>
                     {/* <td>{item.status}</td> */}
                     {item.status == 1 && <td>New</td>}
                     {item.status == 2 && <td>HPD Working</td>}
                     {item.status == 3 && <td>Need Your Attention</td>}
                     {item.status == 4 && <td>Resolved</td>}
+                    {item.status == 5 && <td>HPD To Review</td>}
                   </tr>
                 );
               })}

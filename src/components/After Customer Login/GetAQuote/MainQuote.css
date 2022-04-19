@@ -1,0 +1,14 @@
+.get-a-quote{
+    font-size: 2.8vw;
+    margin-left: 3vw;
+    margin-top: 1vh;
+    font-weight: 300;
+}
+
+.quote-hr{
+    width: 60%;
+    margin-left: 15vw;
+    margin-top: 1vh;
+    background-color: #f2f3f2;
+    border: 0.1vw solid #f2f3f2
+}

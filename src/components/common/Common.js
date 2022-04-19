@@ -90,7 +90,7 @@ function Common({firstPageStatus}) {
           </div>
 
           <Link
-            to="servicerequest"
+            to="getaquote"
             style={{ textDecoration: "none", color: "black" }}
           >
             {" "}

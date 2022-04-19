@@ -1,4 +1,4 @@
-*{
+/* *{
     box-sizing: border-box;
    
   }
@@ -66,7 +66,7 @@
     }
   } */
   
-  .fpcouplesideImg{
+  /* .fpcouplesideImg{
     width: 32vw;
     height: 62.4vh;
     margin-left: 6.6vw;
@@ -134,4 +134,4 @@
     top: 37vh;
     color: rgba(255, 0, 0, 0.699);
     font-size: 1vw;
-  }
+  }  */

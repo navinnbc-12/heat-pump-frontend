@@ -1,4 +1,4 @@
-import "./fpass.css";
+/* import "./fpass.css";
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -118,8 +118,7 @@ function Fpass({ emailNum, changeEmailNum }) {
           <div  >
             <img
               src={require("../../../Img/HPDD.jpeg")}
-              /* height="30px"
-              width="30px" */
+            
               className="fpHPD"
             />
           </div>
@@ -199,3 +198,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Fpass);
+ */

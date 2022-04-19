@@ -1,0 +1,21 @@
+.s1Paper{
+    border-style: solid;
+    border-radius:  1.95vw;
+    border-color: #f2f3f2;
+    padding: 3.8vh 1.33vw !important;
+    margin-top:4vh;
+    margin-left: 3vw;
+    width: 80%;
+}
+
+.s1text1{
+    font-size: 1vw;
+    font-weight: bold;
+    display: inline;
+}
+.s1baricon{
+    margin-left:3vw;
+    position:relative;
+    top:1vh;
+    width:42vw;
+}

@@ -38,6 +38,7 @@ import {Dropdown }from "./components/Dropdown/Dropdown.js"
 import BusinessUser from "./components/admin/BusinessUser/BusinessUser";
 
 import Fpass from "./components/Before Customer Login/ForgotPassword/fpass";
+import MainQuote from "./components/After Customer Login/GetAQuote/MainQuote";
 
 function App({ name, changeName, addName }) {
 
@@ -105,6 +106,7 @@ function PriorityComponent() {
              {/*  <Route path="createservice" element={<CreateListSubmitted />} /> */}
               <Route path="manageservice" element={<ManageServiceRequest />} />
               <Route path="accountrequest" element={<AccountRequest />} />
+              <Route path="getaquote" element={<MainQuote />} />
           </Route>}
 
           {userData&&userData.admin&&<Route path="/admincommon" element={<AdminCommon/>} >

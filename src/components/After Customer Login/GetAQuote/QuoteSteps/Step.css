@@ -1,0 +1,14 @@
+.StepPaper{
+    border-style: solid;
+    border-radius:  1.95vw;
+    border-color: #f2f3f2;
+    padding: 2.8vh 1.33vw !important;
+    margin-top:4vh;
+    margin-left: 3vw;
+    width: 80%;
+}
+
+.Steptext1{
+    font-size: 1vw;
+    font-weight: 600;
+}

@@ -36,8 +36,7 @@
     color: #fa5e00;
     font-size: 1.41vw;
     display: inline-block;
-    
-    
+    font-weight: bold;    
   }
   
   .adminRCAnew {
@@ -157,11 +156,16 @@
    font-size: 1.62vw;
    /* transition: all .2s ease-in; */
  }
+ .accordiantitle:hover{
+   cursor: pointer;
+ }
  
  .title-text {
   margin-left: 0.66vw;
   font-size: 1.5vw;
+  font-weight: bold;
  }
+
  
  .title:hover {
    cursor: pointer;
@@ -247,7 +251,8 @@
       bottom:0.26vh;
    
     transition: 0.2s;
-    font-size: 0.78vw;
+    font-size: 0.98vw;
+    font-weight: bold;
   }
   
   .admininput1:focus ~ .admininput1-label, .admininput1:valid ~ .admininput1-label{
@@ -268,7 +273,8 @@
       bottom:0.26vh;
    
     transition: 0.2s;
-    font-size: 0.78vw;
+    font-size: 0.98vw;
+    font-weight: bold;
   }
   
   .admininput21:focus ~ .admininput21-label, .admininput21:valid ~ .admininput21-label{
@@ -289,7 +295,8 @@
       bottom:0.26vh;
    
     transition: 0.2s;
-    font-size: 0.78vw;
+    font-size: 0.98vw;
+    font-weight: bold;
   }
   
   .admininput3:focus ~ .admininput3-label, .admininput3:valid ~ .admininput3-label{
@@ -308,9 +315,9 @@
     pointer-events: none;
     right: 25vw;
     bottom: 0px;
-    
     transition: 0.2s;
-    font-size: 0.78vw;
+    font-size: 0.98vw;
+    font-weight: bold;
   }
   
 
@@ -347,7 +354,8 @@
    font-weight: 600;
    letter-spacing: 0.03vw;
     transition: 0.2s;
-    font-size: 0.78vw;
+    font-size: 0.98vw;
+    font-weight: bold;
   }
   
   .admininput5:focus ~ .admininput5-label, .admininput5:valid ~ .admininput5-label{
@@ -369,7 +377,8 @@
     bottom: 12.75vh;
    
     transition: 0.2s;
-    font-size: 0.78vw;
+    font-size: 0.98vw;
+    font-weight: bold;
   }
   
   .admininput6:focus ~ .admininput6-label, .admininput6:valid ~ .admininput6-label{
@@ -390,7 +399,8 @@
       bottom:0.26vh;
    
     transition: 0.2s;
-    font-size: 0.78vw;
+    font-size: 0.98vw;
+    font-weight: bold;
   }
   
   .admininput7:focus ~ .admininput7-label, .admininput7:valid ~ .admininput7-label{
@@ -415,7 +425,8 @@
       bottom:0.26vh;
    
     transition: 0.2s;
-    font-size: 0.78vw;
+    font-size: 0.98vw;
+    font-weight: bold;
   }
   
   .admininput8:focus ~ .admininput8-label, .admininput8:valid ~ .admininput8-label{
@@ -438,7 +449,8 @@
     
    
     transition: 0.2s;
-    font-size: 0.78vw;
+    font-size: 0.98vw;
+    font-weight: bold;
   }
   
   .admininput9:focus ~ .admininput9-label, .admininput9:valid ~ .admininput9-label{
@@ -459,7 +471,8 @@
   
    
     transition: 0.2s;
-    font-size: 0.78vw;
+    font-size: 0.98vw;
+    font-weight: bold;
   }
   
   .admininput10:focus ~ .adminadmininput10-label, .admininput10:valid ~ .admininput10-label{
@@ -480,7 +493,8 @@
 
    
     transition: 0.2s;
-    font-size: 0.78vw;
+    font-size: 0.98vw;
+    font-weight: bold;
   }
   
   .admininput11:focus ~ .admininput11-label, .admininput11:valid ~ .admininput11-label{
@@ -501,7 +515,8 @@
   
    
     transition: 0.2s;
-    font-size: 0.78vw;
+    font-size: 0.98vw;
+    font-weight: bold;
   }
   
   .admininput12:focus ~ .admininput12-label, .admininput12:valid ~ .admininput12-label{
@@ -576,9 +591,9 @@
   color: #fa5e00;
 }
 
-.adminfile{
+.adminRCAfile{
     
-  width:25%;
+  width:23%;
   margin-top: 0.7vh;
   margin-bottom: 1.34vh;
   text-align: center;
@@ -699,3 +714,14 @@ transform: rotate(90deg);
 }
 
 
+.disbtn{
+  pointer-events: none;
+  color: black;
+    width: 13%;
+    height: 6.71vh;
+    font-weight: 300;
+    border-radius: 2.11vw;
+    border: none;
+    margin-left: 1vw;
+    font-size: 0.95vw;
+}

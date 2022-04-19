@@ -264,7 +264,7 @@ function AdminCommon({ adminFirstPageStatus }) {
                       position: "relative",
                       bottom: "2.5vh",
                       display: "inline-block",
-                      left:"2.8vw",
+                      left:"3.8vw",
                     }}
                   >
                     <img
