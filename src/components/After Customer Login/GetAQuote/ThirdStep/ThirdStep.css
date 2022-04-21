@@ -1,0 +1,49 @@
+.s3Paper {
+  border-style: solid;
+  border-radius: 1.95vw;
+  border-color: #f2f3f2;
+  padding: 3.8vh 1.33vw !important;
+  margin-top: 4vh;
+  margin-left: 3vw;
+  width: 90%;
+}
+
+.s3text1 {
+  font-size: 17.07px;
+  font-weight: bold;
+  display: inline;
+}
+.s3baricon {
+  margin-left: 3vw;
+  position: relative;
+  top: 1vh;
+  width: 42vw;
+}
+.quote {
+  background-color: #f2f3f2;
+  border: 0.1vw solid #f2f3f2;
+}
+.btn-house {
+  width: 275px;
+  height: 65px;
+  margin: 24.5px 20px 40px 0;
+  padding: 21px 72px 21px 71px;
+  border-radius: 32.5px;
+  border: solid 1px #d3d3d3;
+  background-color: #f9f9f9;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: Outfit;
+}
+.Add {
+  background-color: black;
+  color: #d3d3d3;
+}
+
+.btn-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 !important; */
+  padding: 0 !important;
+}

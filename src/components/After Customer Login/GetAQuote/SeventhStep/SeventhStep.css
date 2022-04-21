@@ -1,4 +1,4 @@
-.s6Paper{
+.s7Paper{
     border-style: solid;
     border-radius:  1.95vw;
     border-color: #f2f3f2;
@@ -8,25 +8,14 @@
     width: 80%;
 }
 
-.s6text1{
+.s7text1{
     font-size: 1vw;
     font-weight: bold;
     display: inline;
 }
-.s6baricon{
+.s7baricon{
     margin-left:3vw;
     position:relative;
     top:1vh;
     width:42vw;
 }
-.btn6-house {
-    width: 162px;
-    height: 48px;
-    margin: 24.5px 20px 40px 0;
-    padding: 21px 72px 21px 71px;
-    border-radius: 32.5px;
-    border: solid 1px #d3d3d3;
-    background-color: #f9f9f9;
-    font-size: 16px;
-    font-weight: bold;
-  }

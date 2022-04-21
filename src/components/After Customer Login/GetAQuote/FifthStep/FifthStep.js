@@ -6,6 +6,10 @@ import { TailSpin } from "react-loader-spinner";
 import axios from "axios";
 import URL from "../../../../GlobalUrl";
 import globalAPI from "../../../../GlobalApi";
+import { Box } from "@mui/material";
+import ChevronRightSharpIcon from "@mui/icons-material/ChevronRightSharp";
+import ChevronLeftSharpIcon from "@mui/icons-material/ChevronLeftSharp";
+import { Card } from "../../../../common";
 
 const fileTypes = ["PDF", "PNG", "JPEG"];
 
@@ -97,7 +101,8 @@ const FifthStep = () => {
       const newAttachments = [...rattachments];
       newAttachments.splice(index, 1);
       setRattachments(newAttachments);
-    } if(name=="windows") {
+    }
+    if (name == "windows") {
       const newValue = [...windows];
       newValue.splice(index, 1);
       setWindows(newValue);
@@ -105,33 +110,33 @@ const FifthStep = () => {
       newAttachments.splice(index, 1);
       setWiattachments(newAttachments);
     }
-    if(name=="eb") {
-        const newValue = [...eb];
-        newValue.splice(index, 1);
-        setEB(newValue);
-        const newAttachments = [...ebattachments];
-        newAttachments.splice(index, 1);
-        setEBattachments(newAttachments);
-      }
-      if(name=="er") {
-        const newValue = [...er];
-        newValue.splice(index, 1);
-        setER(newValue);
-        const newAttachments = [...erattachments];
-        newAttachments.splice(index, 1);
-        setERattachments(newAttachments);
-      }
-      if(name=="pw") {
-        const newValue = [...pw];
-        newValue.splice(index, 1);
-        setPW(newValue);
-        const newAttachments = [...pwattachments];
-        newAttachments.splice(index, 1);
-        setPWattachments(newAttachments);
-      }
+    if (name == "eb") {
+      const newValue = [...eb];
+      newValue.splice(index, 1);
+      setEB(newValue);
+      const newAttachments = [...ebattachments];
+      newAttachments.splice(index, 1);
+      setEBattachments(newAttachments);
+    }
+    if (name == "er") {
+      const newValue = [...er];
+      newValue.splice(index, 1);
+      setER(newValue);
+      const newAttachments = [...erattachments];
+      newAttachments.splice(index, 1);
+      setERattachments(newAttachments);
+    }
+    if (name == "pw") {
+      const newValue = [...pw];
+      newValue.splice(index, 1);
+      setPW(newValue);
+      const newAttachments = [...pwattachments];
+      newAttachments.splice(index, 1);
+      setPWattachments(newAttachments);
+    }
   };
   return (
-    <div className="s5Paper">
+    <Card>
       {loader && (
         <div className="customLoader">
           <TailSpin color="#fa5e00" height="100" width="100" />
@@ -143,7 +148,7 @@ const FifthStep = () => {
       </div>
 
       <h4 style={{ fontSize: "1.4vw", marginTop: "10vh" }}>Upload Photos</h4>
-
+      <hr className="s2hr2" />
       <h4 className="s5name1">Walls</h4>
       <hr className="s5hr2" />
       <div>
@@ -372,7 +377,7 @@ const FifthStep = () => {
           );
         })}
 
-<h4 className="s5name1">Existing Boiler</h4>
+      <h4 className="s5name1">Existing Boiler</h4>
       <hr className="s5hr2" />
       <div>
         <FileUploader
@@ -448,7 +453,7 @@ const FifthStep = () => {
           );
         })}
 
-<h4 className="s5name1">Existing Radiator</h4>
+      <h4 className="s5name1">Existing Radiator</h4>
       <hr className="s5hr2" />
       <div>
         <FileUploader
@@ -524,7 +529,7 @@ const FifthStep = () => {
           );
         })}
 
-<h4 className="s5name1">Pipework</h4>
+      <h4 className="s5name1">Pipework</h4>
       <hr className="s5hr2" />
       <div>
         <FileUploader
@@ -599,7 +604,21 @@ const FifthStep = () => {
             </div>
           );
         })}
-    </div>
+      <Box sx={{ display: "flex" }}>
+        <button variant="contained" className="btn-house btn-icon">
+          <span style={{ height: "27px", width: "27px" }}>
+            <ChevronLeftSharpIcon sx={{ height: "27px", width: "27px" }} />
+          </span>
+          <span style={{ marginLeft: "100px" }}>Previous</span>
+        </button>
+        <button variant="contained" className="btn-house Add btn-icon">
+          <span style={{ marginRight: "100px" }}>Continue</span>
+          <span style={{ height: "27px", width: "27px" }}>
+            <ChevronRightSharpIcon sx={{ height: "27px", width: "27px" }} />
+          </span>
+        </button>
+      </Box>
+    </Card>
   );
 };
 

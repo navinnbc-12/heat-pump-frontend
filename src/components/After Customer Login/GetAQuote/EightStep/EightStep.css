@@ -1,4 +1,4 @@
-.s6Paper{
+.s8Paper{
     border-style: solid;
     border-radius:  1.95vw;
     border-color: #f2f3f2;
@@ -8,25 +8,26 @@
     width: 80%;
 }
 
-.s6text1{
+.s8text1{
     font-size: 1vw;
     font-weight: bold;
     display: inline;
 }
-.s6baricon{
+.s8baricon{
     margin-left:3vw;
     position:relative;
     top:1vh;
     width:42vw;
 }
-.btn6-house {
-    width: 162px;
-    height: 48px;
-    margin: 24.5px 20px 40px 0;
-    padding: 21px 72px 21px 71px;
-    border-radius: 32.5px;
-    border: solid 1px #d3d3d3;
-    background-color: #f9f9f9;
-    font-size: 16px;
-    font-weight: bold;
+
+.quotetextarea {
+    border-radius: 0.5vw;
+    border: solid 1px #cdcdcd;
+    /* background-color: #f0f0f0; */
+    width: 26.44vw;
+    margin-top: 1.61vh;
+    padding-left: 0.61vw;
+    padding-top: 2.01vh;
+    height: 26.08vh;
+    font-size: 1vw;
   }

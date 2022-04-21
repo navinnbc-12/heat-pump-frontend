@@ -6,6 +6,10 @@ import { TailSpin } from "react-loader-spinner";
 import axios from "axios";
 import URL from "../../../../GlobalUrl";
 import globalAPI from "../../../../GlobalApi";
+import { Box } from "@mui/material";
+import ChevronRightSharpIcon from "@mui/icons-material/ChevronRightSharp";
+import ChevronLeftSharpIcon from "@mui/icons-material/ChevronLeftSharp";
+import { Card } from "../../../../common";
 
 const fileTypes = ["PDF", "PNG", "JPEG"];
 
@@ -19,7 +23,7 @@ const FourthStep = () => {
   const [loader, setLoader] = useState(false);
   const token = JSON.parse(localStorage.getItem("user"));
 
-  const onFileUpload = (e,name) => {
+  const onFileUpload = (e, name) => {
     console.log(name);
     if (e) {
       let formData = new FormData();
@@ -37,17 +41,16 @@ const FourthStep = () => {
           const res = response.data;
           setLoader(false);
           if (res.success) {
-            if(name=="plans"){
+            if (name == "plans") {
               pattachments.push(res.data.message[0]);
-            setPlans([...plans, e]);
+              setPlans([...plans, e]);
             }
-            if(name=="sections"){
+            if (name == "sections") {
               sattachments.push(res.data.message[0]);
-            setSections([...sections, e]);
-            }
-            else{
+              setSections([...sections, e]);
+            } else {
               eattachments.push(res.data.message[0]);
-            setElevations([...elevations, e]);
+              setElevations([...elevations, e]);
             }
           } else {
             toast.error(res.data.message);
@@ -71,7 +74,7 @@ const FourthStep = () => {
       const newAttachments = [...pattachments];
       newAttachments.splice(index, 1);
       setPattachments(newAttachments);
-    } 
+    }
     if (name == "elevations") {
       const newValue = [...elevations];
       newValue.splice(index, 1);
@@ -89,7 +92,7 @@ const FourthStep = () => {
     }
   };
   return (
-    <div className="step4Paper">
+    <Card>
       {loader && (
         <div className="customLoader">
           <TailSpin color="#fa5e00" height="100" width="100" />
@@ -101,12 +104,12 @@ const FourthStep = () => {
       </div>
 
       <h4 style={{ fontSize: "1.4vw", marginTop: "10vh" }}>Upload Drawings</h4>
-
+      <hr className="s2hr2" />
       <h4 className="s4name1">Plans-GF/1F/2F</h4>
       <hr className="s4hr2" />
       <div>
         <FileUploader
-          handleChange={(e) => onFileUpload(e,"plans")}
+          handleChange={(e) => onFileUpload(e, "plans")}
           name="file"
           types={fileTypes}
           onTypeError={(err) =>
@@ -130,7 +133,7 @@ const FourthStep = () => {
         <span className="s4or">OR</span>
 
         <FileUploader
-          handleChange={(e) => onFileUpload(e,"plans")}
+          handleChange={(e) => onFileUpload(e, "plans")}
           name="file"
           types={fileTypes}
           onTypeError={(err) =>
@@ -182,7 +185,7 @@ const FourthStep = () => {
       <hr className="s4hr2" />
       <div>
         <FileUploader
-          handleChange={(e) => onFileUpload(e,"elevations")}
+          handleChange={(e) => onFileUpload(e, "elevations")}
           name="file"
           types={fileTypes}
           onTypeError={(err) =>
@@ -206,7 +209,7 @@ const FourthStep = () => {
         <span className="s4or">OR</span>
 
         <FileUploader
-          handleChange={(e) => onFileUpload(e,"elevations")}
+          handleChange={(e) => onFileUpload(e, "elevations")}
           name="file"
           types={fileTypes}
           onTypeError={(err) =>
@@ -242,7 +245,7 @@ const FourthStep = () => {
 
               <img
                 src={require("../../../../Img/iconDelete.png")}
-                onClick={(e) => removeFile(e.target.name,index)}
+                onClick={(e) => removeFile(e.target.name, index)}
                 style={{
                   marginRight: "20px",
                   width: "1.3vw",
@@ -258,7 +261,7 @@ const FourthStep = () => {
       <hr className="s4hr2" />
       <div>
         <FileUploader
-          handleChange={(e) => onFileUpload(e,"sections")}
+          handleChange={(e) => onFileUpload(e, "sections")}
           name="file"
           types={fileTypes}
           onTypeError={(err) =>
@@ -282,7 +285,7 @@ const FourthStep = () => {
         <span className="s4or">OR</span>
 
         <FileUploader
-          handleChange={(e) => onFileUpload(e,"sections")}
+          handleChange={(e) => onFileUpload(e, "sections")}
           name="file"
           types={fileTypes}
           onTypeError={(err) =>
@@ -318,18 +321,32 @@ const FourthStep = () => {
 
               <img
                 src={require("../../../../Img/iconDelete.png")}
-                onClick={(e) => removeFile(e.target.name,index)}
+                onClick={(e) => removeFile(e.target.name, index)}
                 style={{
                   marginRight: "20px",
                   width: "1.3vw",
                   height: "2.9vh",
                 }}
-                name='sections'
+                name="sections"
               />
             </div>
           );
         })}
-    </div>
+      <Box sx={{ display: "flex" }}>
+        <button variant="contained" className="btn-house btn-icon">
+          <span style={{ height: "27px", width: "27px" }}>
+            <ChevronLeftSharpIcon sx={{ height: "27px", width: "27px" }} />
+          </span>
+          <span style={{ marginLeft: "100px" }}>Previous</span>
+        </button>
+        <button variant="contained" className="btn-house Add btn-icon">
+          <span style={{ marginRight: "100px" }}>Continue</span>
+          <span style={{ height: "27px", width: "27px" }}>
+            <ChevronRightSharpIcon sx={{ height: "27px", width: "27px" }} />
+          </span>
+        </button>
+      </Box>
+    </Card>
   );
 };
 

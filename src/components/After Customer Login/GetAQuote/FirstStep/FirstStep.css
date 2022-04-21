@@ -1,21 +1,159 @@
-.s1Paper{
-    border-style: solid;
-    border-radius:  1.95vw;
-    border-color: #f2f3f2;
-    padding: 3.8vh 1.33vw !important;
-    margin-top:4vh;
-    margin-left: 3vw;
-    width: 80%;
+.s1Paper {
+  border-style: solid;
+  border-radius: 1.95vw;
+  border-color: #f2f3f2;
+  padding: 3.8vh 1.33vw !important;
+  margin-top: 4vh;
+  margin-left: 3vw;
+  width: 80%;
 }
 
-.s1text1{
-    font-size: 1vw;
-    font-weight: bold;
-    display: inline;
+.s1text1 {
+  font-size: 1vw;
+  font-weight: bold;
+  display: inline;
 }
-.s1baricon{
-    margin-left:3vw;
-    position:relative;
-    top:1vh;
-    width:42vw;
+.s1baricon {
+  margin-left: 3vw;
+  position: relative;
+  top: 1vh;
+  width: 42vw;
+}
+.s1hr2 {
+  width: 100%;
+  background-color: #f2f3f2;
+  border: 0.134vh solid #f2f3f2;
+  margin-top: 1.34vh;
+  margin-bottom: 2.7vh;
+}
+
+.step1inputfields {
+  width: 26vw;
+  height: 7.63vh;
+  margin: 1.75vh 0px 0px 2vw;
+  padding-left: 0.71vw;
+  padding-top: 0.27vh;
+  font-size: 0.85vw;
+  border-radius: 0.66vw;
+  border: solid 0.134vh #cdcdcd;
+  background-color: #fff;
+  color: #505050;
+}
+.step1subtitle3 {
+  font-weight: 300;
+  font-size: 22px;
+  width: fit-content;
+  display: inline-block;
+  margin-right: 0.66vw;
+  margin-left: 0%;
+}
+.step1input1-label {
+  color: #999;
+  position: relative;
+  pointer-events: none;
+  right: 25.1vw;
+
+  transition: 0.2s;
+  font-size: 0.78vw;
+}
+
+.input1:focus ~ .step1input1-label,
+.input1:valid ~ .step1input1-label {
+  bottom: 1.88vw;
+  right: 25.1vw;
+  position: relative;
+  font-size: 0.6vw;
+  color: #525252;
+  background-color: #fff;
+  padding: 0 0.33vw 0 0.33vw;
+}
+
+/* .input2,
+.input3,
+.input4,
+.input5 {
+  font-size: 0.78vw;
+} */
+
+.step1input2-label {
+  color: #999;
+  position: relative;
+  pointer-events: none;
+  right: 25.1vw;
+  transition: 0.2s;
+  font-size: 0.78vw;
+}
+
+.input2:focus ~ .step1input2-label,
+.input2:valid ~ .step1input2-label {
+  bottom: 1.88vw;
+  right: 25.1vw;
+  position: relative;
+  font-size: 0.6vw;
+  color: #525252;
+  background-color: #fff;
+  padding: 0 0.33vw 0 0.33vw;
+}
+
+.step1input3-label {
+  color: #999;
+  position: relative;
+  pointer-events: none;
+  right: 25.1vw;
+
+  transition: 0.2s;
+  font-size: 0.78vw;
+}
+
+.input3:focus ~ .step1input3-label,
+.input3:valid ~ .step1input3-label {
+  bottom: 1.88vw;
+  right: 25.1vw;
+  position: relative;
+  font-size: 0.6vw;
+  color: #525252;
+  background-color: #fff;
+  padding: 0 0.33vw 0 0.33vw;
+}
+
+.step1input4-label {
+  color: #999;
+  position: relative;
+  pointer-events: none;
+  right: 25.1vw;
+
+  transition: 0.2s;
+  font-size: 0.78vw;
+}
+
+.input4:focus ~ .step1input4-label,
+.input4:valid ~ .step1input4-label {
+  bottom: 1.88vw;
+  right: 25.1vw;
+  position: relative;
+  font-size: 0.6vw;
+  color: #525252;
+  background-color: #fff;
+  padding: 0 0.33vw 0 0.33vw;
+}
+
+.step1input5-label {
+  color: #999;
+  position: relative;
+  pointer-events: none;
+  right: 25.1vw;
+
+  transition: 0.2s;
+  font-size: 0.78vw;
+}
+
+.input5:focus ~ .step1input5-label,
+.input5:valid ~ .step1input5-label {
+  bottom: 1.88vw;
+  right: 25.1vw;
+  position: relative;
+  font-size: 0.6vw;
+  color: #525252;
+  background-color: #fff;
+  padding: 0 0.33vw 0 0.33vw;
 }
