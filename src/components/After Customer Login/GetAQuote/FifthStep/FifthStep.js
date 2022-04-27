@@ -6,14 +6,14 @@ import { TailSpin } from "react-loader-spinner";
 import axios from "axios";
 import URL from "../../../../GlobalUrl";
 import globalAPI from "../../../../GlobalApi";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import ChevronRightSharpIcon from "@mui/icons-material/ChevronRightSharp";
 import ChevronLeftSharpIcon from "@mui/icons-material/ChevronLeftSharp";
 import { Card } from "../../../../common";
 
 const fileTypes = ["PDF", "PNG", "JPEG"];
 
-const FifthStep = () => {
+const FifthStep = (props) => {
   const [walls, setWalls] = useState([]);
   const [wattachments, setWattachments] = useState([]);
   const [roof, setRoof] = useState([]);
@@ -147,7 +147,16 @@ const FifthStep = () => {
         <img src={require("../../../../Img/step5.png")} className="s5baricon" />
       </div>
 
-      <h4 style={{ fontSize: "1.4vw", marginTop: "10vh" }}>Upload Photos</h4>
+      <Typography
+        style={{
+          fontSize: "30px",
+          fontFamily: "Outfit",
+          fontWeight: "600",
+          marginTop: "10vh",
+        }}
+      >
+        Upload Photos
+      </Typography>
       <hr className="s2hr2" />
       <h4 className="s5name1">Walls</h4>
       <hr className="s5hr2" />
@@ -208,7 +217,7 @@ const FifthStep = () => {
                   }}
                 />
 
-                <span className="s5fileName">Attachment-{index + 1}</span>
+                <span className="s5fileName">{item.name}</span>
               </span>
 
               <img
@@ -284,7 +293,7 @@ const FifthStep = () => {
                   }}
                 />
 
-                <span className="s5fileName">Attachment-{index + 1}</span>
+                <span className="s5fileName">{item.name}</span>
               </span>
 
               <img
@@ -360,7 +369,7 @@ const FifthStep = () => {
                   }}
                 />
 
-                <span className="s5fileName">Attachment-{index + 1}</span>
+                <span className="s5fileName">{item.name}</span>
               </span>
 
               <img
@@ -436,7 +445,7 @@ const FifthStep = () => {
                   }}
                 />
 
-                <span className="s5fileName">Attachment-{index + 1}</span>
+                <span className="s5fileName">{item.name}</span>
               </span>
 
               <img
@@ -512,7 +521,7 @@ const FifthStep = () => {
                   }}
                 />
 
-                <span className="s5fileName">Attachment-{index + 1}</span>
+                <span className="s5fileName">{item.name}</span>
               </span>
 
               <img
@@ -588,7 +597,7 @@ const FifthStep = () => {
                   }}
                 />
 
-                <span className="s5fileName">Attachment-{index + 1}</span>
+                <span className="s5fileName">{item.name}</span>
               </span>
 
               <img
@@ -605,13 +614,36 @@ const FifthStep = () => {
           );
         })}
       <Box sx={{ display: "flex" }}>
-        <button variant="contained" className="btn-house btn-icon">
+        <button
+          variant="contained"
+          className="btn-house btn-icon"
+          onClick={props.prev}
+        >
           <span style={{ height: "27px", width: "27px" }}>
             <ChevronLeftSharpIcon sx={{ height: "27px", width: "27px" }} />
           </span>
           <span style={{ marginLeft: "100px" }}>Previous</span>
         </button>
-        <button variant="contained" className="btn-house Add btn-icon">
+        <button
+          variant="contained"
+          className="btn-house Add btn-icon"
+          onClick={() => {
+            props.getPayloadData(
+              ["photos"],
+              [
+                {
+                  walls: walls,
+                  roof: roof,
+                  windows: windows,
+                  existing_boiler: eb,
+                  existing_radiator: er,
+                  pipework: pw,
+                },
+              ]
+            );
+            props.next();
+          }}
+        >
           <span style={{ marginRight: "100px" }}>Continue</span>
           <span style={{ height: "27px", width: "27px" }}>
             <ChevronRightSharpIcon sx={{ height: "27px", width: "27px" }} />

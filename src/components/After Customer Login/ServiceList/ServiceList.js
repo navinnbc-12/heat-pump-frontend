@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ServiceList.css";
-import { Pagination } from "@mui/material";
+import { Container, Pagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import URL from "../../../GlobalUrl";
@@ -9,17 +9,23 @@ import globalAPI from "../../../GlobalApi";
 import { TailSpin } from "react-loader-spinner";
 import usePagination from "../../Pagination/Pagination";
 import moment from "moment";
-import { ThemeProvider, createTheme,styled, } from "@mui/material/styles";
-import { TextField } from "@mui/material";
-import { makeStyles } from '@mui/styles';
+import { ThemeProvider, createTheme, styled } from "@mui/material/styles";
+import { TextField, Typography, Grid, Stack } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { connect } from "react-redux";
 import { FirstPageAction } from "../../../Redux/FirstPage/FirstPage.action";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
+import { Card } from "../../../common";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 const theme = createTheme({
   palette: {
@@ -28,29 +34,36 @@ const theme = createTheme({
 });
 
 const useStyles = makeStyles({
-  textfield:{
-    '& label.Mui-focused': {
-      color: 'black',
+  textfield: {
+    "& label.Mui-focused": {
+      color: "black",
+      fontFamily: "outfit",
+      fontWeight: "bold",
+      fontSize: "16px",
     },
-    '& .MuiOutlinedInput-root': {
-      borderRadius:"0.61vw",
-      marginRight: "1.22vw",
-      height:"6.51vh",
-      '&.Mui-focused fieldset': {
-        borderColor: 'black',
+    "& .MuiFormLabel-root": {
+      fontWeight: "bold",
+      fontSize: "16px",
+      fontFamily: "outfit",
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "10px",
+      marginRight: "20px",
+      height: "45px",
+      "&.Mui-focused fieldset": {
+        borderColor: "black",
       },
     },
-    width:"30%"
+    width: "25%",
   },
   selectfield: {
     "& label.Mui-focused": {
       color: "black",
     },
     "& .MuiOutlinedInput-root": {
-      borderRadius: "0.61vw",
-      marginRight: "1.22vw",
-      width: "12.22vw",
-      height: "6.51vh",
+      borderRadius: "10px",
+      marginRight: "20px",
+      height: "45px",
       fontWeight: "bolder",
       fontFamily: "outfit",
       backgroundColor: "white",
@@ -59,18 +72,19 @@ const useStyles = makeStyles({
         borderColor: "black",
       },
     },
-    icons:{
-      fontSize:"0.5vw"
-    },
+    width: "25%",
   },
-  selectinput:{
-    marginBottom:"0.67vh",
-    fontFamily:"outfit",
+  selectinput: {
+    fontFamily: "outfit",
     fontWeight: "bolder",
-    fontSize:"1vw",
-    
-  }
-})
+    fontSize: "16.36px",
+  },
+  table: {
+    fontFamily: "outfit",
+    fontWeight: "bolder",
+    fontSize: "16.36px",
+  },
+});
 
 const ServiceList = ({ FirstPageAction }) => {
   const navigate = useNavigate();
@@ -154,93 +168,126 @@ const ServiceList = ({ FirstPageAction }) => {
     setPage(p);
     _DATA.jump(p);
   };
-  const searchfilter = ()=>{
-    setStatus("1,2,3,4")
+  const searchfilter = () => {
+    setStatus("1,2,3,4,5");
     setPage(1);
     fetchSeconddata();
-  }
+  };
   return (
-    <div className="container">
+    <div>
       {loader && (
         <div className="customLoader">
           <TailSpin color="#fa5e00" height="100" width="100" />
         </div>
       )}
-      <div className="title">My Service Requests</div>
-      <hr className="containerhr" />
-      <div className="paper">
-        <div className="firstrow">
-          <div className="names">{userName}</div>
-          <div style={{ fontSize: "1vw",fontWeight:"bold" }}>
-            {userData.business_trade_name},{userData.city}
-          </div>
-          <hr className="hrFirst" />
-        </div>
+      <Typography
+        variant="h6"
+        style={{
+          fontWeight: 300,
+          fontSize: "55px",
+          fontFamily: "outfit",
+          marginLeft: "40px",
+        }}
+      >
+        My Service Requests
+        <hr className="containerhr" />
+      </Typography>
+      <Card>
+        <Grid>
+          <Stack>
+            <Typography>
+              <div className="names">{userName}</div>
+              <div style={{ fontSize: "16.36px", fontWeight: "bold" }}>
+                {userData.business_trade_name}, {userData.city}
+              </div>
+              <hr className="hrFirst" />
+            </Typography>
+          </Stack>
+        </Grid>
 
-        <div className="secondrow">
-          <div className="outerbox">
+        <Grid>
+          <div className="secondrow">
+            <div className="outerbox">
+              <div
+                className="squarebox"
+                onClick={() => {
+                  setStatus(1);
+                  setPage(1);
+                }}
+              >
+                <h1 style={{ fontSize: "32.72px" }}>{box.new}</h1>
+              </div>
+              <div className="second-row-text">New</div>
+            </div>
+            <div className="outerbox">
+              <div
+                className="squarebox"
+                onClick={() => {
+                  setStatus(5);
+                  setPage(1);
+                }}
+              >
+                <h1 style={{ fontSize: "32.72px" }}>{box.hpd_review}</h1>
+              </div>
+              <div className="second-row-text">HPD To Review</div>
+            </div>
+            <div className="outerbox">
+              <div
+                className="squarebox"
+                onClick={() => {
+                  setStatus(2);
+                  setPage(1);
+                }}
+              >
+                <h1 style={{ fontSize: "32.72px" }}>{box.working}</h1>
+              </div>
+              <div className="second-row-text">HPD Working</div>
+            </div>
+            <div className="outerbox">
+              <div
+                className="squarebox"
+                onClick={() => {
+                  setStatus(3);
+                  setPage(1);
+                }}
+              >
+                <h1 style={{ fontSize: "32.72px" }}>{box.need_attention}</h1>
+              </div>
+              <div className="second-row-text">Need Your Attention</div>
+            </div>
+            <div className="outerbox">
+              <div
+                className="squarebox"
+                onClick={() => {
+                  setStatus(4);
+                  setPage(1);
+                }}
+              >
+                <h1 style={{ fontSize: "32.72px" }}>{box.closed}</h1>
+              </div>
+              <div className="second-row-text">Closed</div>
+            </div>
+          </div>
+        </Grid>
+
+        <Grid>
+          <div className="third-row">
             <div
-              className="squarebox"
-              onClick={() => {
-                setStatus(1);
-                setPage(1);
+              style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
               }}
             >
-              <h1 style={{fontSize:"2vw"}}>{box.new}</h1>
-            </div>
-            <div className="second-row-text">New</div>
-          </div>
-          <div className="outerbox">
-            <div
-              className="squarebox"
-              onClick={() => {
-                setStatus(2);
-                setPage(1);
-              }}
-            >
-              <h1 style={{fontSize:"2vw"}}>{box.working}</h1>
-            </div>
-            <div className="second-row-text">HPD Working</div>
-          </div>
-          <div className="outerbox">
-            <div
-              className="squarebox"
-              onClick={() => {
-                setStatus(3);
-                setPage(1);
-              }}
-            >
-              <h1 style={{fontSize:"2vw"}}>{box.need_attention}</h1>
-            </div>
-            <div className="second-row-text">Need Your Attention</div>
-          </div>
-          <div className="outerbox">
-            <div
-              className="squarebox"
-              onClick={() => {
-                setStatus(4);
-                setPage(1);
-              }}
-            >
-              <h1 style={{fontSize:"2vw"}}>{box.closed}</h1>
-            </div>
-            <div className="second-row-text">Closed</div>
-          </div>
-        </div>
-        <div className="third-row">
-          <div className="search-by">Search By</div>
-          <div
-            style={{
-              width: "95%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
-           
-            <div style={{display:"inline-block",width:"12.22vw"}}>
-            <FormControl className={classes.selectfield}>
-            <InputLabel id="demo-simple-select-label" className={classes.selectinput}>Priority</InputLabel>
+              <div className="search-by">Search By</div>
+              <FormControl className={classes.selectfield}>
+                <InputLabel
+                  id="demo-simple-select-label"
+                  className={classes.selectinput}
+                >
+                  Priority
+                </InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -249,131 +296,144 @@ const ServiceList = ({ FirstPageAction }) => {
                   onFocus={() => setFocused(true)}
                   onBlur={() => setFocused(false)}
                   label="Priority"
-                  IconComponent={() =>
-                    focused ? (
-                      <KeyboardArrowUpIcon className={classes.icons}/>
-                    ) : (
-                      <KeyboardArrowDownIcon className={classes.icons} />
-                    )
-                  }
                 >
-                  <MenuItem value="1" style={{fontWeight:600}}> High </MenuItem>
-                  <MenuItem value="2" style={{fontWeight:600}}> Medium </MenuItem>
-                  <MenuItem value="3" style={{fontWeight:600}}> Low </MenuItem>
+                  <MenuItem value="1" style={{ fontWeight: 600 }}>
+                    {" "}
+                    High{" "}
+                  </MenuItem>
+                  <MenuItem value="2" style={{ fontWeight: 600 }}>
+                    {" "}
+                    Medium{" "}
+                  </MenuItem>
+                  <MenuItem value="3" style={{ fontWeight: 600 }}>
+                    {" "}
+                    Low{" "}
+                  </MenuItem>
                 </Select>
               </FormControl>
-              </div>
-            
-            <TextField label="Service Request No" style={{marginLeft:"0.9vw"}} className={classes.textfield} value={serviceno} onChange={(e) => setServiceno(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh",fontSize:"1.1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
 
-            <TextField label="Title" className={classes.textfield}  value={title}  onChange={(e) => setTitle(e.target.value)} size="small" InputLabelProps={{ style: { fontWeight:"bolder",fontFamily:"outfit",marginTop:"0.67vh",fontSize:"1.1vw" } }} InputProps={{ style: { fontWeight:"bolder",fontFamily:"outfit", } }} />
+              <TextField
+                label="Service Request No"
+                className={classes.textfield}
+                value={serviceno}
+                onChange={(e) => setServiceno(e.target.value)}
+                size="small"
+              />
 
-            <button
-              className="searchbtn"
-              // onClick={() => {
-              //   setPage(1);
-              //   fetchSeconddata();
-              // }}
-              onClick ={()=>searchfilter()}
-            >
-              Search
-            </button>
+              <TextField
+                label="Title"
+                className={classes.textfield}
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                size="small"
+              />
+
+              <button
+                className="searchbtn"
+                // onClick={() => {
+                //   setPage(1);
+                //   fetchSeconddata();
+                // }}
+                onClick={() => searchfilter()}
+              >
+                Search
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="fourth-row">
-          <div style={{ fontSize: "2.2vw", fontWeight: "600" }}>
-            Service Requests List
-          </div>
-          <hr className="hrFirst" />
-          <table>
-            <thead>
-              <tr>
-                <th style={{ width: "5.05vw",fontSize:"1.2vw" }}>Priority</th>
-                <th style={{ width: "8.58vw",fontSize:"1.2vw" }}>SR No.</th>
-                <th scope="col" style={{ width: "15.28vw",fontSize:"1.2vw" }}>
-                  Title
-                </th>
-                <th scope="col" style={{ width: "13.44vw",fontSize:"1.2vw" }}>
-                  Site Details
-                </th>
-                <th scope="col" style={{ width: "12.22vw",fontSize:"1.2vw" }}>
-                  SR Type
-                </th>
-                <th scope="col" style={{ width: "11.61vw",fontSize:"1.2vw" }}>
-                  Last Updated
-                  <br />
-                  Date & Time
-                </th>
-                <th scope="col" style={{ width: "7.02vw",fontSize:"1.2vw" }}>
-                  Status
-                </th>
-              </tr>
-            </thead>
-            <tbody className="sortable">
-              {_DATA.currentData().map((item, index) => {
-                return (
-                  <tr
-                    onClick={() => manageService(item)}
-                    key={index}
-                    style={{ borderBottom: "solid 1px #d3d3d3" }}
-                  >
-                    {item.priority == 1 && (
-                      <td style={{ paddingLeft: "1.34vh",fontSize:"1vw" }}>
+        </Grid>
+
+        <Grid>
+          <div className="fourth-row">
+            <div style={{ fontSize: "35px", fontWeight: "600" }}>
+              Service Requests List
+            </div>
+            <hr className="hrFirst" />
+            <div style={{ overflowX: "auto" }}>
+              <TableContainer component={Paper}>
+                <Table sx={{width:"100%", }} aria-label="simple table">
+                  <TableHead>
+                    <TableRow
+                    >
+                      <TableCell style={{ fontSize: "16px",fontFamily:"Outfit",color:"#000",fontWeight:600 }}>Priority</TableCell>
+                      <TableCell style={{ fontSize: "16px",fontFamily:"Outfit",color:"#000",fontWeight:600 }}>SR No.</TableCell>
+                      <TableCell style={{ fontSize: "16px",fontFamily:"Outfit",color:"#000",fontWeight:600 }} >Title</TableCell>
+                      <TableCell style={{ fontSize: "16px",fontFamily:"Outfit",color:"#000",fontWeight:600 }}>Site Details</TableCell>
+                      <TableCell style={{ fontSize: "16px",fontFamily:"Outfit",color:"#000",fontWeight:600,width:"163px" }}>SR Type</TableCell>
+                      <TableCell style={{ fontSize: "16px",fontFamily:"Outfit",color:"#000",fontWeight:600,width:"168px" }}>
                         {" "}
+                        Last Updated
+                        <br />
+                        Date & Time
+                      </TableCell>
+                      <TableCell style={{ fontSize: "16px",fontFamily:"Outfit",color:"#000",fontWeight:600,width:"128px" }}>Status</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {_DATA.currentData().map((item,index) => (
+                      <TableRow
+                      onClick={() => manageService(item)}
+                      key={index}
+                      style={{ borderBottom: "solid 1px #d3d3d3",cursor:"pointer" }}
+                      >
+                        {item.priority == 1 && (<TableCell >
                         <div className="hroundcircle">H</div>{" "}
-                      </td>
-                    )}
-                    {item.priority == 2 && (
-                      <td style={{ paddingLeft: "1.34vh",fontSize:"1vw" }}>
-                        {" "}
+                        </TableCell>)}
+                        {item.priority == 2 && (<TableCell >
                         <div className="mroundcircle">M</div>{" "}
-                      </td>
-                    )}
-                    {item.priority == 3 && (
-                      <td style={{ paddingLeft: "1.34vh",fontSize:"1vw" }}>
-                        {" "}
+                        </TableCell>)}
+                        {item.priority == 3 && (<TableCell >
                         <div className="lroundcircle">L</div>{" "}
-                      </td>
-                    )}
-                    <td style={{fontSize:"1vw"}}>{item.service_ref_number}</td>
-                    <td style={{fontSize:"1vw"}}>{item.title}</td>
-                    <td style={{fontSize:"1vw"}}>
-                      {item.job_reference_id
-                        ? item.job_reference_id.site_details
-                        : "-"}
-                    </td>
-                    <td style={{fontSize:"1vw"}}>{item.type ? item.type : "-"}</td>
-                    <td style={{fontSize:"1vw"}}>
-                      {moment(item.updatedAt).format("DD/MM/YYYY h:mm a")}
-                    </td>
-                    {item.status == 1 && <td style={{fontSize:"1vw"}}>New</td>}
-                    {item.status == 2 && <td style={{fontSize:"1vw"}}>HPD Working</td>}
-                    {item.status == 3 && <td style={{fontSize:"1vw"}}>Need Your Attention</td>}
-                    {item.status == 4 && <td style={{fontSize:"1vw"}}>Resolved</td>}
-                    {item.status == 5 && <td style={{fontSize:"1vw"}}>HPD To Review</td>}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-          {_DATA.currentData().length == 0 && (
-            <h4
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "5.36vh",
-              }}
-            >
-              No matching records found
-            </h4>
-          )}
-        </div>
+                        </TableCell>)}
+                        <TableCell align="left" style={{ fontSize: "14px",fontFamily:"Outfit",color:"#000", }}>{item.service_ref_number}</TableCell>
+                        <TableCell align="left" style={{ fontSize: "14px",fontFamily:"Outfit",color:"#000", }}>{item.title}</TableCell>
+                        <TableCell align="left" style={{ fontSize: "14px",fontFamily:"Outfit",color:"#000", }}>{item.job_reference_id
+                            ? item.job_reference_id.site_details
+                            : "-"}</TableCell>
+                        <TableCell align="left" style={{ fontSize: "14px",fontFamily:"Outfit",color:"#000", }}>{item.type ? item.type : "-"}</TableCell>
+                        <TableCell align="left" style={{ fontSize: "14px",fontFamily:"Outfit",color:"#000", }}>{moment(item.updatedAt).format("DD/MM/YYYY h:mm a")}</TableCell>
+                        {item.status == 1 && (
+                          <TableCell style={{ fontSize: "14px",fontFamily:"Outfit",color:"#000", }}>New</TableCell>
+                        )}
+                        {item.status == 2 && (
+                          <TableCell style={{ fontSize: "14px",fontFamily:"Outfit",color:"#000", }}>HPD Working</TableCell>
+                        )}
+                        {item.status == 3 && (
+                          <TableCell style={{ fontSize: "14px",fontFamily:"Outfit",color:"#000", }}>
+                            Need Your Attention
+                          </TableCell>
+                        )}
+                        {item.status == 4 && (
+                          <TableCell style={{ fontSize: "14px",fontFamily:"Outfit",color:"#000", }}>Resolved</TableCell>
+                        )}
+                        {item.status == 5 && (
+                          <TableCell style={{ fontSize: "14px",fontFamily:"Outfit",color:"#000", }}>HPD To Review</TableCell>
+                        )}
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </div>
+            {_DATA.currentData().length == 0 && (
+              <h4
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "40px",
+                }}
+              >
+                No matching records found
+              </h4>
+            )}
+          </div>
+        </Grid>
+
         {_DATA.currentData().length >= 1 && (
           <div
             style={{
               display: "flex",
               justifyContent: "center",
-              marginTop: "2.12vh",
+              marginTop: "18px",
             }}
           >
             <ThemeProvider theme={theme}>
@@ -389,12 +449,14 @@ const ServiceList = ({ FirstPageAction }) => {
           </div>
         )}
         <button
-          className="btnnjob"
+          className="btnjob"
           onClick={(e) => navigate("/common/createlist")}
+          style={{ fontWeight: 300 }}
         >
           Create a Service Request
         </button>
-      </div>
+        {/* </div> */}
+      </Card>
     </div>
   );
 };

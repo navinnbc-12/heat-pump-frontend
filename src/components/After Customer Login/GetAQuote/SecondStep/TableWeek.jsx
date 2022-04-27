@@ -21,7 +21,7 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
-const TableWeek = () => {
+const TableWeek = (props) => {
   // const [selectedValue, setSelectedValue] = React.useState("");
   const [selectedValueJan, setSelectedValueJan] = React.useState("");
   const [selectedValueFeb, setSelectedValueFeb] = React.useState("");
@@ -53,39 +53,51 @@ const TableWeek = () => {
   };
   const handleChangeJan = (event) => {
     setSelectedValueJan(event.target.value);
+    props.getYearlySlots("Jan", event.target.value);
   };
   const handleChangeFeb = (event) => {
     setSelectedValueFeb(event.target.value);
+    props.getYearlySlots("Feb", event.target.value);
   };
   const handleChangeMar = (event) => {
     setSelectedValueMar(event.target.value);
+    props.getYearlySlots("Mar", event.target.value);
   };
   const handleChangeApr = (event) => {
     setSelectedValueApr(event.target.value);
+    props.getYearlySlots("Apr", event.target.value);
   };
   const handleChangeMay = (event) => {
     setSelectedValueMay(event.target.value);
+    props.getYearlySlots("May", event.target.value);
   };
   const handleChangeJune = (event) => {
     setSelectedValueJune(event.target.value);
+    props.getYearlySlots("Jun", event.target.value);
   };
   const handleChangeJuly = (event) => {
     setSelectedValueJuly(event.target.value);
+    props.getYearlySlots("Jul", event.target.value);
   };
   const handleChangeAug = (event) => {
     setSelectedValueAug(event.target.value);
+    props.getYearlySlots("Aug", event.target.value);
   };
   const handleChangeSept = (event) => {
     setSelectedValueSept(event.target.value);
+    props.getYearlySlots("Sep", event.target.value);
   };
   const handleChangeOct = (event) => {
     setSelectedValueOct(event.target.value);
+    props.getYearlySlots("Oct", event.target.value);
   };
   const handleChangeNov = (event) => {
     setSelectedValueNov(event.target.value);
+    props.getYearlySlots("Nov", event.target.value);
   };
   const handleChangeDec = (event) => {
     setSelectedValueDec(event.target.value);
+    props.getYearlySlots("Dec", event.target.value);
   };
 
   function createData(name, All_weeks, weeks, week, Weekends, Not_Occupied) {
@@ -96,37 +108,37 @@ const TableWeek = () => {
     createData(
       "Jan",
       <Radio
-        checked={selectedValueJan === "  All_weeks_Jan"}
+        checked={selectedValueJan === "1"}
         onChange={handleChangeJan}
-        value="  All_weeks_Jan"
+        value="1"
         name="radio-buttons"
-        inputProps={{ "aria-label": "  All_weeks_Jan" }}
+        inputProps={{ "aria-label": "All_weeks_Jan" }}
       />,
       <Radio
-        checked={selectedValueJan === "weeks_Jan"}
+        checked={selectedValueJan === "2"}
         onChange={handleChangeJan}
-        value="weeks_Jan"
+        value="2"
         name="radio-buttons"
         inputProps={{ "aria-label": "weeks_Jan" }}
       />,
       <Radio
-        checked={selectedValueJan === "week_Jan"}
+        checked={selectedValueJan === "3"}
         onChange={handleChangeJan}
-        value="week_Jan"
+        value="3"
         name="radio-buttons"
         inputProps={{ "aria-label": "week_Jan" }}
       />,
       <Radio
-        checked={selectedValueJan === "Weekends_Jan"}
+        checked={selectedValueJan === "4"}
         onChange={handleChangeJan}
-        value="Weekends_Jan"
+        value="4"
         name="radio-buttons"
         inputProps={{ "aria-label": "Weekends_Jan" }}
       />,
       <Radio
-        checked={selectedValueJan === "Not_Occupied_Jan"}
+        checked={selectedValueJan === "5"}
         onChange={handleChangeJan}
-        value="Not_Occupied_Jan"
+        value="5"
         name="radio-buttons"
         inputProps={{ "aria-label": "Not_Occupied_Jan" }}
       />
@@ -134,37 +146,37 @@ const TableWeek = () => {
     createData(
       "Feb",
       <Radio
-        checked={selectedValueFeb === " All_weeks_Fed"}
+        checked={selectedValueFeb === "1"}
         onChange={handleChangeFeb}
-        value=" All_weeks_Fed"
+        value="1"
         name="radio-buttons"
         inputProps={{ "aria-label": " All_weeks_Fed" }}
       />,
       <Radio
-        checked={selectedValueFeb === "weeks_Feb"}
+        checked={selectedValueFeb === "2"}
         onChange={handleChangeFeb}
-        value="weeks_Feb"
+        value="2"
         name="radio-buttons"
         inputProps={{ "aria-label": "weeks_Feb" }}
       />,
       <Radio
-        checked={selectedValueFeb === "week_Feb"}
+        checked={selectedValueFeb === "3"}
         onChange={handleChangeFeb}
-        value="week_Feb"
+        value="3"
         name="radio-buttons"
         inputProps={{ "aria-label": "week_Feb" }}
       />,
       <Radio
-        checked={selectedValueFeb === "Weekends_Feb"}
+        checked={selectedValueFeb === "4"}
         onChange={handleChangeFeb}
-        value="Weekends_Feb"
+        value="4"
         name="radio-buttons"
         inputProps={{ "aria-label": "Weekends_Feb" }}
       />,
       <Radio
-        checked={selectedValueFeb === "Not_Occupied_Feb"}
+        checked={selectedValueFeb === "5"}
         onChange={handleChangeFeb}
-        value="Not_Occupied_Feb"
+        value="5"
         name="radio-buttons"
         inputProps={{ "aria-label": "Not_Occupied_Feb" }}
       />
@@ -172,37 +184,37 @@ const TableWeek = () => {
     createData(
       "March",
       <Radio
-        checked={selectedValueMar === " All_weeks_Mar"}
+        checked={selectedValueMar === "1"}
         onChange={handleChangeMar}
-        value=" All_weeks_Mar"
+        value="1"
         name="radio-buttons"
         inputProps={{ "aria-label": " All_weeks_Mar" }}
       />,
       <Radio
-        checked={selectedValueMar === "weeks_Mar"}
+        checked={selectedValueMar === "2"}
         onChange={handleChangeMar}
-        value="weeks_Mar"
+        value="2"
         name="radio-buttons"
         inputProps={{ "aria-label": "weeks_Mar" }}
       />,
       <Radio
-        checked={selectedValueMar === "week_Mar"}
+        checked={selectedValueMar === "3"}
         onChange={handleChangeMar}
-        value="week_Mar"
+        value="3"
         name="radio-buttons"
         inputProps={{ "aria-label": "week_Mar" }}
       />,
       <Radio
-        checked={selectedValueMar === "Weekends_Mar"}
+        checked={selectedValueMar === "4"}
         onChange={handleChangeMar}
-        value="Weekends_Mar"
+        value="4"
         name="radio-buttons"
         inputProps={{ "aria-label": "Weekends_Mar" }}
       />,
       <Radio
-        checked={selectedValueMar === "Not_Occupied_Mar"}
+        checked={selectedValueMar === "5"}
         onChange={handleChangeMar}
-        value="Not_Occupied_Mar"
+        value="5"
         name="radio-buttons"
         inputProps={{ "aria-label": "Not_Occupied_Mar" }}
       />
@@ -210,37 +222,37 @@ const TableWeek = () => {
     createData(
       "Apr",
       <Radio
-        checked={selectedValueApr === " All_weeks_Apr"}
+        checked={selectedValueApr === "1"}
         onChange={handleChangeApr}
-        value=" All_weeks_Apr"
+        value="1"
         name="radio-buttons"
         inputProps={{ "aria-label": " All_weeks_Apr" }}
       />,
       <Radio
-        checked={selectedValueApr === "weeks_Apr"}
+        checked={selectedValueApr === "2"}
         onChange={handleChangeApr}
-        value="weeks_Apr"
+        value="2"
         name="radio-buttons"
         inputProps={{ "aria-label": "weeks_Apr" }}
       />,
       <Radio
-        checked={selectedValueApr === "week_Apr"}
+        checked={selectedValueApr === "3"}
         onChange={handleChangeApr}
-        value="week_Apr"
+        value="3"
         name="radio-buttons"
         inputProps={{ "aria-label": "week_Apr" }}
       />,
       <Radio
-        checked={selectedValueApr === "Weekends_Apr"}
+        checked={selectedValueApr === "4"}
         onChange={handleChangeApr}
-        value="Weekends_Apr"
+        value="4"
         name="radio-buttons"
         inputProps={{ "aria-label": "Weekends_Apr" }}
       />,
       <Radio
-        checked={selectedValueApr === "Not_Occupied_Apr"}
+        checked={selectedValueApr === "5"}
         onChange={handleChangeApr}
-        value="Not_Occupied_Apr"
+        value="5"
         name="radio-buttons"
         inputProps={{ "aria-label": "Not_Occupied_Apr" }}
       />
@@ -248,37 +260,37 @@ const TableWeek = () => {
     createData(
       "May",
       <Radio
-        checked={selectedValueMay === " All_weeks_May"}
+        checked={selectedValueMay === "1"}
         onChange={handleChangeMay}
-        value=" All_weeks_May"
+        value="1"
         name="radio-buttons"
         inputProps={{ "aria-label": " All_weeks_May" }}
       />,
       <Radio
-        checked={selectedValueMay === "weeks_May"}
+        checked={selectedValueMay === "2"}
         onChange={handleChangeMay}
-        value="weeks_May"
+        value="2"
         name="radio-buttons"
         inputProps={{ "aria-label": "weeks_May" }}
       />,
       <Radio
-        checked={selectedValueMay === "week_May"}
+        checked={selectedValueMay === "3"}
         onChange={handleChangeMay}
-        value="week_May"
+        value="3"
         name="radio-buttons"
         inputProps={{ "aria-label": "week_May" }}
       />,
       <Radio
-        checked={selectedValueMay === "Weekends_May"}
+        checked={selectedValueMay === "4"}
         onChange={handleChangeMay}
-        value="Weekends_May"
+        value="4"
         name="radio-buttons"
         inputProps={{ "aria-label": "Weekends_May" }}
       />,
       <Radio
-        checked={selectedValueMay === "Not_Occupied_May"}
+        checked={selectedValueMay === "5"}
         onChange={handleChangeMay}
-        value="Not_Occupied_May"
+        value="5"
         name="radio-buttons"
         inputProps={{ "aria-label": "Not_Occupied_May" }}
       />
@@ -286,37 +298,37 @@ const TableWeek = () => {
     createData(
       "June",
       <Radio
-        checked={selectedValueJune === " All_weeks_June"}
+        checked={selectedValueJune === "1"}
         onChange={handleChangeJune}
-        value=" All_weeks_June"
+        value="1"
         name="radio-buttons"
         inputProps={{ "aria-label": " All_weeks_June" }}
       />,
       <Radio
-        checked={selectedValueJune === "weeks_June"}
+        checked={selectedValueJune === "2"}
         onChange={handleChangeJune}
-        value="weeks_June"
+        value="2"
         name="radio-buttons"
         inputProps={{ "aria-label": "weeks_June" }}
       />,
       <Radio
-        checked={selectedValueJune === "week_June"}
+        checked={selectedValueJune === "3"}
         onChange={handleChangeJune}
-        value="week_June"
+        value="3"
         name="radio-buttons"
         inputProps={{ "aria-label": "week_June" }}
       />,
       <Radio
-        checked={selectedValueJune === "Weekends_June"}
+        checked={selectedValueJune === "4"}
         onChange={handleChangeJune}
-        value="Weekends_June"
+        value="4"
         name="radio-buttons"
         inputProps={{ "aria-label": "Weekends_June" }}
       />,
       <Radio
-        checked={selectedValueJune === "Not_Occupied_June"}
+        checked={selectedValueJune === "5"}
         onChange={handleChangeJune}
-        value="Not_Occupied_June"
+        value="5"
         name="radio-buttons"
         inputProps={{ "aria-label": "Not_Occupied_June" }}
       />
@@ -324,37 +336,37 @@ const TableWeek = () => {
     createData(
       "July",
       <Radio
-        checked={selectedValueJuly === " All_weeks_July"}
+        checked={selectedValueJuly === "1"}
         onChange={handleChangeJuly}
-        value=" All_weeks_July"
+        value="1"
         name="radio-buttons"
         inputProps={{ "aria-label": " All_weeks_July" }}
       />,
       <Radio
-        checked={selectedValueJuly === "weeks_July"}
+        checked={selectedValueJuly === "2"}
         onChange={handleChangeJuly}
-        value="weeks_July"
+        value="2"
         name="radio-buttons"
         inputProps={{ "aria-label": "weeks_July" }}
       />,
       <Radio
-        checked={selectedValueJuly === "week_July"}
+        checked={selectedValueJuly === "3"}
         onChange={handleChangeJuly}
-        value="week_July"
+        value="3"
         name="radio-buttons"
         inputProps={{ "aria-label": "week_July" }}
       />,
       <Radio
-        checked={selectedValueJuly === "Weekends_July"}
+        checked={selectedValueJuly === "4"}
         onChange={handleChangeJuly}
-        value="Weekends_July"
+        value="4"
         name="radio-buttons"
         inputProps={{ "aria-label": "Weekends_July" }}
       />,
       <Radio
-        checked={selectedValueJuly === "Not_Occupied_July"}
+        checked={selectedValueJuly === "5"}
         onChange={handleChangeJuly}
-        value="Not_Occupied_July"
+        value="5"
         name="radio-buttons"
         inputProps={{ "aria-label": "Not_Occupied_July" }}
       />
@@ -362,37 +374,37 @@ const TableWeek = () => {
     createData(
       "Aug",
       <Radio
-        checked={selectedValueAug === " All_weeks_Aug"}
+        checked={selectedValueAug === "1"}
         onChange={handleChangeAug}
-        value=" All_weeks_Aug"
+        value="1"
         name="radio-buttons"
         inputProps={{ "aria-label": " All_weeks_Aug" }}
       />,
       <Radio
-        checked={selectedValueAug === "weeks_Aug"}
+        checked={selectedValueAug === "2"}
         onChange={handleChangeAug}
-        value="weeks_Aug"
+        value="2"
         name="radio-buttons"
         inputProps={{ "aria-label": "weeks_Aug" }}
       />,
       <Radio
-        checked={selectedValueAug === "week_Aug"}
+        checked={selectedValueAug === "3"}
         onChange={handleChangeAug}
-        value="week_Aug"
+        value="3"
         name="radio-buttons"
         inputProps={{ "aria-label": "week_Aug" }}
       />,
       <Radio
-        checked={selectedValueAug === "Weekends_Aug"}
+        checked={selectedValueAug === "4"}
         onChange={handleChangeAug}
-        value="Weekends_Aug"
+        value="4"
         name="radio-buttons"
         inputProps={{ "aria-label": "Weekends_Aug" }}
       />,
       <Radio
-        checked={selectedValueAug === "Not_Occupied_Aug"}
+        checked={selectedValueAug === "5"}
         onChange={handleChangeAug}
-        value="Not_Occupied_Aug"
+        value="5"
         name="radio-buttons"
         inputProps={{ "aria-label": "Not_Occupied_Aug" }}
       />
@@ -400,37 +412,37 @@ const TableWeek = () => {
     createData(
       "Sept",
       <Radio
-        checked={selectedValueSept === " All_weeks_Sept"}
+        checked={selectedValueSept === "1"}
         onChange={handleChangeSept}
-        value=" All_weeks_Sept"
+        value="1"
         name="radio-buttons"
         inputProps={{ "aria-label": " All_weeks_Sept" }}
       />,
       <Radio
-        checked={selectedValueSept === "weeks_Sept"}
+        checked={selectedValueSept === "2"}
         onChange={handleChangeSept}
-        value="weeks_Sept"
+        value="2"
         name="radio-buttons"
         inputProps={{ "aria-label": "weeks_Sept" }}
       />,
       <Radio
-        checked={selectedValueSept === "week_Sept"}
+        checked={selectedValueSept === "3"}
         onChange={handleChangeSept}
-        value="week_Sept"
+        value="3"
         name="radio-buttons"
         inputProps={{ "aria-label": "week_Sept" }}
       />,
       <Radio
-        checked={selectedValueSept === "Weekends_Sept"}
+        checked={selectedValueSept === "4"}
         onChange={handleChangeSept}
-        value="Weekends_Sept"
+        value="4"
         name="radio-buttons"
         inputProps={{ "aria-label": "Weekends_Sept" }}
       />,
       <Radio
-        checked={selectedValueSept === "Not_Occupied_Sept"}
+        checked={selectedValueSept === "5"}
         onChange={handleChangeSept}
-        value="Not_Occupied_Sept"
+        value="5"
         name="radio-buttons"
         inputProps={{ "aria-label": "Not_Occupied_Sept" }}
       />
@@ -438,37 +450,37 @@ const TableWeek = () => {
     createData(
       "Oct",
       <Radio
-        checked={selectedValueOct === " All_weeks_Oct"}
+        checked={selectedValueOct === "1"}
         onChange={handleChangeOct}
-        value=" All_weeks_Oct"
+        value="1"
         name="radio-buttons"
         inputProps={{ "aria-label": " All_weeks_Oct" }}
       />,
       <Radio
-        checked={selectedValueOct === "weeks_Oct"}
+        checked={selectedValueOct === "2"}
         onChange={handleChangeOct}
-        value="weeks_Oct"
+        value="2"
         name="radio-buttons"
         inputProps={{ "aria-label": "weeks_Oct" }}
       />,
       <Radio
-        checked={selectedValueOct === "week_Oct"}
+        checked={selectedValueOct === "3"}
         onChange={handleChangeOct}
-        value="week_Oct"
+        value="3"
         name="radio-buttons"
         inputProps={{ "aria-label": "week_Oct" }}
       />,
       <Radio
-        checked={selectedValueOct === "Weekends_Oct"}
+        checked={selectedValueOct === "4"}
         onChange={handleChangeOct}
-        value="Weekends_Oct"
+        value="4"
         name="radio-buttons"
         inputProps={{ "aria-label": "Weekends_Oct" }}
       />,
       <Radio
-        checked={selectedValueOct === "Not_Occupied_Oct"}
+        checked={selectedValueOct === "5"}
         onChange={handleChangeOct}
-        value="Not_Occupied_Oct"
+        value="5"
         name="radio-buttons"
         inputProps={{ "aria-label": "Not_Occupied_Oct" }}
       />
@@ -476,37 +488,37 @@ const TableWeek = () => {
     createData(
       "Nov",
       <Radio
-        checked={selectedValueNov === "All_weeks_Nov"}
+        checked={selectedValueNov === "1"}
         onChange={handleChangeNov}
-        value=" All_weeks_Nov"
+        value="1"
         name="radio-buttons"
         inputProps={{ "aria-label": " All_weeks_Nov" }}
       />,
       <Radio
-        checked={selectedValueNov === "weeks_Nov"}
+        checked={selectedValueNov === "2"}
         onChange={handleChangeNov}
-        value="weeks_Nov"
+        value="2"
         name="radio-buttons"
         inputProps={{ "aria-label": "weeks_Nov" }}
       />,
       <Radio
-        checked={selectedValueNov === "week_Nov"}
+        checked={selectedValueNov === "3"}
         onChange={handleChangeNov}
-        value="week_Nov"
+        value="3"
         name="radio-buttons"
         inputProps={{ "aria-label": "week_Nov" }}
       />,
       <Radio
-        checked={selectedValueNov === "Weekends_Nov"}
+        checked={selectedValueNov === "4"}
         onChange={handleChangeNov}
-        value="Weekends_Nov"
+        value="4"
         name="radio-buttons"
         inputProps={{ "aria-label": "Weekends_Nov" }}
       />,
       <Radio
-        checked={selectedValueNov === "Not_Occupied_Nov"}
+        checked={selectedValueNov === "5"}
         onChange={handleChangeNov}
-        value="Not_Occupied_Nov"
+        value="5"
         name="radio-buttons"
         inputProps={{ "aria-label": "Not_Occupied_Nov" }}
       />
@@ -514,37 +526,37 @@ const TableWeek = () => {
     createData(
       "Dec",
       <Radio
-        checked={selectedValueDec === " All_weeks_Dec"}
+        checked={selectedValueDec === "1"}
         onChange={handleChangeDec}
-        value=" All_weeks_Dec"
+        value="1"
         name="radio-buttons"
         inputProps={{ "aria-label": " All_weeks_Dec" }}
       />,
       <Radio
-        checked={selectedValueDec === "weeks_Dec"}
+        checked={selectedValueDec === "2"}
         onChange={handleChangeDec}
-        value="weeks_Dec"
+        value="2"
         name="radio-buttons"
         inputProps={{ "aria-label": "weeks_Dec" }}
       />,
       <Radio
-        checked={selectedValueDec === "week_Dec"}
+        checked={selectedValueDec === "3"}
         onChange={handleChangeDec}
-        value="week_Dec"
+        value="3"
         name="radio-buttons"
         inputProps={{ "aria-label": "week_Dec" }}
       />,
       <Radio
-        checked={selectedValueDec === "Weekends_Dec"}
+        checked={selectedValueDec === "4"}
         onChange={handleChangeDec}
-        value="Weekends_Dec"
+        value="4"
         name="radio-buttons"
         inputProps={{ "aria-label": "Weekends_Dec" }}
       />,
       <Radio
-        checked={selectedValueDec === "Not_Occupied_Dec"}
+        checked={selectedValueDec === "5"}
         onChange={handleChangeDec}
-        value="Not_Occupied_Dec"
+        value="5"
         name="radio-buttons"
         inputProps={{ "aria-label": "Not_Occupied_Dec" }}
       />
@@ -574,7 +586,7 @@ const TableWeek = () => {
                   fontWeight: "300",
                   fontFamily: "Outfit",
                 }}
-                align="right"
+                align="center"
               >
                 All weeks
               </StyledTableCell>
@@ -585,7 +597,7 @@ const TableWeek = () => {
                   fontWeight: "300",
                   fontFamily: "Outfit",
                 }}
-                align="right"
+                align="center"
               >
                 1-2 weeks
               </StyledTableCell>
@@ -596,9 +608,9 @@ const TableWeek = () => {
                   fontWeight: "300",
                   fontFamily: "Outfit",
                 }}
-                align="right"
+                align="center"
               >
-                1 week
+                &#60; 1 week
               </StyledTableCell>
               <StyledTableCell
                 sx={{
@@ -607,7 +619,7 @@ const TableWeek = () => {
                   fontWeight: "300",
                   fontFamily: "Outfit",
                 }}
-                align="right"
+                align="center"
               >
                 Weekends
               </StyledTableCell>
@@ -618,7 +630,7 @@ const TableWeek = () => {
                   fontWeight: "300",
                   fontFamily: "Outfit",
                 }}
-                align="right"
+                align="center"
               >
                 Not Occupied
               </StyledTableCell>

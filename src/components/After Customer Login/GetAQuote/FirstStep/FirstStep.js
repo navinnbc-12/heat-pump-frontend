@@ -14,6 +14,17 @@ import StyledTextField from "../../../../common/textfield";
 import ChevronRightSharpIcon from "@mui/icons-material/ChevronRightSharp";
 import ChevronLeftSharpIcon from "@mui/icons-material/ChevronLeftSharp";
 import { Card, Grid, Radio } from "../../../../common";
+// import { flexbox } from "@mui/system";
+// import { useForm } from "react-hook-form";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
+
+// const schema = yup.object().shape({
+//   address_1: yup.string().required("Address is mandatory"),
+//   address_2: yup.string().notRequired(),
+//   city: yup.string().required("City name is mandatory"),
+//   postcode: yup.string().required("Postcode is mandatory"),
+// });
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -104,13 +115,17 @@ const FirstStep = ({
   setSuggestionListAction,
   customerDetailsAutoSuggestion,
   customerDetailsReset,
+  myProps,
 }) => {
+  // console.log(myProps);
+
   const [plans, setPlans] = useState([]);
   const [loader, setLoader] = useState(false);
   const token = JSON.parse(localStorage.getItem("user"));
   const [checked, setChecked] = useState(false);
   const [show, setShow] = useState(true);
   const [searchValue, setsearchValue] = useState("");
+  const [site_details, setsite_details] = useState({});
   const classes = useStyles();
   const filtered =
     searchValue &&
@@ -119,6 +134,20 @@ const FirstStep = ({
         .toLowerCase()
         .includes(searchValue.toLowerCase());
     });
+  // const {
+  //   control,
+  //   handleSubmit,
+  //   setValue,
+  //   setFocus,
+
+  //   formState: { errors },
+  // } = useForm({
+  //   resolver: yupResolver(schema),
+  //   reValidateMode: "onChange",
+  // });
+  // useEffect(() => {
+  //   console.log(myProps);
+  // }, [myProps]);
   const filtered1 =
     searchValue &&
     suggestionList.suggestionList.filter((suggestion) => {
@@ -127,22 +156,34 @@ const FirstStep = ({
         .includes(searchValue.toLowerCase());
     });
   const filtered2 = [...filtered, ...filtered1];
-  console.log("filtered1", filtered1);
-  console.log("filtered", filtered);
-
-  console.log("filtered2", filtered2);
 
   const changeHandler1 = (e) => {
     e.preventDefault();
     setsearchValue(e.target.value);
-    console.log("ddd", e.target.value);
+    // console.log("ddd", e.target.value);
   };
+
+  useEffect(() => {
+    if (searchValue.length > 2) {
+      axios
+        .get(
+          `https://ws.postcoder.com/pcw/autocomplete/find?query=${searchValue}&country=uk&apikey=PCWV6-VMTG6-XKM5K-6ZHQ5`
+        )
+        //axios.get(`https://ws.postcoder.com/pcw/PCWFQ-4NFQ9-PZY8R-574WR/street/uk/${code}`)
+        .then((res) => setSuggestionListAction(res.data));
+    }
+  }, [searchValue]);
+
+  useEffect(() => {
+    console.log(customerDetails);
+  }, [customerDetails]);
+
   const clickHandler1 = (e) => {
     //Request failed with status code 403PCWBY-K73QV-5TPTP-7H75B
     if (!parseInt(e.target.id)) {
       axios
         .get(
-          `https://ws.postcoder.com/pcw/autocomplete/find?query=${searchValue}&country=uk&apikey=PCWBY-K73QV-5TPTP-7H75B&pathfilter=${e.target.id}`
+          `https://ws.postcoder.com/pcw/autocomplete/find?query=${searchValue}&country=uk&apikey=PCWV6-VMTG6-XKM5K-6ZHQ5&pathfilter=${e.target.id}`
         )
         .then((res) => {
           setSuggestionListAction(res.data);
@@ -150,7 +191,7 @@ const FirstStep = ({
     } else {
       axios
         .get(
-          `https://ws.postcoder.com/pcw/autocomplete/retrieve/?id=${e.target.id}&query=${searchValue}&country=uk&apikey=PCWBY-K73QV-5TPTP-7H75B&lines=3&include=posttown,postcode`
+          `https://ws.postcoder.com/pcw/autocomplete/retrieve/?id=${e.target.id}&query=${searchValue}&country=uk&apikey=PCWV6-VMTG6-XKM5K-6ZHQ5&lines=3&include=posttown,postcode`
         )
         .then((res) => res.data[0])
         .then((resp) => customerDetailsAutoSuggestion(resp));
@@ -158,10 +199,10 @@ const FirstStep = ({
 
       //setInputAddress(state => ({...state,posttown:resp.posttown ,address_1:resp.addresslane1,address_2:resp.addresslane2 }))
 
-      console.log("hello");
+      // console.log("hello");
       setSuggestionListAction([]);
       setsearchValue("");
-      console.log("dfdd", searchValue);
+      // console.log("dfdd", searchValue);
       setShow(false);
     }
   };
@@ -178,7 +219,6 @@ const FirstStep = ({
     );
   };
   const ResultBlock = ({ results }) => {
-    console.log("results", results);
     return (
       <div className="result-block">
         <ul>
@@ -192,6 +232,9 @@ const FirstStep = ({
   const changeHandler = (e) => {
     e.preventDefault();
     customerDetailsAction({ [e.target.name]: e.target.value });
+    const temp = site_details;
+    temp[e.target.name] = e.target.value;
+    setsite_details(temp);
     // setInput5Error("");
     // setInput6Error("");
 
@@ -211,7 +254,16 @@ const FirstStep = ({
         Step 1 of 9
         <img src={require("../../../../Img/step1.png")} className="s1baricon" />
       </div>
-      <h4 style={{ fontSize: "1.4vw", marginTop: "10vh" }}>Site Details</h4>
+      <Typography
+        style={{
+          fontSize: "30px",
+          fontFamily: "Outfit",
+          fontWeight: "600",
+          marginTop: "10vh",
+        }}
+      >
+        Site Details
+      </Typography>
       <hr className="s1hr2" />
       <Grid sx={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
         <StyledTextField
@@ -238,7 +290,7 @@ const FirstStep = ({
               marginTop: "2px",
             }}
           >
-            Enter Address manually
+            Enter address manually
           </Typography>
           <Radio
             sx={{ marginTop: "11px" }}
@@ -253,66 +305,95 @@ const FirstStep = ({
           />
         </div>
         <div></div>
-        <StyledTextField
-          required
-          // className="step1inputfields input2"
-          type="text"
-          variant="outlined"
-          value={customerDetails.address_1}
-          onChange={changeHandler}
-          name="address_1"
-          label="Address Line 1"
-          placeholder={checked === false ? "Address line 1*" : ""}
-          disabled={checked == false ? true : false}
-        />
-        {/*<span className=" rca2inputError input9Error">{input9Error}</span>*/}
-        <StyledTextField
-          // className="step1inputfields input2"
-          type="text"
-          value={customerDetails.address_2}
-          onChange={changeHandler}
-          name="address_2"
-          label="Address line 2"
-          variant="outlined"
-          placeholder={checked === false ? "Address line 2" : ""}
-          disabled={checked === false ? true : false}
-        />
-        <div></div>
-        {/*<span className=" rca2inputError input10Error">{input10Error}</span>*/}
-        <StyledTextField
-          required
-          // className="step1inputfields input2"
-          type="text"
-          value={customerDetails.city}
-          onChange={changeHandler}
-          name="city"
-          label="City/Town"
-          variant="outlined"
-          placeholder={checked === false ? "City/Town*" : ""}
-          disabled={checked === false ? true : false}
-        />
-        {/*<span className=" rca2inputError input11Error">{input11Error}</span>*/}
-        <StyledTextField
-          required
-          value={customerDetails.postcode}
-          type="text"
-          onChange={changeHandler}
-          name="postcode"
-          label="PostCode"
-          variant="outlined"
-          placeholder={checked === false ? "PostCode*" : ""}
-          disabled={checked === false ? true : false}
-        />
-        <div></div>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <StyledTextField
+            sx={{ mb: 1.5 }}
+            required
+            // className="step1inputfields input2"
+            type="text"
+            variant="outlined"
+            value={customerDetails.address_1}
+            onChange={changeHandler}
+            name="address_1"
+            label="Address Line 1"
+            placeholder={checked === false ? "Address line 1*" : ""}
+            disabled={checked == false ? true : false}
+          />
+          {/*<span className=" rca2inputError input9Error">{input9Error}</span>*/}
+          <StyledTextField
+            sx={{ mb: 1.5 }}
+            // className="step1inputfields input2"
+            type="text"
+            value={customerDetails.address_2}
+            onChange={changeHandler}
+            name="address_2"
+            label="Address Line 2"
+            variant="outlined"
+            placeholder={checked === false ? "Address line 2" : ""}
+            disabled={checked === false ? true : false}
+          />
+          <StyledTextField
+            sx={{ mb: 1.5 }}
+            required
+            // className="step1inputfields input2"
+            type="text"
+            value={customerDetails.city}
+            onChange={changeHandler}
+            name="city"
+            label="City/Town"
+            variant="outlined"
+            placeholder={checked === false ? "City/Town*" : ""}
+            disabled={checked === false ? true : false}
+          />
+          <StyledTextField
+            sx={{ mb: 1.5 }}
+            required
+            value={customerDetails.postcode}
+            type="text"
+            onChange={changeHandler}
+            name="postcode"
+            label="Postcode"
+            variant="outlined"
+            placeholder={checked === false ? "PostCode*" : ""}
+            disabled={checked === false ? true : false}
+          />
+        </Box>
       </Grid>
       <Box sx={{ display: "flex" }}>
-        <button variant="contained" className="btn-house btn-icon">
+        <button
+          variant="contained"
+          className="btn-house btn-icon"
+          // onClick={props.prev()}
+        >
           <span style={{ height: "27px", width: "27px" }}>
             <ChevronLeftSharpIcon sx={{ height: "27px", width: "27px" }} />
           </span>
           <span style={{ marginLeft: "100px" }}>Previous</span>
         </button>
-        <button variant="contained" className="btn-house Add btn-icon">
+        <button
+          variant="contained"
+          className="btn-house Add btn-icon"
+          onClick={() => {
+            const { address_1, address_2, city, postcode } = site_details;
+            myProps.getPayloadData(
+              ["site_details"],
+              [
+                {
+                  address_1,
+                  address_2,
+                  city,
+                  postcode,
+                },
+              ]
+            );
+            myProps.next();
+          }}
+        >
           <span style={{ marginRight: "100px" }}>Continue</span>
           <span style={{ height: "27px", width: "27px" }}>
             <ChevronRightSharpIcon sx={{ height: "27px", width: "27px" }} />
@@ -323,10 +404,16 @@ const FirstStep = ({
     </Card>
   );
 };
-const mapStateToProps = (state) => ({
-  customerDetails: state.cdr,
-  suggestionList: state.sl,
-});
+
+const mapStateToProps = (state, ownProps) => {
+  // console.log("ownProps", ownProps);
+  return {
+    customerDetails: state.cdr,
+    suggestionList: state.sl,
+    myProps: ownProps,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => ({
   customerDetailsAction: (keypair) => dispatch(customerDetailsAction(keypair)),
   setSuggestionListAction: (list) => dispatch(setSuggestionListAction(list)),

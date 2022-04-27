@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { makeStyles, createStyles } from "@material-ui/core";
 import { Typography, Button } from "@material-ui/core";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { useAddQuote } from "../../../services/services";
 
 import Step from "./QuoteSteps/Step";
 import FourthStep from "./FourthStep/FourthStep";
@@ -55,16 +57,33 @@ const useStyles = makeStyles({
   },
 });
 
-class MainQuote extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentStep: 1,
-      email: "",
-      username: "",
-      password: "",
-    };
-  }
+const MainQuote = () => {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [showError, setShowError] = useState(false);
+  const [error, setError] = useState("");
+  const [payload, setPayload] = useState({});
+  const [credentials, setCredentials] = useState({
+    email: "",
+    username: "",
+    password: "",
+  });
+
+  const { isLoading: isLoading, mutate: addQuote } = useAddQuote({
+    onError: (error) => {
+      setShowError(true);
+      setError(error);
+    },
+  });
+  // class MainQuote extends React.Component {
+  //   constructor(props) {
+  //     super(props);
+  //     this.state = {
+  //       currentStep: 0,
+  //       email: "",
+  //       username: "",
+  //       password: "",
+  //     };
+  //   }
 
   /*     handleChange = event => {
       const {name, value} = event.target
@@ -73,32 +92,38 @@ class MainQuote extends React.Component {
       })    
     } */
 
-  _next = () => {
-    let currentStep = this.state.currentStep;
-    currentStep = currentStep >= 2 ? 3 : currentStep + 1;
-    this.setState({
-      currentStep: currentStep,
-    });
+  const _next = () => {
+    let currentStep1 = currentStep;
+    currentStep1 = currentStep1 + 1;
+    setCurrentStep(currentStep1);
   };
 
-  _prev = () => {
-    let currentStep = this.state.currentStep;
-    currentStep = currentStep <= 1 ? 1 : currentStep - 1;
-    this.setState({
-      currentStep: currentStep,
-    });
+  const _prev = () => {
+    let currentStep1 = currentStep;
+    currentStep1 = currentStep1 < 0 ? 0 : currentStep1 - 1;
+    setCurrentStep(currentStep1);
   };
 
+  const _addNewQuote = () => {
+    addQuote(payload);
+  };
+  const getPayloadData = (label, data) => {
+    let temp = { ...payload };
+    for (let index = 0; index < label.length; index++) {
+      temp[label[index]] = data[index];
+    }
+    setPayload(temp);
+  };
   /*
    * the functions for our button
    */
   /*   previousButton() {
-    let currentStep = this.state.currentStep;
+    let currentStep = currentStep;
     if(currentStep !==1){
       return (
         <button 
           className="btn btn-secondary" 
-          type="button" onClick={this._prev}>
+          type="button" onClick={_prev}>
         Previous
         </button>
       )
@@ -107,54 +132,108 @@ class MainQuote extends React.Component {
   } */
 
   /*   nextButton(){
-    let currentStep = this.state.currentStep;
+    let currentStep = currentStep;
     if(currentStep <3){
       return (
         <button 
           className="btn btn-primary float-right" 
-          type="button" onClick={this._next}>
+          type="button" onClick={_next}>
         Next
         </button>        
       )
     }
     return null;
   } */
+  console.log(payload);
+  return (
+    <React.Fragment>
+      <h1 className="get-a-quote">Get a Quote</h1>
+      <hr className="quote-hr" />
 
-  render() {
-    return (
-      <React.Fragment>
-        <h1 className="get-a-quote">Get a Quotes</h1>
-        <hr className="quote-hr" />
-
-        {/* <Step/> */}
-        <FirstStep />
-        <SecondStep />
-        <SecondSubStep />
-        <ThirdStep />
-        <FourthStep />
-        <FifthStep />
-        <SixthStep />
-        <SeventhStep />
-        <EightStep />
-
-        {/*   <Step1 
-            currentStep={this.state.currentStep}
-            email={this.state.email}
-          />
-          <Step2 
-            currentStep={this.state.currentStep} 
-            username={this.state.username}
-          />
-          <Step3 
-            currentStep={this.state.currentStep} 
-            password={this.state.password}
-          /> */}
-        {/*  {this.previousButton()}
-          {this.nextButton()} */}
-      </React.Fragment>
-    );
-  }
-}
+      {currentStep === 0 && (
+        <FirstStep
+          next={_next}
+          getPayloadData={(label, data) => {
+            getPayloadData(label, data);
+          }}
+        />
+      )}
+      {currentStep === 1 && (
+        <SecondStep
+          prev={_prev}
+          next={_next}
+          getPayloadData={(label, data) => {
+            getPayloadData(label, data);
+          }}
+        />
+      )}
+      {currentStep === 2 && (
+        <SecondSubStep
+          prev={_prev}
+          next={_next}
+          getPayloadData={(label, data) => {
+            getPayloadData(label, data);
+          }}
+        />
+      )}
+      {currentStep === 3 && (
+        <ThirdStep
+          prev={_prev}
+          next={_next}
+          getPayloadData={(label, data) => {
+            getPayloadData(label, data);
+          }}
+        />
+      )}
+      {currentStep === 4 && (
+        <FourthStep
+          prev={_prev}
+          next={_next}
+          getPayloadData={(label, data) => {
+            getPayloadData(label, data);
+          }}
+        />
+      )}
+      {currentStep === 5 && (
+        <FifthStep
+          prev={_prev}
+          next={_next}
+          getPayloadData={(label, data) => {
+            getPayloadData(label, data);
+          }}
+        />
+      )}
+      {currentStep === 6 && (
+        <SixthStep
+          prev={_prev}
+          next={_next}
+          getPayloadData={(label, data) => {
+            getPayloadData(label, data);
+          }}
+        />
+      )}
+      {currentStep === 7 && (
+        <SeventhStep
+          prev={_prev}
+          next={_next}
+          getPayloadData={(label, data) => {
+            getPayloadData(label, data);
+          }}
+        />
+      )}
+      {currentStep === 8 && (
+        <EightStep
+          prev={_prev}
+          next={_next}
+          getPayloadData={(label, data) => {
+            getPayloadData(label, data);
+          }}
+          _addNewQuote={_addNewQuote}
+        />
+      )}
+    </React.Fragment>
+  );
+};
 
 // function Step1(props) {
 //   if (props.currentStep !== 1) {

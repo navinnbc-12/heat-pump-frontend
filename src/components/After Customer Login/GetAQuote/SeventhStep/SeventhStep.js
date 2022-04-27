@@ -5,7 +5,7 @@ import { TailSpin } from "react-loader-spinner";
 import axios from "axios";
 import URL from "../../../../GlobalUrl";
 import globalAPI from "../../../../GlobalApi";
-import { Button, TextField, Typography, Box } from "@mui/material";
+import { Button, Typography, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -15,7 +15,8 @@ import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import ChevronRightSharpIcon from "@mui/icons-material/ChevronRightSharp";
 import ChevronLeftSharpIcon from "@mui/icons-material/ChevronLeftSharp";
-import { Card } from "../../../../common";
+import { Card, TextField } from "../../../../common";
+import StyledTextField from "../../../../common/textfield";
 
 const useStyles = makeStyles({
   textfield: {
@@ -70,14 +71,21 @@ const useStyles = makeStyles({
     fontSize: "1vw",
   },
 });
-
-const SeventhStep = () => {
+const heatValue = {
+  Gas: 1,
+  "Heat Pump": 2,
+  Wood: 3,
+  Oil: 4,
+  LPG: 5,
+};
+const SeventhStep = (props) => {
   const classes = useStyles();
   const [loader, setLoader] = useState(false);
   const token = JSON.parse(localStorage.getItem("user"));
   const [focused, setFocused] = React.useState("");
   const [priority, setPriority] = useState("Gas");
-
+  const [priorityValue, setPriorityValue] = useState();
+  const [currnetBills, setCurrentBills] = useState({});
   return (
     <Card>
       {loader && (
@@ -91,59 +99,52 @@ const SeventhStep = () => {
       </div>
 
       <div>
-        <h4 style={{ fontSize: "1.4vw", marginTop: "6%" }}>Heating System</h4>
+        <Typography
+          style={{
+            fontSize: "30px",
+            fontFamily: "Outfit",
+            fontWeight: "600",
+            marginTop: "10vh",
+          }}
+        >
+          Heating System
+        </Typography>
         <hr className="s2hr2" />
 
         <div style={{ marginTop: "2.5%" }}>
-          <FormControl className={classes.selectfield}>
-            <InputLabel
-              id="demo-simple-select-label"
-              className={classes.selectinput}
-            >
-              Select
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={priority}
-              onChange={(e) => setPriority(e.target.value)}
-              onFocus={() => setFocused(true)}
-              onBlur={() => setFocused(false)}
-              label="Priority"
-              IconComponent={() =>
-                focused ? (
-                  <KeyboardArrowUpIcon className={classes.icons} />
-                ) : (
-                  <KeyboardArrowDownIcon className={classes.icons} />
-                )
-              }
-            >
-              <MenuItem value="Gas" style={{ fontWeight: 600 }}>
-                {" "}
-                Gas{" "}
-              </MenuItem>
-              <MenuItem value="Heat Pump" style={{ fontWeight: 600 }}>
-                {" "}
-                Heat Pump{" "}
-              </MenuItem>
-              <MenuItem value="Wood" style={{ fontWeight: 600 }}>
-                {" "}
-                Wood{" "}
-              </MenuItem>
-              <MenuItem value="Oil" style={{ fontWeight: 600 }}>
-                {" "}
-                Oil{" "}
-              </MenuItem>
-              <MenuItem value="LPG" style={{ fontWeight: 600 }}>
-                {" "}
-                LPG{" "}
-              </MenuItem>
-            </Select>
-          </FormControl>
+          <StyledTextField
+            select
+            sx={{ width: "20%" }}
+            value={priority}
+            onChange={(e) => {
+              setPriority(e.target.value);
+              setPriorityValue(heatValue[e.target.value]);
+            }}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
+            IconComponent={() =>
+              focused ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
+            }
+          >
+            <MenuItem value="Gas">Gas</MenuItem>
+            <MenuItem value="Heat Pump">Heat Pump</MenuItem>
+            <MenuItem value="Wood">Wood</MenuItem>
+            <MenuItem value="Oil">Oil</MenuItem>
+            <MenuItem value="LPG">LPG</MenuItem>
+          </StyledTextField>
         </div>
 
         <div>
-          <h4 style={{ fontSize: "1.4vw", marginTop: "4%" }}>Current Bills</h4>
+          <Typography
+            style={{
+              fontSize: "30px",
+              fontFamily: "Outfit",
+              fontWeight: "600",
+              marginTop: "3%",
+            }}
+          >
+            Current Bills
+          </Typography>
           <hr
             style={{
               backgroundColor: "#f2f3f2",
@@ -151,99 +152,113 @@ const SeventhStep = () => {
             }}
           />
 
-          <h3 style={{ fontSize: "1.1vw", marginTop: "2%", color: "#fa5e00" }}>
+          <Typography
+            style={{
+              fontSize: "22px",
+              fontFamily: "Outfit",
+              fontWeight: "300",
+              marginTop: "2%",
+              color: "#fa5e00",
+            }}
+          >
             Electrictiy & {priority} Annual Usage
-          </h3>
+          </Typography>
           <Typography sx={{ marginTop: "1.8vh" }}>
             <TextField
-              label="Amount of Electricity(kWh)"
-              className={classes.textfield}
-              value={""}
-              onChange={""}
-              size="small"
-              InputLabelProps={{
-                style: {
-                  fontWeight: "bolder",
-                  fontFamily: "outfit",
-                  fontSize: "1vw",
-                },
-              }}
-              InputProps={{
-                style: { fontWeight: "bolder", fontFamily: "outfit" },
+              sx={{ width: "30%" }}
+              label="Amount of Electricity (kWh)"
+              value={currnetBills?.amount_of_electricity}
+              onChange={(e) => {
+                let temp = currnetBills;
+                temp["amount_of_electricity"] = e.target.value;
+                setCurrentBills(temp);
               }}
             />
           </Typography>
 
           <Typography sx={{ marginTop: "2vh" }}>
             <TextField
-              label={`Amount of ${priority}(kWh)`}
-              className={classes.textfield}
-              value={""}
-              onChange={""}
-              size="small"
-              InputLabelProps={{
-                style: {
-                  fontWeight: "bolder",
-                  fontFamily: "outfit",
-                  fontSize: "1vw",
-                },
-              }}
-              InputProps={{
-                style: { fontWeight: "bolder", fontFamily: "outfit" },
+              sx={{ width: "30%" }}
+              label={`Amount of ${priority} (kWh)`}
+              value={currnetBills?.amount_of_gas}
+              onChange={(e) => {
+                let temp = currnetBills;
+                temp["amount_of_gas"] = e.target.value;
+                setCurrentBills(temp);
               }}
             />
           </Typography>
-          <h3 style={{ fontSize: "1.1vw", marginTop: "2%", color: "#fa5e00" }}>
+          <h3
+            style={{
+              fontSize: "22px",
+              fontFamily: "Outfit",
+              fontWeight: "300",
+              marginTop: "2%",
+              color: "#fa5e00",
+            }}
+          >
             Electrictiy & {priority} Annual Spend
           </h3>
           <Typography sx={{ marginTop: "1.8vh" }}>
             <TextField
-              label="Cost of Electricity(£)"
-              className={classes.textfield}
-              value={""}
-              onChange={""}
-              size="small"
-              InputLabelProps={{
-                style: {
-                  fontWeight: "bolder",
-                  fontFamily: "outfit",
-                  fontSize: "1vw",
-                },
-              }}
-              InputProps={{
-                style: { fontWeight: "bolder", fontFamily: "outfit" },
+              sx={{ width: "30%" }}
+              label="Cost of Electricity (£)"
+              value={currnetBills?.cost_of_electricity}
+              onChange={(e) => {
+                let temp = currnetBills;
+                temp["cost_of_electricity"] = e.target.value;
+                setCurrentBills(temp);
               }}
             />
           </Typography>
 
           <Typography sx={{ marginTop: "2vh" }}>
             <TextField
-              label={`Cost of ${priority}(£)`}
-              className={classes.textfield}
-              value={""}
-              onChange={""}
-              size="small"
-              InputLabelProps={{
-                style: {
-                  fontWeight: "bolder",
-                  fontFamily: "outfit",
-                  fontSize: "1vw",
-                },
-              }}
-              InputProps={{
-                style: { fontWeight: "bolder", fontFamily: "outfit" },
+              sx={{ width: "30%" }}
+              label={`Cost of ${priority} (£)`}
+              value={currnetBills?.cost_of_gas}
+              onChange={(e) => {
+                let temp = currnetBills;
+                temp["cost_of_gas"] = e.target.value;
+                setCurrentBills(temp);
               }}
             />
           </Typography>
         </div>
-        <Box sx={{ display: "flex" }}>
-          <button variant="contained" className="btn-house btn-icon">
+        <Box sx={{ display: "flex", marginTop: "30px" }}>
+          <button
+            variant="contained"
+            className="btn-house btn-icon"
+            onClick={props.prev}
+          >
             <span style={{ height: "27px", width: "27px" }}>
               <ChevronLeftSharpIcon sx={{ height: "27px", width: "27px" }} />
             </span>
             <span style={{ marginLeft: "100px" }}>Previous</span>
           </button>
-          <button variant="contained" className="btn-house Add btn-icon">
+          <button
+            variant="contained"
+            className="btn-house Add btn-icon"
+            onClick={() => {
+              props.getPayloadData(
+                [
+                  "heating_system",
+                  "amount_of_electricity",
+                  "amount_of_gas",
+                  "cost_of_electricity",
+                  "cost_of_gas",
+                ],
+                [
+                  priorityValue,
+                  currnetBills.amount_of_electricity,
+                  currnetBills.amount_of_gas,
+                  currnetBills.cost_of_electricity,
+                  currnetBills.cost_of_gas,
+                ]
+              );
+              props.next();
+            }}
+          >
             <span style={{ marginRight: "100px" }}>Continue</span>
             <span style={{ height: "27px", width: "27px" }}>
               <ChevronRightSharpIcon sx={{ height: "27px", width: "27px" }} />

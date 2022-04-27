@@ -934,8 +934,7 @@ const AdminManageService = ({ adminFirstPageAction }) => {
                     Drag and Drop Here
                     <img
                       src={require("../../../Img/iconcloud.png")}
-                      
-                      style={{ marginLeft: "1.22vw",height:"3vh",width:"1.3vw" }}
+                      style={{ marginLeft: "1.22vw",height:"25px",width:"20px" }}
                     />
                   </span>
                 }

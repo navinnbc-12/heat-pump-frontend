@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 
-import { IconButton } from "@mui/material";
+import { IconButton, Container, Paper, Grid, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { saveAs } from "file-saver";
 import { FileUploader } from "react-drag-drop-files";
@@ -23,7 +23,7 @@ const fileTypes = ["PDF", "PNG", "JPEG"];
 const ManageServiceRequest = ({ FirstPageAction }) => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  console.log(state)
+  console.log(state);
   const [loader, setLoader] = useState(false);
   const [notes, setNotes] = useState([]);
   const [details, setDetails] = useState({});
@@ -37,8 +37,8 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
   const [availableFiles, setavailableFiles] = useState([]);
   const [noupdate, setNoupdate] = useState(false);
   const [noclose, setNoclose] = useState(false);
-  const [fname,SetFname] = useState([]);
-  const [efname,SetEFname] = useState([]);
+  const [fname, SetFname] = useState([]);
+  const [efname, SetEFname] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -59,7 +59,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
     setAddfiles(!addfiles);
     setAttachments([]);
     setFiles([]);
-    SetFname([])
+    SetFname([]);
   };
 
   useEffect(() => {
@@ -77,7 +77,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
       .then((response) => {
         setLoader(false);
         const res = response.data;
-        setNotes(res.data);
+        setNotes(res.data.reverse());
       })
       .catch((e) => {
         setLoader(false);
@@ -91,29 +91,30 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
       headers: { Authorization: `Bearer ${token}` },
     };
     setLoader(true);
-     axios
+    axios
       .get(URL + globalAPI.myreq + `/${state}`, config)
       .then((response) => {
         setLoader(false);
         const res = response.data;
-        debugger
+        debugger;
         setDetails(res.data);
         console.log("details", details);
         setavailableFiles(res.data.attachments);
         const newArray = [];
-        res.data.attachments && res.data.attachments.map((item,index)=>{
-          let a = item.slice(25)
-          if(a.length>20){
-            let b = a.slice(0,21);
-            let c = b + "...";
-            // newArray.push(item.slice(25));
-            newArray.push(c);
-          }else{
-            newArray.push(a);
-          }
-        }) 
-        SetEFname(newArray)
-        console.log(efname)
+        res.data.attachments &&
+          res.data.attachments.map((item, index) => {
+            let a = item.slice(25);
+            if (a.length > 20) {
+              let b = a.slice(0, 21);
+              let c = b + "...";
+              // newArray.push(item.slice(25));
+              newArray.push(c);
+            } else {
+              newArray.push(a);
+            }
+          });
+        SetEFname(newArray);
+        console.log(efname);
       })
       .catch((e) => {
         setLoader(false);
@@ -140,7 +141,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
   }
 
   const removeFile = (index) => {
-    debugger
+    debugger;
     const newValue = [...availableFiles];
     newValue.splice(index, 1);
     setLoader(true);
@@ -157,7 +158,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
         setLoader(false);
         const res = response.data;
         if (res.success) {
-          debugger
+          debugger;
           toast.success("File deleted successfully");
           const newName = [...efname];
           newName.splice(index, 1);
@@ -222,7 +223,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
       return false;
     }
   };
-  const onFileUpload =  (e) => {
+  const onFileUpload = (e) => {
     if (e) {
       let formData = new FormData();
       formData.append("attachments", e);
@@ -241,24 +242,24 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
           const res = response.data;
           setLoader(false);
           if (res.success) {
-            debugger
+            debugger;
             attachments.push(res.data.message[0]);
             setFiles([...files, e]);
             const newUpload = [];
-            let a = res.data.message[0].slice(25)
-            if(a.length>20){
-              let b = a.slice(0,20);
+            let a = res.data.message[0].slice(25);
+            if (a.length > 20) {
+              let b = a.slice(0, 20);
               let c = b + "...";
               newUpload.push(c);
-            }else{
+            } else {
               newUpload.push(a);
             }
             const newName = [...fname];
-            newName.push(newUpload)
+            newName.push(newUpload);
             SetFname(newName);
 
             const newFile = [...efname];
-            newFile.push(newUpload)
+            newFile.push(newUpload);
             SetEFname(newFile);
           } else {
             toast.error(res.data.message);
@@ -274,45 +275,44 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
     }
   };
   const newUpload = (e) => {
-    if(attachments.length >= 1){
+    if (attachments.length >= 1) {
       setLoader(true);
-    const token = JSON.parse(localStorage.getItem("user"));
-    console.log(attachments)
-    axios({
-      method: "post",
-      url: URL + globalAPI.addnotes + `?srid=${state}`,
-      data: {
-        description: "Added a new attachment",
-        title: "Added a new attachment",
-        attachments: attachments,
-        type: 1,
-      },
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => {
-        setLoader(false);
-        togglefileModal();
-        const res = response.data;
-        if (res.success) {
-          fetchData();
-          fetchSeconddata();
-          toast.success("File added successfully");
-          SetFname([]);
-        } else {
-          toast.error(res.data.message);
-        }
+      const token = JSON.parse(localStorage.getItem("user"));
+      console.log(attachments);
+      axios({
+        method: "post",
+        url: URL + globalAPI.addnotes + `?srid=${state}`,
+        data: {
+          description: "Added a new attachment",
+          title: "Added a new attachment",
+          attachments: attachments,
+          type: 1,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .catch(() => {
-        setLoader(false);
-        togglefileModal();
-        toast.error("Something went wrong");
-      });
-    }else{
-      toast.error('Add Files')
+        .then((response) => {
+          setLoader(false);
+          togglefileModal();
+          const res = response.data;
+          if (res.success) {
+            fetchData();
+            fetchSeconddata();
+            toast.success("File added successfully");
+            SetFname([]);
+          } else {
+            toast.error(res.data.message);
+          }
+        })
+        .catch(() => {
+          setLoader(false);
+          togglefileModal();
+          toast.error("Something went wrong");
+        });
+    } else {
+      toast.error("Add Files");
     }
-    
   };
   const closingsr = (e) => {
     if (closetext.length >= 1) {
@@ -321,7 +321,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
       axios({
         method: "post",
         url: URL + globalAPI.addnotes + `?srid=${state}`,
-        data: {description: closetext, type: 1,title: "--closed--", },
+        data: { description: closetext, type: 1, title: "--closed--" },
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -356,163 +356,180 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
         </div>
       )}
       <div className="msrcontainer">
+      {/* <Container> */}
         <div className="msrtitle">Manage Service Request</div>
         <hr className="msrcontainerhr" />
+
+        {/* <Paper> */}
         <div className="msrpaper">
-          <div className="msrgrid1">
-            <div className="msrtitle1">Service Request Summary</div>
-            <hr className="msrhr1" />
-            <div className="displaygrid">
-              <div className="displayleft">Priority</div>
-              {details.priority == 1 && (
-                <div className="displaygrid1">
-                  <div className="hroundcircle">H</div>
-                </div>
-              )}
-              {details.priority == 2 && (
-                <div className="displaygrid1">
-                  <div className="mroundcircle">M</div>
-                </div>
-              )}
-              {details.priority == 3 && (
-                <div className="displaygrid1">
-                  <div className="lroundcircle">L</div>
-                </div>
-              )}
-              <div className="displayleft">Status</div>
-              {details.status == 1 && (<div className="displaygrid1">New</div>)}
-              {details.status == 2 && (
-                <div className="displaygrid1">HPD Working</div>
-              )}
-              {details.status == 3 && (
-                <div className="displaygrid1">Need Your Attention</div>
-              )}
-              {details.status == 4 && (
-                <div className="displaygrid1">Closed</div>
-              )}
-              {details.status == 5 && (
-                <div className="displaygrid1">HPD To Review</div>
-              )}
-              <div className="displayleft">Last Updated</div>
-              <div className="displaygrid1">
-                {moment(details.updatedAt).format("DD/MM/YYYY h:mm a")}
-              </div>
-              <div className="displayleft">Created</div>
-              <div className="displaygrid1">
-                {moment(details.createdAt).format("DD/MM/YYYY h:mm a")}
-              </div>
-              <div className="displayleft">Job Reference</div>
-              <div className="displaygrid1">
-                {details.job_reference_id
-                  ? details.job_reference_id.job_ref_number
-                  : "-"}
-              </div>
-              <div className="displayleft">Site</div>
-              <div className="displaygrid1">
-                {details.job_reference_id
-                  ? details.job_reference_id.site_details
-                  : "-"}
-              </div>
-            </div>
-            <div className="msrtitle2">Attachments</div>
-            <hr className="msrhr1" />
-            {availableFiles &&
-              availableFiles.map((item, index) => (
-                <div key={index} className="msrattachment">
-                  <img
-                    src={require("../../../Img/attachIcon1.png")}
-                    className="msrattachIcon"
-                  />
-                  <div className="div-name" onClick={() => printTickets(index)}>
-                    {efname[index]}
+            <div className="msrgrid1">
+              <div className="msrtitle1">Service Request Summary</div>
+              <hr className="msrhr1" />
+              <div className="displaygrid">
+                <div className="displayleft">Priority</div>
+                {details.priority == 1 && (
+                  <div className="displaygrid1">
+                    <div className="hroundcircle">H</div>
                   </div>
-                  <span>
+                )}
+                {details.priority == 2 && (
+                  <div className="displaygrid1">
+                    <div className="mroundcircle">M</div>
+                  </div>
+                )}
+                {details.priority == 3 && (
+                  <div className="displaygrid1">
+                    <div className="lroundcircle">L</div>
+                  </div>
+                )}
+                <div className="displayleft">Status</div>
+                {details.status == 1 && <div className="displaygrid1">New</div>}
+                {details.status == 2 && (
+                  <div className="displaygrid1">HPD Working</div>
+                )}
+                {details.status == 3 && (
+                  <div className="displaygrid1">Need Your Attention</div>
+                )}
+                {details.status == 4 && (
+                  <div className="displaygrid1">Closed</div>
+                )}
+                {details.status == 5 && (
+                  <div className="displaygrid1">HPD To Review</div>
+                )}
+                <div className="displayleft">Last Updated</div>
+                <div className="displaygrid1">
+                  {moment(details.updatedAt).format("DD/MM/YYYY h:mm a")}
+                </div>
+                <div className="displayleft">Created</div>
+                <div className="displaygrid1">
+                  {moment(details.createdAt).format("DD/MM/YYYY h:mm a")}
+                </div>
+                <div className="displayleft">Job Reference</div>
+                <div className="displaygrid1">
+                  {details.job_reference_id
+                    ? details.job_reference_id.job_ref_number
+                    : "-"}
+                </div>
+                <div className="displayleft">Site</div>
+                <div className="displaygrid1">
+                  {details.job_reference_id
+                    ? details.job_reference_id.site_details
+                    : "-"}
+                </div>
+              </div>
+              <div className="msrtitle2">Attachments</div>
+              <hr className="msrhr1" />
+              {availableFiles &&
+                availableFiles.map((item, index) => (
+                  <div key={index} className="msrattachment">
                     <img
-                      src={require("../../../Img/cross1.png")}
-                      className="msrcross1"
-                      onClick={() => removeFile(index)}
+                      src={require("../../../Img/attachIcon1.png")}
+                      className="msrattachIcon"
                     />
-                  </span>
-                </div>
-              ))}
-          </div>
-          <div className="msrgrid2">
-            <div className="msrtitle3">
-              {details.service_ref_number} - {details.title}
-            </div>
-            <span className="msrspan1">{details.description}</span>
-            <div style={{ marginTop: "10.73vh" }}>
-              <button className="msrbutton1" onClick={(e) => toggleModal(e)}>
-                Add Update
-              </button>
-              <button className="msrbutton2" onClick={() => togglefileModal()}>
-                Add Attachments
-              </button>
-              <button className="msrbutton3" onClick={() => togglesrModal()}>
-                Close SR
-              </button>
-            </div>
-          </div>
-          <div className="msrgrid3">
-            {notes &&
-              notes.map((item, index) => {
-                return (
-                  <div key={index}>
-                   {item.type!=3 && <div className="msrupdatesgrid" >
-                      <div className="msrimage">
-                        {item.type == 1 && (
-                          <img
-                            src={require("../../../Img/type1.png")}
-                            className="msrCommonIcon"
-                          />
-                        )}
-                        {item.type == 2 && (
-                          <img
-                            src={require("../../../Img/type2.png")}
-                            className="msrCommonIcon1"
-                          />
-                        )}
-                        {item.type == 4 && (
-                          <img
-                            src={require("../../../Img/type4.png")}
-                            className="msrCommonIcon"
-                          />
-                        )}
-                      </div>
-                      <div className="msrbox1">
-                        {item.type == 1 && (
-                          <span className="msrspan21">
-                            Update from Customer
-                          </span>
-                        )}
-                        {item.type == 2 && (
-                          <span className="msrspan21">
-                            Update from HPD Staff
-                          </span>
-                        )}
-                        {item.type == 4 && (
-                          <span className="msrspan21">System Update</span>
-                        )}
-                        <span className="msrspan3">
-                          {" "}
-                          {moment(item.updatedAt).format("DD/MM/YYYY h:mm a")}
-                        </span>
-                        <div className="msrdiv3">{item.description}</div>
-                      </div>
-                    </div>}
-                    {item.type!=3&&<hr className="msrhr11" />}
+                    <div
+                      className="div-name"
+                      onClick={() => printTickets(index)}
+                    >
+                      {efname[index]}
+                    </div>
+                    <span>
+                      <img
+                        src={require("../../../Img/cross1.png")}
+                        className="msrcross1"
+                        onClick={() => removeFile(index)}
+                      />
+                    </span>
                   </div>
-                );
-              })}
-            {notes.length === 0 && (
-              <div style={{ textAlign: "center" }}>No Notes Found</div>
-            )}
-          </div>
+                ))}
+            </div>
+            <div className="msrgrid2">
+              <div style={{padding:"30px" }}>
+              <div className="msrtitle3">
+                {details.service_ref_number} - {details.title}
+              </div>
+              <span className="msrspan1">{details.description}</span>
+              </div>
+              <div className="groupButton" style={{padding:"20px", }}>
+                <button className="msrbutton1" onClick={(e) => toggleModal(e)}>
+                  Add Update
+                </button>
+                <button
+                  className="msrbutton2 msrbutton2block"
+                  onClick={() => togglefileModal()}
+                >
+                  Add Attachments
+                </button>
+                <button className="msrbutton3 msrbutton3block" onClick={() => togglesrModal()}>
+                  Close SR
+                </button>
+              </div>
+            </div>
+            <div className="msrgrid3">
+              {notes &&
+                notes.map((item, index) => {
+                  return (
+                    <div key={index}>
+                      {item.type != 3 && (
+                        <div className="msrupdatesgrid">
+                          <div className="msrimage">
+                            {item.type == 1 && (
+                              <img
+                                src={require("../../../Img/type1.png")}
+                                className="msrCommonIcon"
+                              />
+                            )}
+                            {item.type == 2 && (
+                              <img
+                                src={require("../../../Img/type2.png")}
+                                className="msrCommonIcon1"
+                              />
+                            )}
+                            {item.type == 4 && (
+                              <img
+                                src={require("../../../Img/type4.png")}
+                                className="msrCommonIcon"
+                              />
+                            )}
+                          </div>
+                          <div className="msrbox1">
+                            {item.type == 1 && (
+                              <span className="msrspan21">
+                                Update from Customer
+                              </span>
+                            )}
+                            {item.type == 2 && (
+                              <span className="msrspan21">
+                                Update from HPD Staff
+                              </span>
+                            )}
+                            {item.type == 4 && (
+                              <span className="msrspan21">System Update</span>
+                            )}
+                            <span className="msrspan3">
+                              {" "}
+                              {moment(item.updatedAt).format(
+                                "DD/MM/YYYY h:mm a"
+                              )}
+                            </span>
+                            <div className="msrdiv3">{item.description}</div>
+                          </div>
+                        </div>
+                      )}
+                      {item.type != 3 && <hr className="msrhr11" />}
+                    </div>
+                  );
+                })}
+              {notes.length === 0 && (
+                <div style={{ textAlign: "center" }}>No Notes Found</div>
+              )}
+            </div>
         </div>
-        <div style={{height:"8.72vh"}}>
-        </div>
+        {/* </Paper> */}
+
+        <div style={{ height: "8.72vh" }}></div>
+      {/* </Container> */}
       </div>
-      
+
       <Modal
         isOpen={openupdate}
         className="mymodal"
@@ -522,7 +539,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
         <div>
           <form>
             <div className="dialogclose">
-              <IconButton onClick={(e)=>toggleModal(e)}>
+              <IconButton onClick={(e) => toggleModal(e)}>
                 <CloseIcon sx={{ color: "black" }}></CloseIcon>
               </IconButton>
             </div>
@@ -631,7 +648,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
             </h5>
           </div>
           <div className="dialog-row2">
-            <div>
+            <div style={{height:"150px"}}>
               <FileUploader
                 handleChange={(e) => onFileUpload(e)}
                 name="file"
@@ -644,9 +661,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                     Drag and Drop Here
                     <img
                       src={require("../../../Img/iconcloud.png")}
-                      height="3.35vw"
-                      width={"1.52vw"}
-                      style={{ marginLeft: "1.22vw" }}
+                      style={{ marginLeft: "1.22vw",height:"25px",width:"20px" }}
                     />
                   </span>
                 }
@@ -680,7 +695,7 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                   <span style={{ float: "left", marginLeft: "0.9vw" }}>
                     <img
                       src={require("../../../Img/attachIcon.png")}
-                      style={{height:"2.68vh",width:"0.91vw" }}
+                      style={{ height: "2.68vh", width: "0.91vw" }}
                     />
                     <span className="fileName">{fname[index]}</span>
                   </span>
@@ -688,8 +703,11 @@ const ManageServiceRequest = ({ FirstPageAction }) => {
                   <img
                     src={require("../../../Img/iconDelete.png")}
                     onClick={() => removeTFile(index)}
-                    
-                    style={{ marginRight: "1.22vw",height:"2.68vh",width:"0.91vw" }}
+                    style={{
+                      marginRight: "1.22vw",
+                      height: "2.68vh",
+                      width: "0.91vw",
+                    }}
                   />
                 </div>
               );

@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { IconButton, Pagination } from "@mui/material";
+import {
+  Container,
+  IconButton,
+  Pagination,
+  Typography,
+  TextField,
+  TextareaAutosize,
+} from "@mui/material";
 import Modal from "react-modal";
 import "./CreateList.css";
 import { toast } from "react-toastify";
@@ -13,7 +20,8 @@ import URL from "../../../GlobalUrl";
 import globalAPI from "../../../GlobalApi";
 import usePagination from "../../Pagination/Pagination";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-
+import { Stack, Grid } from "@mui/material/";
+import { Card } from "../../../common";
 import { connect } from "react-redux";
 import { FirstPageAction } from "../../../Redux/FirstPage/FirstPage.action";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -35,14 +43,23 @@ const theme = createTheme({
 });
 const useStyles = makeStyles({
   selectfield: {
+    marginTop: "20px",
     "& label.Mui-focused": {
       color: "black",
+      fontFamily: "outfit",
+      fontWeight: "bold",
+      fontSize: "16px",
+    },
+    "& .MuiFormLabel-root": {
+      fontWeight: "bold",
+      fontSize: "16px",
+      fontFamily: "outfit",
     },
     "& .MuiOutlinedInput-root": {
-      borderRadius: "0.61vw",
-      marginRight: "1.22vw",
-      width: "26vw",
-      height: "6.04vh",
+      borderRadius: "9px",
+      marginRight: "17px",
+      width: "400px",
+      height: "50px",
       fontWeight: "bolder",
       fontFamily: "outfit",
       backgroundColor: "white",
@@ -52,18 +69,45 @@ const useStyles = makeStyles({
       },
     },
     icons: {
-      fontSize: "0.5vw",
+      fontSize: "8px",
     },
   },
   selectinput: {
-    marginBottom: "0.67vh",
+    marginBottom: "4.5px",
     fontFamily: "outfit",
     fontWeight: "bold",
-    fontSize: "1vw",
+    fontSize: "16px",
+  },
+  rowfield: {
+    "& label.Mui-focused": {
+      color: "black",
+      fontFamily: "outfit",
+      fontWeight: "bold",
+      fontSize: "16px",
+    },
+    "& .MuiFormLabel-root": {
+      fontWeight: "bold",
+      fontSize: "16px",
+      fontFamily: "outfit",
+    },
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "9px",
+      marginRight: "17px",
+      width: "400px",
+      fontWeight: "bolder",
+      fontFamily: "outfit",
+      backgroundColor: "white",
+
+      "&.Mui-focused fieldset": {
+        borderColor: "black",
+      },
+    },
+    icons: {
+      fontSize: "8px",
+    },
   },
 });
 const CreateList = ({ FirstPageAction }) => {
-  const navigate = useNavigate();
   const classes = useStyles();
   const [high, setHigh] = useState(false);
   const [medium, setMedium] = useState(false);
@@ -88,7 +132,11 @@ const CreateList = ({ FirstPageAction }) => {
   const _DATA = usePagination(data, PER_PAGE);
   const userData = JSON.parse(localStorage.getItem("userData"));
   const userName = userData.name;
-  const [fname,SetFname] = useState([]);
+  const [fname, SetFname] = useState([]);
+  const [error1, setError1] = useState("");
+  const [error2, setError2] = useState("");
+  const [error3, setError3] = useState("");
+  const [error4, setError4] = useState("");
 
   useEffect(() => {
     FirstPageAction(false);
@@ -98,24 +146,25 @@ const CreateList = ({ FirstPageAction }) => {
     jbModal();
   }, [page]);
 
-
-
   const handleClick = (name) => {
     if (name === "high") {
       setHigh(true);
       setPriority(1);
       setMedium(false);
       setLow(false);
+      setError4("");
     } else if (name === "medium") {
       setPriority(2);
       setHigh(false);
       setMedium(true);
       setLow(false);
+      setError4("");
     } else {
       setHigh(false);
       setPriority(3);
       setMedium(false);
       setLow(true);
+      setError4("");
     }
   };
 
@@ -124,7 +173,6 @@ const CreateList = ({ FirstPageAction }) => {
     newValue.splice(index, 1);
     setFiles(newValue);
 
-    //removing attachments
     const newAttachments = [...attachments];
     newAttachments.splice(index, 1);
     setattachments(newAttachments);
@@ -184,20 +232,18 @@ const CreateList = ({ FirstPageAction }) => {
           setLoader(false);
           if (res.success) {
             // toast.success("File Added");
-            debugger
+            debugger;
             attachments.push(res.data.message[0]);
             const newUpload = [];
-            let a = res.data.message[0].slice(25)
-            if(a.length>20){
-              let b = a.slice(0,27);
+            let a = res.data.message[0].slice(25);
+            if (a.length > 20) {
+              let b = a.slice(0, 27);
               let c = b + "...";
               newUpload.push(c);
-            }else{
+            } else {
               newUpload.push(a);
             }
             fname.push(newUpload);
-            // console.log(res.data.message[0].slice(25));
-            // fname.push(res.data.message[0].slice(25));
             setFiles([...files, e]);
           } else {
             toast.error(res.data.message);
@@ -215,41 +261,63 @@ const CreateList = ({ FirstPageAction }) => {
 
   const uploadMapping = (e) => {
     e.preventDefault();
-    setLoader(true);
-    const token = JSON.parse(localStorage.getItem("user"));
-    const data = {
-      title: title,
-      description: details,
-      attachments: attachments,
-      priority: priority,
-      job_ref_number: jobid,
-      site_details: site,
-      type: servicetype,
-      status: 1,
-    };
-    axios({
-      method: "post",
-      url: URL + globalAPI.myreq,
-      data: data,
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => {
-        setLoader(false);
-        const res = response.data;
-        debugger
-        if (res.success) {
-          setSubmitted(true);
-          setSrno(res.data.service_ref_number);
-        } else {
-          toast.error(res.data.message);
-        }
+    if (servicetype == "") {
+      setError1("Service Type cannot be Empty");
+    }
+    if (title == "") {
+      setError2("Title cannot be Empty");
+    }
+    if (details == "") {
+      setError3("Details cannot be Empty");
+    }
+    if (priority == "") {
+      setError4("Please choose priority");
+      return false;
+    }
+
+    if (
+      servicetype !== "" &&
+      title !== "" &&
+      (details !== "") & (priority !== "")
+    ) {
+      setLoader(true);
+      const token = JSON.parse(localStorage.getItem("user"));
+      const data = {
+        title: title,
+        description: details,
+        attachments: attachments,
+        priority: priority,
+        job_ref_number: jobid,
+        site_details: site,
+        type: servicetype,
+        status: 1,
+      };
+      axios({
+        method: "post",
+        url: URL + globalAPI.myreq,
+        data: data,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .catch(() => {
-        setLoader(false);
-        toast.error("Something went wrong");
-      });
+        .then((response) => {
+          setLoader(false);
+          const res = response.data;
+          debugger;
+          if (res.success) {
+            setSubmitted(true);
+            setSrno(res.data.service_ref_number);
+          } else {
+            toast.error(res.data.message);
+          }
+        })
+        .catch(() => {
+          setLoader(false);
+          toast.error("Something went wrong");
+        });
+    } else {
+      return false;
+    }
   };
 
   const closeSubmitted = (e) => {
@@ -266,251 +334,294 @@ const CreateList = ({ FirstPageAction }) => {
     jbModal();
   };
   return (
-    <div>
+    <>
       {loader && (
         <div className="customLoader">
           <TailSpin color="#fa5e00" height="100" width="100" />
         </div>
       )}
       <div className="clcontainer">
-        <div className="cltitle">Create a Service Requests</div>
+        <Typography
+          variant="h6"
+          style={{ fontWeight: 300, fontSize: "55px", fontFamily: "outfit" }}
+        >
+          Create a Service Request
+        </Typography>
         <hr className="clcontainerhr" />
         {!submitted && (
-          <div className="clpaper">
-            <div className="clfirstrow">
-              <div className="clnames">{userName}</div>
-              <div style={{ fontSize: "0.8vw" }}>
-                {userData.business_trade_name} , {userData.city}
-              </div>
-              <hr className="clhrFirst" />
-            </div>
-            <button
-              className="btnjob"
-              style={{ fontSize: "1vw" }}
-              onClick={toggleModal}
-            >
-              Job Reference
-            </button>
-            <div className="gridmove">
-              <div className="gridbox1">
-                <div>Site</div>
-                <div>{site ? site : "-"}</div>
-                <div>Job ID</div>
-                <div>{jobid ? jobid : "-"}</div>
-              </div>
-            </div>
+          <Card>
+            <Grid container spacing={2}>
+              <Grid item xs={6}>
+                <Stack>
+                  <Typography>
+                    <div className="clnames">{userName}</div>
+                  </Typography>
+                  <Typography>
+                    <div style={{ fontSize: "18px", fontWeight: 700 }}>
+                      {userData.business_trade_name} , {userData.city}
+                    </div>
+                    <hr className="clhrFirst" />
+                  </Typography>
 
-            <hr className="clhr1" />
-           
-            <div style={{ marginTop: "4vh" }}>
-              <FormControl className={classes.selectfield}>
-                <InputLabel
-                  id="demo-simple-select-label"
-                  className={classes.selectinput}
-                >
-                  Service Type
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={servicetype}
-                  onChange={(e) => setServicetype(e.target.value)}
-                  onFocus={() => setFocused(true)}
-                  onBlur={() => setFocused(false)}
-                  label="Service Type"
-                  IconComponent={() =>
-                    focused ? (
-                      <KeyboardArrowUpIcon className={classes.icons} />
-                    ) : (
-                      <KeyboardArrowDownIcon className={classes.icons} />
-                    )
-                  }
-                >
-                  <MenuItem style={{fontWeight:600}}value="Enquiry"> Enquiry </MenuItem>
-                  <MenuItem style={{fontWeight:600}}value="Design Clarifications"> Design Clarifications </MenuItem>
-                </Select>
-              </FormControl>
-            </div>
-            <div>
-              <input
-                type="text"
-                className="clinput"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-              />
-              <label className="clinput-label">Title</label>
-            </div>
-            <div>
-              <textarea
-                id="details"
-                name="details"
-                rows="10"
-                className="cltextarea"
-                value={details}
-                onChange={(e) => setDetails(e.target.value)}
-                required
-              ></textarea>
-              <label className="cltextarea-label">Details</label>
-
-              <h4 className="name1" style={{ fontSize: "1.2vw" }}>
-                Attachments
-              </h4>
-
-              <hr className="clhr2" />
-
-              <div>
-                <FileUploader
-                  handleChange={(e) => onFileUpload(e)}
-                  name="file"
-                  types={fileTypes}
-                  onTypeError={(err) =>
-                    toast.error("Only pdf, png, jpeg files are allowed")
-                  }
-                  children={
-                    <span className="dragndrop">
-                      Drag and Drop Here
-                      <img
-                        src={require("../../../Img/iconcloud.png")}
-                        /*  height="25px"
-                        width={"25px"} */
-                        style={{
-                          marginLeft: "20px",
-                          height: "3.35vh",
-                          width: "1.63vw",
-                        }}
-                      />
-                    </span>
-                  }
-                />
-
-                <span className="or">OR</span>
-
-                <FileUploader
-                  handleChange={(e) => onFileUpload(e)}
-                  name="file"
-                  types={fileTypes}
-                  onTypeError={(err) =>
-                    toast.error("Only pdf, png, jpeg files are allowed")
-                  }
-                  children={
-                    <span className="browse">
-                      <button className="browsebtn">Browse</button>
-                    </span>
-                  }
-                />
-              </div>
-
-              {files &&
-                files.map((item, index) => {
-                  return (
-                    <div
-                      className="filemap"
-                      style={{ borderRadius: "1.8vw" }}
-                      key={index}
+                  <Typography>
+                    <button
+                      className="btnjob"
+                      style={{ fontSize: "13px" }}
+                      onClick={toggleModal}
                     >
-                      <span style={{ float: "left", marginLeft: "1vw" }}>
+                      Job Reference
+                    </button>
+                  </Typography>
+                </Stack>
+              </Grid>
+              <Grid item xs={6}>
+                <Stack>
+                  <Typography>
+                    <div className="gridbox1">
+                      <div style={{ fontSize: "18px", fontWeight: 600 }}>
+                        Site
+                      </div>
+                      <div style={{ fontSize: "18px" }}>
+                        {site ? site : "-"}
+                      </div>
+                      <div style={{ fontSize: "18px", fontWeight: 600 }}>
+                        Job ID
+                      </div>
+                      <div style={{ fontSize: "18px" }}>
+                        {jobid ? jobid : "-"}
+                      </div>
+                    </div>
+                  </Typography>
+                </Stack>
+              </Grid>
+            </Grid>{" "}
+            <br />
+            <hr className="clhr1" />
+            <Grid>
+              <Typography style={{ marginTop: "10px" }}>
+                <FormControl className={classes.selectfield}>
+                  <InputLabel
+                    id="demo-simple-select-label"
+                    className={classes.selectinput}
+                  >
+                    Service Type
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={servicetype}
+                    onChange={(e) => {
+                      setServicetype(e.target.value);
+                      setError1("");
+                    }}
+                    onFocus={() => setFocused(true)}
+                    onBlur={() => setFocused(false)}
+                    label="Service Type"
+                  >
+                    <MenuItem style={{ fontWeight: 600 }} value="Enquiry">
+                      {" "}
+                      Enquiry{" "}
+                    </MenuItem>
+                    <MenuItem
+                      style={{ fontWeight: 600 }}
+                      value="Design Clarifications"
+                    >
+                      {" "}
+                      Design Clarifications{" "}
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+                <span className="error1">{error1}</span>
+              </Typography>
+
+              <Typography>
+                <TextField
+                  label="Title"
+                  variant="outlined"
+                  value={title}
+                  className={classes.selectfield}
+                  onChange={(e) => {
+                    setTitle(e.target.value);
+                    setError2("");
+                  }}
+                  sx={{ marginTop: "20px" }}
+                />
+                <span className="error2">{error2}</span>
+              </Typography>
+
+              <br />
+              <Typography>
+                <TextField
+                  label="Details"
+                  variant="outlined"
+                  multiline
+                  rows={8}
+                  className={classes.rowfield}
+                  value={details}
+                  onChange={(e) => {
+                    setDetails(e.target.value);
+                    setError3("");
+                  }}
+                />
+                <span className="error3">{error3}</span>
+              </Typography>
+
+              <Typography>
+                <h4 className="name1" style={{ fontSize: "18px" }}>
+                  Attachments
+                </h4>
+                <hr className="clhr2" />
+
+                <Typography>
+                  <FileUploader
+                    handleChange={(e) => onFileUpload(e)}
+                    name="file"
+                    types={fileTypes}
+                    onTypeError={(err) =>
+                      toast.error("Only pdf, png, jpeg files are allowed")
+                    }
+                    children={
+                      <span className="cldragndrop">
+                        Drag and Drop Here
                         <img
-                          src={require("../../../Img/attachIcon.png")}
+                          src={require("../../../Img/iconcloud.png")}
+                          /*  height="25px"
+                        width={"25px"} */
                           style={{
-                            height: "2.8vh",
-                            width: "1vw",
+                            marginLeft: "20px",
+                            height: "25px",
+                            width: "20px",
                           }}
                         />
-
-                        <span className="fileName">{fname[index]}</span>
                       </span>
+                    }
+                  />
 
-                      <img
-                        src={require("../../../Img/iconDelete.png")}
-                        onClick={() => removeFile(index)}
-                        style={{
-                          marginRight: "20px",
-                          width: "1.3vw",
-                          height: "2.9vh",
-                        }}
-                      />
-                    </div>
-                  );
-                })}
+                  <span className="clor">OR</span>
 
-              <h4 className="name2" style={{ fontSize: "1.2vw" }}>
-                Priority
-              </h4>
+                  <FileUploader
+                    handleChange={(e) => onFileUpload(e)}
+                    name="file"
+                    types={fileTypes}
+                    onTypeError={(err) =>
+                      toast.error("Only pdf, png, jpeg files are allowed")
+                    }
+                    children={
+                      <span className="clbrowse">
+                        <button className="clbrowsebtn">Browse</button>
+                      </span>
+                    }
+                  />
+                </Typography>
 
-              <hr className="clhr2" />
+                {files &&
+                  files.map((item, index) => {
+                    return (
+                      <div
+                        className="filemap filemapblock"
+                        style={{ borderRadius: "22px" }}
+                        key={index}
+                      >
+                        <span style={{ float: "left", marginLeft: "16px" }}>
+                          <img
+                            src={require("../../../Img/attachIcon.png")}
+                            style={{
+                              height: "21px",
+                              width: "16px",
+                            }}
+                          />
 
-              <button
-                className={high ? "highBtnActive highBtn " : " highBtn"}
-                value="high"
-                onClick={(e) =>
-                  high ? setHigh(false) : handleClick(e.target.value)
-                }
-              >
-                High
-              </button>
+                          <span className="fileName">{fname[index]}</span>
+                        </span>
 
-              <button
-                className={
-                  medium ? "mediumBtnActive  mediumBtn " : " mediumBtn"
-                }
-                value="medium"
-                onClick={(e) =>
-                  medium ? setMedium(false) : handleClick(e.target.value)
-                }
-              >
-                Medium
-              </button>
+                        <img
+                          src={require("../../../Img/iconDelete.png")}
+                          onClick={() => removeFile(index)}
+                          style={{
+                            marginRight: "20px",
+                            width: "20px",
+                            height: "2.9vh",
+                          }}
+                        />
+                      </div>
+                    );
+                  })}
 
-              <button
-                className={low ? "lowBtnActive lowBtn " : " lowBtn"}
-                value="low"
-                onClick={(e) =>
-                  low ? setLow(false) : handleClick(e.target.value)
-                }
-              >
-                Low
-              </button>
+                <h4 className="name2" style={{ fontSize: "20px" }}>
+                  Priority
+                </h4>
 
-              <div>
-                {servicetype !== "" &&
-                  priority !== "" &&
-                  title !== "" &&
-                  details !== "" && (
-                    <button
-                      className="submitBtn"
-                      onClick={(e) => uploadMapping(e)}
-                    >
-                      Submit
-                    </button>
-                  )}
-              </div>
-            </div>
-          </div>
+                <hr className="clhr2" />
+
+                <div style={{ display: "inline-block", marginRight: "17px" }}>
+                  <button
+                    className={high ? "highBtnActive highBtn " : " highBtn"}
+                    value="high"
+                    onClick={(e) => handleClick(e.target.value)}
+                  >
+                    High
+                  </button>
+
+                  <button
+                    className={
+                      medium ? "mediumBtnActive  mediumBtn " : " mediumBtn"
+                    }
+                    value="medium"
+                    onClick={(e) => handleClick(e.target.value)}
+                  >
+                    Medium
+                  </button>
+
+                  <button
+                    className={low ? "lowBtnActive lowBtn " : " lowBtn"}
+                    value="low"
+                    onClick={(e) => handleClick(e.target.value)}
+                  >
+                    Low
+                  </button>
+                </div>
+                <span className="error4">{error4}</span>
+
+                <div>
+                  <button
+                    className="submitBtn"
+                    onClick={(e) => uploadMapping(e)}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </Typography>
+            </Grid>
+          </Card>
         )}
 
         {submitted && (
           <>
             <div className="subpaper">
-              <div className="subfirstrow">
-                <div className="subnames">{userName}</div>
-                <div>
-                  {userData.business_trade_name}, {userData.city}
-                </div>
-                <hr className="subhrFirst" />
+                <div className="subfirstrow">
+                <Typography>
+                    <div className="clnames">{userName}</div>
+                  </Typography>
+                  <Typography>
+                    <div style={{ fontSize: "18px", fontWeight: 700 }}>
+                      {userData.business_trade_name} , {userData.city}
+                    </div>
+                    <hr className="clhrFirst" />
+                  </Typography>
+                  {/* <hr className="subhrFirst" /> */}
 
-                <div className="subtext">
-                  Your enquiry submission is successful. Ref:{srno}. You can
-                  track the status of your service request using{" "}
-                  <Link to="/common/servicerequest" className="subspan">
-                    {" "}
-                    <span>My Service Requests</span>
-                  </Link>
+                  <div className="subtext">
+                    Your enquiry submission is successful. Ref:{srno}. You can
+                    track the status of your service request using{" "}
+                    <Link to="/common/servicerequest" className="subspan">
+                      {" "}
+                      <span>My Service Requests</span>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-              <button className="submitBtn" onClick={() => closeSubmitted()}>
-                Close
-              </button>
+                <button className="submitBtn" onClick={() => closeSubmitted()}>
+                  Close
+                </button>
             </div>
             <div style={{ height: "160px" }}></div>
           </>
@@ -553,12 +664,12 @@ const CreateList = ({ FirstPageAction }) => {
                           onClick={() => settingJobref(item)}
                           className="sortabletr"
                         >
-                          <td className="">{item.job_ref_number}</td>
-                          <td className="">{item.site_details}</td>
-                          {item.status == 1 && <td>New</td>}
-                          {item.status == 2 && <td>HPD Working</td>}
-                          {item.status == 3 && <td>Need Your Attention</td>}
-                          {item.status == 4 && <td>Resolved</td>}
+                          <td style={{fontSize:"18px"}}>{item.job_ref_number}</td>
+                          <td style={{fontSize:"18px"}}>{item.site_details}</td>
+                          {item.status == 1 && <td style={{fontSize:"18px"}}>New</td>}
+                          {item.status == 2 && <td style={{fontSize:"18px"}}>HPD Working</td>}
+                          {item.status == 3 && <td style={{fontSize:"18px"}}>Need Your Attention</td>}
+                          {item.status == 4 && <td style={{fontSize:"18px"}}>Resolved</td>}
                         </tr>
                       );
                     })}
@@ -593,7 +704,7 @@ const CreateList = ({ FirstPageAction }) => {
           </div>
         </Modal>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,14 +1,13 @@
 import "./Login.css";
 import "react-toastify/dist/ReactToastify.css";
 import React, { useState, useEffect } from "react";
-import { useNavigate,Link } from "react-router-dom";
-import { toast} from "react-toastify";
+import { useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { TailSpin } from "react-loader-spinner";
 import axios from "axios";
 import URL from "../../../GlobalUrl";
 import globalAPI from "../../../GlobalApi";
-import validator from 'validator'
-
+import validator from "validator";
 
 const passwords = {
   value: "",
@@ -22,9 +21,9 @@ const Login = () => {
   const [remember, setRemember] = useState(false);
   const [visibility, setVisibility] = useState("hidden");
 
-  const [inputLogin1Error, setInputLogin1Error] = useState("")
+  const [inputLogin1Error, setInputLogin1Error] = useState("");
 
-  const [inputLogin2Error, setInputLogin2Error] = useState("")
+  const [inputLogin2Error, setInputLogin2Error] = useState("");
 
   const [loader, setLoader] = useState(false);
   const [color, setColor] = useState("#a4a4a4");
@@ -54,52 +53,46 @@ const Login = () => {
   };
 
   const blurFunc = () => {
-   
-    if(emailValue == ""){
-     
+    if (emailValue == "") {
       return false;
     }
     if (!validator.isEmail(emailValue)) {
       setInputLogin1Error("Please enter valid Email");
       return false;
     }
- 
-  }
+  };
 
   const blurFunc1 = () => {
-    if(password.value == ""){
-      
+    if (password.value == "") {
       return false;
     }
-    if (!validator.isLength(password.value,{min:8,max:undefined})) {
-     setInputLogin2Error("Must be at least 8 characters");
+    if (!validator.isLength(password.value, { min: 8, max: undefined })) {
+      setInputLogin2Error("Must be at least 8 characters");
       return false;
     }
-  }
+  };
 
   const handleLogin = (e) => {
-    debugger
     e.preventDefault();
     if (!validator.isEmail(emailValue)) {
       setInputLogin1Error("Please enter valid Email");
       /* return false; */
     }
-    if(emailValue == ""){
+    if (emailValue == "") {
       setInputLogin1Error("Email Address cannot be Empty");
       /* return false; */
     }
-    if (!validator.isLength(password.value,{min:8,max:undefined})) {
+    if (!validator.isLength(password.value, { min: 8, max: undefined })) {
       setInputLogin2Error("Must be at least 8 characters");
-       return false;
-     }
-  
-    if(password.value == ""){
+      return false;
+    }
+
+    if (password.value == "") {
       setInputLogin2Error("Password cannot be Empty");
       /* return false; */
     }
-    
+
     if (emailValue !== "" && password.value !== "" && !loader) {
-      debugger
       setLoader(true);
       const data = {
         email: emailValue,
@@ -108,19 +101,18 @@ const Login = () => {
       axios
         .post(URL + globalAPI.login, data)
         .then((response) => {
-          const res =response.data
+          const res = response.data;
           console.log(res);
           if (res.sucess) {
             localStorage.setItem("userData", JSON.stringify(res.data));
             localStorage.setItem("user", JSON.stringify(res.data.token));
             setLoader(false);
-            if(res.data.admin){
-              navigate('/admincommon/accountrequest')
-              return
+            if (res.data.admin) {
+              navigate("/admincommon/accountrequest");
+              return;
             }
-            navigate('/common/servicerequest');
-          }
-          else{
+            navigate("/common/servicerequest");
+          } else {
             setLoader(false);
             toast.error(res.data.message);
           }
@@ -146,84 +138,87 @@ const Login = () => {
       )}
       <div className="-Login">
         <div className="firstHalf">
-          <div  className="HPD-Existing-Logo---01-11" >
+          <div className="HPD-Existing-Logo---01-11">
             <img
               src={require("../../../Img/HPDD.jpeg")}
               /* height="50px"
               width={"50px"} */
-              style={{height:"6.5vh"}}
+              style={{ height: "6.5vh" }}
             />
           </div>
-          <div className="Login">Login</div> 
-          
-          <form action=""  >
-          <div style={{position:"relative"}} >
-            <input
-              type="text"
-              className="email "
-              value={emailValue}
-              onChange={changeHandler}
-              name="email"
-              required
-              onBlur={blurFunc}
-              
-            />
-            
-            <img
-              src={require("../../../Img/icon.png")}
-             
-           
-              alt=""
-              className="emailIcon"
-             
-            />
-            <label className="email-label" >Email Address </label> <span className='inputLogin1Error inputLoginError' >{inputLogin1Error}</span>
-            <span style={{ visibility: `${visibility}` }} className="loginspan2">
-            Both passwords should match
-            </span>
+          <div className="Login">Login</div>
+
+          <form action="">
+            <div style={{ position: "relative" }}>
+              <input
+                type="text"
+                className="email "
+                value={emailValue}
+                onChange={changeHandler}
+                name="email"
+                required
+                onBlur={blurFunc}
+              />
+              <img
+                src={require("../../../Img/icon.png")}
+                alt=""
+                className="emailIcon"
+              />
+              <label className="email-label">Email Address </label>{" "}
+              <span className="inputLogin1Error inputLoginError">
+                {inputLogin1Error}
+              </span>
+              <span
+                style={{ visibility: `${visibility}` }}
+                className="loginspan2"
+              >
+                Both passwords should match
+              </span>
             </div>
-            <div style={{position:"relative"}} >
-            <input
-              type={password.type}
-              value={password.value}
-              onChange={changeHandler}
-              className="password"
-              name="password"
-              required
-              onBlur={blurFunc1}
-            />
-            <img
-              src={require("../../../Img/icon2.png")}
-              alt=""
-              className="passwordIcon"
-            />
-            {password.showpassword ? (
-              <img
-                src={require("../../../Img/iconEyeOpen.png")}
-                alt=""
-                className="eyeIconOpen"
-                onClick={togglePassword}
+            <div style={{ position: "relative" }}>
+              <input
+                type={password.type}
+                value={password.value}
+                onChange={changeHandler}
+                className="password"
+                name="password"
+                required
+                onBlur={blurFunc1}
               />
-            ) : (
               <img
-                src={require("../../../Img/icon3.png")}
+                src={require("../../../Img/icon2.png")}
                 alt=""
-                className="eyeIcon"
-                onClick={togglePassword}
+                className="passwordIcon"
               />
-            )}
-            <label className="password-label" >Password</label> <span className='inputLogin2Error inputLoginError' >{inputLogin2Error}</span>
-            <span className="loginspan1" style={{ color: `${color}` }}>
-              Must be at least 8 characters
-            </span>
+              {password.showpassword ? (
+                <img
+                  src={require("../../../Img/iconEyeOpen.png")}
+                  alt=""
+                  className="eyeIconOpen"
+                  onClick={togglePassword}
+                />
+              ) : (
+                <img
+                  src={require("../../../Img/icon3.png")}
+                  alt=""
+                  className="eyeIcon"
+                  onClick={togglePassword}
+                />
+              )}
+              <label className="password-label">Password</label>{" "}
+              <span className="inputLogin2Error inputLoginError">
+                {inputLogin2Error}
+              </span>
+              <span className="loginspan1" style={{ color: `${color}` }}>
+                Must be at least 8 characters
+              </span>
             </div>
             <div className="icontick">
               {remember ? (
                 <div
                   style={{
-                   border:"0.12vw solid black",
-                    display: "inline-block"
-                    
+                    border: "0.12vw solid black",
+                    display: "inline-block",
                   }}
                   className="remember-me1"
                   onClick={() => setRemember(false)}
@@ -231,17 +226,15 @@ const Login = () => {
               ) : (
                 <img
                   src={require("../../../Img/icontick.png")}
-                 /*  height="12px"
+                  /*  height="12px"
                   width={"12px"} */
                   className="remember-me1"
                   alt=""
                   onClick={() => setRemember(true)}
                 />
               )}
-              <span  className="remember">
-                Remember me
-              </span>
-              <Link to="/forgotpassword" style={{margin:"0px"}} >
+              <span className="remember">Remember me</span>
+              <Link to="/forgotpassword" style={{ margin: "0px" }}>
                 <span className="Forgot-password">Forgot password?</span>{" "}
               </Link>
             </div>
@@ -266,7 +259,7 @@ const Login = () => {
                     fontWeight: 600,
                     color: "#fa5e00",
                     cursor: "pointer",
-                    fontSize:"1vw"
+                    fontSize: "1vw",
                   }}
                 >
                   {" "}

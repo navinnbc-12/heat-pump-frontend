@@ -6,14 +6,14 @@ import { TailSpin } from "react-loader-spinner";
 import axios from "axios";
 import URL from "../../../../GlobalUrl";
 import globalAPI from "../../../../GlobalApi";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import ChevronRightSharpIcon from "@mui/icons-material/ChevronRightSharp";
 import ChevronLeftSharpIcon from "@mui/icons-material/ChevronLeftSharp";
 import { Card } from "../../../../common";
 
 const fileTypes = ["PDF", "PNG", "JPEG"];
 
-const FourthStep = () => {
+const FourthStep = (props) => {
   const [plans, setPlans] = useState([]);
   const [pattachments, setPattachments] = useState([]);
   const [elevations, setElevations] = useState([]);
@@ -34,7 +34,8 @@ const FourthStep = () => {
         url: URL + globalAPI.fileupload,
         data: formData,
         headers: {
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDFmNTFlZDYxZTAxNTg3ZGY3MTNlMCIsIm5hbWUiOiJCcmVuZGFuIERlbmVzaWsiLCJlbWFpbCI6ImN1c3RvbWVyQGdtYWlsLmNvbSIsImFkbWluIjpmYWxzZSwiYnVzaW5lc3NfYWRtaW4iOmZhbHNlLCJpYXQiOjE2NTA5NzYyNDIsImV4cCI6MTY1MTAxOTQ0Mn0.8eLacwL7GghZFr4lfeWdfzS1fQWBKy6-oejq3ojBvEQ`,
         },
       })
         .then((response) => {
@@ -44,8 +45,7 @@ const FourthStep = () => {
             if (name == "plans") {
               pattachments.push(res.data.message[0]);
               setPlans([...plans, e]);
-            }
-            if (name == "sections") {
+            } else if (name == "sections") {
               sattachments.push(res.data.message[0]);
               setSections([...sections, e]);
             } else {
@@ -91,6 +91,7 @@ const FourthStep = () => {
       setSattachments(newAttachments);
     }
   };
+  console.log(plans);
   return (
     <Card>
       {loader && (
@@ -103,7 +104,16 @@ const FourthStep = () => {
         <img src={require("../../../../Img/step4.png")} className="s4baricon" />
       </div>
 
-      <h4 style={{ fontSize: "1.4vw", marginTop: "10vh" }}>Upload Drawings</h4>
+      <Typography
+        style={{
+          fontSize: "30px",
+          fontFamily: "Outfit",
+          fontWeight: "600",
+          marginTop: "10vh",
+        }}
+      >
+        Upload Drawings
+      </Typography>
       <hr className="s2hr2" />
       <h4 className="s4name1">Plans-GF/1F/2F</h4>
       <hr className="s4hr2" />
@@ -164,7 +174,7 @@ const FourthStep = () => {
                   }}
                 />
 
-                <span className="s4fileName">Attachment-{index + 1}</span>
+                <span className="s4fileName">{item.name}</span>
               </span>
 
               <img
@@ -240,7 +250,7 @@ const FourthStep = () => {
                   }}
                 />
 
-                <span className="s4fileName">Attachment-{index + 1}</span>
+                <span className="s4fileName">{item.name}</span>
               </span>
 
               <img
@@ -316,7 +326,7 @@ const FourthStep = () => {
                   }}
                 />
 
-                <span className="s4fileName">Attachment-{index + 1}</span>
+                <span className="s4fileName">{item.name}</span>
               </span>
 
               <img
@@ -333,13 +343,27 @@ const FourthStep = () => {
           );
         })}
       <Box sx={{ display: "flex" }}>
-        <button variant="contained" className="btn-house btn-icon">
+        <button
+          variant="contained"
+          className="btn-house btn-icon"
+          onClick={props.prev}
+        >
           <span style={{ height: "27px", width: "27px" }}>
             <ChevronLeftSharpIcon sx={{ height: "27px", width: "27px" }} />
           </span>
           <span style={{ marginLeft: "100px" }}>Previous</span>
         </button>
-        <button variant="contained" className="btn-house Add btn-icon">
+        <button
+          variant="contained"
+          className="btn-house Add btn-icon"
+          onClick={() => {
+            props.getPayloadData(
+              ["drawings"],
+              [{ plans: plans, elevations: elevations, sections: sections }]
+            );
+            props.next();
+          }}
+        >
           <span style={{ marginRight: "100px" }}>Continue</span>
           <span style={{ height: "27px", width: "27px" }}>
             <ChevronRightSharpIcon sx={{ height: "27px", width: "27px" }} />

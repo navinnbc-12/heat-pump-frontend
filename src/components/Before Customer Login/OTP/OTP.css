@@ -1,109 +1,107 @@
-*{
-    box-sizing: border-box;
-   
-  }
-  
-  body{
-    padding: 0;
-    margin: 0;
-  }
-  
-  
-  
-  .otp{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    padding: 0 0 0 0;
-    background-color: #fff;
-    
-  }
-
-  
-  .otpfirstHalf {
-    width: 56.64vw;
-    display: inline-block;
-    
-  }
-
-  .otpHPD {
-    margin: 5.4vh 0 6vh 3vw;
-    height: 5vh;
-    width: 2.5vw;
-    display: inline-block;
-  }
-
-  .otpdiv1{
-    width:38.4vw;
-    margin:4.67vh 0px 0px 6.51vw;
-    position:relative;
-    font-weight:600;
-    font-family:Outfit;
-   
-    color:#000000;
-    font-size: 2.8vw;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-  
-    text-align: left;
-  }
-
-  .otpdiv{
-    margin-left: 5.2vw;
-    margin-top: 4vh;
-    width: 19.53vw;
-    position: relative;
-    display: inline-block;
-    
-  }
-  .otpgreentick{
-    width: 1.432vw;
-    height: 3vh;
+* {
+  box-sizing: border-box;
 }
-.span{
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.otp {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0 0 0 0;
+  background-color: #fff;
+}
+
+.otpfirstHalf {
+  width: 56.64vw;
+  display: inline-block;
+}
+
+.otpHPD {
+  margin: 5.4vh 0 6vh 3vw;
+  height: 5vh;
+  width: 2.5vw;
+  display: inline-block;
+}
+
+.otpdiv1 {
+  width: 38.4vw;
+  margin: 4.67vh 0px 0px 6.51vw;
   position: relative;
-  display:inline-block ;
-  width: 19.53vw;
-  
-  bottom: 1.61vh;
-}
-  
+  font-weight: 600;
+  font-family: Outfit;
 
-  .otpInput{
-    height: 6.04vh;
-    margin-left: 1.3vw;
-    font-size: 2.8vw;
-    padding-top: 0.67vh;
-    padding-bottom: 0.67vh;
-  }
-  
-  .otpRectangle-side {
-    min-width: 43vw;
-    height: 100vh;
-    margin-left: auto;
-   
-    background-image: linear-gradient(to bottom, #f4f2ea 0%, #d9d6c9 100%);
-   
-  }
+  color: #000000;
+  font-size: 2.8vw;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+
+  text-align: left;
+}
+
+.otpdiv {
+  margin-left: 59px;
+  margin-top: 0px;
+  width: 19.53vw;
+  position: relative;
+  display: inline-block;
+}
+.otpgreentick {
+  width: 1.432vw;
+  height: 3vh;
+}
+.span {
+  position: relative;
+  display: inline-block;
+  width: 19.53vw;
+
+  /* bottom: 1.61vh; */
+}
+.greentick1 {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  flex-grow: 0;
+  margin: 4px 14px 0 0;
+}
+
+.otpInput {
+  height: 6.04vh;
+  margin-left: 1.3vw;
+  font-size: 2.8vw;
+  padding-top: 0.67vh;
+  border-radius: 10px;
+
+  padding-bottom: 0.67vh;
+}
+
+.otpRectangle-side {
+  width: 40%;
+  height: 100vh;
+  margin: 0px 0 0 0px;
+  padding: 487px 105px 31.2px 106px;
+  background-image: linear-gradient(to bottom, #f4f2ea 0%, #d9d6c9 100%);
+}
 
 /*   @media screen and (max-height: 400px) {
     .otpRectangle-side {
       height: auto;
     }
   } */
-  
-  .otpcouplesideImg{
-    width: 31.9vw;
-    height: 62.4vh;
-    margin-left: 6.51vw;
-    position: absolute;
-    bottom: 1px;
-    
-  }
 
-  .ootp{
-    border-color: red; }
+.otpcouplesideImg {
+  width: 30vw;
+  height: 62.4vh;
+  margin-left: 0vw;
+  position: absolute;
+  bottom: 0.15vh;
+}
 
-  
+.ootp {
+  border-color: red;
+}

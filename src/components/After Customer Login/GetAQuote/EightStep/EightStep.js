@@ -5,7 +5,7 @@ import { TailSpin } from "react-loader-spinner";
 import axios from "axios";
 import URL from "../../../../GlobalUrl";
 import globalAPI from "../../../../GlobalApi";
-import { Button, Box } from "@mui/material";
+import { Button, Box, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import ChevronRightSharpIcon from "@mui/icons-material/ChevronRightSharp";
 import ChevronLeftSharpIcon from "@mui/icons-material/ChevronLeftSharp";
@@ -13,7 +13,7 @@ import { Card } from "../../../../common";
 
 const useStyles = makeStyles({});
 
-const EightStep = () => {
+const EightStep = (props) => {
   const classes = useStyles();
   const [loader, setLoader] = useState(false);
   const [text, setText] = useState("");
@@ -32,7 +32,16 @@ const EightStep = () => {
       </div>
 
       <div>
-        <h4 style={{ fontSize: "1.4vw", marginTop: "4%" }}>Other</h4>
+        <Typography
+          style={{
+            fontSize: "30px",
+            fontFamily: "Outfit",
+            fontWeight: "600",
+            marginTop: "10vh",
+          }}
+        >
+          Other
+        </Typography>
         <hr
           style={{
             backgroundColor: "#f2f3f2",
@@ -51,14 +60,25 @@ const EightStep = () => {
         </div>
       </div>
       <Box sx={{ display: "flex" }}>
-        <button variant="contained" className="btn-house btn-icon">
+        <button
+          variant="contained"
+          className="btn-house btn-icon"
+          onClick={props.prev}
+        >
           <span style={{ height: "27px", width: "27px" }}>
             <ChevronLeftSharpIcon sx={{ height: "27px", width: "27px" }} />
           </span>
           <span style={{ marginLeft: "100px" }}>Previous</span>
         </button>
-        <button variant="contained" className="btn-house Add btn-icon">
-          <span style={{ marginRight: "100px" }}>Continue</span>
+        <button
+          variant="contained"
+          className="btn-house Add btn-icon"
+          onClick={() => {
+            props.getPayloadData(["other_details"], [text]);
+            props._addNewQuote();
+          }}
+        >
+          <span style={{ marginRight: "100px" }}>Submit</span>
           <span style={{ height: "27px", width: "27px" }}>
             <ChevronRightSharpIcon sx={{ height: "27px", width: "27px" }} />
           </span>

@@ -19,11 +19,40 @@ import StyledTextField from "../../../../common/textfield";
 import Equipment from "./Equipment";
 import HighEquipment from "./HighEquipment";
 
-const SecondSubStep = () => {
+const SecondSubStep = (props) => {
   const [loader, setLoader] = useState(false);
   const [focused, setFocused] = useState(false);
-  const [selectedGuestInWinter, setSelectedGuestInWinter] = useState("Select");
-
+  const [selectedGuestInWinter, setSelectedGuestInWinter] = useState(0);
+  const [equipments, setEquipments] = useState({
+    tvs: "0",
+    laptops: "0",
+    monitors: "0",
+    itServers: "0",
+    PhotoCopiers: "0",
+  });
+  const [highEnergyEquipments, setHighEnergyEquipments] = useState({
+    sauna: "0",
+    swimmingPool: "0",
+    hotTub: "0",
+    kilns: "0",
+    other: "0",
+  });
+  const [questions, setQuestions] = useState({
+    hotwater_importance: 1,
+    woodStove_importance: 1,
+    electricity_than_uk_average: 1,
+    heating_then_uk_average: 1,
+  });
+  const getEquipments = (equip, num) => {
+    let temp = equipments;
+    temp[equip] = num;
+    setEquipments(temp);
+  };
+  const getHighEnergyEquipments = (equip, num) => {
+    let temp = highEnergyEquipments;
+    temp[equip] = num;
+    setHighEnergyEquipments(temp);
+  };
   return (
     <>
       <Card>
@@ -37,9 +66,16 @@ const SecondSubStep = () => {
           <img src={step2ProgressBar} className="s4baricon" alt="step 2" />
         </div>
 
-        <h4 style={{ fontSize: "1.4vw", marginTop: "10vh" }}>
+        <Typography
+          style={{
+            fontSize: "30px",
+            fontFamily: "Outfit",
+            fontWeight: "600",
+            marginTop: "10vh",
+          }}
+        >
           Guest/Additional People
-        </h4>
+        </Typography>
         <hr className="s2hr2" />
         <Typography
           sx={{
@@ -51,7 +87,7 @@ const SecondSubStep = () => {
           }}
         >
           When designing the heating & hot water loads we look at the worst
-          scenario. Imagine its chritsmas day & very cold outside-you may have
+          scenario. Imagine its christmas day & very cold outside-you may have
           guests in the house. There is likely to be peak demand for heating &
           hot water, and coincides with a time of year with very little solar
           for gain and/or to let any solar thermal or PV systems help.{" "}
@@ -82,6 +118,7 @@ const SecondSubStep = () => {
             focused ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
           }
         >
+          <MenuItem value="0">0</MenuItem>
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="1.5">1.5</MenuItem>
           <MenuItem value="2">2</MenuItem>
@@ -100,7 +137,7 @@ const SecondSubStep = () => {
             letterSpacing: "0.03px",
           }}
         >
-          How important is Hot Water for you?
+          How important is hot water for you?
         </Typography>
         <Box
           sx={{
@@ -128,7 +165,15 @@ const SecondSubStep = () => {
               <FormControlLabel
                 sx={{}}
                 value="1"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.hotwater_importance = 1;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="1"
                 FormControlLabelProps={{
                   style: { fontSize: "22px", fontWeight: "bold" },
@@ -137,55 +182,127 @@ const SecondSubStep = () => {
               />
               <FormControlLabel
                 value="2"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.hotwater_importance = 2;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="2"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="3"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.hotwater_importance = 3;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="3"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="4"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.hotwater_importance = 4;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="4"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="5"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.hotwater_importance = 5;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="5"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="6"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.hotwater_importance = 6;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="6"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="7"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.hotwater_importance = 7;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="7"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="8"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.hotwater_importance = 8;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="8"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="9"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.hotwater_importance = 9;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="9"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="10"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.hotwater_importance = 10;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="10"
                 labelPlacement="top"
               />
@@ -254,7 +371,10 @@ const SecondSubStep = () => {
           be found in the property. Please try & estimate of items if any of
           these below
         </Typography>
-        <Equipment />
+        <Equipment
+          equipments={equipments}
+          getEquipments={(equip, num) => getEquipments(equip, num)}
+        />
         <Typography
           sx={{
             fontSize: "22px",
@@ -264,7 +384,12 @@ const SecondSubStep = () => {
         >
           High Energy Equipment
         </Typography>
-        <HighEquipment />
+        <HighEquipment
+          highEnergyEquipments={highEnergyEquipments}
+          getHighEnergyEquipments={(equip, num) => {
+            getHighEnergyEquipments(equip, num);
+          }}
+        />
         <Typography
           sx={{
             fontSize: "22px",
@@ -303,7 +428,15 @@ const SecondSubStep = () => {
               <FormControlLabel
                 sx={{}}
                 value="1"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.woodStove_importance = 1;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="1"
                 FormControlLabelProps={{
                   style: { fontSize: "22px", fontWeight: "bold" },
@@ -312,55 +445,127 @@ const SecondSubStep = () => {
               />
               <FormControlLabel
                 value="2"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.woodStove_importance = 2;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="2"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="3"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.woodStove_importance = 3;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="3"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="4"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.woodStove_importance = 4;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="4"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="5"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.woodStove_importance = 5;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="5"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="6"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.woodStove_importance = 6;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="6"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="7"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.woodStove_importance = 7;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="7"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="8"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.woodStove_importance = 8;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="8"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="9"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.woodStove_importance = 9;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="9"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="10"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.woodStove_importance = 10;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="10"
                 labelPlacement="top"
               />
@@ -446,7 +651,15 @@ const SecondSubStep = () => {
               <FormControlLabel
                 sx={{}}
                 value="1"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.electricity_than_uk_average = 1;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="1"
                 FormControlLabelProps={{
                   style: { fontSize: "22px", fontWeight: "bold" },
@@ -455,55 +668,127 @@ const SecondSubStep = () => {
               />
               <FormControlLabel
                 value="2"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.electricity_than_uk_average = 2;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="2"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="3"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.electricity_than_uk_average = 3;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="3"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="4"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.electricity_than_uk_average = 4;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="4"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="5"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.electricity_than_uk_average = 5;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="5"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="6"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.electricity_than_uk_average = 6;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="6"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="7"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.electricity_than_uk_average = 7;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="7"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="8"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.electricity_than_uk_average = 8;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="8"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="9"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.electricity_than_uk_average = 9;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="9"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="10"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.electricity_than_uk_average = 10;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="10"
                 labelPlacement="top"
               />
@@ -600,7 +885,15 @@ const SecondSubStep = () => {
               <FormControlLabel
                 sx={{}}
                 value="1"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.heating_then_uk_average = 1;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="1"
                 FormControlLabelProps={{
                   style: { fontSize: "22px", fontWeight: "bold" },
@@ -609,55 +902,127 @@ const SecondSubStep = () => {
               />
               <FormControlLabel
                 value="2"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.heating_then_uk_average = 2;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="2"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="3"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.heating_then_uk_average = 3;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="3"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="4"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.heating_then_uk_average = 4;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="4"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="5"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.heating_then_uk_average = 5;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="5"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="6"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.heating_then_uk_average = 6;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="6"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="7"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.heating_then_uk_average = 7;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="7"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="8"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.heating_then_uk_average = 8;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="8"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="9"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.heating_then_uk_average = 9;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="9"
                 labelPlacement="top"
               />
               <FormControlLabel
                 value="10"
-                control={<Radio />}
+                control={
+                  <Radio
+                    onChange={() => {
+                      let temp = questions;
+                      temp.heating_then_uk_average = 10;
+                      setQuestions(temp);
+                    }}
+                  />
+                }
                 label="10"
                 labelPlacement="top"
               />
@@ -703,13 +1068,38 @@ const SecondSubStep = () => {
           </Box>
         </Box>
         <Box sx={{ display: "flex" }}>
-          <button variant="contained" className="btn-house btn-icon">
+          <button
+            variant="contained"
+            className="btn-house btn-icon"
+            onClick={props.prev}
+          >
             <span style={{ height: "27px", width: "27px" }}>
               <ChevronLeftSharpIcon sx={{ height: "27px", width: "27px" }} />
             </span>
             <span style={{ marginLeft: "100px" }}>Previous</span>
           </button>
-          <button variant="contained" className="btn-house Add btn-icon">
+          <button
+            variant="contained"
+            className="btn-house Add btn-icon"
+            onClick={() => {
+              props.getPayloadData(
+                [
+                  "equipments",
+                  "high_energy_equipments",
+                  "number_of_guests",
+                  "questions",
+                ],
+                [
+                  equipments,
+                  highEnergyEquipments,
+                  selectedGuestInWinter,
+                  questions,
+                ]
+              );
+
+              props.next();
+            }}
+          >
             <span style={{ marginRight: "100px" }}>Continue</span>
             <span style={{ height: "27px", width: "27px" }}>
               <ChevronRightSharpIcon sx={{ height: "27px", width: "27px" }} />

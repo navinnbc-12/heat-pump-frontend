@@ -2,211 +2,211 @@
   box-sizing: border-box;
 }
 .msrcontainer {
-  padding: 0.61vw !important;
+  padding: 10px !important;
   display: inline-block;
-  margin-left: 2.44vw;
-  margin-right: 3.05vw;
+  margin-left: 40px;
+  margin-right: 50px;
   width: 90%;
 }
 .msrcontainerhr {
   width: 70%;
-  margin-left: 9.12vw;
+  margin-left: 300px;
   background-color: #f2f3f2;
-  border: 0.1vw solid #f2f3f2;
-  margin-top: 1.34vh;
+  border: 1px solid #f2f3f2;
+  margin-top: 10px;
 }
 .msrpaper {
-  padding: 0.61vw !important;
-  margin-top: 5.36vh;
+  padding: 10px !important;
+  margin-top: 40px;
   display: grid;
-  grid-template-columns: 20.17vw auto;
-  grid-gap: 1.3vw;
+  grid-template-columns: 330px auto;
+  grid-gap: 20px;
   grid-template-rows: auto 1fr;
-  /* min-width: 167.23vw; */
 }
 .msrtitle {
   font-weight: 500;
-  font-size: 2.75vw;
+  font-size: 45px;
 }
 .msrgrid1 {
   border-style: solid;
-  border-radius:2vw;
+  border-radius: 30px;
   border-color: #f2f3f2;
-  padding: 1.32vw !important;
+  padding: 20px !important;
   grid-row: 1/3;
   background-color: #f9f9f9;
 }
 .msrgrid2 {
   border-style: solid;
-  border-radius: 1.9vw;
+  border-radius: 30px;
   border-color: #f2f3f2;
-  padding: 1.83vw !important;
+  /* padding: 30px !important; */
 }
 .msrgrid3 {
   border-style: solid;
-  border-radius:  1.9vw;
+  border-radius: 30px;
   border-color: #f2f3f2;
-  padding: 1.83vw !important;
+  padding: 30px !important;
 }
 
 .msrtitle1 {
   color: #fa5e00;
   text-align: center;
   font-weight: bolder;
-  font-size: 1.32vw;
+  font-size: large;
 }
 .msrhr1 {
-  width: 13.44vw;
+  width: 220px;
   background-color: #f2f3f2;
-  /* /* border: 0.06 solid #f2f3f2; */
-  border: 0.1vw solid #f2f3f2; 
-  margin-top: 1.34vh;
+  border: 1px solid #f2f3f2;
+  margin-top: 10px;
 }
 .displaygrid {
   display: grid;
   grid-template-columns: auto auto;
-  row-gap: 1.2vw;
-  column-gap: 0.61vw;
-  margin-top: 1.34vh;
-  font-size: 1vw;
-}
-.displayleft{
-  font-size: 1vw;
+  row-gap: 20px;
+  column-gap: 10px;
+  margin-top: 10px;
 }
 
 .msrtitle2 {
   color: #fa5e00;
   text-align: center;
   font-weight: bolder;
-  font-size: 1.32vw;
-  margin-top: 5.36vh;
+  font-size: large;
+  margin-top: 40px;
 }
 
 .msrattachment {
   background-color: #ffffff;
-  border-radius: 1.95vw;
-  border: solid 0.06vw rgba(0, 0, 0, 0.5);
-  margin-top: 2.68vh;
-  height: 6.04vh;
-  padding: 1.34vh 1.3vw;
+  border-radius: 32.5px;
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+  height: 45px;
+  padding: 10px 20px;
   display: flex;
 }
 
 .msrattachIcon {
-  width: 1.18vw;
-  height: 2.95vh;
+  width: 18px;
+  height: 22px;
 }
 
 .msrcross1 {
-  height: 1.61vh;
-  width: 0.8vw;
-  margin-top: 0.5vh;
+  height: 12px;
+  width: 12px;
+  margin-top: 5px;
   cursor: pointer;
 }
 
 .div-name {
   display: inline-block;
-  width: 12.83vw;
-  margin-left: 0.61vw;
+  width: 210px;
+  margin-left: 10px;
   cursor: pointer;
-  font-size: 1vw;
 }
 
 .msrtitle3 {
   color: #fa5e00;
 
   font-weight: bolder;
-  font-size: 1.32vw;
+  font-size: large;
 }
 .msrspan1 {
   display: inline-block;
-  margin-top: 2.68vh;
+  /* margin-top: 20px; */
   font-weight: 300;
-  font-size: 1.1vw;
 }
 
 .msrbutton1 {
-  width: 11vw;
-  height: 6.71vh;
+  width: 120px;
+  height: 50px;
   background-color: black;
   color: white;
-  border-radius: 1.85vw;
+  border-radius: 30px;
   font-weight: 300;
   cursor: pointer;
-  font-size: 1vw;
-  border: none;
+  border:none;
 }
 
 .msrbutton2 {
-  width: 11vw;
-  height: 6.71vh;
+  width: 170px;
+  height: 50px;
   background-color: black;
   color: white;
-  border-radius: 1.85vw;
-  margin-left: 1.85vw;
+  border-radius: 30px;
+  margin-left: 20px;
   font-weight: 300;
   cursor: pointer;
-  font-size: 1vw;
   border: none;
 }
 
 .msrbutton3 {
-  width: 11vw;
-  height: 6.71vh;
+  width: 120px;
+  height: 50px;
   background-color: #f9f9f9;
   cursor: pointer;
-  border-radius: 1.85vw;
-  margin-left: 1.85vw;
+  border-radius: 30px;
+  margin-left: 20px;
   font-weight: 300;
   cursor: pointer;
-  font-size: 1vw;
   border: 0.134px solid #cdcdcd;
 }
 .msrbutton3:hover {
   background-color: #000;
   color: white;
 }
-
+@media screen and (max-width:1200px) {
+  .msrbutton3block{
+    display: block;
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width:1010px) {
+  .msrbutton2block{
+    display: block;
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+}
 .msrimage {
   display: inline-block;
 
-  width: 4.88vw;
-  height: 10.73vh;
+  width: 80px;
+  height: 80px;
 }
 
 .msrCommonIcon {
-  height: 4.83vh;
-  width:  2.88vw;
+  height: 36px;
+  width: 40px;
 }
-
 .msrCommonIcon1 {
-  height: 4.5vh;
-  width:  2.1vw;
+  height: 36px;
+  width: 40px;
 }
 
 .msrupdatesgrid {
   display: grid;
-  grid-template-columns: 10.73vh auto;
-  margin-top: 1.34vh;
+  grid-template-columns: 80px auto;
+  margin-top: 10px;
   
 }
 
 .msrspan21 {
-  font-size: 1.32vw;
+  font-size: larger;
   display: inline-block;
-  margin-top: 1.34vh;
-  font-weight: 600;
+  margin-top: 10px;
 }
 
 .msrspan3 {
-  margin-left: 0.611vw;
+  margin-left: 10px;
 
-  font-size: 1.32vw;
+  font-size: larger;
 }
 
 .msrdiv3 {
-  margin-top: 2.68vh;
-  font-size: 1vw;
+  margin-top: 20px;
+  font-weight: 100;
 }
 
 .msrhr11 {
@@ -214,44 +214,39 @@
   margin-left: 9%;
   border: 0.1vw solid #f2f3f2;
   background-color: #f2f3f2;
-  margin-top: 1.34vh;
+  margin-top: 10px;
 }
-.msrhr1 {
-  width: 13.44vw;
-  background-color: #f2f3f2;
-  border: 0.1vw solid #f2f3f2; 
-  margin-top: 1.34vh;
-}
+
 .hroundcircle {
-  width: 1.83vw;
-  height: 4.02vh;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  font-size: 0.9vw;
+  font-size: 15px;
   color: black;
   background-color: #ff8282;
-  padding-top: 0.8vh;
+  padding-top: 5px;
   text-align: center;
-float: left;
+  float: left;
 }
 .mroundcircle {
-  width: 1.83vw;
-  height: 4.02vh;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  font-size: 0.9vw;
+  font-size: 15px;
   color: black;
   background-color: #ffe289;
-  padding-top: 0.8vh;
+  padding-top: 5px;
   text-align: center;
   float: left;
 }
 .lroundcircle {
-  width: 1.83vw;
-  height: 4.02vh;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  font-size: 0.9vw;
+  font-size: 15px;
   color: black;
   background-color: #c0f587;
-  padding-top: 0.8vh;
+  padding-top: 5px;
   text-align: center;
   float: left;
 }
@@ -263,11 +258,11 @@ float: left;
   transform: translate(-50%, -50%);
   background: #fff;
   overflow: auto;
-  border-radius: 1.52vw;
+  border-radius: 25px;
   outline: none;
-  padding: 2.68vh 1.22vw 2.68vh 1.22vw;
-  width: 42.78vw;
-  height: 49.66vh;
+  padding: 20px 20px 20px 20px;
+  width: 700px;
+  height: 360px;
   z-index: 1000;
 }
 
@@ -285,56 +280,52 @@ float: left;
   text-align-last: right;
 }
 .dialog-row1 {
-  margin-left: 1.83vw;
+  margin-left: 30px;
 }
 .dialogname {
-  font-size: 1.34vw;
+  font-size: 22px;
   color: #fa5e00;
-  margin-top: 1.61vh;
+  margin-top: 12px;
 }
 
 .dialog-row2 {
-  margin-left: 1.83vw;
+  margin-left: 30px;
 }
 
 .modeltextarea {
-  border-radius: 0.30vw;
+  border-radius: 5px;
   border: solid 1px #cdcdcd;
   background-color: #f0f0f0;
-  width: 24.44vw;
-  margin-top: 1.61vh;
-  padding-left: 0.61vw;
-  padding-top: 2.01vh;
-  height: 12.08vh;
+  width: 400px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-top: 15px;
+  height: 95px;
 }
 
 .submitbtn {
-  width: 7.94vw;
-  height: 6.30vh;
+  width: 130px;
+  height: 40px;
   border: #000;
-  border-radius: 3.05vw;
+  border-radius: 50px;
   background-color: #000;
   color: white;
   font-weight: 100;
   cursor: pointer;
 }
 .closebtn {
-  margin-left: 0.61vw;
-  width: 7.94vw;
-  height: 6.30vh;
-  border: grey ridge;
-  border-radius: 3.05vw;
+  margin-left: 10px;
+  width: 130px;
+  height: 40px;
+  border: grey ridge 0.5px;
+  border-radius: 50px ;
   background-color: white;
   color: black;
   cursor: pointer;
 }
-.closebtn:hover {
-  background-color: #000;
-  color: white;
-}
 .displaygrid1 {
   font-weight: 300;
-  /* width:9.10vw; */
+  width:149px;
 }
 
 .myattachmodal {
@@ -344,16 +335,16 @@ float: left;
   transform: translate(-50%, -50%);
   background: #fff;
   overflow: auto;
-  border-radius: 1.52vw;
+  border-radius: 25px;
   outline: none;
-  padding: 2.68vh 1.22vw 2.68vh 1.22vw;
-  width: 45.84vw;
+  padding: 20px 20px 20px 20px;
+  width: 750px;
   /* height: 360px; */
 }
 
 .dragndrop {
-  border-radius: 0.61vw;
-  height: 7.64vw;
+  border-radius: 10px;
+  height: 125px;
   width: 65%;
   background-color: #f0f0f0;
   color: #000;
@@ -362,27 +353,27 @@ float: left;
   position: relative;
   display: flex;
   font-weight: 300;
-  margin-top: 1.34vh;
+  margin-top: 10px;
   cursor: pointer;
 }
 
 .or {
   position: relative;
   left: 66%;
-  bottom: 12.75vh;
+  bottom: 95px;
 }
 
 .browse {
   position: relative;
   left: 70%;
-  bottom: 12.75vh;
+  bottom: 95px;
 }
 
 .browsebtn {
-  width: 7.94vw;
-  height: 6.71vh;
+  width: 130px;
+  height: 50px;
   border: #000;
-  border-radius: 3.05vw;
+  border-radius: 50px;
   background-color: #000;
   color: white;
   font-weight: 100;
@@ -391,11 +382,10 @@ float: left;
 
 .file{
   width:40%;
-  margin-top: 0.67vh;
-  margin-bottom: 1.34vh;
+  margin-bottom: 20px;
   text-align: center;
   background-color: #f6f6f6;
-  height:6.71vh;
+  height:50px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -404,11 +394,11 @@ float: left;
 
 .fileName{
   font-weight: 300;
-  font-size:1vw;
+  font-size:medium;
   align-items: center;
   position: relative;
-  left: 0.61vw;
-  bottom: 0.67vh;
+  left: 10px;
+  bottom: 5px;
   
 }
 

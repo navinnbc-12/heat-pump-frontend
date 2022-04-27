@@ -1,88 +1,92 @@
-.s5Paper{
-    border-style: solid;
-    border-radius:  1.95vw;
-    border-color: #f2f3f2;
-    padding: 3.8vh 1.33vw !important;
-    margin-top:4vh;
-    margin-left: 3vw;
-    width: 80%;
+.s5Paper {
+  border-style: solid;
+  border-radius: 1.95vw;
+  border-color: #f2f3f2;
+  padding: 3.8vh 1.33vw !important;
+  margin-top: 4vh;
+  margin-left: 3vw;
+  width: 80%;
 }
 
-.s5text1{
-    font-size: 1vw;
-    font-weight: bold;
-    display: inline;
+.s5text1 {
+  font-size: 22px;
+  font-weight: bold;
+  display: inline;
 }
-.s5baricon{
-    margin-left:3vw;
-    position:relative;
-    top:1vh;
-    width:42vw;
+.s5baricon {
+  margin-left: 3vw;
+  position: relative;
+  top: 1vh;
+  width: 42vw;
 }
 .s5name1 {
-    margin-left: 6.51vw;
-    margin-top: 3.7vh;
-    color: #fa5e00;
-    font-size: 1vw;
-  }
-  .s5hr2 {
-    width: 18%;
-    background-color: #f2f3f2;
-    border: 0.134vh solid #f2f3f2;
-    margin-top: 1.34vh;
-    margin-bottom: 2.7vh;
-  }
-  .s5dragndrop {
-    border-radius: 0.66vw;
-    height: 19.5vh;
-    width: 50%;
-    background-color: #f0f0f0;
-    color: #000;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    display: flex;
-    font-weight: 300;
-    font-size: 1.3vw;
-  }
-  .s5or {
-    position: relative;
-    left: 55%;
-    bottom: 12.75vh;
-  }
-  .s5browse {
-    position: relative;
-    left: 60%;
-    bottom: 12.75vh;
-  }
-  
-  .s5browsebtn {
-    width: 8.5vw;
-    height: 6.71vh;
-    border: #000;
-    border-radius: 3.3vw;
-    background-color: #000;
-    color: white;
-    font-weight: 100;
-    font-size: 1vw;
-  }
-  .s5filemap {
-    width: 22%;
-    margin-top: 0.67vh;
-    margin-bottom: 1.34vh;
-    text-align: center;
-    background-color: #f6f6f6;
-    height: 6.71vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .s5fileName {
-    font-weight: 300;
-    font-size: medium;
-    align-items: center;
-    position: relative;
-    left: 0.66vw;
-    bottom: 0.67vh;
-  }
+  margin-left: 6.51vw;
+  margin-top: 3.7vh;
+  color: #fa5e00;
+  font-size: 22px;
+  font-family: Outfit;
+  font-weight: 300;
+}
+.s5hr2 {
+  width: 18%;
+  background-color: #f2f3f2;
+  border: 0.134vh solid #f2f3f2;
+  margin-top: 1.34vh;
+  margin-bottom: 2.7vh;
+}
+.s5dragndrop {
+  border-radius: 0.66vw;
+  height: 19.5vh;
+  width: 50%;
+  background-color: #f0f0f0;
+  color: #000;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  font-weight: 300;
+  font-family: Outfit;
+  font-size: 18px;
+}
+.s5or {
+  position: relative;
+  left: 55%;
+  bottom: 12.75vh;
+}
+.s5browse {
+  position: relative;
+  left: 60%;
+  bottom: 12.75vh;
+}
+
+.s5browsebtn {
+  width: 8.5vw;
+  height: 6.71vh;
+  border: #000;
+  border-radius: 3.3vw;
+  background-color: #000;
+  color: white;
+  font-weight: 300;
+  font-family: Outfit;
+  font-size: 18px;
+}
+.s5filemap {
+  width: 22%;
+  margin-top: 0.67vh;
+  margin-bottom: 1.34vh;
+  text-align: center;
+  background-color: #f6f6f6;
+  height: 6.71vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.s5fileName {
+  font-weight: 300;
+  font-size: medium;
+  align-items: center;
+  position: relative;
+  left: 0.66vw;
+  bottom: 0.67vh;
+}

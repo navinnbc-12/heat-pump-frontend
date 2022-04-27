@@ -4,15 +4,22 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import StyledTextField from "../../../../common/textfield";
 import { Box, MenuItem } from "@mui/material";
 
-const Equipment = () => {
+const Equipment = (props) => {
   const [focused, setFocused] = useState(false);
-  const [selectedTV, setSelectedTV] = useState(1);
-  const [selectedMonitors, setSelectedMonitors] = useState(1);
-  const [selectedLaptops, setSelectedLaptops] = useState(1);
-  const [selectedITServers, setSelectedITServers] = useState(1);
-  const [selectedPhotocopiers, setSelectedPhotocopiers] = useState(1);
+  const [selectedTV, setSelectedTV] = useState(props?.equipments?.tvs);
+  const [selectedMonitors, setSelectedMonitors] = useState(
+    props?.equipments?.monitors
+  );
+  const [selectedLaptops, setSelectedLaptops] = useState(
+    props?.equipments?.laptops
+  );
+  const [selectedITServers, setSelectedITServers] = useState(
+    props?.equipments?.itServers
+  );
+  const [selectedPhotocopiers, setSelectedPhotocopiers] = useState(
+    props?.equipments?.PhotoCopiers
+  );
 
-  console.log("selectedTV", selectedTV);
   return (
     <>
       <Box sx={{ width: "80%" }}>
@@ -24,6 +31,7 @@ const Equipment = () => {
           value={selectedTV}
           onChange={(e) => {
             setSelectedTV(e.target.value);
+            props.getEquipments("tvs", e.target.value);
           }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -31,6 +39,7 @@ const Equipment = () => {
             focused ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
           }
         >
+          <MenuItem value="0">0</MenuItem>
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
           <MenuItem value="3">3</MenuItem>
@@ -52,6 +61,7 @@ const Equipment = () => {
           value={selectedLaptops}
           onChange={(e) => {
             setSelectedLaptops(e.target.value);
+            props.getEquipments("laptops", e.target.value);
           }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -59,6 +69,7 @@ const Equipment = () => {
             focused ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
           }
         >
+          <MenuItem value="0">0</MenuItem>
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
           <MenuItem value="3">3</MenuItem>
@@ -80,6 +91,7 @@ const Equipment = () => {
           value={selectedMonitors}
           onChange={(e) => {
             setSelectedMonitors(e.target.value);
+            props.getEquipments("monitors", e.target.value);
           }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -87,6 +99,7 @@ const Equipment = () => {
             focused ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
           }
         >
+          <MenuItem value="0">0</MenuItem>
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
           <MenuItem value="3">3</MenuItem>
@@ -109,6 +122,7 @@ const Equipment = () => {
           value={selectedITServers}
           onChange={(e) => {
             setSelectedITServers(e.target.value);
+            props.getEquipments("itServers", e.target.value);
           }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -116,6 +130,7 @@ const Equipment = () => {
             focused ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
           }
         >
+          <MenuItem value="0">0</MenuItem>
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
           <MenuItem value="3">3</MenuItem>
@@ -137,6 +152,7 @@ const Equipment = () => {
           value={selectedPhotocopiers}
           onChange={(e) => {
             setSelectedPhotocopiers(e.target.value);
+            props.getEquipments("PhotoCopiers", e.target.value);
           }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -144,6 +160,7 @@ const Equipment = () => {
             focused ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
           }
         >
+          <MenuItem value="0">0</MenuItem>
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
           <MenuItem value="3">3</MenuItem>

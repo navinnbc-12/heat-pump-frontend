@@ -4,13 +4,23 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import StyledTextField from "../../../../common/textfield";
 import { Box, MenuItem } from "@mui/material";
 
-const HighEquipment = () => {
+const HighEquipment = (props) => {
   const [focused, setFocused] = useState(false);
-  const [selectedSauna, setSelectedSauna] = useState(1);
-  const [selectedHotTub, setSelectedHotTub] = useState(1);
-  const [selectedSwimmingPool, setSelectedSwimmingPool] = useState(1);
-  const [selectedKilns, setSelectedKilns] = useState(1);
-  const [selectedOther, setSelectedOther] = useState(1);
+  const [selectedSauna, setSelectedSauna] = useState(
+    props?.highEnergyEquipments.sauna
+  );
+  const [selectedHotTub, setSelectedHotTub] = useState(
+    props?.highEnergyEquipments.hotTub
+  );
+  const [selectedSwimmingPool, setSelectedSwimmingPool] = useState(
+    props?.highEnergyEquipments.swimmingPool
+  );
+  const [selectedKilns, setSelectedKilns] = useState(
+    props?.highEnergyEquipments.kilns
+  );
+  const [selectedOther, setSelectedOther] = useState(
+    props?.highEnergyEquipments.other
+  );
   return (
     <>
       <Box sx={{ width: "80%" }}>
@@ -22,6 +32,7 @@ const HighEquipment = () => {
           value={selectedSauna}
           onChange={(e) => {
             setSelectedSauna(e.target.value);
+            props?.getHighEnergyEquipments("sauna", e.target.value);
           }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -29,6 +40,7 @@ const HighEquipment = () => {
             focused ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
           }
         >
+          <MenuItem value="0">0</MenuItem>
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
           <MenuItem value="3">3</MenuItem>
@@ -50,6 +62,7 @@ const HighEquipment = () => {
           value={selectedSwimmingPool}
           onChange={(e) => {
             setSelectedSwimmingPool(e.target.value);
+            props?.getHighEnergyEquipments("swimmingPool", e.target.value);
           }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -57,6 +70,7 @@ const HighEquipment = () => {
             focused ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
           }
         >
+          <MenuItem value="0">0</MenuItem>
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
           <MenuItem value="3">3</MenuItem>
@@ -78,6 +92,7 @@ const HighEquipment = () => {
           value={selectedHotTub}
           onChange={(e) => {
             setSelectedHotTub(e.target.value);
+            props?.getHighEnergyEquipments("hotTub", e.target.value);
           }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -85,6 +100,7 @@ const HighEquipment = () => {
             focused ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
           }
         >
+          <MenuItem value="0">0</MenuItem>
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
           <MenuItem value="3">3</MenuItem>
@@ -107,6 +123,7 @@ const HighEquipment = () => {
           value={selectedKilns}
           onChange={(e) => {
             setSelectedKilns(e.target.value);
+            props?.getHighEnergyEquipments("kilns", e.target.value);
           }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -114,6 +131,7 @@ const HighEquipment = () => {
             focused ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
           }
         >
+          <MenuItem value="0">0</MenuItem>
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
           <MenuItem value="3">3</MenuItem>
@@ -135,6 +153,7 @@ const HighEquipment = () => {
           value={selectedOther}
           onChange={(e) => {
             setSelectedOther(e.target.value);
+            props?.getHighEnergyEquipments("other", e.target.value);
           }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
@@ -142,6 +161,7 @@ const HighEquipment = () => {
             focused ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
           }
         >
+          <MenuItem value="0">0</MenuItem>
           <MenuItem value="1">1</MenuItem>
           <MenuItem value="2">2</MenuItem>
           <MenuItem value="3">3</MenuItem>

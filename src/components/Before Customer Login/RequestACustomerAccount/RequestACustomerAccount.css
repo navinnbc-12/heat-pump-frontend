@@ -1,10 +1,8 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
-
 
 .request-a-customer-account {
   width: 100%;
@@ -15,12 +13,9 @@
   background-color: #fff;
 }
 
-
 .firstHalf1 {
   min-width: 48vw;
   display: inline-block;
-  
-  
 }
 .HPD-Existing-Logo {
   margin: 5.4vh 0 6vh 3vw;
@@ -29,53 +24,47 @@
   display: inline-block;
 }
 
-.signupHBDdiv{
+.signupHBDdiv {
   margin: 2vh 0vw;
 }
 
-.div1{
-  width:38.4vw;
-  margin:5.67vh 0px 0px 6.51vw;
-  position:relative;
-  font-weight:600;
-  font-family:Outfit;
-  color:#000000;
-  font-size: 2.92vw;
-  
-  
+.div1 {
+  width: 38.4vw;
+  margin: 5.67vh 0px 0px 6.51vw;
+  position: relative;
+  font-weight: 600;
+  font-family: Outfit;
+  color: #000000;
+  font-size: 49.84439999999999px;
+
   text-align: left;
 }
 
-
-
-.buttonstart{
-  margin-top: 6.7vh;
-   margin-left: 6.61vw;
-   border-radius: 2vw;
+.buttonstart {
+  margin-top: 54.001999999999995px;
+  margin-left: 112.8327px;
+  border-radius: 40px;
   background-color: #000;
-  color:white;
-   width:13vw;
-   height:6.7vh;
-   position: absolute;
-   font-size: 0.9vw;
-   border: none;
-   
+  color: white;
+  width: 247px;
+  height: 65px;
+  position: absolute;
+  font-size: 15.363px;
+  border: none;
 }
 
-.iconright{
+.iconright {
   margin-left: 6vw;
   height: 1.6vh;
   width: 0.5vw;
 }
 
-
 .Rectangle-side {
   min-width: 40.36vw;
   height: 100vh;
   margin-left: auto;
- 
+
   background-image: linear-gradient(to bottom, #f4f2ea 0%, #d9d6c9 100%);
- 
 }
 
 /* @media screen and (max-height: 660px) {
@@ -86,17 +75,15 @@
     top: 60%;
   } */
 
-
-.RACAcouplesideImg{
+.RACAcouplesideImg {
   width: 28.64vw;
   height: 35vh;
   margin-left: 6.2vw;
   position: absolute;
   bottom: 1px;
-  
 }
 
-.ellipse{
+.ellipse {
   height: 51vh;
-  width:17.5vw ;
+  width: 17.5vw;
 }
